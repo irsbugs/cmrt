@@ -1,6 +1,6 @@
 # PHP 8.3 modules
 
-##Listing is from `$ apt search php` on Ubuntu 24.04.
+## Listing is from `$ apt search php` on Ubuntu 24.04.
 
 ```bash
 php8.3 
@@ -95,7 +95,7 @@ zip
 zmq 
 ```
 
-##PHP 8.3 modules from `$ apt search php` with versions numbers
+## PHP 8.3 modules from `$ apt search php` with versions numbers
 
 ```bash
 php8.3 - noble-updates,noble-updates,noble-security,noble-security,now 8.3.6-0ubuntu0.24.04.4 all [installed,automatic]
