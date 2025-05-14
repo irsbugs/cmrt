@@ -1,0 +1,86 @@
+ian@hp:/usr/share$ ls php* -1l
+php:
+total 60
+
+```bash
+drwxr-xr-x  3 root root 4096 Aug 30  2024 8.3
+drwxr-xr-x  3 root root 4096 Aug 30  2024 Composer
+drwxr-xr-x  4 root root 4096 Aug 30  2024 data
+drwxr-xr-x  5 root root 4096 Aug 30  2024 FastRoute
+drwxr-xr-x  3 root root 4096 Aug 30  2024 Fig
+drwxr-xr-x  2 root root 4096 Aug 30  2024 getallheaders
+drwxr-xr-x  6 root root 4096 Jun 27  2023 PhpMyAdmin
+drwxr-xr-x  6 root root 4096 Aug 30  2024 Psr
+drwxr-xr-x  3 root root 4096 Aug 30  2024 ReCaptcha
+drwxr-xr-x  3 root root 4096 Aug 30  2024 Slim
+drwxr-xr-x  5 root root 4096 Jun 27  2023 Symfony
+drwxr-xr-x  5 root root 4096 Aug 30  2024 tcpdf
+drwxr-xr-x 14 root root 4096 Apr 25 09:25 Twig
+drwxr-xr-x  3 root root 4096 Aug 30  2024 Webmozart
+drwxr-xr-x  3 root root 4096 Jun 27  2023 Williamdes
+
+php8.3-bcmath:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 bcmath
+
+php8.3-bz2:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 bz2
+
+php8.3-common:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 common
+
+php8.3-curl:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 curl
+
+php8.3-gd:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 gd
+
+php8.3-intl:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 intl
+
+php8.3-mbstring:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 mbstring
+
+php8.3-mysql:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 mysql
+
+php8.3-opcache:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 opcache
+
+php8.3-readline:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 readline
+
+php8.3-xml:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 xml
+
+php8.3-zip:
+total 4
+drwxr-xr-x 2 root root 4096 Apr  2 09:15 zip
+
+phpmyadmin:
+total 156
+-rw-r--r--  1 root root 78472 Apr 18  2024 autoload.php
+-rw-r--r--  1 root root  4810 Feb  8  2023 config.sample.inc.php
+drwxr-xr-x  2 root root  4096 Jun 27  2023 doc
+-rw-r--r--  1 root root 22486 Feb  8  2023 favicon.ico
+-rw-r--r--  1 root root  1349 Apr 18  2024 index.php
+drwxr-xr-x  6 root root  4096 Aug 30  2024 js
+drwxr-xr-x  4 root root  4096 Aug 30  2024 libraries
+drwxr-xr-x 44 root root  4096 Aug 30  2024 locale
+-rw-r--r--  1 root root    26 Feb  8  2023 robots.txt
+-rw-r--r--  1 root root  1153 Feb  8  2023 show_config_errors.php
+drwxr-xr-x  2 root root  4096 Aug 30  2024 sql
+drwxr-xr-x 26 root root  4096 Aug 30  2024 templates
+drwxr-xr-x  6 root root  4096 Aug 30  2024 themes
+-rw-r--r--  1 root root  1240 Apr 18  2024 url.php
+```
