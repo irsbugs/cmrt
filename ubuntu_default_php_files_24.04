@@ -1,13 +1,49 @@
+# php files
+
+The default php files with ubuntu 24.04 reside in /usr/share
+
+```bash
+ian@hp:/usr/share$ ls php* -d1
+php
+php8.3-bcmath
+php8.3-bz2
+php8.3-common
+php8.3-curl
+php8.3-gd
+php8.3-intl
+php8.3-mbstring
+php8.3-mysql
+php8.3-opcache
+php8.3-readline
+php8.3-xml
+php8.3-zip
+phpmyadmin
+```
+
+```bash
 ian@hp:/usr/share$ ls php* -1l
 php:
 total 60
-
-```bash
 drwxr-xr-x  3 root root 4096 Aug 30  2024 8.3
 drwxr-xr-x  3 root root 4096 Aug 30  2024 Composer
 drwxr-xr-x  4 root root 4096 Aug 30  2024 data
 drwxr-xr-x  5 root root 4096 Aug 30  2024 FastRoute
-drwxr-xr-x  3 root root 4096 Aug 30  2024 Fig
+drwxr-xian@hp:/usr/share$ ls php* -d1
+php
+php8.3-bcmath
+php8.3-bz2
+php8.3-common
+php8.3-curl
+php8.3-gd
+php8.3-intl
+php8.3-mbstring
+php8.3-mysql
+php8.3-opcache
+php8.3-readline
+php8.3-xml
+php8.3-zip
+phpmyadmin
+r-x  3 root root 4096 Aug 30  2024 Fig
 drwxr-xr-x  2 root root 4096 Aug 30  2024 getallheaders
 drwxr-xr-x  6 root root 4096 Jun 27  2023 PhpMyAdmin
 drwxr-xr-x  6 root root 4096 Aug 30  2024 Psr
@@ -84,3 +120,5 @@ drwxr-xr-x 26 root root  4096 Aug 30  2024 templates
 drwxr-xr-x  6 root root  4096 Aug 30  2024 themes
 -rw-r--r--  1 root root  1240 Apr 18  2024 url.php
 ```
+
+
