@@ -181,4 +181,6 @@ civicrm
 
 2667 directories, 14698 files
 ```
-TODO: Extraact the Verson from the zipped file.
+TODO: 
+Extract the Verson from the zipped file.
+Get the other files before backup from uploads /srv/www/wordpress/wp-content/uploads/civicrm
