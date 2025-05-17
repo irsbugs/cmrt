@@ -2,7 +2,11 @@
 
 With CiviCRM for Wordpress, the CiviCRM files are in subdirectories off the `wordpress/wp-content/plugins/civicrm/` directory.
 
-Using the tree utility, this is a simplified view of the CiviCRM files in relation to the website and Wordpress directories. 
+Note that the very top level directories are normally either */srv/www* or */var/www/html*. This depends on how Woodpress was installed.
+In all these examples the Wordpress website is located off the */srv/www* directories.
+
+Using the tree utility, this is a simplified view of the CiviCRM files in relation to the website and Wordpress directories.
+
 ```
 /srv
 └── www
