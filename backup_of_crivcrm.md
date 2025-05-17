@@ -53,28 +53,33 @@ Login to your CiviCRM administrator account. E.g. civiadmin.
 The account need to have *superuser do* / *substitute user, do* (sudo) privilege.
 
 Create a directory for placing the backup of the current CiviCRM
+
 `$ mkdir civicrm_backup`
 
 Change to the plugin directory. This has  the civicrm directory. 
 Off this directory are all the CiviCRM folders and files
+
 `$ cd /srv/www/wordpress/wp-content/plugins/`
 
 Use the zip utility to backup to the zip to the file `civicrm_backup_yyyy-mm-dd.zip`. 
 Two of the zip options that are used:
-```
-  -r   recurse into directories`
-  -q   quiet operation
-```
+
+* -r   recurse into directories`
+* -q   quiet operation
+  
 The civicrm directory and all subdirectores and their files will be zipped.
+
 `:/srv/www/wordpress/wp-content/plugins$ sudo zip -rq civicrm_backup_2025-05-17.zip civicrm/`
 
 Note that The *user* and *group* id's of all files in the backup is *www-data*
 
 Move the backup zip file to your administrator home directory: `civcrm_backup`
-sudo is required as the owner of the zip file is root. 
+sudo is required as the owner of the zip file is root.
+
 `:/srv/www/wordpress/wp-content/plugins$ sudo mv civicrm_backup_2025-05-17.zip ~/civicrm_backup/`
 
 Return to your home directory where the zip file is located.
+
 `:/srv/www/wordpress/wp-content/plugins$ cd ~/civicrm_backup`
 
 Check the file size and note that its owner and group are root.
@@ -83,7 +88,7 @@ Check the file size and note that its owner and group are root.
 -rw-r--r--  1 root     root     68177948 May 17 18:34 civicrm_backup_2025-05-17.zip
 ```
 
-Check what are your user (uid) and group (gid) names.
+Check what are your user (uid) and group (gid) names. E.g 
 ```
 :~/civicrm_backup$ id
 uid=1000(civiadmin) gid=1000(civiadmin) groups=4(adm),20(dialout),24(cdrom),27(sudo),30(dip),
@@ -91,9 +96,11 @@ uid=1000(civiadmin) gid=1000(civiadmin) groups=4(adm),20(dialout),24(cdrom),27(s
 ```
 
 Change the backup zip file to have the user and group of your account.
+
 `:~/civicrm_backup$ sudo chown civiadmin: civicrm_backup_2025-05-17.zip`
 
 Check the user and group changed
+
 ```
 :~/civicrm_backup$ ls -l
 -rw-r--r--  1 civiadmin civiadmin 68177948 May 17 18:34 civicrm_backup_2025-05-17.zip
@@ -105,14 +112,14 @@ If you plug in a USB storage device, then you can copy this zip file without nee
 
 Unzip the backup zip file to sub-directories off your civicrm_backup/civicrm directory.
 The unzip options used are:
-```
-    -q  quiet mode (-qq => quieter)
-    -X  restore UID/GID info. This is www-data. 
 
-:~/civicrm_backup$ unzip -qX civicrm_backup_2025-05-17.zip
-```
+* -q  quiet mode (-qq => quieter)
+* -X  restore UID/GID info. (This is "www-data"). 
+
+`:~/civicrm_backup$ unzip -qX civicrm_backup_2025-05-17.zip`
 
 Check the top levels of the unzipped directories
+
 ```
 :~/civicrm_backup$ ls -l
 total 66592
