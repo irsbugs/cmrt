@@ -40,7 +40,8 @@ https://make.wordpress.org/hosting/handbook/server-environment/
     zlib 
 
 
-  Above list with dependency notes.    	
+  Above list with dependency notes.  
+  
     apcu	
     bc	
     curl 	 (PHP >= 8.0 requires libcurl >= 7.29.0 ; PHP >= 8.4 requires libcurl >= 7.61.0)
@@ -81,18 +82,18 @@ https://make.wordpress.org/hosting/handbook/server-environment/
 
 https://docs.civicrm.org/installation/en/latest/requirements/
 
-Required for CiviCRM Core¶
+    Required for CiviCRM Core¶
 
-*bcmath - BCMath - required for calculating financial values in CiviCRM Core.
-curl - Curl - required for many payment processors, the extension manager, and the CiviCRM News dashlet.
-dom - DOM XML - required by CiviCase.
-mbstring - Multibyte - required for internationalisation and proper encoding of fields.
-zip - Zip - required for unzipping auto-downloaded extensions so they can be installed from the browser.
-intl - INTL - required for outputting localized formatted number strings from CiviCRM 5.28 onwards
-fileinfo - File Information - required for spreadsheet support from 5.44 onwards
-
-Required for Third-Party Functionality or CiviCRM Extensions¶
-* soap - SOAP - required to use the SOAP processor (required for the CiviSMTP service)
+    *bcmath - BCMath - required for calculating financial values in CiviCRM Core.
+    curl - Curl - required for many payment processors, the extension manager, and the CiviCRM News dashlet.
+    dom - DOM XML - required by CiviCase.
+    mbstring - Multibyte - required for internationalisation and proper encoding of fields.
+    zip - Zip - required for unzipping auto-downloaded extensions so they can be installed from the browser.
+    intl - INTL - required for outputting localized formatted number strings from CiviCRM 5.28 onwards
+    fileinfo - File Information - required for spreadsheet support from 5.44 onwards
+    
+    Required for Third-Party Functionality or CiviCRM Extensions¶
+    * soap - SOAP - required to use the SOAP processor (required for the CiviSMTP service)
 
 Only need to add bcmath and soap after ensuring all Wordpress php reqirements have been met.
       
