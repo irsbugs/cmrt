@@ -2,7 +2,7 @@
 
 https://make.wordpress.org/hosting/handbook/server-environment/
 
-###PHP modules that should be installed for Wordpress
+### PHP modules that should be installed for Wordpress
 
     apcu
     bc
