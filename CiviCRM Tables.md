@@ -181,6 +181,8 @@ SQL command: SHOW TABLES;
 
 SQL command: cur.execute("SHOW COLUMNS FROM {}".format(table))
 
+Total rows/fields: 1786
+
 ```
 civicrm_acl
 +------------------------------------------+------------------+-----+-----+--------------------------+-------------------------------+
