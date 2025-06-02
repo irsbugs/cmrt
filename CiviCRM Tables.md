@@ -3060,3 +3060,21 @@ civicrm_worldregion
 +------------------------------------------+------------------+-----+-----+--------------------------+-------------------------------+
 2 rows
 ```
+
+### Data Types used by CiviCRM Fields
+
+* blob
+* char(2), char(3)
+* date
+* datetime
+* decimal(10,8), decimal(18,9), decimal(20,2)
+* double
+* int(10) unsigned
+* int(11)
+* longtext
+* mediumblob
+* text
+* timestamp
+* tinyint(1), tinyint(4)
+* varchar(10)
+* other varchar's: 3, 4, 5, 6, 8, 9, 12, 15, 16, 20, 24, 32, 40, 45, 50, 63, 64, 96, 100, 127, 128, 254, 255, 512, 1024, 2048.
