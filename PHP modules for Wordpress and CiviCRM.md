@@ -2,7 +2,9 @@
 
 https://make.wordpress.org/hosting/handbook/server-environment/
 
-### PHP modules that should be installed for Wordpress. Changed 2025-06-03 - missing: bc, image, Imagmagick,redis linked to msg 
+### PHP modules that should be installed for Wordpress. 
+
+Changed 2025-06-03 - missing: bc, image, Imagmagick,redis linked to msg 
 
     apcu
     bc
