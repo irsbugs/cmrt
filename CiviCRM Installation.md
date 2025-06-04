@@ -11,7 +11,7 @@ This document is a record of the installation activities.
 ## Introduction
 
 Ventraip *https://ventraip.com.au/* is the Australian based company that povides the web-hosting 
-and domain name services for the CMRT website: *https://cmrailtril.org.au*
+and domain name services for the CMRT website: *https://cmrailtrail.org.au*
 
 Ventraip run their hosting servers using [CloudLinux OS](https://cloudlinux.com/). 
 The current version of Linux is: 3.10.0-962.3.2.lve1.5.81.el7.x86_64 x86_64. This suggests that CloudLinux 7 is used.
