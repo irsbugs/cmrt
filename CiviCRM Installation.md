@@ -34,12 +34,13 @@ Wordpress has been installed as the Content Management System (CMS). The term *C
 It is not known who initially installed Wordpress on the website, and any of the rational that was used in namings that were applied.
 
 Wordpress Naming.
-* Account Name: cmrailtr
-* Wordpress top level directory. Default is *wordpress*: public_html
-* Wordpress Maria database name: cmrailtr_czhn1
-* Wordpress MariaDB database User name: cmrailtr_czhn1
-* Wordpress table prefix. Default is *wp_*: bsen_
-* CiviCRM MariaDB database name: cmrailtr_civicrm 
+* Account Name: **cmrailtr**
+* Wordpress top level directory. Default is *wordpress*: **public_html**
+* Wordpress Maria database name: **cmrailtr_czhn1**
+* Wordpress MariaDB database User name: **cmrailtr_czhn1**
+* Wordpress tables prefix. Default is *wp_*: **bsen_**
+* CiviCRM MariaDB database name: **cmrailtr_civicrm**
+* CiviCRM tables prefix: **civicrm_** 
 
 The linux path to Wordpress is: /home/cmrailtr/public_html
 ```
