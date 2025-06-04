@@ -19,7 +19,7 @@ The latest CloudLinux 9.6 release was in May 2025.
 
 Ventraip use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server.
 
-Logging into the CMRT' account on a Ventraip server is via a web-based login panel at: https://vip.ventraip.com.au/login
+Logging into the CMRT account on a Ventraip server is via a web-based login panel at: https://vip.ventraip.com.au/login
 
 Login requires two part authentication.
 
