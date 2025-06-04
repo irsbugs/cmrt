@@ -190,11 +190,6 @@ AVIF
 bash: avif: command not found
 ```
 
-wget <--
-```
-[cmrailtr@s03dd ~]$ wget --version
-GNU Wget 1.14 built on linux-gnu.
-```
 
 MariaDB: Recommend 10.6 LTS, 10.11 LTS, 11.4 LTS
 ```
@@ -203,11 +198,28 @@ mysql  Ver 15.1 Distrib 10.6.19-MariaDB, for Linux (x86_64) using readline 5.1
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 ```
 
+Utilities that the [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/wordpress/) suggests using:
+wget:
+```
+[cmrailtr@s03dd ~]$ wget --version
+GNU Wget 1.14 built on linux-gnu.
+```
+unzip:
+```
+[cmrailtr@s03dd ~]$ unzip -v
+UnZip 6.00 of 20 April 2009, by Info-ZIP.  Maintained by C. Spieler.  Send
+bug reports using http://www.info-zip.org/zip-bug.html; see README for details.
+```
+zip:
+```
+[cmrailtr@s03dd ~]$ zip -v
+Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
+This is Zip 3.0 (July 5th 2008), by Info-ZIP.
+```
 
 *  Refer to the PHP documentation in the Wordpress Hosting Handbooks [Server Environment section](https://make.wordpress.org/hosting/handbook/server-environment/#php)
 
 Wordpress on the CMRT website, was running PHP verson 7.4.
-
 
 CiviCRM provide an [Installaton Guide](https:/
 
