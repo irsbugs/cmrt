@@ -67,25 +67,10 @@ The linux path to Wordpress is: /home/cmrailtr/public_html
         ├── wp-signup.php
         ├── wp-trackback.php
         └── xmlrpc.php
+```
+CiviCRM is installed off the wp-content/plugins directory
 
-
-/home
-└── cmrailtr
-    └── public_html
-        ├── wp-admin
-        │   ├── css
-        │   ├── ...snip...
-        │   └── user
-        ├── wp-content
-        │   ├── languages
-        │   ├── plugins
-        │   ├── themes
-        │   ├── upgrade
-        │   └── uploads
-        └── wp-includes
-            ├── assets
-             ...snip...
-
+```
 /home
 └── cmrailtr
     └── public_html
@@ -150,8 +135,6 @@ The following PHP directives is the recommended minimum. These are defined in th
     post_max_size 50M
     upload_max_filesize 50M
 ```
-
-
 
 ## System Packages
 
@@ -275,7 +258,33 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne"
 1 row in set (0.004 sec)
 ```
 
+## CiviCRM Install
 
+The installation of the CiviCRM zip distribution was performed on the C-Panel Terminal.
+
+```
+[cmrailtr@s03dd ~]$ cd public_html
+[cmrailtr@s03dd public_html]$ cd wp-content
+[cmrailtr@s03dd wp-content]$ cd plugins
+[cmrailtr@s03dd plugins]$ wget https://download.civicrm.org/civicrm-6.2.0-wordpress.zip
+[cmrailtr@s03dd plugins]$ unzip -q civicrm-6.2.0-wordpress.zip
+
+[cmrailtr@s03dd plugins]$ ls -l civicrm
+total 100
+drwxr-xr-x  6 cmrailtr cmrailtr  4096 Feb 28  2023 assets
+drwxr-xr-x 24 cmrailtr cmrailtr  4096 May  8 16:23 civicrm
+-rw-r--r--  1 cmrailtr cmrailtr 45233 May  8 16:23 civicrm.php
+drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 includes
+drwxr-xr-x  2 cmrailtr cmrailtr  4096 Feb  9  2024 languages
+-rw-r--r--  1 cmrailtr cmrailtr  5367 Feb  9  2024 phpcs.xml
+-rw-r--r--  1 cmrailtr cmrailtr   821 Feb  9  2024 phpunit.xml.dist
+-rw-r--r--  1 cmrailtr cmrailtr  2075 Feb 28  2023 README.md
+-rw-r--r--  1 cmrailtr cmrailtr  2036 Aug  8  2024 readme.txt
+drwxr-xr-x  3 cmrailtr cmrailtr  4096 Feb 28  2023 tests
+-rw-r--r--  1 cmrailtr cmrailtr  1007 Feb 28  2023 uninstall.php
+drwxr-xr-x  3 cmrailtr cmrailtr  4096 Feb  9  2024 wp-cli
+drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 wp-rest
+```
 
 
 *  Refer to the PHP documentation in the Wordpress Hosting Handbooks [Server Environment section](https://make.wordpress.org/hosting/handbook/server-environment/#php)
