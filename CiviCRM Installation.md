@@ -138,7 +138,20 @@ Checks of Wordpress:
  
 * For CMRT all 32 PHP Extensions listed above from the Handbook's six catagories were applied. Some Extensions that had been applied for some other reason reason, were left applied.
   
-* The [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/requirements/#required-for-civicrm-core) lists the following PHP Extensions as required: bcmath, curl, dom, fileinfo, intl, mbstring, zip. All of these extension have already been installed as requirments of Wordpress. One additional extension is required for the CIviSMTP service. This extension is: soap.
+* The [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/requirements/#required-for-civicrm-core) lists the following PHP Extensions as required: bcmath, curl, dom, fileinfo, intl, mbstring, zip. All of these extension have already been installed as requirments of Wordpress. One additional extension is required for the CiviSMTP service. This extension is: soap.
+
+#[PHP Configuration](https://docs.civicrm.org/installation/en/latest/requirements/#php-configuration)
+
+The following PHP directives is the recommended minimum. These are defined in the php.ini file.
+```
+    memory_limit 256M
+    max_execution_time 240
+    max_input_time 120
+    post_max_size 50M
+    upload_max_filesize 50M
+```
+
+
 
 ## System Packages
 
@@ -187,7 +200,6 @@ AVIF
 bash: avif: command not found
 ```
 
-
 MariaDB: Recommend 10.6 LTS, 10.11 LTS, 11.4 LTS
 ```
 [cmrailtr@s03dd ~]$ mysql --help
@@ -213,6 +225,58 @@ zip:
 Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
 This is Zip 3.0 (July 5th 2008), by Info-ZIP.
 ```
+
+## CiviCRM Database
+
+[From:](https://docs.civicrm.org/installation/en/latest/wordpress/) *CiviCRM may be configured to use your existing WordPress database, or a separate (new) database. Using a separate database is generally preferred - as it makes backups and upgrades easier.*
+
+C-Panel, in the *Databases* section provides the *MySQL® Database Wizard* utility. This was used to create a new seperate database for CiviCRM. The database was named: **cmrailtr_civicrm**. It was configured to use the same **cmrailtr_czhn1** username and password as the WordPress database.
+
+```
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+3 rows in set (0.004 sec)
+
+```
+In the web-based part of the CiviCRM installation the link to the CiviCRM database must be provided. This link is:
+```
+mysql://cmrailtr_czhn1:password@localhost:3306/cmrailtr_civicrm
+```
+
+## [CiviCRM Database Permissions](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-permissions).
+
+These were set when using the *MySQL® Database Wizard* to create the CiviCRM database. Permissions enabled for *cmrailtr_czhn1* are:
+```
+ALTER ROUTINE, ALTER, CREATE ROUTINE, CREATE TEMPORARY TABLES,
+CREATE VIEW, CREATE, DELETE, DROP, INDEX, INSERT, LOCK TABLES,
+REFERENCES, SELECT, SHOW VIEW TRIGGER, UPDATE,
+```
+
+`EVENT` and `EXECUTE` are the two permissions missing from `ALL PERMISSIONS`.
+
+
+## [TimeZone Support](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-timezones):
+
+A check was made to verify that the timezone data had been installed on WordPress. As seen below MariaDB was able to convert the Melbourne time to Auckland time.
+
+```
+MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne", "Pacific/Auckland");
++------------------------------------------------------------------------------+
+| CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne", "Pacific/Auckland") |
++------------------------------------------------------------------------------+
+| 2025-06-03 16:30:00                                                          |
++------------------------------------------------------------------------------+
+1 row in set (0.004 sec)
+```
+
+
+
 
 *  Refer to the PHP documentation in the Wordpress Hosting Handbooks [Server Environment section](https://make.wordpress.org/hosting/handbook/server-environment/#php)
 
