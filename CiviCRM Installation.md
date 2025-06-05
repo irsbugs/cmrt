@@ -162,12 +162,9 @@ Copyright (C) 2018 Artifex Software, Inc.  All rights reserved.
 
 ImageMagick: Recommend >= 8.4
 ```
-[cmrailtr@s03dd ~]$ convert -version
-Version: ImageMagick 6.9.10-68 Q16 x86_64 2023-10-25 https://imagemagick.org
-Copyright: © 1999-2019 ImageMagick Studio LLC
-License: https://imagemagick.org/script/license.php
-Features: Cipher DPC Modules OpenMP(3.1)
-Delegates (built-in): bzlib cairo fontconfig freetype gslib jng jp2 jpeg lcms ltdl lzma openexr pangocairo png ps rsvg tiff wmf x xml zlib
+[cmrailtr@s03dd ~]$ gs -version
+GPL Ghostscript 9.25 (2018-09-13)
+Copyright (C) 2018 Artifex Software, Inc.  All rights reserved.
 ```
 
 OpenSSL: Recommend >= 3.0
