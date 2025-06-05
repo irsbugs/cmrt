@@ -14,8 +14,10 @@ Ventraip *https://ventraip.com.au/* is the Australian based company that povides
 and domain name services for the CMRT website: *https://cmrailtrail.org.au*
 
 Ventraip run their hosting servers using [CloudLinux OS](https://cloudlinux.com/). 
-The current version of Linux is: 3.10.0-962.3.2.lve1.5.81.el7.x86_64 x86_64. This suggests that CloudLinux 7 is used.
-The latest CloudLinux 9.6 release was in May 2025.
+The current version of Linux is: **3.10.0-962.3.2.lve1.5.81.el7.x86_64 x86_64**. 
+The CloudLinux version is (from `$ cat /etc/os-release`: **7.9**
+
+As of June 2025, the latest CloudLinux 9.6 was released in May 2025.
 
 Ventraip use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server.
 
@@ -99,7 +101,7 @@ Refer to these documents on Wordpress:
 
 https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions
 
-Checks of Wordpress:
+## Checks of Wordpress:
 
 * Check that Wordpress is up-to-date and no upgrades are pending.
 
@@ -109,7 +111,7 @@ Checks of Wordpress:
 * CMRT was upgraded to PHP V8.3 which is supported through until the end of 2027.
 * The PHP version upgrade is performed in the *C-Panel - Software Section* using the a-plication *php - Select PHP Version*. In this *PHP Selector* applicaton the *Current PHP Version* drop-down menu allows selection of the latest supported version of PHP, which was V8.3.
 
-## Check PHP Extensions
+## [Check PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions)
 
 * The *C-Panel PHP Selector* application allows selecting or deselecting the PHP Extensions installed. For V8.3 there are 132 extensions.
 * The *Wordpress Handbook* provides a section on [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions). The PHP extensions are in six catagories:
@@ -134,6 +136,42 @@ The following PHP directives is the recommended minimum. These are defined in th
     max_input_time 120
     post_max_size 50M
     upload_max_filesize 50M
+```
+In CloudLinux the file that sets the PHP directive is `/etc/cl.selector.conf.d/php.conf`:
+A selection of directives from php.conf:
+```
+Directive = max_execution_time
+Default   = 300
+Type      = value
+Comment   = The maximum time in seconds a script is allowed to run before it is terminated.
+
+Directive = max_input_time
+Default   = 120
+Type      = value
+Comment   = The maximum time in seconds a script is allowed to parse input data.
+
+Directive = memory_limit
+Default   = 256M
+Type      = list
+Range     = 64M,128M,192M,256M,368M,512M,756M,1G,1.5G,2G
+Comment   = The maximum amount of memory in bytes a script is allowed to allocate. Set the value to -1 to have no memory limit (notrecommended). Use shortcuts for byte values: K (kilo), M (mega), and G (giga). For example, 128M
+
+Directive = post_max_size
+Default   = 128M
+Type      = list
+Range     = 2M,4M,8M,16M,32M,64M,128M,192M,256M,368M,512M
+Comment   = The maximum size in bytes of data that can be posted with the POST method. Typically, should be larger than upload_max_filesize and smaller than memory_limit. Use shortcuts for byte values: K (kilo), M (mega), and G (giga). For example, 16M.
+
+Directive = upload_max_filesize
+Default   = 128M
+Type      = list
+Range     = 2M,4M,8M,16M,32M,64M,128M,256M,512M,756M,1G
+Comment   = The maximum size in bytes of an uploaded file. Use shortcuts for byte values: K (kilo), M (mega), and G (giga). For example, 128M.
+```
+The PHP directives were at, or above, the recommended settings in the [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/requirements/#php-configuration). Note that *root* access would be required to edit this file: 
+```
+[cmrailtr@s03dd ~]$ ls /etc/cl.selector.conf.d/php.conf -l
+-rw-r--r-- 1 root root 12071 Apr 14  2022 /etc/cl.selector.conf.d/php.conf
 ```
 
 ## System Packages
