@@ -44,7 +44,8 @@ Wordpress Naming.
 * CiviCRM MariaDB database name. Default is *civicrm*: **cmrailtr_civicrm**
 * CiviCRM tables prefix: **civicrm_** 
 
-The linux path to Wordpress is: /home/cmrailtr/public_html
+The linux path to Wordpress is: `/home/cmrailtr/public_html`
+The files and directories in the top-level WordPress directory are:
 ```
 /home
 └── cmrailtr
@@ -53,14 +54,14 @@ The linux path to Wordpress is: /home/cmrailtr/public_html
         ├── license.txt
         ├── readme.html
         ├── wp-activate.php
-        ├── wp-admin
+        ├── wp-admin       <--- Directory
         ├── wp-blog-header.php
         ├── wp-comments-post.php
         ├── wp-config.php
         ├── wp-config-sample.php
-        ├── wp-content
+        ├── wp-content     <--- Directory
         ├── wp-cron.php
-        ├── wp-includes
+        ├── wp-includes    <--- Directory
         ├── wp-links-opml.php
         ├── wp-load.php
         ├── wp-login.php
@@ -70,8 +71,7 @@ The linux path to Wordpress is: /home/cmrailtr/public_html
         ├── wp-trackback.php
         └── xmlrpc.php
 ```
-CiviCRM is installed off the wp-content/plugins directory
-
+CiviCRM is installed off the `plugins` directory:
 ```
 /home
 └── cmrailtr
@@ -296,7 +296,7 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne"
 1 row in set (0.004 sec)
 ```
 
-## CiviCRM Install
+## CiviCRM Download and Installattion of the zip distribution file
 
 The installation of the CiviCRM zip distribution was performed on the C-Panel Terminal.
 
@@ -306,7 +306,9 @@ The installation of the CiviCRM zip distribution was performed on the C-Panel Te
 [cmrailtr@s03dd wp-content]$ cd plugins
 [cmrailtr@s03dd plugins]$ wget https://download.civicrm.org/civicrm-6.2.0-wordpress.zip
 [cmrailtr@s03dd plugins]$ unzip -q civicrm-6.2.0-wordpress.zip
-
+```
+Listing of the CiviCRM top-level directory: `/home/cmrailtr/public_html/wp-content/plugins/civicrm/`
+```
 [cmrailtr@s03dd plugins]$ ls -l civicrm
 total 100
 drwxr-xr-x  6 cmrailtr cmrailtr  4096 Feb 28  2023 assets
