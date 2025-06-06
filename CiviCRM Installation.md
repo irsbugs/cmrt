@@ -368,7 +368,19 @@ The folloowing steps were performed:
 
  ![CiviCRM Installation Main Screen](images/install/civicrm-installation-screen.png)
  
-  
+
+ The Localization section is used to set the tie to Australia/Melbourne:
+ 
+ ![CiviCRM Installation Localization](images/install/localization.png)
+
+The Sample Date section allows adding demo data of about 100 fictious contancts to the CivCRM database.
+
+ ![CiviCRM Installation Sample Data](images/install/sample-data.png)
+
+ 
+
+
+
 
 
 The remainder of the CiviCMR Installation is provided through the WordPress 
