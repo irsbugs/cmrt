@@ -373,12 +373,26 @@ The folloowing steps were performed:
  
  ![CiviCRM Installation Localization](images/install/localization.png)
 
-The Sample Date section allows adding demo data of about 100 fictious contancts to the CivCRM database.
+The Sample Date section allows adding demo data of about 100 fictious contacts to the CivCRM database.
 
  ![CiviCRM Installation Sample Data](images/install/sample-data.png)
 
- 
+If *System Requirements* are not met, then their error messages are displayed and the error condition must be removed in order to progress. In the following case the pointer to the database is to the WordPress database and not the CiviCRM database.
 
+ ![CiviCRM Installation System Requirements](images/install/system-requirements.png)
+
+
+The above errors were corrected by changing an Environment setting of the CiviCRM Database to: `mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm` and then clicking on the *Refresh* button.
+
+![CiviCRM Installation Environment](images/install/environment.png)
+
+There is also the Users section in which *Synchronize all existing users* may be checked or unchecked. This was changed to unchecked.
+
+[CiviCRM Installation Users](images/install/users-selected.png)
+
+If all the errors have been removed then the *Refresh* button is relabelled as the *Install* button. Click this to complete the cIviCRM installation.
+
+[CiviCRM Installation Submit](images/install/submit.png)
 
 
 
