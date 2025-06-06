@@ -386,6 +386,15 @@ The above errors were corrected by changing an Environment setting of the CiviCR
 
 ![CiviCRM Installation Environment](images/install/environment.png)
 
+The *Components* section allows selection/de-selection of the components of CiviCRM. The default is for 5 of the 8 components to be selected. 
+
+![CiviCRM Installation Components Before](images/install/components-before.png)
+
+For the CMRT installation all 8 components were selected.
+
+![CiviCRM Installation Components After](images/install/components-after.png)
+
+
 There is also the Users section in which *Synchronize all existing users* may be checked or unchecked. This was changed to unchecked.
 
 ![CiviCRM Installation Users](images/install/users-selected.png)
