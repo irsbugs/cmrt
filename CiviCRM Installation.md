@@ -366,7 +366,7 @@ The folloowing steps were performed:
 
  The CiviCRM installation screen:
 
- ![CiviCRM Installation Main Screen](image/install/civicrm-installation-screen.png)
+ ![CiviCRM Installation Main Screen](images/install/civicrm-installation-screen.png)
  
   
 
