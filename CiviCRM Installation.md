@@ -394,6 +394,10 @@ If all the errors have been removed then the *Refresh* button is relabelled as t
 
 ![CiviCRM Installation Submit](images/install/submit.png)
 
+## CiviCRM Status
+
+The WordPress/CiviCRM dash-panel is displayed after the installlation completes and will display status information which requires taking actions to clear the status.
+
 
 
 
