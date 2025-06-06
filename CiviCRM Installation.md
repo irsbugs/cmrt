@@ -388,11 +388,11 @@ The above errors were corrected by changing an Environment setting of the CiviCR
 
 There is also the Users section in which *Synchronize all existing users* may be checked or unchecked. This was changed to unchecked.
 
-[CiviCRM Installation Users](images/install/users-selected.png)
+![CiviCRM Installation Users](images/install/users-selected.png)
 
 If all the errors have been removed then the *Refresh* button is relabelled as the *Install* button. Click this to complete the cIviCRM installation.
 
-[CiviCRM Installation Submit](images/install/submit.png)
+![CiviCRM Installation Submit](images/install/submit.png)
 
 
 
