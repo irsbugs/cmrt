@@ -94,12 +94,14 @@ CiviCRM is installed off the `plugins` directory:
 
 Before commencing the CiviCRM installaton the current Wordpress installation should be checked. Adjustments may need to be made to Wordpress for the civiCRM installation to be performaed correctly.
 
-Refer to these documents on Wordpress:
+Refer to these documents:
 
 * [Wordpress - Advanced Administration Handbook](https://developer.wordpress.org/advanced-administration/)
 * [WordPress Hosting Team Handbook](https://make.wordpress.org/hosting/handbook/)
+* [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/)
+* [Install CiviCRM on Wordpress](https://docs.civicrm.org/installation/en/latest/wordpress/)
+* [CiviCRM Installation Requirements](https://docs.civicrm.org/installation/en/latest/requirements/)
 
-https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions
 
 ## Checks of Wordpress:
 
@@ -246,7 +248,9 @@ zip:
 Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
 This is Zip 3.0 (July 5th 2008), by Info-ZIP.
 ```
-In Summary:  curl, Ghost Script, ImageMagick, OpenSSL, are all below the recommened revision. WebP and AVIF do not appear to be installed, however they are in the manifest of the latest CloudLinux 9.6 DVD release: https://repo.cloudlinux.com/cloudlinux/9/iso/x86_64/
+In Summary:  For Cloudinux 7: curl, Ghost Script, ImageMagick, OpenSSL, are all below the recommended revision. WebP and AVIF do not appear to be installed. 
+
+The current latest CloudLinux 9.6 DVD release, https://repo.cloudlinux.com/cloudlinux/9/iso/x86_64/ has a manifest file which indicates curl, Ghost Script, ImageMagick are still below the WordPress recommended revision. OpenSSL at 3.2.2-6 is above recomended. Also available are libwebp 1.2.0-8 and libavif 0.11.1-4.
 
 
 ## CiviCRM Database
@@ -286,7 +290,23 @@ REFERENCES, SELECT, SHOW VIEW TRIGGER, UPDATE,
 
 ## [TimeZone Support](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-timezones):
 
-A check was made to verify that the timezone data had been installed on WordPress. As seen below MariaDB was able to convert the Melbourne time to Auckland time.
+Check the timezone of MariaDB
+```
+MariaDB [(none)]> SELECT @@system_time_zone;
++--------------------+
+| @@system_time_zone |
++--------------------+
+| AEST               |
++--------------------+
+
+MariaDB [(none)]> SELECT TIMEDIFF(NOW(), UTC_TIMESTAMP);
++--------------------------------+
+| TIMEDIFF(NOW(), UTC_TIMESTAMP) |
++--------------------------------+
+| 10:00:00                       |
++--------------------------------+
+```
+Verify that the timezone data has been installed on WordPress. As seen below MariaDB was able to convert the Melbourne time to Auckland time at +2 hours.
 
 ```
 MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne", "Pacific/Auckland");
@@ -295,12 +315,13 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne"
 +------------------------------------------------------------------------------+
 | 2025-06-03 16:30:00                                                          |
 +------------------------------------------------------------------------------+
-1 row in set (0.004 sec)
 ```
 
-## CiviCRM Download and Installattion of the zip distribution file
+## CiviCRM Download and Installation of the zip distribution file
 
-The installation of the CiviCRM zip distribution was performed on the C-Panel Terminal.
+Check the latest version of CiviCRM: https://civicrm.org/download
+
+In CMRT's case, the latest CiviCRM zip distribution was 6.2.0. The download and unzipping was performed using the C-Panel Terminal.
 
 ```
 [cmrailtr@s03dd ~]$ cd public_html
@@ -328,15 +349,33 @@ drwxr-xr-x  3 cmrailtr cmrailtr  4096 Feb  9  2024 wp-cli
 drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 wp-rest
 ```
 
+## Installation Continued via Wordpress Administrator
 
-*  Refer to the PHP documentation in the Wordpress Hosting Handbooks [Server Environment section](https://make.wordpress.org/hosting/handbook/server-environment/#php)
+The folloowing steps were performed:
 
-Wordpress on the CMRT website, was running PHP verson 7.4.
+* Login via https://cmrailtrail.org.au/wp-admin
+* Goto *Plugins*.
+* CiviCRM will be on the list of plugins. Click on *activate*.
+* The CiviCRM Installation screen will be displayed. It has the following parts:
+    * Localization
+    * System Requirements - If modifications need to be made before the installation can proceed.
+    * Sample data
+    * Components
+    * Environment
+    * Install / Refresh Button
 
-CiviCRM provide an [Installaton Guide](https:/
+ The CiviCRM installation screen:
 
-/docs.civicrm.org/installation/en/latest/) which contains a section on
-[Install CiviCRM on Wordpress](https://docs.civicrm.org/installation/en/latest/wordpress/)
+ ![CiviCRM Installation Main Screen](image/install/civicrm-installation-screen.png)
+ 
+  
 
-[Installation Requirements](https://docs.civicrm.org/installation/en/latest/requirements/)
 
+The remainder of the CiviCMR Installation is provided through the WordPress 
+Version: 6.2.0 Build Time: Wed, 07 May 2025 23:24:21 -0700
+Version: 6.3.0 Build Time: Wed, 04 Jun 2025 22:57:43 -0700
+Version: 6.3.1 Build Time: Thu, 05 Jun 2025 16:29:12 -0700
+
+https://civicrm.org/core-stats
+
+Detailed extension statistics are only available to members and partners. Login or Become a member. Why? 
