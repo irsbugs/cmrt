@@ -129,7 +129,7 @@ https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions
 
 #[PHP Configuration](https://docs.civicrm.org/installation/en/latest/requirements/#php-configuration)
 
-The following PHP directives is the recommended minimum. These are defined in the php.ini file.
+The following PHP directives is the recommended minimum. Typically Operating Systems would define these changes to the directives in the file `/etc/php/8.3/apache2/php.ini` with the following commands:
 ```
     memory_limit 256M
     max_execution_time 240
@@ -138,7 +138,7 @@ The following PHP directives is the recommended minimum. These are defined in th
     upload_max_filesize 50M
 ```
 In CloudLinux the file that sets the PHP directive is `/etc/cl.selector.conf.d/php.conf`:
-A selection of directives from php.conf:
+A selection of directives from this php.conf:
 ```
 Directive = max_execution_time
 Default   = 300
@@ -246,6 +246,8 @@ zip:
 Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
 This is Zip 3.0 (July 5th 2008), by Info-ZIP.
 ```
+In Summary:  curl, Ghost Script, ImageMagick, OpenSSL, are all below the recommened revision. WebP and AVIF do not appear to be installed, however they are in the manifest of the latest CloudLinux 9.6 DVD release: https://repo.cloudlinux.com/cloudlinux/9/iso/x86_64/
+
 
 ## CiviCRM Database
 
