@@ -408,7 +408,69 @@ If all the errors have been removed then the *Refresh* button is relabelled as t
 The WordPress/CiviCRM dash-panel is displayed after the installlation completes and will display status information which requires taking actions to clear the status.
 
 
+## CloudLinux Python
 
+Ventraip's CloundLinux V7.9 has python V2.7.5 available at the C-Panel Terminal:
+```
+[cmrailtr@s03dd ~]$ python
+Python 2.7.5 (default, Oct  3 2024, 19:11:33)
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-44)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+Python 2 was released in 2000, and went End-of-Life in 2020. Python 3, first released in 2008, is the supported version. It's most recent release was Version 3.13.4 in June 2025. 
+
+[PyMySQL](https://pypi.org/project/PyMySQL/) is a Python library that provides conneection to a MySQL/MariaDB database. It requires Python >= 3.7, MySQL >= 5.7 or MariaDB >= 10.4
+
+
+
+
+[MySQL-Connector](https://pypi.org/project/mysql-connector-python/) is a Python library. It requires Python >= 3.9. This library allows Python programs to communcate with MySQL databases and retrieve data, etc. 
+
+An example of MySQL-connector performing the SQL command *SHOW DATABASES;*
+```
+import pymysql.cursors
+
+# Connect to the database
+connection = pymysql.connect(
+        host=HOST,
+        user=USER,
+        password=PASSWORD,
+        database=DATABASE,
+        cursorclass=pymysql.cursors.DictCursor
+        )
+
+# Show databases;
+with connection:
+    with connection.cursor() as cursor:
+        sql = "SHOW DATABASES"
+        cursor.execute(sql,) # ('webmaster@python.org', 'very-secret'))
+        result = cursor.fetchall()
+        print(result)```
+
+
+
+import mysql.connector
+
+connection = mysql.connector.connect(host=HOST, port=PORT, user=USER, password=PASSWORD, database=DATABASE,)
+cursor = connection.cursor()
+cursor.execute("SHOW DATABASES")
+rows = cursor.fetchall()
+print(rows)
+
+# [('civicrm',), ('mysql',), ('wordpress',)]
+
+for item in rows:
+    print(item[0])
+
+# civicrm
+# mysql
+# wordpress
+```
+The latest CloudLinux V9.6 ships with Python V3.11.
+
+https://pypi.org/project/PyMySQL/
+PyMySQL 1.1.0
 
 The remainder of the CiviCMR Installation is provided through the WordPress 
 Version: 6.2.0 Build Time: Wed, 07 May 2025 23:24:21 -0700
