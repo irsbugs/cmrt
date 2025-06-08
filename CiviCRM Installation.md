@@ -35,14 +35,14 @@ It is not known who initially installed Wordpress on the website, and any of the
 
 Assignment of Names.
 * Account Name: **cmrailtr**
-* Wordpress top level directory. Default is *wordpress*: **public_html**
-* Wordpress Maria database name. default is *wordpress*: **cmrailtr_czhn1**
-* Wordpress MariaDB database User name: **cmrailtr_czhn1**
-* Wordpress tables prefix. Default is *wp_*: **bsen_**
+* WordPress top level directory. Default is *wordpress*: **public_html**
+* WordPress Maria database name. default is *wordpress*: **cmrailtr_czhn1**
+* WordPress MariaDB database User name: **cmrailtr_czhn1**
+* WordPress tables prefix. Default is *wp_*: **bsen_**
 * CiviCRM MariaDB database name. Default is *civicrm*: **cmrailtr_civicrm**
 * CiviCRM tables prefix: **civicrm_** 
 
-The linux path to Wordpress is: `/home/cmrailtr/public_html`
+The linux path to WordPress is: `/home/cmrailtr/public_html`
 The files and directories in the top-level WordPress directory are:
 ```
 /home
@@ -75,7 +75,7 @@ CiviCRM is installed off the `plugins` directory:
 └── cmrailtr
     └── public_html
         ├── wp-content
-        │   ├── plugins  <--- Staging directory for latest civicrm.zip distribution file.
+        │   ├── plugins     <--- Staging directory for latest civicrm.zip distribution file.
         │   │   ├── civicrm <--- Top level directory of CiviCRM
         │   │   │   ├── assets
         │   │   │   ├── civicrm
@@ -446,11 +446,12 @@ with connection:
 # (('civicrm',), ('information_schema',), ('wordpress',))
 ```
 The latest CloudLinux V9.6 ships with:
-* Python 3.8 Python 3.11 with PyMySQL 1.0.2-2 (Jan 2021)
-* Python 3.12 with PyMySQL 1.1.0-3 (Jun 2023).
+
 * Python 3.8 with PyMySQL 0.7.11 (Apr 2017)
+* Python 3.11 with PyMySQL 1.0.2-2 (Jan 2021)
+* Python 3.12 with PyMySQL 1.1.0-3 (Jun 2023).
   
-The PyPI repository contains the [PyMySQL](https://pypi.org/project/PyMySQL/)
+The PyPI repository contains [PyMySQL](https://pypi.org/project/PyMySQL/)
 
 EOF.
 
