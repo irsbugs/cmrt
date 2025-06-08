@@ -345,6 +345,7 @@ drwxr-xr-x  3 cmrailtr cmrailtr  4096 Feb 28  2023 tests
 drwxr-xr-x  3 cmrailtr cmrailtr  4096 Feb  9  2024 wp-cli
 drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 wp-rest
 ```
+The remainder of the CiviCMR Installation is provided through WordPress. 
 
 ## Installation Continued via Wordpress Administrator
 
@@ -444,16 +445,19 @@ with connection:
 # Without the cursorclass=pymysql.cursors.DictCursor as part of the connect(), the returned result is a tuple of tuples.
 # (('civicrm',), ('information_schema',), ('wordpress',))
 ```
-The latest CloudLinux V9.6 ships with Python V3.11.
+The latest CloudLinux V9.6 ships with:
+* Python 3.8 Python 3.11 with PyMySQL 1.0.2-2 (Jan 2021)
+* Python 3.12 with PyMySQL 1.1.0-3 (Jun 2023).
+* Python 3.8 with PyMySQL 0.7.11 (Apr 2017)
+  
+The PyPI repository contains the [PyMySQL](https://pypi.org/project/PyMySQL/)
 
-https://pypi.org/project/PyMySQL/
-PyMySQL 1.1.0
+EOF.
 
-The remainder of the CiviCMR Installation is provided through the WordPress 
+Notes:
 Version: 6.2.0 Build Time: Wed, 07 May 2025 23:24:21 -0700
 Version: 6.3.0 Build Time: Wed, 04 Jun 2025 22:57:43 -0700
 Version: 6.3.1 Build Time: Thu, 05 Jun 2025 16:29:12 -0700
 
 https://civicrm.org/core-stats
-
 Detailed extension statistics are only available to members and partners. Login or Become a member. Why? 
