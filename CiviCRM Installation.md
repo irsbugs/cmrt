@@ -2,7 +2,7 @@
 
 CiviCRM, a Customer Relationship Management (CRM) application was installed as a plugin to the Wordpress Content Management System (CMS).
 
-Installation Date: 2025-06-03
+Installation Commenced: 2025-06-03
 
 Installation by: Ian and Ken Stewart
 
@@ -10,32 +10,30 @@ This document is a record of the installation activities.
 
 ## Introduction
 
-Ventraip https://ventraip.com.au/ is the Australian based company that povides the web-hosting 
-and domain name services for the CMRT website: https://cmrailtrail.org.au
+[Ventraip](https://ventraip.com.au/) is the Australian based company that provides the web-hosting and domain name services for the CMRT website: https://cmrailtrail.org.au
 
 Ventraip run their hosting servers using [CloudLinux OS](https://cloudlinux.com/). 
 The current version of Linux is: **3.10.0-962.3.2.lve1.5.81.el7.x86_64 x86_64**. 
-The CloudLinux version is (from `$ cat /etc/os-release`: **7.9**
+The CloudLinux version is (from `$ cat /etc/os-release`: **7.9** which was released in 2020.
 
-As of June 2025, the latest CloudLinux 9.6 was released in May 2025.
+As of June 2025, the latest CloudLinux is 9.6 which was released in May 2025.
 
-Ventraip use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server.
+Ventraip apparently use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server as their [LiteSpeed Cache for Wordpress](https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration) (LSCWP), currently at V7.1, has been installed as a plugin to Wordpress. 
 
 Logging into the CMRT account on a Ventraip server is via a web-based login panel at: https://vip.ventraip.com.au/login
 
 Login requires two part authentication.
 
-Upon logging in *C-Panel* may be activated. This gains access to applications that manage PHP, Databases, Mail, etc. 
-This includes a *Terminal* allowing bash comands may be executed.
+Upon logging in *C-Panel* may be activated. This gains access to many applications including management of PHP, Databases, Mail, etc. C-Panel also includes a *Terminal* application that allows bash comands to be executed.
 
-The user account provided by Ventraip is *cmrailtr*. Files created in this account have the owner and group name: *cmrailtr*
-Files normally have a priv of: 644, and directory priv's are: 755.
+The user account provided by Ventraip is **cmrailtr**. Files created in this account have the owner and group name: **cmrailtr**.
+Files normally have the permission of: **644**, and directories a permision of: **755**.
 
-Wordpress has been installed as the Content Management System (CMS). The term *CMS* is sometimes refered to by CiviCRM as the *User Framework*.
+[Wordpress](https://wordpress.com/) has been installed as the Content Management System (CMS). The term *CMS* is sometimes refered to by CiviCRM as the *User Framework*.
 
 It is not known who initially installed Wordpress on the website, and any of the rational that was used in namings that were applied.
 
-Wordpress Naming.
+Assignment of Names.
 * Account Name: **cmrailtr**
 * Wordpress top level directory. Default is *wordpress*: **public_html**
 * Wordpress Maria database name. default is *wordpress*: **cmrailtr_czhn1**
@@ -87,7 +85,6 @@ CiviCRM is installed off the `plugins` directory:
         │   │   │   ├── wp-cli
         │   │   │   └── wp-rest
         ...snip...
-
 ```
 
 ## CiviCRM Installation for Wordpress - Preparation
@@ -98,9 +95,9 @@ Refer to these documents:
 
 * [Wordpress - Advanced Administration Handbook](https://developer.wordpress.org/advanced-administration/)
 * [WordPress Hosting Team Handbook](https://make.wordpress.org/hosting/handbook/)
+* [CiviCRM Installation Requirements](https://docs.civicrm.org/installation/en/latest/requirements/) 
 * [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/)
-* [Install CiviCRM on Wordpress](https://docs.civicrm.org/installation/en/latest/wordpress/)
-* [CiviCRM Installation Requirements](https://docs.civicrm.org/installation/en/latest/requirements/)
+* [CiviCRM Installtion on Wordpress](https://docs.civicrm.org/installation/en/latest/wordpress/)
 
 
 ## Checks of Wordpress:
@@ -127,11 +124,11 @@ Refer to these documents:
  
 * For CMRT all 32 PHP Extensions listed above from the Handbook's six catagories were applied. Some Extensions that had been applied for some other reason reason, were left applied.
   
-* The [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/requirements/#required-for-civicrm-core) lists the following PHP Extensions as required: bcmath, curl, dom, fileinfo, intl, mbstring, zip. All of these extension have already been installed as requirments of Wordpress. One additional extension is required for the CiviSMTP service. This extension is: soap.
+* The [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/requirements/#required-for-civicrm-core) lists the following PHP Extensions as required: bcmath, curl, dom, fileinfo, intl, mbstring, zip. All of these extension have already been installed as requirments of WordPress. One additional extension is required for the CiviSMTP service. This extension is: soap.
 
 #[PHP Configuration](https://docs.civicrm.org/installation/en/latest/requirements/#php-configuration)
 
-The following PHP directives is the recommended minimum. Typically Operating Systems would define these changes to the directives in the file `/etc/php/8.3/apache2/php.ini` with the following commands:
+The following PHP directives are the recommended minimums. Typically Operating Systems would define these changes to the directives in the file `/etc/php/8.3/apache2/php.ini` with the following commands:
 ```
     memory_limit 256M
     max_execution_time 240
@@ -178,7 +175,7 @@ The PHP directives were at, or above, the recommended settings in the [CiviCRM I
 
 ## System Packages
 
-The WordPress HostingHandbook has a section on [System Packages](https://make.wordpress.org/hosting/handbook/server-environment/#system-packages) that Wordpress requires. These are: curl, Ghost Script, ImageMagick, OpenSSL, WebP AVIF.
+The WordPress Hosting Handbook has a section on [System Packages](https://make.wordpress.org/hosting/handbook/server-environment/#system-packages) that WordPress requires. These are: curl, Ghost Script, ImageMagick, OpenSSL, WebP AVIF.
 
 On the CMRT C-Panel Terminal these are checks made for these System Packages:
 
@@ -248,12 +245,13 @@ zip:
 Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
 This is Zip 3.0 (July 5th 2008), by Info-ZIP.
 ```
-In Summary:  For Cloudinux 7: curl, Ghost Script, ImageMagick, OpenSSL, are all below the recommended revision. WebP and AVIF do not appear to be installed. 
+In Summary:  For Cloudinux 7.9: curl, Ghost Script, ImageMagick, OpenSSL, are all below the recommended revision. WebP and AVIF do not appear to be installed. 
 
-The current latest CloudLinux 9.6 DVD release, https://repo.cloudlinux.com/cloudlinux/9/iso/x86_64/ has a manifest file which indicates curl, Ghost Script, ImageMagick are still below the WordPress recommended revision. OpenSSL at 3.2.2-6 is above recomended. Also available are libwebp 1.2.0-8 and libavif 0.11.1-4.
-
+The current latest CloudLinux 9.6 DVD release, https://repo.cloudlinux.com/cloudlinux/9/iso/x86_64/ has a manifest file which indicates curl, Ghost Script, ImageMagick are still below the WordPress recommended revision. OpenSSL at 3.2.2-6 is above recomended. Also available are libwebp 1.2.0-8 and libavif 0.11.1-4. Therefore there would be benefits in upgrading the CloudLinux to the leatest version.
 
 ## CiviCRM Database
+
+Ventraip with CloudLinux 7.9, currently supply the MariaDB 10.6.19 LTS SQL database.
 
 [From:](https://docs.civicrm.org/installation/en/latest/wordpress/) *CiviCRM may be configured to use your existing WordPress database, or a separate (new) database. Using a separate database is generally preferred - as it makes backups and upgrades easier.*
 
@@ -278,19 +276,19 @@ mysql://cmrailtr_czhn1:password@localhost:3306/cmrailtr_civicrm
 
 ## [CiviCRM Database Permissions](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-permissions).
 
-These were set when using the *MySQL® Database Wizard* to create the CiviCRM database. Permissions enabled for *cmrailtr_czhn1* are:
+These were granted while using the *MySQL® Database Wizard* to create the CiviCRM database. Permissions enabled for *cmrailtr_czhn1* are:
 ```
 ALTER ROUTINE, ALTER, CREATE ROUTINE, CREATE TEMPORARY TABLES,
 CREATE VIEW, CREATE, DELETE, DROP, INDEX, INSERT, LOCK TABLES,
 REFERENCES, SELECT, SHOW VIEW TRIGGER, UPDATE,
 ```
 
-`EVENT` and `EXECUTE` are the two permissions missing from `ALL PERMISSIONS`.
+`EVENT` and `EXECUTE` are the two permissions missing from the above list. They would be present if `ALL PERMISSIONS` were granted.
 
 
 ## [TimeZone Support](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-timezones):
 
-Check the timezone of MariaDB
+Check the timezone of MariaDB:
 ```
 MariaDB [(none)]> SELECT @@system_time_zone;
 +--------------------+
@@ -321,8 +319,7 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne"
 
 Check the latest version of CiviCRM: https://civicrm.org/download
 
-In CMRT's case, the latest CiviCRM zip distribution was 6.2.0. The download and unzipping was performed using the C-Panel Terminal.
-
+In CMRT's case, the latest CiviCRM zip distribution was 6.2.0. The download and unzipping was performed using the C-Panel Terminal:
 ```
 [cmrailtr@s03dd ~]$ cd public_html
 [cmrailtr@s03dd public_html]$ cd wp-content
@@ -330,7 +327,7 @@ In CMRT's case, the latest CiviCRM zip distribution was 6.2.0. The download and 
 [cmrailtr@s03dd plugins]$ wget https://download.civicrm.org/civicrm-6.2.0-wordpress.zip
 [cmrailtr@s03dd plugins]$ unzip -q civicrm-6.2.0-wordpress.zip
 ```
-Listing of the CiviCRM top-level directory: `/home/cmrailtr/public_html/wp-content/plugins/civicrm/`
+After unzipping, the listing of the CiviCRM top-level directory: `/home/cmrailtr/public_html/wp-content/plugins/civicrm/`
 ```
 [cmrailtr@s03dd plugins]$ ls -l civicrm
 total 100
@@ -351,7 +348,7 @@ drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 wp-rest
 
 ## Installation Continued via Wordpress Administrator
 
-The folloowing steps were performed:
+The following steps were performed:
 
 * Login via https://cmrailtrail.org.au/wp-admin
 * Goto *Plugins*.
@@ -369,7 +366,7 @@ The folloowing steps were performed:
  ![CiviCRM Installation Main Screen](images/install/civicrm-installation-screen.png)
  
 
- The Localization section is used to set the tie to Australia/Melbourne:
+ The Localization section is used to set the time to Australia/Melbourne:
  
  ![CiviCRM Installation Localization](images/install/localization.png)
 
@@ -377,12 +374,11 @@ The Sample Date section allows adding demo data of about 100 fictious contacts t
 
  ![CiviCRM Installation Sample Data](images/install/sample-data.png)
 
-If *System Requirements* are not met, then their error messages are displayed and the error condition must be removed in order to progress. In the following case the pointer to the database is to the WordPress database and not the CiviCRM database.
+If *System Requirements* are not met, then their error messages are displayed and the error condition must be removed in order to progress. In the following case the pointer to the database has not been set to point to the separate CiviCRM database.
 
  ![CiviCRM Installation System Requirements](images/install/system-requirements.png)
 
-
-The above errors were corrected by changing an Environment setting of the CiviCRM Database to: `mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm` and then clicking on the *Refresh* button.
+The above errors were corrected by changing the *Environment* setting of the *CiviCRM Database* to: `mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm` and then clicking on the *Refresh* button.
 
 ![CiviCRM Installation Environment](images/install/environment.png)
 
@@ -394,18 +390,17 @@ For the CMRT installation all 8 components were selected.
 
 ![CiviCRM Installation Components After](images/install/components-after.png)
 
-
 There is also the Users section in which *Synchronize all existing users* may be checked or unchecked. This was changed to unchecked.
 
 ![CiviCRM Installation Users](images/install/users-selected.png)
 
-If all the errors have been removed then the *Refresh* button is relabelled as the *Install* button. Click this to complete the cIviCRM installation.
+If all the errors have been removed then the *Refresh* button is relabelled as the *Install* button. Click this to complete the CiviCRM installation.
 
 ![CiviCRM Installation Submit](images/install/submit.png)
 
 ## CiviCRM Status
 
-The WordPress/CiviCRM dash-panel is displayed after the installlation completes and will display status information which requires taking actions to clear the status.
+The WordPress/CiviCRM dash-panel is displayed after the installation completes and will display colour coded status alert information. Actions are required to modify CiviCRM which will clear these status alerts.
 
 
 ## CloudLinux Python
@@ -418,14 +413,9 @@ Python 2.7.5 (default, Oct  3 2024, 19:11:33)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
-Python 2 was released in 2000, and went End-of-Life in 2020. Python 3, first released in 2008, is the supported version. It's most recent release was Version 3.13.4 in June 2025. 
+Python 2 was released in 2000, and went end-of-life in 2020. Python 3, first released in 2008, is the supported version. It's most recent release was Version 3.13.4 in June 2025. 
 
-[PyMySQL](https://pypi.org/project/PyMySQL/) is a Python library that provides conneection to a MySQL/MariaDB database. It requires Python >= 3.7, MySQL >= 5.7 or MariaDB >= 10.4
-
-
-
-
-[MySQL-Connector](https://pypi.org/project/mysql-connector-python/) is a Python library. It requires Python >= 3.9. This library allows Python programs to communcate with MySQL databases and retrieve data, etc. 
+[PyMySQL](https://pypi.org/project/PyMySQL/) is a Python library that provides connection to a MySQL/MariaDB database. It requires Python >= 3.7, MariaDB >= 10.4, or MySQL >= 5.7. A similar Python library product is [MySQL-Connector](https://pypi.org/project/mysql-connector-python/), but PyMySQL seems to be the preference in CloudLinux 9.6.
 
 An example of MySQL-connector performing the SQL command *SHOW DATABASES;*
 ```
@@ -448,24 +438,11 @@ with connection:
         result = cursor.fetchall()
         print(result)```
 
-
-
-import mysql.connector
-
-connection = mysql.connector.connect(host=HOST, port=PORT, user=USER, password=PASSWORD, database=DATABASE,)
-cursor = connection.cursor()
-cursor.execute("SHOW DATABASES")
-rows = cursor.fetchall()
-print(rows)
-
-# [('civicrm',), ('mysql',), ('wordpress',)]
-
-for item in rows:
-    print(item[0])
-
-# civicrm
-# mysql
-# wordpress
+# The returned result is a list of dictionaries:
+# [{'Database': 'civicrm'}, {'Database': 'information_schema'}, {'Database': 'wordpress'}]
+#
+# Without the cursorclass=pymysql.cursors.DictCursor as part of the connect(), the returned result is a tuple of tuples.
+# (('civicrm',), ('information_schema',), ('wordpress',))
 ```
 The latest CloudLinux V9.6 ships with Python V3.11.
 
