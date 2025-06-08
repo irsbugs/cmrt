@@ -108,7 +108,7 @@ Refer to these documents:
 * In Wikipedia the [PHP](https://en.wikipedia.org/wiki/PHP) topic has a table of the PHP release revisions.
 * CMRT were running PHP V7.4 which stopped being supported in November 2022.
 * CMRT was upgraded to PHP V8.3 which is supported through until the end of 2027.
-* The PHP version upgrade is performed in the *C-Panel - Software Section* using the a-plication *php - Select PHP Version*. In this *PHP Selector* applicaton the *Current PHP Version* drop-down menu allows selection of the latest supported version of PHP, which was V8.3.
+* The PHP version upgrade is performed in the *C-Panel - Software Section* using the application *php - Select PHP Version*. In this *PHP Selector* applicaton the *Current PHP Version* drop-down menu allows selection of the latest supported version of PHP, which was V8.3.
 
 ## [Check PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions)
 
