@@ -1,6 +1,6 @@
 # CiviCRM Installation
 
-CiviCRM, a Customer Relationship Management (CRM) application was installed as a plugin to the Wordpress Content Management System (CMS).
+CiviCRM, a Customer (or Constituent) Relationship Management (CRM) application was installed as a plugin to the Wordpress Content Management System (CMS).
 
 Installation Commenced: 2025-06-03
 
