@@ -18,7 +18,7 @@ The CloudLinux version is (from `$ cat /etc/os-release`: **7.9** which was relea
 
 As of June 2025, the latest CloudLinux is 9.6 which was released in May 2025.
 
-Ventraip apparently use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server as their [LiteSpeed Cache for Wordpress](https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration) (LSCWP), currently at V7.1, has been installed as a plugin to Wordpress. 
+Ventraip apparently use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server as their [LiteSpeed Cache for WordPress](https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration) (LSCWP), currently at V7.1, has been installed as a plugin to WordPress. 
 
 Logging into the CMRT account on a Ventraip server is via a web-based login panel at: https://vip.ventraip.com.au/login
 
@@ -29,9 +29,9 @@ Upon logging in *C-Panel* may be activated. This gains access to many applicatio
 The user account provided by Ventraip is **cmrailtr**. Files created in this account have the owner and group name: **cmrailtr**.
 Files normally have the permission of: **644**, and directories a permision of: **755**.
 
-[Wordpress](https://wordpress.com/) has been installed as the Content Management System (CMS). The term *CMS* is sometimes refered to by CiviCRM as the *User Framework*.
+[WordPress](https://wordpress.com/) has been installed as the Content Management System (CMS). The term *CMS* is sometimes refered to by CiviCRM as the *User Framework*.
 
-It is not known who initially installed Wordpress on the website, and any of the rational that was used in namings that were applied.
+It is not known who initially installed WordPress on the website, and any of the rational that was used in namings that were applied.
 
 Assignment of Names.
 * Account Name: **cmrailtr**
@@ -87,22 +87,22 @@ CiviCRM is installed off the `plugins` directory:
         ...snip...
 ```
 
-## CiviCRM Installation for Wordpress - Preparation
+## CiviCRM Installation for WordPress - Preparation
 
-Before commencing the CiviCRM installaton the current Wordpress installation should be checked. Adjustments may need to be made to Wordpress for the civiCRM installation to be performaed correctly.
+Before commencing the CiviCRM installaton the current WordPress installation should be checked. Adjustments may need to be made to WordPress for the civiCRM installation to be performaed correctly.
 
 Refer to these documents:
 
-* [Wordpress - Advanced Administration Handbook](https://developer.wordpress.org/advanced-administration/)
+* [WordPress - Advanced Administration Handbook](https://developer.wordpress.org/advanced-administration/)
 * [WordPress Hosting Team Handbook](https://make.wordpress.org/hosting/handbook/)
 * [CiviCRM Installation Requirements](https://docs.civicrm.org/installation/en/latest/requirements/) 
 * [CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/)
-* [CiviCRM Installtion on Wordpress](https://docs.civicrm.org/installation/en/latest/wordpress/)
+* [CiviCRM Installtion on WordPress](https://docs.civicrm.org/installation/en/latest/wordpress/)
 
 
-## Checks of Wordpress:
+## Checks of WordPress:
 
-* Check that Wordpress is up-to-date and no upgrades are pending.
+* Check that WordPress is up-to-date and no upgrades are pending.
 
 ## Check the PHP revision.
 * In Wikipedia the [PHP](https://en.wikipedia.org/wiki/PHP) topic has a table of the PHP release revisions.
@@ -113,7 +113,7 @@ Refer to these documents:
 ## [Check PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions)
 
 * The *C-Panel PHP Selector* application allows selecting or deselecting the PHP Extensions installed. For V8.3 there are 132 extensions.
-* The *Wordpress Handbook* provides a section on [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions). The PHP extensions are in six catagories:
+* The *WordPress Handbook* provides a section on [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions). The PHP extensions are in six catagories:
   
     * Required - 2 - json, mysqli or mysqlnd
     * Highly recommended - 13 - curl, dom, exif, fileinfo, hash, igbinary, imagick, intl, mbstring, openssl, pcre, xml, zip.
@@ -347,7 +347,7 @@ drwxr-xr-x  5 cmrailtr cmrailtr  4096 Feb  7 13:37 wp-rest
 ```
 The remainder of the CiviCMR Installation is provided through WordPress. 
 
-## Installation Continued via Wordpress Administrator
+## Installation Continued via WordPress Administrator
 
 The following steps were performed:
 
