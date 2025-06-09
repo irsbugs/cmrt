@@ -418,7 +418,7 @@ Python 2 was released in 2000, and went end-of-life in 2020. Python 3, first rel
 
 [PyMySQL](https://pypi.org/project/PyMySQL/) is a Python library that provides connection to a MySQL/MariaDB database. It requires Python >= 3.7, MariaDB >= 10.4, or MySQL >= 5.7. A similar Python library product is [MySQL-Connector](https://pypi.org/project/mysql-connector-python/), but PyMySQL seems to be the preference in CloudLinux 9.6.
 
-An example of MySQL-connector performing the SQL command *SHOW DATABASES;*
+An example of PyMySQL performing the SQL command *SHOW DATABASES;*
 ```
 import pymysql.cursors
 
@@ -437,12 +437,12 @@ with connection:
         sql = "SHOW DATABASES"
         cursor.execute(sql,) # ('webmaster@python.org', 'very-secret'))
         result = cursor.fetchall()
-        print(result)```
+        print(result)
 
 # The returned result is a list of dictionaries:
 # [{'Database': 'civicrm'}, {'Database': 'information_schema'}, {'Database': 'wordpress'}]
 #
-# Without the cursorclass=pymysql.cursors.DictCursor as part of the connect(), the returned result is a tuple of tuples.
+# Without the 'cursorclass=pymysql.cursors.DictCursor' as part of the connect(), the returned result is a tuple of tuples.
 # (('civicrm',), ('information_schema',), ('wordpress',))
 ```
 The latest CloudLinux V9.6 ships with:
