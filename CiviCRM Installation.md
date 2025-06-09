@@ -1,6 +1,6 @@
 # CiviCRM Installation
 
-CiviCRM, a Customer (or Constituent) Relationship Management (CRM) application was installed as a plugin to the Wordpress Content Management System (CMS).
+CiviCRM, a Customer (or Constituent) Relationship Management (CRM) application was installed as a plugin to the WordPress Content Management System (CMS).
 
 Installation Commenced: 2025-06-03
 
@@ -13,7 +13,7 @@ This document is a record of the installation activities.
 [Ventraip](https://ventraip.com.au/) is the Australian based company that provides the web-hosting and domain name services for the CMRT website: https://cmrailtrail.org.au
 
 Ventraip run their hosting servers using [CloudLinux OS](https://cloudlinux.com/). 
-The current version of Linux is: **3.10.0-962.3.2.lve1.5.81.el7.x86_64 x86_64**. 
+The current version of Linux is: **3.10.0-962.3.2.lve1.5.81.el7.x86_64**. 
 The CloudLinux version is (from `$ cat /etc/os-release`: **7.9** which was released in 2020.
 
 As of June 2025, the latest CloudLinux is 9.6 which was released in May 2025.
