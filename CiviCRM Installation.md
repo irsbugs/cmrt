@@ -1,4 +1,4 @@
-# CiviCRM Installation
+# CiviCRM Installation on WordPress
 
 CiviCRM, a Customer (or Constituent) Relationship Management (CRM) application was installed as a plugin to the WordPress Content Management System (CMS).
 
@@ -445,7 +445,7 @@ with connection:
 # Without the 'cursorclass=pymysql.cursors.DictCursor' as part of the connect(), the returned result is a tuple of tuples.
 # (('civicrm',), ('information_schema',), ('wordpress',))
 ```
-The latest CloudLinux V9.6 ships with:
+The latest CloudLinux 9.6 ships with:
 
 * Python 3.8 with PyMySQL 0.7.11 (Apr 2017)
 * Python 3.11 with PyMySQL 1.0.2-2 (Jan 2021)
