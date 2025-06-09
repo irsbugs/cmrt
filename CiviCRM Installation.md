@@ -18,7 +18,7 @@ The CloudLinux version is (from `$ cat /etc/os-release`: **7.9** which was relea
 
 As of June 2025, the latest CloudLinux is 9.6 which was released in May 2025.
 
-Ventraip apparently use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server as their [LiteSpeed Cache for WordPress](https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration) (LSCWP), currently at V7.1, has been installed as a plugin to WordPress. 
+Ventraip apparently use [*LiteSpeed Web Server*](https://www.litespeedtech.com/) (LSWS) as the web server as their [LiteSpeed Cache for WordPress](https://www.litespeedtech.com/products/cache-plugins/wordpress-acceleration) (LSCWP), currently at V7.1, has been installed as a plugin to WordPress. CloudLinux 7.9 supplies multiple LiteSpeed Web Server versions: 5.4.11, 5.4.12, 6.0.8, 6.0.11, 6.0.12, 6.1.2, and 6.2.1. The most recent release of LSWS 6.3.3 - Jun 2025.
 
 Logging into the CMRT account on a Ventraip server is via a web-based login panel at: https://vip.ventraip.com.au/login
 
