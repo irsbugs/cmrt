@@ -456,6 +456,9 @@ The PyPI repository contains [PyMySQL](https://pypi.org/project/PyMySQL/)
 EOF.
 
 Notes:
+
+TODO: Add the tree for uploads folder CiviCRM Extensions
+
 Version: 6.2.0 Build Time: Wed, 07 May 2025 23:24:21 -0700
 Version: 6.3.0 Build Time: Wed, 04 Jun 2025 22:57:43 -0700
 Version: 6.3.1 Build Time: Thu, 05 Jun 2025 16:29:12 -0700
