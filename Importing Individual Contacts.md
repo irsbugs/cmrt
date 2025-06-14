@@ -63,7 +63,7 @@ Communication Style:    Formal (or Familiar)
 Do Not Email:           <--- Default is OK
 Do Not Mail:            Yes <--- no Postal Mail
 Do Not Phone:           <--- Default is OK
-Do Not Sms:             <--- Defualt is OK
+Do Not Sms:             <--- Default is OK
 Do Not Trade:           Yes <--- no Trade
 Preferred Language:     English (Australian)
 Preferred Communication Method: Email (tick) Phone(tick) Others: Postal Mail, SMS, Fax. Data = ,"Email,Phone",
