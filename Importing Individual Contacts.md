@@ -135,3 +135,13 @@ Supervised by
 Supervisor
 Volunteer for
 ```
+### Example CSV file for Individual Contact
+
+Column Header / Fields Line:
+```
+External Identifier,First Name,Last Name,Email,Individual Prefix,Nickname,Gender,Birth Date,Phone,Phone Extension,Street Address,Supplemental Address 1,City,State,Postal Code,Country,Job Title,Employee of,Website,Contact Source,Note,Communication Style,Do Not Mail,Do Not Trade,Preferred Language,Preferred Communication Method,
+```
+Data for one contact:
+```
+1,Joseph,Bloggs,joe_bloggs@hotmail.com,Mr.,Joe,Male,1956-12-08,61432101234,123,"Unit 10, 123 Main St.","P.O.Box 1234",Castlemaine,VIC,3450,Australia,Programmer,Castlemaine Maryborough Rail Trail Inc.,https://cmrailtrail.org.au,civicrm_contact_importing_template.csv,"Joe likes riding bikes. Volunteer of CMRT.",Formal,Yes,Yes,en_AU,"Email,Phone",
+```
