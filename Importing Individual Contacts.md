@@ -58,46 +58,38 @@ Employee of:            Castlemaine Maryborough Rail Trail <-- Should be one of 
 
 ```
 ### Set or use the default values for the following:
-
-
+```
 Communication Style:    Formal (or Familiar)
-Do Not Email:           - is OK
-Do Not Mail:            Yes - no Postal Mail
-Do Not Phone:           - is OK
-Do Not Sms:             - is OK
-Do Not Trade:           Yes - no Trade
+Do Not Email:           <--- Default is OK
+Do Not Mail:            Yes <--- no Postal Mail
+Do Not Phone:           <--- Default is OK
+Do Not Sms:             <--- Defualt is OK
+Do Not Trade:           Yes <--- no Trade
 Preferred Language:     English (Australian)
-Preferred Communication Method: Email (tick) Phone(tick) Others: Postal Mail, SMS, Fax.
+Preferred Communication Method: Email (tick) Phone(tick) Others: Postal Mail, SMS, Fax. Data = ,"Email,Phone",
 
 Is Opt Out:             Default is unchecked: i.e. Want "Bulk emails - User Opt Out?" = Has not.
-
-=====
-Automatically assigned - sometimes uses data from above:
-=========================================================
+```
+### Automatically assigned - sometimes uses data from above:
+```
 Addressee:              - Mr. Joseph Bloggs (From Formal Title, First Name, Last Name)
 Contact Type:           Individual / Organization. Determined when loading csv file.
 Email Greeting:         - Dear Joe (Formal AU, First Name)
 Postal Greeting:        - Dear Joe
-
-
-=====
-Manually add later if supplied:
-
+```
+### Manually add later if supplied:
+```
 Image URL:              - If photo is provided - Upload in Contact form?
-
-=====
+```
 ### For Organization rather than Individuals:
 ```
 Legal Identifier:       Castlemaine Maryborough Rail Trail Inc.
 SIC Code:               ABN: 24 239 558 815 <--Use field for Australian Business Number (ABN)??? No Only supports 8 chars  
                         <-- See: https://siccode.com/ for SIC codes. What is: OR A0110387F ???
 ```
-
-=====
-Not normally used. CSV file does not normally have a these columns to upload:
-==============================================================================
-
-Contact Subtype:        - What is this???
+### Not normally used. CSV file does not normally have a these columns to upload:
+```
+Contact Subtype:        - Currently No Subtype for Individual Contact. Set on CiviCRM on screen before Importing data.
 County:                 - N/A in Aussie.
 Deceased Date:          -
 Formal Title:           - Your Excellency? President? Prime Minister?
@@ -114,11 +106,9 @@ Supplemental Address 3:
 Signature HTML:
 Signature Text:
 Unique ID (OpenID):
-
-=====
-Fields not used. Fields Not Exported, but may Import
-=====================================================
-
+```
+### Fields not used. Fields Not Exported, but may Import
+```
 Addressee Custom
 Benefits Specialist
 Benefits Specialist is
@@ -144,3 +134,4 @@ Spouse of
 Supervised by
 Supervisor
 Volunteer for
+```
