@@ -147,24 +147,33 @@ Data for one contact:
 ```
 ## Screen Shots of Importing Individual
 
-Selecting Import Individual
-
+Selecting Import Individual Contact
 ![Step 0](images/import_individual/import_step_0.png)
 
+
+Import Contacts Step 1
 ![Step 1](images/import_individual/import_step_1.png)
 
+Import Contacts Step 2 - Top
 ![Step 2a](images/import_individual/import_step_2a.png)
 
+Import Contacts Step 2 - Bottom
+*Save this field mapping* is checked and given a Name and Description
 ![Step 2b](images/import_individual/import_step_2b.png)
 
+Import Contacts Step 3 - Top
 ![Step 3a](images/import_individual/import_step_3a.png)
 
+Import Contacts Step 3 - Bottom
 ![Step 3b](images/import_individual/import_step_3b.png)
 
+Import Contacts - Completed Successfully
 ![Step 4](images/import_individual/import_step_4.png)
 
+View the Contacts - Joseph Bloggs has been added.
 ![Step 5](images/import_individual/import_step_5.png)
 
+View Mr. Joseph Bloggs - Summary
 ![Step 6](images/import_individual/import_step_6.png)
 
 
