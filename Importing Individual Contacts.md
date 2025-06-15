@@ -148,5 +148,27 @@ Data for one contact:
 ## Screen Shots of Importing Individual
 
 Selecting Import Individual
-![Step 0](images/import/import step 0.png)
+
+![Step 0](images/import_individual/import_step_0.png)
+
+![Step 1](images/import_individual/import_step_1.png)
+
+![Step 2a](images/import_individual/import_step_2a.png)
+
+![Step 2b](images/import_individual/import_step_2b.png)
+
+![Step 3a](images/import_individual/import_step_3a.png)
+
+![Step 3b](images/import_individual/import_step_3b.png)
+
+![Step 4](images/import_individual/import_step_4.png)
+
+![Step 5](images/import_individual/import_step_5.png)
+
+![Step 6](images/import_individual/import_step_6.png)
+
+
+
+
+
 
