@@ -80,4 +80,26 @@ The tar options are:
     f level1.tar.gz: Filename to use for the archive file.
 
 ```
-* 
+ian@hp:~$ sudo -s -u www-data
+www-data@hp:/home/ian$ whoami
+www-data
+
+www-data@hp:/home/ian$ mkdir test1
+mkdir: cannot create directory ‘test1’: Permission denied
+
+www-data@hp:/srv/www/wordpress$ touch test
+www-data@hp:/srv/www/wordpress$ ls -l
+
+-rw-rw-r--  1 www-data www-data     0 Jun 16 07:58 test
+
+www-data@hp:/srv/www/wordpress$ cd ~/
+www-data@hp:~$ whoami
+www-data
+www-data@hp:~$ ls
+html
+www-data@hp:~$ ls -l
+total 4
+drwxr-xr-x 3 root root 4096 May 27 12:51 html
+www-data@hp:~$ 
+
+
