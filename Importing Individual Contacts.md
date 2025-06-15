@@ -158,7 +158,8 @@ Import Contacts Step 2 - Top
 ![Step 2a](images/import_individual/import_step_2a.png)
 
 Import Contacts Step 2 - Bottom
-*Save this field mapping* is checked and given a Name and Description
+
+*Save this field mapping* is checked and given a Name, *importing individual* and Description, *Individual Contact from CSV file* for future re-use.
 ![Step 2b](images/import_individual/import_step_2b.png)
 
 Import Contacts Step 3 - Top
