@@ -6,6 +6,25 @@ New releases of CiviCRM for WordPress occur about once a month. Although WordPre
 
 This document describes the manual process of upgrading CiviCRM.
 
+## Logging In
+
+To perform the upgrade of CiviCRM it is necessary to log in to the Ventraip *cmrailtr* account. Use this link:
+
+https://vip.ventraip.com.au/login
+
+...and then provide a Username and Password and also satisfy the two factor authentication process.
+
+Upon logging in go to: Web Hosting --> cPanel --> Tools --> Terminal.
+
+*Terminal* will be at the home, *~/*, folder for the *cmrailtr* account. All folders and files will have *cmrailtr* as their *owner*. This includes the *public-html* folder, which is the top-level directory for WordPress.
+
+By having all the WordPress / CiviCRM folders and files owned by *cmrailtr*, then it removes *Permission denied* errors and the need to use an elevated privilege when performing the upgrade.
+
+
+
+Your IP address has changed. Please log in again.
+
+
 Documents on performing an upgrade are:
 * [Upgrading CiviCRM for WordPress](https://docs.civicrm.org/sysadmin/en/latest/upgrade/wordpress/)
 * [Upgrades](https://docs.civicrm.org/sysadmin/en/latest/upgrade/)
