@@ -145,3 +145,8 @@ Data for one contact:
 ```
 1,Joseph,Bloggs,joe_bloggs@hotmail.com,Mr.,Joe,Male,1956-12-08,61432101234,123,"Unit 10, 123 Main St.","P.O.Box 1234",Castlemaine,VIC,3450,Australia,Programmer,Castlemaine Maryborough Rail Trail Inc.,https://cmrailtrail.org.au,civicrm_contact_importing_template.csv,"Joe likes riding bikes. Volunteer of CMRT.",Formal,Yes,Yes,en_AU,"Email,Phone",
 ```
+## Screen Shots of Importing Individual
+
+Selecting Import Individual
+![Step 0](images/import/import step 0.png)
+
