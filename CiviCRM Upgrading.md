@@ -93,6 +93,11 @@ www-data@hp:/srv/www/wordpress$ ls -l
 -rw-rw-r--  1 www-data www-data     0 Jun 16 07:58 test
 
 www-data@hp:/srv/www/wordpress$ cd ~/
+This took to being /var/www with html as a folder off www
+
+Maybe this was created before 
+
+
 www-data@hp:~$ whoami
 www-data
 www-data@hp:~$ ls
@@ -102,4 +107,70 @@ total 4
 drwxr-xr-x 3 root root 4096 May 27 12:51 html
 www-data@hp:~$ 
 
+www-data@hp:~$ cd html
+www-data@hp:~/html$ ls
+apache2_default_page_index.html  info.php	wordpress
+index.html			 latest.tar.gz
+index.nginx-debian.html		 phpmyadmin
+www-data@hp:~/html$ 
+
+ian:x:1000:
+
+www-data:x:33:civi-admin
+
+ian@hp:~$ cat /etc/groups
+cat: /etc/groups: No such file or directory
+ian@hp:~$ cat /etc/group | grep ian
+adm:x:4:syslog,ian,civi-admin
+dialout:x:20:ian,civi-admin
+cdrom:x:24:ian,civi-admin
+sudo:x:27:ian,fred,civi-admin
+dip:x:30:ian,civi-admin
+plugdev:x:46:ian,civi-admin
+lpadmin:x:120:ian,civi-admin
+lxd:x:132:ian
+ian:x:1000:
+
+sambashare:x:133:ian,civi-admin
+
+=====
+Adding www-html to ian
+From: ian:x:1000:
+To: ian:x:1000:www-data <-- www-data Now added to ian.
+
+ian@hp:~$ cat /etc/group | grep www-data
+www-data:x:33:civi-admin
+ian@hp:~$ 
+
+ian@hp:~$ sudo usermod -a -G ian www-data
+[sudo] password for ian: 
+
+ian@hp:~$ cat /etc/group | grep ian
+adm:x:4:syslog,ian,civi-admin
+dialout:x:20:ian,civi-admin
+cdrom:x:24:ian,civi-admin
+sudo:x:27:ian,fred,civi-admin
+dip:x:30:ian,civi-admin
+plugdev:x:46:ian,civi-admin
+lpadmin:x:120:ian,civi-admin
+lxd:x:132:ian
+ian:x:1000:www-data <-- www-data Now added to ian.
+sambashare:x:133:ian,civi-admin
+
+
+ian@hp:~$ sudo -s -u www-data
+www-data@hp:/home/ian$ touch test1
+touch: cannot touch 'test1': Permission denied
+www-data@hp:/home/ian$ touch test2
+
+May need to log out and log back in...
+
+www-data@hp:/home/ian$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data),1000(ian)
+www-data@hp:/home/ian$ 
+
+www-data@hp:/home/ian$ id ian
+uid=1000(ian) gid=1000(ian) groups=1000(ian),4(adm),20(dialout),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),132(lxd),133(sambashare)
+
+Not yet assigned.
 
