@@ -156,7 +156,7 @@ Import Contacts Step 2 - Top
 
 Import Contacts Step 2 - Bottom
 
-*Save this field mapping* is checked and given a Name, *importing individual* and Description, *Individual Contact from CSV file* for future re-use. However when the column headers in the CSV file have been set to match CiviCRM fields, then mapping will be done automatically and its not necessary to use the saved field mapping.
+*Save this field mapping* is checked and given a Name: *importing individual*, and Description: *Individual Contact from CSV file* for future re-use. However when the column headers in the CSV file have been set to match known CiviCRM fields, then mapping will be done automatically by CiviCRM and its not necessary to use the saved field mapping.
 ![Step 2b](images/import_individual/import_step_2b.png)
 
 Import Contacts Step 3 - Top
