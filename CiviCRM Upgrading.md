@@ -2,11 +2,17 @@
 
 ## Introduction
 
-New releases of CiviCRM for WordPress occur about once a month. Although WordPress has an automatic facility to perform upgrades, the CiviCRM package is currently not designed to be automatically upgraded by WorPress. In wp-admin --> Plugins --> CiviCRM it states: *Auto-updates are not available for this plugin*.
+New releases of CiviCRM for WordPress occur about once a month. Although WordPress has an automatic facility to perform upgrades, the CiviCRM package is currently not designed to be automatically upgraded by WordPress. I.e. In wp-admin --> Plugins --> CiviCRM it states: *Auto-updates are not available for this plugin*.
+
+This document describes the manual process of upgrading CiviCRM.
 
 Documents on performing an upgrade are:
 * [Upgrading CiviCRM for WordPress](https://docs.civicrm.org/sysadmin/en/latest/upgrade/wordpress/)
 * [Upgrades](https://docs.civicrm.org/sysadmin/en/latest/upgrade/)
+
+## Directory and File Protections
+
+In the cmtrailtrail.org.au 
 
 ## Downloading
 
