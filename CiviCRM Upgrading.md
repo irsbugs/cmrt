@@ -32,9 +32,11 @@ By having all the WordPress / CiviCRM folders and files owned by *cmrailtr*, the
 
 ### WordPress / CiviCRM web hosting on other systems.
 
-If WordPress / CiviCRM are not hosted by Ventraip, then you are likely to have an *admim* account to perform the upgrade, and find the owner of the WordPress / CiviCRM folders and files to be *www-data*. 
+When WordPress / CiviCRM are hosted by Ventraip from the *cmrailtr* account. In this account, all fiels, including the WordPress/CiviCRM files have an Owner = *cmrailtr* and Group = *cmrailtr. 
 
-Apache2 is the generator of the *www-data* User and Group naming. These are defined by environmental vasariales in the file `/etc/apache2/envvars`:
+If a CMRT simulation web-site is created then you are likely to have an *admim* account which will make *admin* the name for both the User and Group of files it creates. However, Apache2 web-server application will default to expecting the WordPress/CiviCRM files to have an owner and group of *www-data*.
+
+Apache2 is the generator of the *www-data* User and Group naming convention. This is performed by defining the environmental vasariales in the file `/etc/apache2/envvars`:
 ```
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
