@@ -36,12 +36,12 @@ When WordPress / CiviCRM are hosted by Ventraip from the *cmrailtr* account. In 
 
 If a CMRT simulation web-site is created then you are likely to have an *admim* account which will make *admin* the name for both the User and Group of files it creates. However, Apache2 web-server application will default to expecting the WordPress/CiviCRM files to have an owner and group of *www-data*.
 
-Apache2 is the generator of the *www-data* User and Group naming convention. This is performed by defining the environmental vasariales in the file `/etc/apache2/envvars`:
+Apache2 is the generator of the *www-data* User and Group naming convention. This is performed by defining the environmental variables in the file `/etc/apache2/envvars`:
 ```
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
 ```
-The CMRT website uses the User and Group name of *cmrailtr*. To simulate this when using the apache2 web server edit /etc/apache2/envvars` as follows:
+The CMRT website uses the User and Group name of *cmrailtr*. To simulate this when using the apache2 web server edit `/etc/apache2/envvars` as follows:
 ```
 export APACHE_RUN_USER=cmrailtr
 export APACHE_RUN_GROUP=cmrailtr
