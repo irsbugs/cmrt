@@ -20,6 +20,24 @@ Upon logging in go to: Web Hosting --> cPanel --> Tools --> Terminal.
 
 By having all the WordPress / CiviCRM folders and files owned by *cmrailtr*, then it removes *Permission denied* errors and the need to use an elevated privilege when performing the upgrade.
 
+### Folders and Files
+
+* ~/bin/ this folder may contain bash or Python scripts to perform back-up, etc. These scripts may be executed from anywhere in the account.
+* ~/civicrm_backup/ this folder is where backups of the CiviCRM files and database will be placed.
+* ~/public_html/ this folder is the top-level directory of WordPress
+* ~/public_html/wp-content/plugins/ this folder is the staging directory for new version zip files of CiviCRM.
+* ~/public_html/wp-content/plugins/civicrm/ this folder is the top-level directory of CiviCRM.
+
+
+
+### WordPress / CiviCRM web hosting on other systems.
+
+If WordPress / CiviCRM are not hosted by Ventraip, then you are likely to have an *admim* account to perform the upgrade, and find the owner of the WordPress / CiviCRM folders and files to be *www-data*. 
+
+A work-around to this is: 
+
+
+
 
 
 Your IP address has changed. Please log in again.
