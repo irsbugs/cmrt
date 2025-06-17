@@ -276,7 +276,7 @@ mysql://cmrailtr_czhn1:password@localhost:3306/cmrailtr_civicrm
 
 ## [CiviCRM Database Permissions](https://docs.civicrm.org/installation/en/latest/requirements/#mysql-permissions).
 
-These were granted while using the *MySQL® Database Wizard* to create the CiviCRM database. Permissions enabled for *cmrailtr_czhn1* are:
+These were granted while using the *MySQL® Database Wizard* to create the CiviCRM database. Permissions enabled for *cmrailtr_civicrm* are:
 ```
 ALTER ROUTINE, ALTER, CREATE ROUTINE, CREATE TEMPORARY TABLES,
 CREATE VIEW, CREATE, DELETE, DROP, INDEX, INSERT, LOCK TABLES,
