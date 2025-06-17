@@ -46,3 +46,9 @@ MariaDB [civicrm]> show columns from civicrm_contact;
 ```
 
 Might need a reboot for change to take effect???
+
+In Civicrm main screen --> Customize Data and Screens --> Dropdown options --> Phone Types 
+Changed the order so Mobile (2) at the top and Phone (1) below it.
+
+There is a possiblility of changing the values. swap the 2 and 1
+
