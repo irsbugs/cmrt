@@ -86,3 +86,6 @@ https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
 User name for dataabase = cmrailtr_czhn1
 
 mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm
+
+Username  Host Localhost 192.168.1.101
+cmrailtr@CMRT-Demo:~$ 
