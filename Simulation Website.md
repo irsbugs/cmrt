@@ -68,6 +68,7 @@ Data tables prefix: bsen_ instead of wp
     CiviCRM MariaDB database name. Default is civicrm: cmrailtr_civicrm
     CiviCRM tables prefix: civicrm_
 
+```
 MariaDB [(none)]> show databases;
 +--------------------+
 | Database           |
@@ -77,7 +78,7 @@ MariaDB [(none)]> show databases;
 | information_schema |
 +--------------------+
 3 rows in set (0.004 sec)
-
+```
 
 For CiviCRM Installation:
 
