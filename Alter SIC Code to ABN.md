@@ -45,6 +45,28 @@ MariaDB [civicrm]> show columns from civicrm_contact;
 | sic_code                       | varchar(20)      | YES  |     | NULL                |                               |
 ```
 
+Review of civicrm_contact table...
+```
+MariaDB [civicrm]> select ID, first_name, last_name,sic_code from civicrm_contact;
++----+------------+-----------+----------+
+| ID | first_name | last_name | sic_code |
++----+------------+-----------+----------+
+|  1 | NULL       | NULL      | NULL     |
+|  2 | Ian        | Stewart   | NULL     |
+|  3 | Joseph     | Bloggs    | NULL     |
+|  4 | Joseph     | Bloggs    | NULL     |
+|  5 | Joseph     | Bloggs    | NULL     |
+|  6 | Joseph     | Bloggs    | NULL     |
+|  7 | Joseph     | Bloggs    | NULL     |
+|  8 | Joseph     | Bloggs    | NULL     |
+|  9 | Joseph     | Bloggs    | NULL     |
+| 10 | Joseph     | Bloggs    | NULL     |
+| 11 | Joseph     | Bloggs    | NULL     |
++----+------------+-----------+----------+
+11 rows in set (0.000 sec)
+
+MariaDB [civicrm]> 
+```
 Might need a reboot for change to take effect???
 
 In Civicrm main screen --> Customize Data and Screens --> Dropdown options --> Phone Types 
@@ -57,3 +79,4 @@ There is a possiblility of changing the values. swap the 2 and 1
 https://docs.civicrm.org/user/en/latest/initial-set-up/customizing-the-user-interface/
 
 if your organization does not typically refer to monetary transactions as "contributions," but prefers to use the term "donations," you can define a word replacement and have it automatically altered throughout your instance of CiviCRM.
+
