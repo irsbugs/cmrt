@@ -4,6 +4,7 @@ Building a WordPress/CiviCRM local website that is a simulation of the Ventraip 
 
 The computer that hosts this simulation website is expected to be in the same local network as the computer you normally use. 
 
+The simulation computer will only provide support for IPV4 i.e. no IPV6, and http i.e. no https.
 
 ## Computer Hardware - Minimum Specifications
 
