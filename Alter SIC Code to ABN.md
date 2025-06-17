@@ -52,3 +52,4 @@ Changed the order so Mobile (2) at the top and Phone (1) below it.
 
 There is a possiblility of changing the values. swap the 2 and 1
 
+if your organization does not typically refer to monetary transactions as "contributions," but prefers to use the term "donations," you can define a word replacement and have it automatically altered throughout your instance of CiviCRM.
