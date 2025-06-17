@@ -9,7 +9,7 @@ The computer that hosts this simulation website is expected to be in the same lo
 
 * CPU: Quad core, >= 2.5GHz
 * RAM: >= 4GB
-* Disk: Solid State Sata Disk (SSD). 128GB seem to be the minimum available these days.
+* Disk: Solid State Sata Disk (SSD). 128GB seems to be the minimum available these days.
 * Ethernet: 1000Mb/sec at a static ip address. If a cable can be connected from the computer to the router.
 * Wifi: If not using ethernet, then the wifi connection to the router needs a static ip address.
 * Operating System: Linux. Recommend Ubuntu Mate 24.04.x
