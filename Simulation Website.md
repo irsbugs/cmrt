@@ -26,12 +26,12 @@ The computer that hosts this simulation website is expected to be in the same lo
 * Install openssh-server.
 * Install Apache2 and change Owner and Group from *www-data* to *cmrailtr*.
 * Install MariaDB. mariadb-server and mariadb-client
-* Install WordPress
-* Install CiviCRM
+* Install WordPress. With top-level directory in home folder.
+* Rename `wordpress` top-level directory as `public_html`
+* Install CiviCRM with its own database.
+
 
 ### On the computer you normally use on your local network
 * Make sure that openssh-client is installed.
 * Check you can ssh into the simulation computer. $ ssh cmrailtr@192.168.1.100
 
-  
-* 
