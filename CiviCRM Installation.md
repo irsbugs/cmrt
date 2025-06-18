@@ -195,9 +195,8 @@ Copyright (C) 2018 Artifex Software, Inc.  All rights reserved.
 
 ImageMagick: Recommend >= 8.4
 ```
-[cmrailtr@s03dd ~]$ gs -version
-GPL Ghostscript 9.25 (2018-09-13)
-Copyright (C) 2018 Artifex Software, Inc.  All rights reserved.
+identify --version
+Version: ImageMagick x.x.x.x
 ```
 
 OpenSSL: Recommend >= 3.0
