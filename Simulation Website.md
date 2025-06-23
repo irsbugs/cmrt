@@ -35,7 +35,8 @@ The simulation computer will only provide support for IPV4 i.e. no IPV6, and htt
 
 ### On the computer you normally use on your local network
 * Make sure that openssh-client is installed.
-* Check you can ssh into the simulation computer. `$ ssh cmrailtr@192.168.1.100`
+* Check you can *ssh* into the simulation computer. `$ ssh cmrailtr@192.168.1.100`
+* Check you can *scp* and transfer files between computers.
 
 ## Tailoring:
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
@@ -55,7 +56,7 @@ define( 'DB_NAME', 'cmrailtr_czhn1' );
 define( 'DB_USER', 'cmrailtr_czhn1' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'W.VDfqMNL4CNg2SasTH40' );
+define( 'DB_PASSWORD', '[ Secret ]' );
 
 cmrailtr_civicrm
 
