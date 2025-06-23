@@ -42,7 +42,7 @@ The simulation computer will only provide support for IPV4 i.e. no IPV6, and htt
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
 In the home folder create a backup folder. `$ mkdir civicrm_backup`
 
-
+```
 [cmrailtr@s03dd public_html]$ mysql -u root -p
 Enter password:
 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
@@ -61,7 +61,8 @@ define( 'DB_PASSWORD', '[ Secret ]' );
 cmrailtr_civicrm
 
 Data tables prefix: bsen_ instead of wp
-
+```
+```
     Account Name: cmrailtr
     WordPress top level directory. Default is wordpress: public_html
     WordPress Maria database name. default is wordpress: cmrailtr_czhn1
@@ -70,6 +71,7 @@ Data tables prefix: bsen_ instead of wp
     CiviCRM MariaDB database name. Default is civicrm: cmrailtr_civicrm
     CiviCRM tables prefix: civicrm_
 
+```
 ```
 MariaDB [(none)]> show databases;
 +--------------------+
@@ -92,3 +94,34 @@ mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm
 
 Username  Host Localhost 192.168.1.101
 cmrailtr@CMRT-Demo:~$ 
+
+### Computer Connections
+
+Secure SHell SSH and SCP Secure CoPy
+
+### Install Apache, MariaDB
+```
+$ sudo apt install apache2 ghostscript libapache2-mod-php mariadb-server
+
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils galera-4 gawk libapache2-mod-php libapache2-mod-php8.3 libapr1t64
+  libaprutil1-dbd-sqlite3 libaprutil1-ldap libaprutil1t64 libconfig-inifiles-perl libdbd-mysql-perl libdbi-perl
+  libhtml-template-perl libmariadb3 libmysqlclient21 libsigsegv2 liburing2 mariadb-client mariadb-client-core mariadb-common
+  mariadb-plugin-provider-bzip2 mariadb-plugin-provider-lz4 mariadb-plugin-provider-lzma mariadb-plugin-provider-lzo
+  mariadb-plugin-provider-snappy mariadb-server mariadb-server-core mysql-common php-common php8.3-cli php8.3-common
+  php8.3-opcache php8.3-readline pv socat
+
+```
+Note that the above includes five PHP modules:
+```
+php-common, php8.3-cli, php8.3-common, php8.3-opcache, php8.3-readline
+```
+In the above php8.3.common includes the following 33 php modules:
+
+php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp, php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets, php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
+
+Also note that the php8.3-xml module contains theae 11 php modules:
+
+php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml, php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
+
+
