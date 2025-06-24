@@ -116,6 +116,8 @@ Note that the above includes five PHP modules:
 ```
 php-common, php8.3-cli, php8.3-common, php8.3-opcache, php8.3-readline
 ```
+### PHP modules
+
 In the above the php8.3.common library includes the following 33 php modules:
 ```
 php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp, php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets, php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
@@ -124,8 +126,33 @@ Also note that the php8.3-xml library contains these 11 php modules:
 ```
 php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml, php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
 ```
+### PHP Modules Installed
 
-### Apache Sites Available
+The command line utility `php` may be used to determine the PHP modules installed with the command:
+```
+cmrailtr@CMRT-Demo:~$ php -m
+```
+Another way to check which PHP modules are installed is to get a listing of the `/etc/php/8.3/mods-available folder`:
+```
+cmrailtr@CMRT-Demo:~$ ls /etc/php/8.3/mods-available
+apcu.ini      ftp.ini        mysqli.ini     shmop.ini      xml.ini
+bcmath.ini    gettext.ini    mysqlnd.ini    simplexml.ini  xmlreader.ini
+calendar.ini  iconv.ini      opcache.ini    soap.ini       xmlwriter.ini
+ctype.ini     igbinary.ini   pdo.ini        sockets.ini    xsl.ini
+curl.ini      imagick.ini    pdo_mysql.ini  ssh2.ini       zip.ini
+dom.ini       intl.ini       phar.ini       sysvmsg.ini
+exif.ini      mbstring.ini   posix.ini      sysvsem.ini
+ffi.ini       memcached.ini  readline.ini   sysvshm.ini
+fileinfo.ini  msgpack.ini    redis.ini      tokenizer.ini
+```
+
+### Apache2
+
+Ventraip who use CloudLinux as the hosting OS for the cmrailtrail.org.au website, appear to use LiteSpeed as their HTTP Server. LiteSpeed is a propriatory application and users of the cmrailtr account do not have the privileges to access it. In the simulation computer, Apache2 is used as a replacement for LiteSpeed.
+
+Apache2 is an HTTP server software that handles requests from clients, typically web browsers, using the Hypertext Transfer Protocol (HTTP). It serves web pages and other resources by responding to requests with the appropriate content or error messages. 
+
+### Apache2 Sites Available
 
 The `/etc/apache2` directory has a `sites-available` sub-directory:
 
@@ -153,7 +180,7 @@ Into this directory is copied the file *wordpress.conf*, which is edited to cont
 ```
 The above file sets the path to the website via `/home/cmrailtr/` directories. When WordPress is installed it creates a top-evel direcory of `wordpress` This is then renamed to `public_html`
 
-### Apache Environmental Variables
+### Apache2 Environmental Variables
 
 The `/etc/apache2` directory contains the file `envvars` i.e. environmental variables. This file is edited so the User and Group are `cmrailtr`. Later, with the installation of WordPress, all WordPress files and folders will have the owner and group of `cmrailtr`. This makes it easier to do backup's etc., of WordPress from the home directory. The changes to `envvars` are:
 ```
@@ -213,8 +240,10 @@ Note that the above folder contains the file `wp-config-sample.php`. This is edi
 
 ### Creating wp-config.php 
 
-The `wp-config-sample.php` file is edited as follows and saved as `wp-config.php`:
+This document provides information on wp-config: https://developer.wordpress.org/advanced-administration/wordpress/wp-config/
 
+The `wp-config-sample.php` file is edited and saved as `wp-config.php`:
+Changed From:
 ```
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'database_name_here' );
@@ -225,7 +254,7 @@ define( 'DB_USER', 'username_here' );
 /** Database password */
 define( 'DB_PASSWORD', 'password_here' );
 ```
-Is changed to:
+Changed to:
 ```
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'cmrailtr_czhn1' );
@@ -234,7 +263,7 @@ define( 'DB_NAME', 'cmrailtr_czhn1' );
 define( 'DB_USER', 'cmrailtr_czhn1' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'W.VDf-HIDDEN-TH40' );
+define( 'DB_PASSWORD', 'W.---HIDDEN---40' );
 ```
 The table prefix is also changed from `wp)` to `bsen_`, so it matches the table prefix used on cmrailtrail.org.au website:
  ```
@@ -242,30 +271,98 @@ The table prefix is also changed from `wp)` to `bsen_`, so it matches the table 
  */
 $table_prefix = 'bsen_';
 ```
-This document provides infomation on wp-config: https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
+Various keys are required. These are obtained by accessing the web-page:
+```
+https://api.wordpress.org/secret-key/1.1/salt/
+```
+The 8 lines of data from the web-page are pasted into the `wp-config.php` file.
+
 
 ### Create the WordPress database
 
-mysql> CREATE DATABASE wordpress;
-...changed to...
+Connect to MariaDB and use the mysql database:
+```
+cmrailtr@CMRT-Demo:~$ sudo mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+...
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.006 sec)
+
+MariaDB [(none)]> USE mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [mysql]> 
+```
+Create the WordPress database with the name `cmrailtr_czhn1` that is used on cmrailtrail.org.au:
+```
 mysql> CREATE DATABASE cmrailtr_czhn1;
+```
+Create a User, who happens to have the same name as the WordPress database, so they can access the `cmrailtr_czhn1` database without needing to use sudo privilege:
+```
+mysql> CREATE USER cmrailtr_czhn1@localhost IDENTIFIED BY 'W.---HIDDEN---40';
+```
+Grant privileges to the User `cmrailtr_czhn1`:
+```
+MariaDB [mysql]> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON cmrailtr_czhn1.* TO 'cmrailtr_czhn1'@'localhost' WITH GRANT OPTION;
+```
+Flush the privileges
+```
+MariaDB [mysql]> FLUSH PRIVILEGES;
+```
+Quit the database and restart mysql for good measure:
+```
+$ sudo systemctl restart mysql 
+```
+Connect to the WordPress database `cmrailtr_czhn1` as user `cmrailtr_czhn1`
+```
+cmrailtr@CMRT-Demo:~$ mysql --user=cmrailtr_czhn1 --password=W.---HIDDEN---40 --database=cmrailtr_czhn1
+...snip...
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Server version: 10.11.13-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+```
+Show databases and not that User `cmrailtr_czhn1` has access to `cmrailtr_czhn1` database:
+```
+MariaDB [cmrailtr_czhn1]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+2 rows in set (0.001 sec)
+```
+Show tables and note that they are all prefixed with `bsen_` rather than `wp_`:
+```
+MariaDB [cmrailtr_czhn1]> SHOW TABLES;
++--------------------------+
+| Tables_in_cmrailtr_czhn1 |
++--------------------------+
+| bsen_commentmeta         |
+| bsen_comments            |
+| bsen_links               |
+| bsen_options             |
+| bsen_postmeta            |
+| bsen_posts               |
+| bsen_term_relationships  |
+| bsen_term_taxonomy       |
+| bsen_termmeta            |
+| bsen_terms               |
+| bsen_usermeta            |
+| bsen_users               |
++--------------------------+
+12 rows in set (0.001 sec)
+```
 
 
-mysql> CREATE USER wordpress@localhost IDENTIFIED BY '<your-password>';
-...Changed to...
-mysql> CREATE USER cmrailtr_czhn1@localhost IDENTIFIED BY 'W.VDfqMNL4CNg2SasTH40';
-
-mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
-    -> ON wordpress.*
-    -> TO wordpress@localhost;
-...changed to...
-
-mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON cmrailtr_czhn1.* TO cmrailtr_czhn1@localhost;
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON cmrailtr_czhn1.* TO 'cmrailtr_czhn1'@'localhost' WITH GRANT OPTION;
-
-mysql> FLUSH PRIVILEGES;
-
-
-===
-
-After install folders and fiels = 351 directories, 3306 files
+After install folders and files = 351 directories, 3306 files
