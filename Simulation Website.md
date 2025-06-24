@@ -211,6 +211,61 @@ drwxr-xr-x 30 cmrailtr cmrailtr 12288 Apr 30 16:41 wp-includes
 The above directory contains 3 subdirectories, `wp-admin`, `wp-content` and `wp-includes`.
 Note that the above folder contains the file `wp-config-sample.php`. This is edited and renamed as `wp-config.php`. See below.  
 
+### Creating wp-config.php 
+
+The `wp-config-sample.php` file is edited as follows and saved as `wp-config.php`:
+
+```
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'database_name_here' );
+
+/** Database username */
+define( 'DB_USER', 'username_here' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'password_here' );
+```
+Is changed to:
+```
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'cmrailtr_czhn1' );
+
+/** Database username */
+define( 'DB_USER', 'cmrailtr_czhn1' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'W.VDf-HIDDEN-TH40' );
+```
+The table prefix is also changed from `wp)` to `bsen_`, so it matches the table prefix used on cmrailtrail.org.au website:
+ ```
+ * $table_prefix = 'wp_';
+ */
+$table_prefix = 'bsen_';
+```
+This document provides infomation on wp-config: https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix
+
+### Create the WordPress database
+
+mysql> CREATE DATABASE wordpress;
+...changed to...
+mysql> CREATE DATABASE cmrailtr_czhn1;
+
+
+mysql> CREATE USER wordpress@localhost IDENTIFIED BY '<your-password>';
+...Changed to...
+mysql> CREATE USER cmrailtr_czhn1@localhost IDENTIFIED BY 'W.VDfqMNL4CNg2SasTH40';
+
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+    -> ON wordpress.*
+    -> TO wordpress@localhost;
+...changed to...
+
+mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON cmrailtr_czhn1.* TO cmrailtr_czhn1@localhost;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON cmrailtr_czhn1.* TO 'cmrailtr_czhn1'@'localhost' WITH GRANT OPTION;
+
+mysql> FLUSH PRIVILEGES;
+
+
 ===
 
 After install folders and fiels = 351 directories, 3306 files
