@@ -63,7 +63,7 @@ Use **SSH** to provide on your normal computer, a terminal screen into the simul
     
 3. The command you now type are executed on the simulation computer.
 
-Use SCP to copy a file, E.g. wordpress.conf from your normal computer to the simulation computer, or vice versa.
+Use **SCP** to copy a file, E.g. `wordpress.conf`, from your normal computer to the simulation computer.
 
 1.  Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
 
@@ -73,6 +73,19 @@ Use SCP to copy a file, E.g. wordpress.conf from your normal computer to the sim
     wordpress.conf  100%  410    55.3KB/s   00:00
     ```
 3. The `wordpress.conf` file is now in the simulation computers ~/ home directory.
+
+Use **SCP** on your normal computer to copy a file, E.g. `wordpress_backup.zip`, from the ~/ home folder on the simulation computer to your normal computer.
+
+1.  Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
+
+2.  ```
+    ian@hp:~$ scp cmrailtr@192.168.1.101:wordpress_backup.zip wordpress_backup.zip
+    cmrailtr@192.168.1.101's password: 
+    ian@hp:~$ ls wordpress_backup.zip
+    wordpress_backup.zip
+    ```
+3.  The `wordpress_backup.zip` has not been copied from the simulation computer to the normal computer. This is one way to move backups off-site of the web-site hosting computers.
+   
 
 ### Install Apache, MariaDB, PHP
 ```
