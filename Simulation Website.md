@@ -15,20 +15,22 @@ The simulation computer will only provide support for IPV4 i.e. no IPV6, and htt
 * Wifi: If not using ethernet, then the wifi connection to the router needs a static ip address.
 * Operating System: Linux. Recommend Ubuntu Mate 24.04.x
 
-## Installation Steps
+## Summary of Installation Steps
 
 * Download Operating System iso file. E.g. `https://ubuntu-mate.org/download/`
 * Copy iso to make a bootable USB drive.
 * Boot the USB drive.
-* Install Ubuntu on SSD
-* Set initial account to be `cmrailtr` with a User name of `Administrator`
+* Install Ubuntu on computer with a SSD.
+* Set initial user name to be `Administrator` with an account name of `cmrailtr`.
 * Set a static/fixed address to the router on the ethernet or wifi connection. e.g. 192.168.1.100
 * Perform updates to get the latest patches.
 * Install openssh-server.
+* Install PHP modules.
 * Install Apache2 and change Owner and Group from `www-data` to `cmrailtr`.
 * Install MariaDB. `mariadb-server` and `mariadb-client`
-* Install WordPress. With top-level directory in home folder. All files nd folders have the Owner and Group of `cmrailtr`.
-* WordPress database is: 
+* Install WordPress zip file, with the top-level directory in the home folder. All WordPress files and folders have the Owner and Group of `cmrailtr`.
+* WordPress database is: `cmrailtr_czhn1`
+* WordPress user is: `cmrailtr_czhn1`
 * Rename `wordpress` top-level directory as `public_html`
 * Install CiviCRM with its own database.
 
@@ -42,62 +44,27 @@ The simulation computer will only provide support for IPV4 i.e. no IPV6, and htt
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
 In the home folder create a backup folder. `$ mkdir civicrm_backup`
 
-```
-[cmrailtr@s03dd public_html]$ mysql -u root -p
-Enter password:
-ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
-[cmrailtr@s03dd public_html]$
-
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'cmrailtr_czhn1' );
-
-/** MySQL database username */
-define( 'DB_USER', 'cmrailtr_czhn1' );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', '[ Secret ]' );
-
-cmrailtr_civicrm
-
-Data tables prefix: bsen_ instead of wp
-```
-```
-    Account Name: cmrailtr
-    WordPress top level directory. Default is wordpress: public_html
-    WordPress Maria database name. default is wordpress: cmrailtr_czhn1
-    WordPress MariaDB database User name: cmrailtr_czhn1
-    WordPress tables prefix. Default is wp_: bsen_
-    CiviCRM MariaDB database name. Default is civicrm: cmrailtr_civicrm
-    CiviCRM tables prefix: civicrm_
-
-```
-```
-MariaDB [(none)]> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| cmrailtr_civicrm   |
-| cmrailtr_czhn1     |
-| information_schema |
-+--------------------+
-3 rows in set (0.004 sec)
-```
-
-For CiviCRM Installation:
-
-https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
-
-User name for dataabase = cmrailtr_czhn1
-
-mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm
-
-Username  Host Localhost 192.168.1.101
-cmrailtr@CMRT-Demo:~$ 
 
 ### Computer Connections
 
-Secure SHell SSH and SCP Secure CoPy
+The simulation computer should be setup with a fixed IP address. Use `sudo apt install openssh-server` to install the `openssh-server`, which will also install `openssh-client`.
+
+These utilities show exist on both computers: **SSH** *Secure SHell* and **SCP** *Secure CoPy*.
+
+Use SSH to provide on your normal computer, a terminal screen into the simulation computer. You need to know the fixed ip address of the simulation computer. E.g. 192.168.1.101.
+* Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
+* ```$ ssh cmrailtr@192.168.1.101
+  cmrailtr@192.168.1.101's password:
+  cmrailtr@CMRT-Demo:~$
+  ```
+* The command you now type are executed on the simulation computer.
+
+Use SCP to copy a file, E.g. wordpress.conf from your normal computer to the simulation computer, or vice versa.
+* Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
+* `$ scp wordpress.conf cmrailtr@192.168.1.101:
+   cmrailtr@192.168.1.101's password: 
+   wordpress.conf`
+* The `wordpress.conf` file is now in the simulation computers ~/ home directory.
 
 ### Install Apache, MariaDB, PHP
 ```
@@ -366,3 +333,58 @@ MariaDB [cmrailtr_czhn1]> SHOW TABLES;
 
 
 After install folders and files = 351 directories, 3306 files
+
+
+
+```
+[cmrailtr@s03dd public_html]$ mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[cmrailtr@s03dd public_html]$
+
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'cmrailtr_czhn1' );
+
+/** MySQL database username */
+define( 'DB_USER', 'cmrailtr_czhn1' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', '[ Secret ]' );
+
+cmrailtr_civicrm
+
+Data tables prefix: bsen_ instead of wp
+```
+```
+    Account Name: cmrailtr
+    WordPress top level directory. Default is wordpress: public_html
+    WordPress Maria database name. default is wordpress: cmrailtr_czhn1
+    WordPress MariaDB database User name: cmrailtr_czhn1
+    WordPress tables prefix. Default is wp_: bsen_
+    CiviCRM MariaDB database name. Default is civicrm: cmrailtr_civicrm
+    CiviCRM tables prefix: civicrm_
+
+```
+```
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+3 rows in set (0.004 sec)
+```
+
+For CiviCRM Installation:
+
+https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
+
+User name for database = cmrailtr_czhn1
+
+mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm
+
+Username  Host Localhost 192.168.1.101
+cmrailtr@CMRT-Demo:~$ 
