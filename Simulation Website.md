@@ -1,6 +1,6 @@
 # Simulation Website
 
-Building a WordPress/CiviCRM local website that is a simulation of the Ventraip / cmrailttrail.org.au website
+Building a WordPress/CiviCRM local website that is a simulation of the Ventraip / cmrailttrail.org.au website.
 
 The computer that hosts this simulation website is expected to be in the same local network as the computer you normally use. 
 
