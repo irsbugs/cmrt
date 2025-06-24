@@ -375,8 +375,16 @@ After the installation of WordPress a total of 351 directories and 3306 files ar
 
 The remainder of the WordPress installation is performed via a Browser.
 
+Select the Language - English (Australian_
+![language](images/simulation/s1-language.png)
 
 
+
+![account](images/simulation/s2-account.png)
+![success](images/simulation/s3-success.png)
+![login](images/simulation/s4-login.png)
+![status](images/simulation/s5-status.png)
+![info](images/simulation/s6-info.png
 
 
 
