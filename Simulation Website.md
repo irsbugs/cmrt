@@ -51,20 +51,24 @@ The simulation computer should be setup with a fixed IP address. Use `sudo apt i
 
 These utilities show exist on both computers: **SSH** *Secure SHell* and **SCP** *Secure CoPy*.
 
-Use SSH to provide on your normal computer, a terminal screen into the simulation computer. You need to know the fixed ip address of the simulation computer. E.g. 192.168.1.101.
-* Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
-* ```$ ssh cmrailtr@192.168.1.101
-  cmrailtr@192.168.1.101's password:
-  cmrailtr@CMRT-Demo:~$
-  ```
-* The command you now type are executed on the simulation computer.
+Use **SSH** to provide on your normal computer, a terminal screen into the simulation computer. You need to know the fixed ip address of the simulation computer. E.g. 192.168.1.101.
+
+1. Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
+
+2.  ssh cmrailtr@192.168.1.101
+    cmrailtr@192.168.1.101's password:
+    cmrailtr@CMRT-Demo:~$
+    
+3. The command you now type are executed on the simulation computer.
 
 Use SCP to copy a file, E.g. wordpress.conf from your normal computer to the simulation computer, or vice versa.
-* Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
-* `$ scp wordpress.conf cmrailtr@192.168.1.101:
-   cmrailtr@192.168.1.101's password: 
-   wordpress.conf`
-* The `wordpress.conf` file is now in the simulation computers ~/ home directory.
+
+1.  Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
+
+2.  $ scp wordpress.conf cmrailtr@192.168.1.101:
+    cmrailtr@192.168.1.101's password: 
+    wordpress.conf`
+3. The `wordpress.conf` file is now in the simulation computers ~/ home directory.
 
 ### Install Apache, MariaDB, PHP
 ```
