@@ -166,3 +166,51 @@ export APACHE_RUN_USER=cmrailtr
 export APACHE_RUN_GROUP=cmrailtr
 ```
 
+### Install WordPress
+
+The latest WordPress distribution zip file is copied to the ~/ home directory.
+
+```
+cmrailtr@CMRT-Demo:~$ file wordpress-6.8.1.zip
+wordpress-6.8.1.zip: Zip archive data, at least v1.0 to extract, compression method=store
+```
+The command `unzip` with `-q` for quiet is used to extract all files and folders and place them off the toplevel directory `wordpress`:
+```
+cmrailtr@CMRT-Demo:~$ unzip -q wordpress-6.8.1.zip
+```
+The total folders and files for Wordpress 6.8.1 was: 344 directories, 3228 files 
+
+The top-level directory is then renamed using the `mv` command from `wordpress` to `public_htnl`:
+```
+cmrailtr@CMRT-Demo:~$ mv /home/cmrailtr/wordpress /home/cmrailtr/public_html
+```
+A listing of the first level of the `public_html` directory is as follows:
+```
+cmrailtr@CMRT-Demo:~$ ls -l public_html
+total 232
+-rw-r--r--  1 cmrailtr cmrailtr   405 Feb  6  2020 index.php
+-rw-r--r--  1 cmrailtr cmrailtr 19903 Mar  6 14:24 license.txt
+-rw-r--r--  1 cmrailtr cmrailtr  7425 Mar  7 08:45 readme.html
+-rw-r--r--  1 cmrailtr cmrailtr  7387 Feb 13  2024 wp-activate.php
+drwxr-xr-x  9 cmrailtr cmrailtr  4096 Apr 30 16:41 wp-admin
+-rw-r--r--  1 cmrailtr cmrailtr   351 Feb  6  2020 wp-blog-header.php
+-rw-r--r--  1 cmrailtr cmrailtr  2323 Jun 14  2023 wp-comments-post.php
+-rw-r--r--  1 cmrailtr cmrailtr  3336 Oct 15  2024 wp-config-sample.php
+drwxr-xr-x  4 cmrailtr cmrailtr  4096 Apr 14 23:37 wp-content
+-rw-r--r--  1 cmrailtr cmrailtr  5617 Aug  2  2024 wp-cron.php
+drwxr-xr-x 30 cmrailtr cmrailtr 12288 Apr 30 16:41 wp-includes
+-rw-r--r--  1 cmrailtr cmrailtr  2502 Nov 26  2022 wp-links-opml.php
+-rw-r--r--  1 cmrailtr cmrailtr  3937 Mar 11  2024 wp-load.php
+-rw-r--r--  1 cmrailtr cmrailtr 51414 Feb  3 16:55 wp-login.php
+-rw-r--r--  1 cmrailtr cmrailtr  8727 Feb  8 16:00 wp-mail.php
+-rw-r--r--  1 cmrailtr cmrailtr 30081 Mar  4 13:06 wp-settings.php
+-rw-r--r--  1 cmrailtr cmrailtr 34516 Mar 10 18:16 wp-signup.php
+-rw-r--r--  1 cmrailtr cmrailtr  5102 Oct 18  2024 wp-trackback.php
+-rw-r--r--  1 cmrailtr cmrailtr  3205 Nov  8  2024 xmlrpc.php 
+```
+The above directory contains 3 subdirectories, `wp-admin`, `wp-content` and `wp-includes`.
+Note that the above folder contains the file `wp-config-sample.php`. This is edited and renamed as `wp-config.php`. See below.  
+
+===
+
+After install folders and fiels = 351 directories, 3306 files
