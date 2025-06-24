@@ -49,7 +49,7 @@ In the home folder create a backup folder. `$ mkdir civicrm_backup`
 
 The simulation computer should be setup with a fixed IP address. Use `sudo apt install openssh-server` to install the `openssh-server`, which will also install `openssh-client`.
 
-These utilities show exist on both computers: **SSH** *Secure SHell* and **SCP** *Secure CoPy*.
+These utilities should exist on both computers: **SSH** ***S**ecure **SH**ell* and **SCP** ***S**ecure **C**o**P**y*.
 
 Use **SSH** to provide on your normal computer, a terminal screen into the simulation computer. You need to know the fixed ip address of the simulation computer. E.g. 192.168.1.101.
 
