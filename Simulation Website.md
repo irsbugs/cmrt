@@ -395,7 +395,7 @@ On the above screen click on *Info* to get details about WordPress, the server, 
 ![info](images/simulation/s6-info.png)
 
 
-For the installation of the CiviCRM Installation proceed to the [documentation](CiviCRM Installation.md)
+For the installation of the CiviCRM Installation proceed to the [documentation](CiviCRM%20Installation.md)
 
 ## Notes For CiviCRM Installation:
 https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
