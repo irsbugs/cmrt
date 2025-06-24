@@ -34,7 +34,19 @@ The simulation computer will only provide support for IPV4, i.e. no IPV6, and ht
 * Rename `wordpress` top-level directory as `public_html`
 * Install CiviCRM with its own database.
 
-## Tailoring:
+### Summary of variables that change:
+
+In installing WordPress and CiviCRM to simulate the cmrailtrail.org.au website the following is a summary of the variables that are used:
+
+*    Account Name: `cmrailtr`
+*    WordPress top level directory`public_html`. Default is `wordpress`. 
+*    WordPress Maria database name:`cmrailtr_czhn1`. 
+*    WordPress MariaDB database User name: `cmrailtr_czhn1`
+*    WordPress tables prefix: `bsen_`. Default is `wp_`: 
+*    CiviCRM MariaDB database name: `cmrailtr_civicrm`
+*    CiviCRM tables prefix: `civicrm_`
+
+### Tailoring:
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
 In the home folder create a backup folder. `$ mkdir civicrm_backup`
 
@@ -143,7 +155,7 @@ fileinfo.ini  msgpack.ini    redis.ini      tokenizer.ini
 
 ### Apache2
 
-Ventraip who use CloudLinux as the hosting OS for the cmrailtrail.org.au website, appear to use LiteSpeed as their HTTP Server. LiteSpeed is a propriatory application and users of the cmrailtr account do not have the privileges to access it. In the simulation computer, Apache2 is used as a replacement for LiteSpeed.
+Ventraip who use CloudLinux as the hosting OS for the cmrailtrail.org.au website, appear to use *LiteSpeed* as their HTTP Server. LiteSpeed is a propriatory application and users of the cmrailtr account do not have the privileges to access it. In the simulation computer, *Apache2* is used as a replacement for LiteSpeed.
 
 Apache2 is an HTTP server software that handles requests from clients, typically web browsers, using the Hypertext Transfer Protocol (HTTP). It serves web pages and other resources by responding to requests with the appropriate content or error messages. 
 
@@ -173,7 +185,7 @@ Into this directory is copied the file *wordpress.conf*, which is edited to cont
     </Directory>
 </VirtualHost>
 ```
-The above file sets the path to the website via `/home/cmrailtr/` directories. When WordPress is installed it creates a top-evel direcory of `wordpress` This is then renamed to `public_html`
+The above file sets the path to the website via `/home/cmrailtr/` directories. When WordPress is installed it creates a top-evel direcory of `wordpress` This is then renamed to `public_html` to match the cmrailtrail.org.au website layout.
 
 ### Apache2 Environmental Variables
 
@@ -260,7 +272,7 @@ define( 'DB_USER', 'cmrailtr_czhn1' );
 /** Database password */
 define( 'DB_PASSWORD', 'W.---HIDDEN---40' );
 ```
-The table prefix is also changed from `wp)` to `bsen_`, so it matches the table prefix used on cmrailtrail.org.au website:
+The table prefix is also changed from `wp_` to `bsen_`, so it matches the table prefix used on cmrailtrail.org.au website:
  ```
  * $table_prefix = 'wp_';
  */
@@ -359,8 +371,9 @@ MariaDB [cmrailtr_czhn1]> SHOW TABLES;
 12 rows in set (0.001 sec)
 ```
 
+After the installation of WordPress a total of 351 directories and 3306 files are created.
 
-After install folders and files = 351 directories, 3306 files
+The remainder of the WordPress installation is performed via a Browser.
 
 
 
@@ -385,13 +398,7 @@ cmrailtr_civicrm
 Data tables prefix: bsen_ instead of wp
 ```
 ```
-    Account Name: cmrailtr
-    WordPress top level directory. Default is wordpress: public_html
-    WordPress Maria database name. default is wordpress: cmrailtr_czhn1
-    WordPress MariaDB database User name: cmrailtr_czhn1
-    WordPress tables prefix. Default is wp_: bsen_
-    CiviCRM MariaDB database name. Default is civicrm: cmrailtr_civicrm
-    CiviCRM tables prefix: civicrm_
+
 
 ```
 ```
