@@ -55,9 +55,9 @@ Use **SSH** to provide on your normal computer, a terminal screen into the simul
 
 1. Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
 
-2.  ssh cmrailtr@192.168.1.101
+2.  `ssh cmrailtr@192.168.1.101
     cmrailtr@192.168.1.101's password:
-    cmrailtr@CMRT-Demo:~$
+    cmrailtr@CMRT-Demo:~$`
     
 3. The command you now type are executed on the simulation computer.
 
