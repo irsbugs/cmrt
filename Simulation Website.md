@@ -99,7 +99,7 @@ cmrailtr@CMRT-Demo:~$
 
 Secure SHell SSH and SCP Secure CoPy
 
-### Install Apache, MariaDB
+### Install Apache, MariaDB, PHP
 ```
 $ sudo apt install apache2 ghostscript libapache2-mod-php mariadb-server
 
@@ -116,12 +116,53 @@ Note that the above includes five PHP modules:
 ```
 php-common, php8.3-cli, php8.3-common, php8.3-opcache, php8.3-readline
 ```
-In the above php8.3.common includes the following 33 php modules:
-
+In the above the php8.3.common library includes the following 33 php modules:
+```
 php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp, php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets, php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
-
-Also note that the php8.3-xml module contains theae 11 php modules:
-
+```
+Also note that the php8.3-xml library contains these 11 php modules:
+```
 php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml, php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
+```
 
+### Apache Sites Available
+
+The `/etc/apache2` directory has a `sites-available` sub-directory:
+
+```
+cmrailtr@CMRT-Demo:~$ ls -l /etc/apache2/sites-available/
+total 12
+-rw-r--r-- 1 root root 1286 Mar 19  2024 000-default.conf
+-rw-r--r-- 1 root root 4573 Mar 19  2024 default-ssl.conf
+```
+Into this directory is copied the file *wordpress.conf*, which is edited to contain:
+```
+<VirtualHost *:80>
+    DocumentRoot /home/cmrailtr/public_html
+    <Directory /home/cmrailtr/public_html>
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    </Directory>
+    <Directory /home/cmrailtr/public_html/wp-content>
+        Options FollowSymLinks
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+The above file sets the path to the website via `/home/cmrailtr/` directories. When WordPress is installed it creates a top-evel direcory of `wordpress` This is then renamed to `public_html`
+
+### Apache Environmental Variables
+
+The `/etc/apache2` directory contains the file `envvars` i.e. environmental variables. This file is edited so the User and Group are `cmrailtr`. Later, with the installation of WordPress, all WordPress files and folders will have the owner and group of `cmrailtr`. This makes it easier to do backup's etc., of WordPress from the home directory. The changes to `envvars` are:
+```
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
+```
+To:
+```
+export APACHE_RUN_USER=cmrailtr
+export APACHE_RUN_GROUP=cmrailtr
+```
 
