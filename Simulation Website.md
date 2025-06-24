@@ -377,49 +377,12 @@ The remainder of the WordPress installation is performed via a Browser.
 
 
 
-```
-[cmrailtr@s03dd public_html]$ mysql -u root -p
-Enter password:
-ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
-[cmrailtr@s03dd public_html]$
-
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define( 'DB_NAME', 'cmrailtr_czhn1' );
-
-/** MySQL database username */
-define( 'DB_USER', 'cmrailtr_czhn1' );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', '[ Secret ]' );
-
-cmrailtr_civicrm
-
-Data tables prefix: bsen_ instead of wp
-```
-```
 
 
-```
-```
-MariaDB [(none)]> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| cmrailtr_civicrm   |
-| cmrailtr_czhn1     |
-| information_schema |
-+--------------------+
-3 rows in set (0.004 sec)
-```
 
-For CiviCRM Installation:
 
+## Notes For CiviCRM Installation:
 https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
-
-User name for database = cmrailtr_czhn1
-
+Change database pointer with CiviCRM installation...
 mysql://cmrailtr_czhn1:HiDDEN@localhost:3306/cmailtr_civicrm
 
-Username  Host Localhost 192.168.1.101
-cmrailtr@CMRT-Demo:~$ 
