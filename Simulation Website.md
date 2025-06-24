@@ -375,19 +375,27 @@ After the installation of WordPress a total of 351 directories and 3306 files ar
 
 The remainder of the WordPress installation is performed via a Browser.
 
-Select the Language - English (Australian_
+Select the Language - English (Australian)
 ![language](images/simulation/s1-language.png)
 
-
-
+Create an Account name that you use to log into the WordPress, then click *Install WordPress*.
+During the install, 7 more WordPress directories and 78 files are added. Many of these files are to do with support for English (Australian).
 ![account](images/simulation/s2-account.png)
+
+Successfully Installed WordPress. Click to Log In 
 ![success](images/simulation/s3-success.png)
+
+Enter the Username and Password that you provided
 ![login](images/simulation/s4-login.png)
+
+This is the WordPress Administraton screen. By selecting Tools --> Site Health --> Status, the status of the WordPress installation may be observed
 ![status](images/simulation/s5-status.png)
-![info](images/simulation/s6-info.png
+
+On the above screen click on *Info* to get details about WordPress, the server, the database, etc.
+![info](images/simulation/s6-info.png)
 
 
-
+For the installation of the CiviCRM Installation proceed to the [documentation](CiviCRM Installation.md)
 
 ## Notes For CiviCRM Installation:
 https://github.com/irsbugs/cmrt/blob/main/CiviCRM%20Installation.md
