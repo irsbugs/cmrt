@@ -34,15 +34,17 @@ The simulation computer will only provide support for IPV4, i.e. no IPV6, and ht
 * Rename `wordpress` top-level directory as `public_html`
 * Install CiviCRM with its own database.
 
-
-### On the computer you normally use on your local network
-* Make sure that openssh-client is installed.
-* Check you can *ssh* into the simulation computer. `$ ssh cmrailtr@192.168.1.100`
-* Check you can *scp* and transfer files between computers.
-
 ## Tailoring:
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
 In the home folder create a backup folder. `$ mkdir civicrm_backup`
+
+### SSH installed on your normal computer.
+
+Assuming that there is a computer that you normally use, and the simulation computer will be another computer on the same local network. From your normal computer you will need to make a terminal connection to the simulation computer to perform instllation and backup tasks, etc. This is done with `openssh`, which also provides copying files between computers.
+
+* Make sure that `openssh-client` is installed.
+* Check you can *ssh* into the simulation computer. E.g. `$ ssh cmrailtr@192.168.1.100`
+* Check you can *scp* and transfer files between computers.
 
 
 ### Computer Connections
@@ -61,7 +63,7 @@ Use **SSH** to provide on your normal computer, a terminal screen into the simul
     cmrailtr@CMRT-Demo:~$
     ```
     
-3. The command you now type are executed on the simulation computer.
+3. The commands you now type are executed on the simulation computer.
 
 Use **SCP** to copy a file, E.g. `wordpress.conf`, from your normal computer to the simulation computer.
 
@@ -88,7 +90,11 @@ Use **SCP** on your normal computer to copy a file, E.g. `wordpress_backup.zip`,
 3.  The `wordpress_backup.zip` has not been copied from the simulation computer to the normal computer. This is one way to move backups off-site of the web-site hosting computers.
    
 
-### Install Apache, MariaDB, PHP
+### Install  PHP, Apache2, MariaDB
+
+Apache2 is the http web server, MariaDB is the SQL database, and PHP the PHP: Hypertext Preprocessor. 
+
+A single apt install command installs most of the component needed by WordPress:
 ```
 $ sudo apt install apache2 ghostscript libapache2-mod-php mariadb-server
 
@@ -107,7 +113,7 @@ php-common, php8.3-cli, php8.3-common, php8.3-opcache, php8.3-readline
 ```
 ### PHP modules
 
-In the above the php8.3.common library includes the following 33 php modules:
+In the above `apt install` the `php8.3.common` library includes the following 33 php modules:
 ```
 php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp, php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets, php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
 ```
