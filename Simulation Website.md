@@ -67,9 +67,11 @@ Use SCP to copy a file, E.g. wordpress.conf from your normal computer to the sim
 
 1.  Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
 
-2.  $ scp wordpress.conf cmrailtr@192.168.1.101:
+2.  ```
+    $ scp wordpress.conf cmrailtr@192.168.1.101:
     cmrailtr@192.168.1.101's password: 
-    wordpress.conf`
+    wordpress.conf  100%  410    55.3KB/s   00:00
+    ```
 3. The `wordpress.conf` file is now in the simulation computers ~/ home directory.
 
 ### Install Apache, MariaDB, PHP
