@@ -17,7 +17,7 @@ The simulation computer will only provide support for IPV4, i.e. no IPV6, and ht
 
 ## Summary of Installation Steps
 
-For the first seven steps below, no details are provided in this document on how to perform these steps. Please use a search engine to get help on perfroming these actions. The other steps are described further down this document. 
+For the first seven steps below, no details are provided in this document on how to perform these steps. Please use a search engine to get help on perfroming these actions.  
 
 * Download Operating System iso file. E.g. `https://ubuntu-mate.org/download/`
 * Copy iso to make a bootable USB drive.
@@ -27,7 +27,7 @@ For the first seven steps below, no details are provided in this document on how
 * Set a static/fixed address to the router on the ethernet or wifi connection. e.g. 192.168.1.100
 * Perform updates to get the latest patches.
 
-
+The following steps are described further down this document.
 * Install openssh-server.
 * Install PHP modules.
 * Install Apache2 and change Owner and Group from `www-data` to `cmrailtr`.
