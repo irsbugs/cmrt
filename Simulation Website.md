@@ -156,12 +156,12 @@ To add more php modules to help satisfy the WordPress extensions list, enter the
 `sudo apt install php8.3 php-curl php-intl php-json php8.3-apcu php8.3-bcmath php8.3-igbinary php8.3-imagick php8.3-mbstring php8.3-memcached php8.3-mysql php8.3-opcache php8.3-redis php8.3-soap php8.3-ssh2 php8.3-xml php8.3-zip`
 
 Descrepency: After the above modules have been installed, these are 8 x php modules that are not in the `/etc/php/8.3/mods-available` folder:
-filter, hash, json, openssl, pcre, sodium, timezonedb, zlib
+`filter, hash, json, openssl, pcre, sodium, timezonedb, zlib`
 
 However in performing a `$ php-m` these following php modules are listed:
-filter, hash, json, openssl, pcre, sodium, zlib
+`filter, hash, json, openssl, pcre, sodium, zlib`
 
-Thus the only php module that is unavailable is timezonedb, which is optional. 
+Thus the only php module that is unavailable is `timezonedb`, which is optional. The $ `php -m` command list the module `date` as bing installed. This may have the `timezonedb` functions.
 
 Also note that the `php8.3-xml` library contains these 11 php modules:
 ```
