@@ -131,12 +131,41 @@ php-common, php8.3-cli, php8.3-common, php8.3-opcache, php8.3-readline
 
 In the above `apt install` the `php8.3.common` library includes the following 33 php modules:
 ```
-php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp, php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets, php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
+php-calendar, php-ctype, php-exif, php-ffi, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar,
+php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer,
+php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-ftp,
+php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets,
+php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
 ```
-Also note that the php8.3-xml library contains these 11 php modules:
+The WordPress [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions) document lists PHP extensions in the catagories: required, highly recommended, recommended, optional, fallbacks - optional, files and updates.
+
+The 33 x PHP extensions from the above catagories are:
+
+apcu, bc, curl, dom, exif, fileinfo, filter, ftp, hash, iconv, igbinary, imagick, intl, json, mbstring, memcached, mysqli, mysqlnd, opcache, openssl, pcre, redis, shmop, simplexml, soap, sockets, sodium, ssh2, timezonedb, xml, xmlreader, zip, zlib.
+
+The above list did include `image`, but it was removed as the installation of `imagick` makes it not required.
+
+At the moment the PHP extensions installed should only have been what was installed with the Ubuntu installation and what was installed through the 
+apt install command previously executed: `$ sudo apt install apache2 ghostscript libapache2-mod-php mariadb-server`
+
+To add more php modules to help satisfy the WordPress extensions list, enter the command:
+
+`sudo apt install php8.3 php-curl php-intl php-json php8.3-apcu php8.3-bcmath php8.3-igbinary php8.3-imagick php8.3-mbstring php8.3-memcached php8.3-mysql php8.3-opcache php8.3-redis php8.3-soap php8.3-ssh2 php8.3-xml php8.3-zip`
+
+Descrepency: After the above modules have been installed, these are 8 x php modules that are not in the `/etc/php/8.3/mods-available` folder:
+filter, hash, json, openssl, pcre, sodium, timezonedb, zlib
+
+However in performing a `$ php-m` these following php modules are listed:
+filter, hash, json, openssl, pcre, sodium, zlib
+
+Thus the only php module that is unavailable is timezonedb, which is optional. 
+
+Also note that the php8.3-xml library contained these 11 php modules:
 ```
-php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml, php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
+php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml,
+php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
 ```
+
 ### PHP Modules Installed
 
 The command line utility `php` may be used to determine the PHP modules installed with the command:
