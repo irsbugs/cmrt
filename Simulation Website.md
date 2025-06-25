@@ -26,7 +26,8 @@ For the first seven steps below, no details are provided in this document on how
 * Set initial user name to be `Administrator` with an account name of `cmrailtr`.
 * Set a static/fixed address to the router on the ethernet or wifi connection. e.g. 192.168.1.100
 * Perform updates to get the latest patches.
-  
+
+
 * Install openssh-server.
 * Install PHP modules.
 * Install Apache2 and change Owner and Group from `www-data` to `cmrailtr`.
