@@ -17,7 +17,7 @@ The simulation computer will only provide support for IPV4, i.e. no IPV6, and ht
 
 ## Summary of Installation Steps
 
-For the first seven steps below, no details are provided in this document on how to perform these steps. Please use a search engine to get help on perfroming these actions.  
+For the first seven steps below, no details are provided in this document on how to perform these steps. Please use a search engine if you need to get help on performing these actions.  
 
 * Download Operating System iso file. E.g. `https://ubuntu-mate.org/download/`
 * Copy iso to make a bootable USB drive.
