@@ -49,6 +49,7 @@ In installing WordPress and CiviCRM to simulate the cmrailtrail.org.au website t
 *    WordPress tables prefix: `bsen_`. Default is `wp_`: 
 *    CiviCRM MariaDB database name: `cmrailtr_civicrm`
 *    CiviCRM tables prefix: `civicrm_`
+*    Simulation computer host name: `CMRT-Demo`
 
 ### Tailoring:
 In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
