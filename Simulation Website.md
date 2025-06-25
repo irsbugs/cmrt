@@ -137,11 +137,14 @@ php8.3-calendar, php8.3-ctype, php8.3-exif, php8.3-ffi, php8.3-fileinfo, php8.3-
 php8.3-gettext, php8.3-iconv, php8.3-pdo, php8.3-phar, php8.3-posix, php8.3-shmop, php8.3-sockets,
 php8.3-sysvmsg, php8.3-sysvsem, php8.3-sysvshm, php8.3-tokenizer
 ```
-The WordPress [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions) document lists PHP extensions in the catagories: required, highly recommended, recommended, optional, fallbacks - optional, files and updates.
+The WordPress [PHP Extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions) document lists PHP extensions in the catagories: *required, highly recommended, recommended, optional, fallbacks - optional, files and updates*.
 
 The 33 x PHP extensions from the above catagories are:
-
-apcu, bc, curl, dom, exif, fileinfo, filter, ftp, hash, iconv, igbinary, imagick, intl, json, mbstring, memcached, mysqli, mysqlnd, opcache, openssl, pcre, redis, shmop, simplexml, soap, sockets, sodium, ssh2, timezonedb, xml, xmlreader, zip, zlib.
+```
+apcu, bc, curl, dom, exif, fileinfo, filter, ftp, hash, iconv, igbinary, imagick, intl, json,
+mbstring, memcached, mysqli, mysqlnd, opcache, openssl, pcre, redis, shmop, simplexml, soap,
+sockets, sodium, ssh2, timezonedb, xml, xmlreader, zip, zlib.
+```
 
 The above list did include `image`, but it was removed as the installation of `imagick` makes it not required.
 
