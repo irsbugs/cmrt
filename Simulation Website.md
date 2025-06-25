@@ -160,7 +160,7 @@ filter, hash, json, openssl, pcre, sodium, zlib
 
 Thus the only php module that is unavailable is timezonedb, which is optional. 
 
-Also note that the php8.3-xml library contained these 11 php modules:
+Also note that the `php8.3-xml` library contains these 11 php modules:
 ```
 php-dom, php-simplexml, php-xml, php-xmlreader, php-xmlwriter, php-xsl, php8.3-dom, php8.3-simplexml,
 php8.3-xmlreader, php8.3-xmlwriter, php8.3-xsl
