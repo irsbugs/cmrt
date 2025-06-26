@@ -130,11 +130,11 @@ Refer to these documents:
 
 The following PHP directives are the recommended minimums. Typically Operating Systems would define these changes to the directives in the file `/etc/php/8.3/apache2/php.ini` with the following commands:
 ```
-    memory_limit 256M
-    max_execution_time 240
-    max_input_time 120
-    post_max_size 50M
-    upload_max_filesize 50M
+    memory_limit = 256M
+    max_execution_time = 240
+    max_input_time = 120
+    post_max_size = 50M
+    upload_max_filesize = 50M
 ```
 In CloudLinux the file that sets the PHP directive is `/etc/cl.selector.conf.d/php.conf`:
 A selection of directives from this php.conf:
