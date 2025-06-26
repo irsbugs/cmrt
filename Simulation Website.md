@@ -198,7 +198,7 @@ fileinfo.ini  msgpack.ini    redis.ini      tokenizer.ini
 
 ### Installing System Packages
 
-The [documentation](https://make.wordpress.org/hosting/handbook/server-environment/#system-packages) from the WordPress Hosting - Server Environment section recommends six system packages be installed. Some of the packages may already have been installed in which case the installed versions can be displayed as follows:
+The [documentation](https://make.wordpress.org/hosting/handbook/server-environment/#system-packages) from the *WordPress Hosting - Server Environment* section recommends six system packages be installed. Some of the packages may already have been installed in which case the installed versions can be displayed as follows:
 
 * cURL: `$ curl --version`
 * Ghostscript: `$ ghostscript -v`
@@ -207,7 +207,7 @@ The [documentation](https://make.wordpress.org/hosting/handbook/server-environme
 * WebP: `$ cwebp -version`
 * AVIL: `$ apt list --installed | grep libavif16`
 
-The following `apt install` command tries to install these six system packages. 
+The following `apt install` command try to install these six system packages. 
 ```
 $ sudo apt install curl ghostscript imagemagick openssl webp libavif16
 ```
