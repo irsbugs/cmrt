@@ -7,6 +7,7 @@ The computer that hosts this simulation website is expected to be in the same lo
 The simulation computer will only provide support for IPV4, i.e. no IPV6, and http, i.e. no https.
 
 ### Reference documents
+* [Ubuntu - Install and configure WordPress](https://ubuntu.com/tutorials/install-and-configure-wordpress#1-overview)
 * [Server Environment](https://make.wordpress.org/hosting/handbook/server-environment)
 * [PHP extensions](https://make.wordpress.org/hosting/handbook/server-environment/#php-extensions)
 * [wp-config file](https://developer.wordpress.org/advanced-administration/wordpress/wp-config/#table-prefix)
