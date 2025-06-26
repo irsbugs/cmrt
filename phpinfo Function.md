@@ -12,7 +12,7 @@ If you already have a local web-server running then its `index` file can be temp
 
 These are the steps to replace the `index` file:
 
-* Use nano editor and enter `<?php phpinfo(); ?>` in the file `index.php` in you ~/ home directory.
+* Use nano editor and enter `<?php phpinfo(); ?>` in the file `index.php` in your `home` directory.
 ```
 cmrailtr@CMRT-Demo:~$ nano index.php
 
