@@ -207,7 +207,7 @@ The [documentation](https://make.wordpress.org/hosting/handbook/server-environme
 * WebP: `$ cwebp -version`
 * AVIL: `$ apt list --installed | grep libavif16`
 
-The following `apt install` command try to install these six system packages. 
+The following `apt install` command will try to install these six system packages. 
 ```
 $ sudo apt install curl ghostscript imagemagick openssl webp libavif16
 ```
