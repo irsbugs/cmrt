@@ -215,7 +215,7 @@ bash: cwebp: command not found
 
 AVIF
 ```
-[cmrailtr@s03dd ~]$ avif
+[cmrailtr@s03dd ~]$ avifenc --version
 bash: avif: command not found
 ```
 
