@@ -46,9 +46,32 @@ cmrailtr@CMRT-Demo:~$ mv public_html/original_index.php public_html/index.php
 By refreshing the web-browser it will be observed that the web-site is back to normal.
 
 ### Screenshots of information displayed by phpinfo()
+Top of PHP information
+![php1](images/phpinfo/1.png)
 
+Configuration
+![php2](images/phpinfo/2.png)
 
+Apache2
+![php3](images/phpinfo/3.png)
 
+Headers Information and the first module `apcu`
+![php4](images/phpinfo/4.png)
+
+Additional modules: `bcmath`, `calendar`, and `Core`:
+![php5](images/phpinfo/5.png)
+
+The end of the listed modules: `zip` and `zlib`:
+![php6](images/phpinfo/6.png)
+
+The environment:
+![php7](images/phpinfo/7.png)
+
+PHP variables - top:
+![php8](images/phpinfo/8.png)
+
+PHP variables - bottom:
+![php9](images/phpinfo/9.png)
 
 
 
