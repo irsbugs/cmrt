@@ -196,6 +196,36 @@ ffi.ini       memcached.ini  readline.ini   sysvshm.ini
 fileinfo.ini  msgpack.ini    redis.ini      tokenizer.ini
 ```
 
+### Installing System Packages
+
+The [documentation](https://make.wordpress.org/hosting/handbook/server-environment/#system-packages) from the WordPress Hosting - Server Environment section recommends six system packages be installed. Some of the packages may already have been installed in which case the installed versions can be displayed as follows:
+
+* cURL: `$ curl --version`
+* Ghostscript: `$ ghostscript -v`
+* ImageMagick: `$ identify --version`
+* OpenSSL: `$ openssl version`
+* WebP: `$ cwebp -version`
+* AVIL: `$ apt list --installed | grep libavif16`
+
+The following `apt install` command tries to install these six system packages. 
+```
+$ sudo apt install curl ghostscript imagemagick openssl webp libavif16
+```
+In the following installation example all the packages had already been installed:
+```
+cmrailtr@CMRT-Demo:~$ sudo apt install curl ghostscript imagemagick openssl webp libavif16
+...snip...
+curl is already the newest version (8.5.0-2ubuntu10.6).
+ghostscript is already the newest version (10.02.1~dfsg1-0ubuntu7.6).
+imagemagick is already the newest version (8:6.9.12.98+dfsg1-5.2build2).
+imagemagick set to manually installed.
+openssl is already the newest version (3.0.13-0ubuntu3.5).
+webp is already the newest version (1.3.2-0.4build3).
+libavif16 is already the newest version (1.0.4-1ubuntu3).
+libavif16 set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove
+```
+
 ### Apache2
 
 Ventraip who use CloudLinux as the hosting OS for the cmrailtrail.org.au website, appear to use *LiteSpeed* as their HTTP Server. LiteSpeed is a propriatory application and users of the cmrailtr account do not have the privileges to access it. In the simulation computer, *Apache2* is used as a replacement for LiteSpeed.
