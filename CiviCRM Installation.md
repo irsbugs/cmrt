@@ -313,6 +313,8 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne"
 | 2025-06-03 16:30:00                                                          |
 +------------------------------------------------------------------------------+
 ```
+Note that on a ubuntu system, if it returns NULL in the above conversion, then:
+`$ sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root mysql`
 
 ## CiviCRM Download and Installation of the zip distribution file
 
