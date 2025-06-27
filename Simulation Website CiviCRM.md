@@ -587,7 +587,7 @@ MariaDB [cmrailtr_civicrm]> show columns from civicrm_contact;
 52 rows in set (0.001 sec)
 ```
 Show some of the fields in the `civicrm_contacts` table.
-At this stage only a *Default Organization* and a `NULL` exist in the contacts database.
+At this stage only a *Default Organization* and a `NULL` entry exist in the contacts database.
 ```
 MariaDB [cmrailtr_civicrm]> select ID, organization_name, first_name, last_name FROM civicrm_contact;
 +----+----------------------+------------+-----------+
@@ -598,3 +598,38 @@ MariaDB [cmrailtr_civicrm]> select ID, organization_name, first_name, last_name 
 +----+----------------------+------------+-----------+
 2 rows in set (0.000 sec)
 ```
+Another table is the civicrm_email:
+```
+MariaDB [cmrailtr_civicrm]> show columns from civicrm_email;
++------------------+------------------+------+-----+---------+----------------+
+| Field            | Type             | Null | Key | Default | Extra          |
++------------------+------------------+------+-----+---------+----------------+
+| id               | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| contact_id       | int(10) unsigned | YES  | MUL | NULL    |                |
+| location_type_id | int(10) unsigned | YES  | MUL | NULL    |                |
+| email            | varchar(254)     | YES  | MUL | NULL    |                |
+| is_primary       | tinyint(1)       | NO   | MUL | 0       |                |
+| is_billing       | tinyint(1)       | NO   | MUL | 0       |                |
+| on_hold          | int(10) unsigned | NO   |     | 0       |                |
+| is_bulkmail      | tinyint(1)       | NO   |     | 0       |                |
+| hold_date        | datetime         | YES  |     | NULL    |                |
+| reset_date       | datetime         | YES  |     | NULL    |                |
+| signature_text   | text             | YES  |     | NULL    |                |
+| signature_html   | text             | YES  |     | NULL    |                |
++------------------+------------------+------+-----+---------+----------------+
+12 rows in set (0.001 sec
+```
+Selecting fields from the civicrm_email table we see the `organization` contact email address, and the `individual` contact email address:
+```
+MariaDB [cmrailtr_civicrm]> SELECT id, contact_id, email FROM civicrm_email;
++----+------------+-------------------------------+
+| id | contact_id | email                         |
++----+------------+-------------------------------+
+|  1 |          1 | fixme.domainemail@example.org |
+|  2 |          2 | ianstewart56@hotmail.com      |
++----+------------+-------------------------------+
+```
+The `contact_id`'s above match the `ID` fields in the `civicrm_contact` table.
+
+Thus, in CiviCRM a search of all contacts in this fresh installation is as shown in the screen shot below:
+![civicrm11](/images/simulation_civicrm/civicrm11.png)
