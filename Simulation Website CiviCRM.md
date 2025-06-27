@@ -3,58 +3,59 @@
 The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the *Ventraip - cmrailtrail.org.au* website. This document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
 
 
+## Edit the Apach2 php.ini file.
 
+Some parameters in the file `/etc/php/8.3/apache2/php.ini` need to be increased for CiviCRM. 
 
-    memory_limit 256M  - line 445
-    max_execution_time 240 - l419
-    max_input_time 120 - l429
-    
-    post_max_size 50M l715
-    upload_max_filesize 50M l870
+These are the parameters that need increasing and line number in the `php.ini` file where they were found:
+```
+Line 417: max_execution_time = 240
+Line 429: max_input_time = 120
+Line 445: memory_limit = 256M    
+Line 713: post_max_size = 50M
+Line 865: upload_max_filesize =  50M 
+```
 
+## Using pluma on normal computer to edit php.ini
 
-
+Copy the php.ini file from the simulation computer to the normal computer
+```
 ian@hp:~$ scp cmrailtr@192.168.1.101:/etc/php/8.3/apache2/php.ini php.ini
 cmrailtr@192.168.1.101's password: 
 php.ini                                       100%   72KB 293.4KB/s   00:00    
-ian@hp:~$ ls -l php.ini
--rw-r--r-- 1 ian ian 73718 Jun 27 10:57 php.ini
+```
+Use *pluma* to edit the file and apply the above changes:
+```
 ian@hp:~$ pluma php.ini
-ian@hp:~$ 
-ian@hp:~$ scp php.ini cmrailtr@192.168.1.101:/etc/php/8.3/apache2/php.ini
-cmrailtr@192.168.1.101's password: 
-scp: dest open "/etc/php/8.3/apache2/php.ini": Permission denied
-scp: failed to upload file php.ini to /etc/php/8.3/apache2/php.ini
-ian@hp:~$ sudo scp php.ini cmrailtr@192.168.1.101:/etc/php/8.3/apache2/php.ini
-[sudo] password for ian: 
-cmrailtr@192.168.1.101's password: 
-scp: dest open "/etc/php/8.3/apache2/php.ini": Permission denied
-scp: failed to upload file php.ini to /etc/php/8.3/apache2/php.ini
+```
+Copy the edited file back to the `home` folder on the simulaton computer: 
+```
 ian@hp:~$ sudo scp php.ini cmrailtr@192.168.1.101:php.ini
 cmrailtr@192.168.1.101's password: 
 php.ini                                       100%   72KB 706.7KB/s   00:00    
-ian@hp:~$ 
+```
 
-    
-    
-    cmrailtr@CMRT-Demo:~$ ls -l /etc/php/apache2/
-ls: cannot access '/etc/php/apache2/': No such file or directory
+Connect to the simulation computer `home` folder and copy the `php.ini` so it replaces the `/etc/php/8.3/apache/php.ini` file
+```
 cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
 total 76
 drwxr-xr-x 2 root root  4096 Jun 19 11:48 conf.d
 -rw-r--r-- 1 root root 73718 Mar 19 23:08 php.ini
+
 cmrailtr@CMRT-Demo:~$ ls -l php.ini
 -rw-r--r-- 1 cmrailtr cmrailtr 74053 Jun 27 11:12 php.ini
+
 cmrailtr@CMRT-Demo:~$ sudo cp php.ini /etc/php/8.3/apache2/php.ini
 [sudo] password for cmrailtr: 
+
 cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
 total 80
 drwxr-xr-x 2 root root  4096 Jun 19 11:48 conf.d
 -rw-r--r-- 1 root root 74053 Jun 27 11:15 php.ini
 cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
+```
 
-
-=====
+## Connect to Database as root
 ```
 cmrailtr@CMRT-Demo:~$ sudo mysql -u root -p
 Enter password: 
@@ -77,7 +78,10 @@ MariaDB [(none)]> SHOW DATABASES;
 | sys                |
 +--------------------+
 5 rows in set (0.008 sec)
+```
 
+## Check if Timezone Data has been installed
+```
 MariaDB [(none)]> SELECT @@system_time_zone;
 +--------------------+
 | @@system_time_zone |
@@ -94,14 +98,6 @@ MariaDB [(none)]> SELECT TIMEDIFF(NOW(), UTC_TIMESTAMP);
 +--------------------------------+
 1 row in set (0.000 sec)
 
-MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne", "Pacific/Auckland");
-+------------------------------------------------------------------------------+
-| CONVERT_TZ("2025-06-03 14:30:00", "Australia/Melbourne", "Pacific/Auckland") |
-+------------------------------------------------------------------------------+
-| NULL                                                                         |
-+------------------------------------------------------------------------------+
-1 row in set (0.000 sec)
-
 MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
 "Australia/Melbourne");
 +------------------------------------------------------------------------------+
@@ -110,28 +106,31 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
 | NULL                                                                         |
 +------------------------------------------------------------------------------+
 1 row in set (0.000 sec)
+```
+NULL so Timezone data is not installed:
 
-MariaDB [(none)]> quit
-Bye
+## Execute command to install Timezone data
 
-
+From the command prompt execute:
+```
 cmrailtr@CMRT-Demo:~$ sudo mysql_tzinfo_to_sql /usr/share/zoneinfo | sudo mysql -u root mysql
-cmrailtr@CMRT-Demo:~$ 
+```
 
+Check Timezone
+```
 MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
     -> "Australia/Melbourne");
 +------------------------------------------------------------------------------+
-| CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
-"Australia/Melbourne") |
+| CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland", "Australia/Melbourne") |
 +------------------------------------------------------------------------------+
 | 2025-06-03 12:30:00                                                          |
 +------------------------------------------------------------------------------+
-1 row in set (0.001 sec)
+```
+Not NULL. Know that Melbourne is 2 hours behind Auckland.
 
 
-=====
-
-
+## Create the CiviCRM Database
+```
 MariaDB [(none)]> use mysql
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -164,13 +163,22 @@ MariaDB [mysql]> show databases;
 | sys                |
 +--------------------+
 6 rows in set (0.000 sec)
+```
 
-MariaDB [mysql]> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, TRIGGER, CREATE ROUTINE, ALTER ROUTINE, REFERENCES, CREATE VIEW, SHOW VIEW ON cmrailtr_civicrm.* TO 'cmrailtr_czhn1'@'localhost' IDENTIFIED BY 'W.VDfqMNL4CNg2SasTH40';
+Grant the privileges to the User of CiviCRM, `cmrailtr_czhn1`:
+```
+MariaDB [mysql]> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, TRIGGER, CREATE ROUTINE, ALTER ROUTINE, REFERENCES, CREATE VIEW, SHOW VIEW ON cmrailtr_civicrm.* TO 'cmrailtr_czhn1'@'localhost' IDENTIFIED BY 'W---HIDDEN---0';
 Query OK, 0 rows affected (0.011 sec)
 
 MariaDB [mysql]> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.001 sec)
+```
 
+## Check Login by User 
+
+The User `cmrailtr_czhn1` does not need sudo priv to login.
+However, they have restricted view of only three of the six databases.
+```
 cmrailtr@CMRT-Demo:~$ mysql -u cmrailtr_czhn1 -p
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -190,15 +198,17 @@ MariaDB [(none)]> show databases;
 | information_schema |
 +--------------------+
 3 rows in set (0.001 sec)
+```
 
-MariaDB [(none)]> 
+## Review the `cmrailtr_civicrm` Database before CiviCRM install
+```
 MariaDB [(none)]> use cmrailtr_civicrm
 Database changed
 MariaDB [cmrailtr_civicrm]> show tables;
 Empty set (0.000 sec)
+```
 
-MariaDB [cmrailtr_civicrm]> quit
-Bye
+
 cmrailtr@CMRT-Demo:~$ 
 cmrailtr@CMRT-Demo:~$ 
 cmrailtr@CMRT-Demo:~$ ls
@@ -218,19 +228,36 @@ cp: missing destination file operand after '/home/cmrailtr/civicrm-6.2.0-wordpre
 Try 'cp --help' for more information.
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ cp ~/civicrm-6.2.0-wordpress.zip *
 cp: target 'index.php': Not a directory
+
+## Unzip CiviCRM
+
+The CiviCRM for WordPress zip file has been downloaded to the `home` folder. From the `home` folder the directory is changed to be:
+`/home/cmrailtr/public_html/wp-content/plugins`. The zip file is then copied to the `plugins` folder:
+```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ cp ~/civicrm-6.2.0-wordpress.zip civicrm-6.2.0-wordpress.zip
+
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ ls -l
 total 46360
 drwxr-xr-x 4 cmrailtr cmrailtr     4096 Apr 14 23:37 akismet
 -rw-rw-r-- 1 cmrailtr cmrailtr 47456829 Jun 27 12:14 civicrm-6.2.0-wordpress.zip
 -rw-r--r-- 1 cmrailtr cmrailtr     2646 Mar  6 00:18 hello.php
 -rw-r--r-- 1 cmrailtr cmrailtr       28 Jun  5  2014 index.php
-
+```
+The unzip command is used with the quiet option.
+```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ unzip -q civicrm-6.2.0-wordpress.zip
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ 
-
+```
+From the `plugins` folder, the unzipping created a `civicrm` folder. Off the `civicrm` folder:
+```
+cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree civicrm
+...snip...
+2792 directories, 18272 files
+```
+The top two levels of directories of the plugin folder then looked like this:
+```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree -L 2
-.
+
+/home/cmrailtr/public_html/wp-content/plugins
 ├── akismet
 │   ├── LICENSE.txt
 │   ├── _inc
@@ -264,221 +291,19 @@ cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree -L 2
 └── index.php
 
 12 directories, 20 files
-
-=====
-
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ ls -l
-total 46364
-drwxr-xr-x  4 cmrailtr cmrailtr     4096 Apr 14 23:37 akismet
-drwxr-xr-x 10 cmrailtr cmrailtr     4096 May  8 06:37 civicrm
--rw-rw-r--  1 cmrailtr cmrailtr 47456829 Jun 27 12:14 civicrm-6.2.0-wordpress.zip
--rw-r--r--  1 cmrailtr cmrailtr     2646 Mar  6 00:18 hello.php
--rw-r--r--  1 cmrailtr cmrailtr       28 Jun  5  2014 index.php
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ rm civicrm-6.2.0-wordpress.zip 
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ ls
-akismet  civicrm  hello.php  index.php
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ 
-
-=====
-
-Switch to Wordpress
-192.168.1.101/wp-admin
-
---> Plugins --> civicrm --> activate
-
-mysql://USER:PASS@HOST/DB
-
-mysql://cmrailtr_czhn1:W---HIDDEN----0@localhost:3306/cmrailtr_civicrm
-
-===
-
-cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree civicrm
-$ 
-2792 directories, 18272 files
-
-===
-
-cmrailtr@CMRT-Demo:~/public_html$ tree -d -L 3
-.
-├── wp-admin
-│   ├── css
-│   │   └── colors
-│   ├── images
-│   ├── includes
-│   ├── js
-│   │   └── widgets
-│   ├── maint
-│   ├── network
-│   └── user
-├── wp-content
-│   ├── languages
-│   │   ├── plugins
-│   │   └── themes
-│   ├── plugins
-│   │   ├── akismet
-│   │   └── civicrm
-│   ├── themes
-│   │   ├── twentytwentyfive
-│   │   ├── twentytwentyfour
-│   │   └── twentytwentythree
-│   ├── upgrade
-│   └── uploads
-│       ├── 2025
-│       └── civicrm
-└── wp-includes
-    ├── ID3
-    ├── IXR
-    ├── PHPMailer
-    ├── Requests
-    │   ├── library
-    │   └── src
-    ├── SimplePie
-    │   ├── library
-    │   └── src
-    ├── Text
-    │   └── Diff
-    ├── assets
-    ├── block-bindings
-    ├── block-patterns
-    ├── block-supports
-    ├── blocks
-    │   ├── archives
-    │   ├── audio
-    │   ├── avatar
-    │   ├── block
-    │   ├── button
-    │   ├── buttons
-    │   ├── calendar
-    │   ├── categories
-    │   ├── code
-    │   ├── column
-    │   ├── columns
-    │   ├── comment-author-name
-    │   ├── comment-content
-    │   ├── comment-date
-    │   ├── comment-edit-link
-    │   ├── comment-reply-link
-    │   ├── comment-template
-    │   ├── comments
-    │   ├── comments-pagination
-    │   ├── comments-pagination-next
-    │   ├── comments-pagination-numbers
-    │   ├── comments-pagination-previous
-    │   ├── comments-title
-    │   ├── cover
-    │   ├── details
-    │   ├── embed
-    │   ├── file
-    │   ├── footnotes
-    │   ├── freeform
-    │   ├── gallery
-    │   ├── group
-    │   ├── heading
-    │   ├── home-link
-    │   ├── html
-    │   ├── image
-    │   ├── latest-comments
-    │   ├── latest-posts
-    │   ├── legacy-widget
-    │   ├── list
-    │   ├── list-item
-    │   ├── loginout
-    │   ├── media-text
-    │   ├── missing
-    │   ├── more
-    │   ├── navigation
-    │   ├── navigation-link
-    │   ├── navigation-submenu
-    │   ├── nextpage
-    │   ├── page-list
-    │   ├── page-list-item
-    │   ├── paragraph
-    │   ├── pattern
-    │   ├── post-author
-    │   ├── post-author-biography
-    │   ├── post-author-name
-    │   ├── post-comments-form
-    │   ├── post-content
-    │   ├── post-date
-    │   ├── post-excerpt
-    │   ├── post-featured-image
-    │   ├── post-navigation-link
-    │   ├── post-template
-    │   ├── post-terms
-    │   ├── post-title
-    │   ├── preformatted
-    │   ├── pullquote
-    │   ├── query
-    │   ├── query-no-results
-    │   ├── query-pagination
-    │   ├── query-pagination-next
-    │   ├── query-pagination-numbers
-    │   ├── query-pagination-previous
-    │   ├── query-title
-    │   ├── query-total
-    │   ├── quote
-    │   ├── read-more
-    │   ├── rss
-    │   ├── search
-    │   ├── separator
-    │   ├── shortcode
-    │   ├── site-logo
-    │   ├── site-tagline
-    │   ├── site-title
-    │   ├── social-link
-    │   ├── social-links
-    │   ├── spacer
-    │   ├── table
-    │   ├── tag-cloud
-    │   ├── template-part
-    │   ├── term-description
-    │   ├── text-columns
-    │   ├── verse
-    │   ├── video
-    │   └── widget-group
-    ├── certificates
-    ├── css
-    │   └── dist
-    ├── customize
-    ├── fonts
-    ├── html-api
-    ├── images
-    │   ├── crystal
-    │   ├── media
-    │   └── smilies
-    ├── interactivity-api
-    ├── js
-    │   ├── codemirror
-    │   ├── crop
-    │   ├── dist
-    │   ├── imgareaselect
-    │   ├── jcrop
-    │   ├── jquery
-    │   ├── mediaelement
-    │   ├── plupload
-    │   ├── swfupload
-    │   ├── thickbox
-    │   └── tinymce
-    ├── l10n
-    ├── php-compat
-    ├── pomo
-    ├── rest-api
-    │   ├── endpoints
-    │   ├── fields
-    │   └── search
-    ├── sitemaps
-    │   └── providers
-    ├── sodium_compat
-    │   ├── lib
-    │   ├── namespaced
-    │   └── src
-    ├── style-engine
-    ├── theme-compat
-    └── widgets
-
-176 directories
-cmrailtr@CMRT-Demo:~/public_html$ 
 ```
+The zip file is no longer required and was removed.
+```
+cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ rm civicrm-6.2.0-wordpress.zip 
+```
+
+## Switch to Wordpress wp-admin to complete the CiviCRM installation:
+
+Open a browser and login to the WordPress Admin account on the simulation computer. E.g. `http://192.168.1.101/wp-admin`
+
+In the WordPress main screen go to --> Plugins --> civicrm --> activate
+
+The CiviCRM Installation will be performed in the browser...
 
 Initial Installation Screen - Errors are due to the link to the CiviCRM Database defaulted to the WordPress database
 ![civicrm1](/images/simulation_civicrm/civicrm1.png)
