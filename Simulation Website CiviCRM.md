@@ -2,8 +2,28 @@
 
 The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the *Ventraip - cmrailtrail.org.au* website. This document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
 
+### Reference Documents
 
-## Edit the Apach2 php.ini file.
+[CiviCRM Installation Guide](https://docs.civicrm.org/installation/en/latest/)
+
+### PHP Modules:
+
+The installation of PHP modules for WordPress covered the PHP requirements for CiviCRM. Thus, no further PHP modules need to be installed.
+
+The [PHP Extensions](https://docs.civicrm.org/installation/en/latest/requirements/#php-extensions) section states CiviCRM requires:
+
+* bcmath
+* curl
+* dom - xml
+* mbstring
+* zip
+* intl
+* fileinfo
+* soap
+
+These should have already been installed.
+
+### Edit the Apach2 php.ini file.
 
 Some parameters in the file `/etc/php/8.3/apache2/php.ini` need to be increased for CiviCRM. 
 
@@ -16,7 +36,7 @@ Line 713: post_max_size = 50M
 Line 865: upload_max_filesize =  50M 
 ```
 
-## Using pluma on normal computer to edit php.ini
+### Using pluma on normal computer to edit php.ini
 
 Copy the php.ini file from the simulation computer to the normal computer
 ```
@@ -55,7 +75,7 @@ drwxr-xr-x 2 root root  4096 Jun 19 11:48 conf.d
 cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
 ```
 
-## Connect to Database as root
+### Connect to Database as root
 ```
 cmrailtr@CMRT-Demo:~$ sudo mysql -u root -p
 Enter password: 
@@ -80,7 +100,7 @@ MariaDB [(none)]> SHOW DATABASES;
 5 rows in set (0.008 sec)
 ```
 
-## Check if Timezone Data has been installed
+### Check if Timezone Data has been installed
 ```
 MariaDB [(none)]> SELECT @@system_time_zone;
 +--------------------+
@@ -109,7 +129,7 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
 ```
 NULL so Timezone data is not installed:
 
-## Execute command to install Timezone data
+### Execute command to install Timezone data
 
 From the command prompt execute:
 ```
@@ -129,7 +149,7 @@ MariaDB [(none)]> SELECT CONVERT_TZ("2025-06-03 14:30:00", "Pacific/Auckland",
 Not NULL. Know that Melbourne is 2 hours behind Auckland.
 
 
-## Create the CiviCRM Database
+### Create the CiviCRM Database
 ```
 MariaDB [(none)]> use mysql
 Reading table information for completion of table and column names
@@ -174,7 +194,7 @@ MariaDB [mysql]> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.001 sec)
 ```
 
-## Check Login by User 
+### Check Login by User 
 
 The User `cmrailtr_czhn1` does not need sudo priv to login.
 However, they have restricted view of only three of the six databases.
@@ -200,7 +220,7 @@ MariaDB [(none)]> show databases;
 3 rows in set (0.001 sec)
 ```
 
-## Review the `cmrailtr_civicrm` Database before CiviCRM install
+### Review the `cmrailtr_civicrm` Database before CiviCRM install
 ```
 MariaDB [(none)]> use cmrailtr_civicrm
 Database changed
@@ -208,7 +228,7 @@ MariaDB [cmrailtr_civicrm]> show tables;
 Empty set (0.000 sec)
 ```
 
-## Unzip CiviCRM
+### Unzip CiviCRM
 
 The CiviCRM for WordPress zip file has been downloaded to the `home` folder. From the `home` folder the directory is changed to be:
 `/home/cmrailtr/public_html/wp-content/plugins`. The zip file is then copied to the `plugins` folder:
@@ -276,7 +296,7 @@ The zip file is no longer required and was removed.
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ rm civicrm-6.2.0-wordpress.zip 
 ```
 
-## Switch to Wordpress wp-admin to complete the CiviCRM installation:
+### Switch to Wordpress wp-admin to complete the CiviCRM installation:
 
 Open a browser and login to the WordPress Admin account on the simulation computer. E.g. `http://192.168.1.101/wp-admin`
 
@@ -315,7 +335,7 @@ CiviCRM System Status Screen - Top.
 CiviCRM System Status Screen - Bottom.
 ![civicrm10](/images/simulation_civicrm/civicrm10.png)
 
-## Review the `cmrailtr_civicrm` Database after the CiviCRM install
+### Review the `cmrailtr_civicrm` Database after the CiviCRM install
 ```
 cmrailtr@CMRT-Demo:~/public_html$ mysql -u cmrailtr_czhn1 -p
 Enter password: 
