@@ -1,6 +1,6 @@
 # Installation of CiviCRM on the Simulation Website
 
-The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the Ventraip - cmrailtrail.org.au website. This document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
+The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the *Ventraip - cmrailtrail.org.au* website. This document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
 
 
 
@@ -55,6 +55,7 @@ cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
 
 
 =====
+```
 cmrailtr@CMRT-Demo:~$ sudo mysql -u root -p
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -287,7 +288,7 @@ Switch to Wordpress
 
 mysql://USER:PASS@HOST/DB
 
-mysql://cmrailtr_czhn1:W.VDfqMNL4CNg2SasTH40@localhost:3306/cmrailtr_civicrm
+mysql://cmrailtr_czhn1:W---HIDDEN----0@localhost:3306/cmrailtr_civicrm
 
 ===
 
@@ -477,12 +478,35 @@ cmrailtr@CMRT-Demo:~/public_html$ tree -d -L 3
 
 176 directories
 cmrailtr@CMRT-Demo:~/public_html$ 
+```
 
-
-Initial Installation Screen - With errors due to linking to wrong database
-
+Initial Installation Screen - Errors are due to the link to the CiviCRM Database defaulted to the WordPress database
 ![civicrm1](/images/simulation_civicrm/civicrm1.png)
 
-Select the Language - English (Australian)
-![language](images/simulation/s1-language.png)
-Next picture
+Editing the link so that the `cmrailtr_civicrm` database is used via user `cmrailtr_czhn1`
+CiviCRMmysql://cmrailtr_czhn1:W----HIDDEN-----0@localhost:3306/cmrailtr_civicrm
+![civicrm2](/images/simulation_civicrm/civicrm2.png)
+
+CiviCRM Installer screen with out any errors. Top.
+![civicrm3](/images/simulation_civicrm/civicrm3.png)
+
+CiviCRM Installer screen with out any errors. Bottom.  5 Components selected and 3 unselected.
+![civicrm4](/images/simulation_civicrm/civicrm4.png)
+
+Change to all 8 components selected. No sample data.
+![civicrm5](/images/simulation_civicrm/civicrm5.png)
+Environment with CiviCRM Database set to `cmrailtr_civicrm`:
+
+![civicrm6](/images/simulation_civicrm/civicrm6.png)
+
+Installation Success screen
+![civicrm7](/images/simulation_civicrm/civicrm7.png)
+
+CiviCRM Home screen - with System Status: Warnings
+![civicrm8](/images/simulation_civicrm/civicrm8.png)
+
+CiviCRM System Status Screen - Top.
+![civicrm9](/images/simulation_civicrm/civicrm9.png)
+
+CiviCRM System Status Screen - Bottom.
+![civicrm10](/images/simulation_civicrm/civicrm10.png)
