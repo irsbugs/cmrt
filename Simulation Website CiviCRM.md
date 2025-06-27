@@ -481,6 +481,8 @@ cmrailtr@CMRT-Demo:~/public_html$
 
 Initial Installation Screen - With errors due to linking to wrong database
 
-![civicrm1](/images/simulation_civicrm.civicrm1.png)
+![civicrm1](/images/simulation_civicrm/civicrm1.png)
 
+Select the Language - English (Australian)
+![language](images/simulation/s1-language.png)
 Next picture
