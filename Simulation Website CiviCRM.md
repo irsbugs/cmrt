@@ -1,6 +1,6 @@
 # Installation of CiviCRM on the Simulation Website
 
-The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the *Ventraip - cmrailtrail.org.au* website. This document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
+The document [Simulation Website](Simulation%20Website.md) contains information on the preparation and installation of WordPress to simulate the configuration on the *Ventraip - cmrailtrail.org.au* website. This follow on document details the adding of CiviCRM onto this Ubuntu 24.04 based simulation website.
 
 ### Reference Documents
 
