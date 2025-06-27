@@ -480,5 +480,7 @@ cmrailtr@CMRT-Demo:~/public_html$
 
 
 Initial Installation Screen - With errors due to linking to wrong database
+
 ![civicrm1](/images/simulation_civicrm.civicrm1.png)
 
+Next picture
