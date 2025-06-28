@@ -6,7 +6,7 @@ Ventraip, hosting cmrailtrail.org.au, use Cloudlinux 7.9 OS and provide Python 2
 
 The Python [versions](https://devguide.python.org/versions/#full-chart) chart shows Python 2.7 having been released in 2010 and going end-of-life in 2000. Ventraip claim they need Python 2.7.5 to support the LiteSpeed HTTP Server they use.
 
-The Simulation Website is hosted on Ubuntu 24.04 distro which is currently supported and includes Python 3.12. Thus, to write Python programs on the Simulation Website that will also run on cmrailtr.org.au, it is necessary to install Python 2.7.5.
+The Simulation Website is hosted on Ubuntu 24.04 distro which is currently supported and includes Python 3.12. Thus, to write Python programs on the Simulation Website that will also run on `cmrailtrail.org.au`, it is necessary to install `Python 2.7.5`.
 
 Python 2.7.5 is no longer available as a debian distribution from the Ubuntu repository. The source code for Python 2.7.5 may be downloaded from: https://www.python.org/downloads/release/python-275/
 
