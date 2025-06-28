@@ -16,17 +16,17 @@ https://vip.ventraip.com.au/login
 
 Upon logging in go to: Web Hosting --> cPanel --> Tools --> Terminal.
 
-*Terminal* will be at the home, *~/*, folder for the *cmrailtr* account. All folders and files will have *cmrailtr* as their *owner*. This includes the *public-html* folder, which is the top-level directory for WordPress.
+*Terminal* will be at the home, *~/*, directory for the *cmrailtr* account. All directories and files will have *cmrailtr* as their *owner*. This includes the *public-html* directory, which is the top-level directory for WordPress.
 
-By having all the WordPress / CiviCRM folders and files owned by *cmrailtr*, then it removes *Permission denied* errors and the need to use an elevated privilege when performing the upgrade.
+By having all the WordPress / CiviCRM directories and files owned by *cmrailtr*, then it removes *Permission denied* errors and the need to use an elevated privilege when performing the upgrade.
 
-### Folders and Files
+### Directories and Files
 
-* ~/bin/ this folder may contain bash or Python scripts to perform back-up, etc. These scripts may be executed from anywhere in the account.
-* ~/civicrm_backup/ this folder is where backups of the CiviCRM files and database will be placed.
-* ~/public_html/ this folder is the top-level directory of WordPress
-* ~/public_html/wp-content/plugins/ this folder is the staging directory for new version zip files of CiviCRM.
-* ~/public_html/wp-content/plugins/civicrm/ this folder is the top-level directory of CiviCRM.
+* ~/bin/ this directory may contain bash or Python scripts to perform back-up, etc. These scripts may be executed from anywhere in the account.
+* ~/civicrm_backup/ this directory is where backups of the CiviCRM files and database will be placed.
+* ~/public_html/ this directory is the top-level directory of WordPress
+* ~/public_html/wp-content/plugins/ this directory is the staging directory for new version zip files of CiviCRM.
+* ~/public_html/wp-content/plugins/civicrm/ this directory is the top-level directory of CiviCRM.
 
 
 
@@ -68,10 +68,10 @@ In the cmtrailtrail.org.au
 * Check what is the current version of CiviCRM. From the WordPress wp-admin screen, click on Plugins and look for CiviCRM and its Version. E.g. 6.2.0
 * Check what is the current latest version of CiviCRM. Goto: https://civicrm.org/download
 * If CiviCRM needs upgrading then click on *Download CiviCRM for WordPress* and the *civicrm-x.x.x-wordpress.zip* file will be downloaded.
-* The zip file needs to be moved to the folder: <wordpress_root>/wp-content/plugins/
+* The zip file needs to be moved to the directory: <wordpress_root>/wp-content/plugins/
 * Alternatively right-click on *Download CiviCRM for WordPress* and copy the link. E.g. https://download.civicrm.org/civicrm-6.3.1-wordpress.zip
 * Change your directory to be: <wordpress_root>/wp-content/plugins/
-* Use wget to download the zip file to the plugins folder. E.g. $ wget https://download.civicrm.org/civicrm-6.3.1-wordpress.zip
+* Use wget to download the zip file to the plugins directory. E.g. $ wget https://download.civicrm.org/civicrm-6.3.1-wordpress.zip
 ```
 root@hp:/srv/www/wordpress/wp-content# cd plugins
 root@hp:/srv/www/wordpress/wp-content/plugins# wget https://download.civicrm.org/civicrm-6.3.1-wordpress.zip
@@ -98,9 +98,9 @@ Login to wordPress as an administrator. Remain logged in until upgrade is comple
 ## Backup 
 
 Ideally.. 
-The backup operations should be done by Python or Bash scripts located in the folder ~/bin/. Thus it is available for execution to the command line from any directory.
+The backup operations should be done by Python or Bash scripts located in the directory ~/bin/. Thus it is available for execution to the command line from any directory.
 
-Off the /home/ folder is located the folder ~/civicrm_backup/ This is where the backup's will be placed.
+Off the /home/ directory is located the directory ~/civicrm_backup/ This is where the backup's will be placed.
 
 It may be useful to change directory to ~/civicrm_backup/ so the backup operations run with more simplified commands.
 
@@ -111,7 +111,7 @@ It may be useful to change directory to ~/civicrm_backup/ so the backup operatio
 
 The tar program is used to create archives of many files, but it doesn't have its own compression routines. But by using the appropriate options with tar, it will cause tar to push the archive file through gzip. That way a compressed archive file is created containing a multi-file / multi-directory archive.
 
-* Backup the existing civicrm from the folder  <wordpress_root>/wp-content/plugins/
+* Backup the existing civicrm from the directory  <wordpress_root>/wp-content/plugins/
 * 
 ```
 ian@hp:~$ echo backup_civicrm_$(date "+%Y-%m-%d_%H:%M:%S")_tar.gz
@@ -148,7 +148,7 @@ www-data@hp:/srv/www/wordpress$ ls -l
 -rw-rw-r--  1 www-data www-data     0 Jun 16 07:58 test
 
 www-data@hp:/srv/www/wordpress$ cd ~/
-This took to being /var/www with html as a folder off www
+This took to being /var/www with html as a directory off www
 
 Maybe this was created before 
 
