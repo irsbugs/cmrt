@@ -38,7 +38,7 @@ The following steps are described in detail further down in this document.
 * Install PHP modules.
 * Install Apache2 and change Owner and Group from `www-data` to `cmrailtr`.
 * Install MariaDB. `mariadb-server` and `mariadb-client`
-* Install WordPress zip file, with the top-level directory in the home folder. All WordPress files and folders have the Owner and Group of `cmrailtr`.
+* Install WordPress zip file, with the top-level directory in the home directory. All WordPress files and directories have the Owner and Group of `cmrailtr`.
 * WordPress database is: `cmrailtr_czhn1`
 * WordPress user is: `cmrailtr_czhn1`
 * Rename `wordpress` top-level directory as `public_html`
@@ -58,8 +58,8 @@ In installing WordPress and CiviCRM to simulate the cmrailtrail.org.au website t
 *    Simulation computer host name: `CMRT-Demo`
 
 ### Tailoring:
-In the home folder create a bin folder for bash and Python scripts. `$ mkdir bin`
-In the home folder create a backup folder. `$ mkdir civicrm_backup`
+In the home directory create a bin directory for bash and Python scripts. `$ mkdir bin`
+In the home directory create a backup directory. `$ mkdir civicrm_backup`
 
 ### SSH installed on your normal computer.
 
@@ -99,7 +99,7 @@ Use **SCP** to copy a file, E.g. `wordpress.conf`, from your normal computer to 
     ```
 3. The `wordpress.conf` file is now in the simulation computers ~/ home directory.
 
-Use **SCP** on your normal computer to copy a file, E.g. `wordpress_backup.zip`, from the ~/ home folder on the simulation computer to your normal computer.
+Use **SCP** on your normal computer to copy a file, E.g. `wordpress_backup.zip`, from the ~/ home directory on the simulation computer to your normal computer.
 
 1.  Open a MATE Terminal on your normal computer. `Ctrl-Alt-t`
 
@@ -162,7 +162,7 @@ To add more php modules to help satisfy the WordPress extensions list, enter the
 
 `sudo apt install php8.3 php-curl php-intl php-json php8.3-apcu php8.3-bcmath php8.3-igbinary php8.3-imagick php8.3-mbstring php8.3-memcached php8.3-mysql php8.3-opcache php8.3-redis php8.3-soap php8.3-ssh2 php8.3-xml php8.3-zip`
 
-Descrepency: After the above modules have been installed, these are 8 x php modules that are not in the `/etc/php/8.3/mods-available` folder:
+Descrepency: After the above modules have been installed, these are 8 x php modules that are not in the `/etc/php/8.3/mods-available` directory:
 `filter, hash, json, openssl, pcre, sodium, timezonedb, zlib`
 
 However in performing a `$ php-m` these following php modules are listed:
@@ -182,7 +182,7 @@ The command line utility `php` may be used to determine the PHP modules installe
 ```
 cmrailtr@CMRT-Demo:~$ php -m
 ```
-Another way to check which PHP modules are installed is to get a listing of the `/etc/php/8.3/mods-available folder`:
+Another way to check which PHP modules are installed is to get a listing of the `/etc/php/8.3/mods-available directory`:
 ```
 cmrailtr@CMRT-Demo:~$ ls /etc/php/8.3/mods-available
 apcu.ini      ftp.ini        mysqli.ini     shmop.ini      xml.ini
@@ -262,7 +262,7 @@ The above file sets the path to the website via `/home/cmrailtr/` directories. W
 
 ### Apache2 Environmental Variables
 
-The `/etc/apache2` directory contains the file `envvars` i.e. environmental variables. This file is edited so the User and Group are `cmrailtr`. Later, with the installation of WordPress, all WordPress files and folders will have the owner and group of `cmrailtr`. This makes it easier to do backup's etc., of WordPress from the home directory. The changes to `envvars` are:
+The `/etc/apache2` directory contains the file `envvars` i.e. environmental variables. This file is edited so the User and Group are `cmrailtr`. Later, with the installation of WordPress, all WordPress files and directories will have the owner and group of `cmrailtr`. This makes it easier to do backup's etc., of WordPress from the home directory. The changes to `envvars` are:
 ```
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
@@ -281,11 +281,11 @@ The latest WordPress distribution zip file is copied to the ~/ home directory.
 cmrailtr@CMRT-Demo:~$ file wordpress-6.8.1.zip
 wordpress-6.8.1.zip: Zip archive data, at least v1.0 to extract, compression method=store
 ```
-The command `unzip` with `-q` for quiet is used to extract all files and folders and place them off the toplevel directory `wordpress`:
+The command `unzip` with `-q` for quiet is used to extract all files and directories and place them off the toplevel directory `wordpress`:
 ```
 cmrailtr@CMRT-Demo:~$ unzip -q wordpress-6.8.1.zip
 ```
-The total folders and files for Wordpress 6.8.1 was: 344 directories, 3228 files 
+The total directories and files for Wordpress 6.8.1 was: 344 directories, 3228 files 
 
 The top-level directory is then renamed using the `mv` command from `wordpress` to `public_htnl`:
 ```
@@ -316,7 +316,7 @@ drwxr-xr-x 30 cmrailtr cmrailtr 12288 Apr 30 16:41 wp-includes
 -rw-r--r--  1 cmrailtr cmrailtr  3205 Nov  8  2024 xmlrpc.php 
 ```
 The above directory contains 3 subdirectories, `wp-admin`, `wp-content` and `wp-includes`.
-Note that the above folder contains the file `wp-config-sample.php`. This is edited and renamed as `wp-config.php`. See below.  
+Note that the above directory contains the file `wp-config-sample.php`. This is edited and renamed as `wp-config.php`. See below.  
 
 ### Creating wp-config.php 
 
