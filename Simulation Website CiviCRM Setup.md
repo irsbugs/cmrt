@@ -308,9 +308,13 @@ CMRT Organization - Address Details
 CMRT Organization - Communication Details. Then click on *Save*.
 ![civicrm_setup4](/images/civicrm_setup/civicrm_setup4.png)
 
-CMRT Organi
+CMRT Organization Main screen
 ![civicrm_setup5](/images/civicrm_setup/civicrm_setup5.png)
+
+Find Contacts Screen
 ![civicrm_setup6](/images/civicrm_setup/civicrm_setup6.png)
+
+View Contact - CMRT.
 ![civicrm_setup7](/images/civicrm_setup/civicrm_setup7.png)
 
 
