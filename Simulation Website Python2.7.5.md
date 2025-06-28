@@ -310,7 +310,12 @@ cmrailtr@CMRT-Demo:~/python_source/Python-2.7.5$ ls -l /usr/local/bin/python2.7
 -rwxr-xr-x 1 root root 6844608 Jun 28 18:04 /usr/local/bin/python2.7
 ```
 
-The Python 2.7.5 source code .tgz file and the source code off the `Python-2.7.5` may be removed.
+The Python 2.7.5 source code .tgz file and the source code off the `Python-2.7.5` may be removed. From the ~/ home file:
+WARNING: Be careful when using the bash rm command to remove files and directories
 ```
+cmrailtr@CMRT-Demo:~$ rm -rf python_source
+```
+
+
 
 ```
