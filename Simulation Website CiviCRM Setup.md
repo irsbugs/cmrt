@@ -297,4 +297,5 @@ MariaDB [cmrailtr_civicrm]> SELECT id, contact_id, email FROM civicrm_email;
 The `contact_id`'s above match the `ID` fields in the `civicrm_contact` table.
 
 Thus, in CiviCRM a search of all contacts in this fresh installation is as shown in the screen shot below:
-![civicrm11](/images/simulation_civicrm/civicrm11.png)
+![civicrm_setup1](/images/civicrm_setup/civicrm_setup1.png)
+
