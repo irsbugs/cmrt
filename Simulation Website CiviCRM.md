@@ -48,14 +48,14 @@ Use *pluma* to edit the file and apply the above changes:
 ```
 ian@hp:~$ pluma php.ini
 ```
-Copy the edited file back to the `home` folder on the simulaton computer: 
+Copy the edited file back to the `home` directory on the simulaton computer: 
 ```
 ian@hp:~$ sudo scp php.ini cmrailtr@192.168.1.101:php.ini
 cmrailtr@192.168.1.101's password: 
 php.ini                                       100%   72KB 706.7KB/s   00:00    
 ```
 
-Connect to the simulation computer `home` folder and copy the `php.ini` so it replaces the `/etc/php/8.3/apache/php.ini` file
+Connect to the simulation computer `home` directory and copy the `php.ini` so it replaces the `/etc/php/8.3/apache/php.ini` file
 ```
 cmrailtr@CMRT-Demo:~$ ls -l /etc/php/8.3/apache2/
 total 76
@@ -230,8 +230,8 @@ Empty set (0.000 sec)
 
 ### Unzip CiviCRM
 
-The CiviCRM for WordPress zip file has been downloaded to the `home` folder. From the `home` folder the directory is changed to be:
-`/home/cmrailtr/public_html/wp-content/plugins`. The zip file is then copied to the `plugins` folder:
+The CiviCRM for WordPress zip file has been downloaded to the `home` directory. From the `home` directory the directory is changed to be:
+`/home/cmrailtr/public_html/wp-content/plugins`. The zip file is then copied to the `plugins` directory:
 ```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ cp ~/civicrm-6.2.0-wordpress.zip civicrm-6.2.0-wordpress.zip
 
@@ -246,13 +246,13 @@ The unzip command is used with the quiet option.
 ```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ unzip -q civicrm-6.2.0-wordpress.zip
 ```
-From the `plugins` folder, the unzipping created a `civicrm` folder. Off the `civicrm` folder:
+From the `plugins` directory, the unzipping created a `civicrm` directory. Off the `civicrm` directory:
 ```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree civicrm
 ...snip...
 2792 directories, 18272 files
 ```
-The top two levels of directories of the plugin folder then looked like this:
+The top two levels of directories of the plugin directory then looked like this:
 ```
 cmrailtr@CMRT-Demo:~/public_html/wp-content/plugins$ tree -L 2
 
