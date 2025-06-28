@@ -80,7 +80,9 @@ Python-2.7.5/
 Python-2.7.5/Grammar/
 Python-2.7.5/Grammar/Grammar
 Python-2.7.5/config.guess
+
 ...snip ~4,600 folders and files...
+
 Python-2.7.5/Misc/RPM/python-2.7.spec
 Python-2.7.5/Misc/valgrind-python.supp
 Python-2.7.5/Misc/README.klocwork
