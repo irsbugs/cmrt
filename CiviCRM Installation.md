@@ -458,7 +458,7 @@ EOF.
 
 Notes:
 
-TODO: Add the tree for uploads folder CiviCRM Extensions
+TODO: Add the tree for uploads directory CiviCRM Extensions
 
 Version: 6.2.0 Build Time: Wed, 07 May 2025 23:24:21 -0700
 Version: 6.3.0 Build Time: Wed, 04 Jun 2025 22:57:43 -0700
