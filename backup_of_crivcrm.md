@@ -61,7 +61,7 @@ Create a directory for placing the backup of the current CiviCRM
 `$ mkdir civicrm_backup`
 
 Change to the plugin directory. This has  the civicrm directory. 
-Off this directory are all the CiviCRM folders and files
+Off this directory are all the CiviCRM directories and files
 
 `$ cd /srv/www/wordpress/wp-content/plugins/`
 
