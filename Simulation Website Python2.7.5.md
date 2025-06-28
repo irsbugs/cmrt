@@ -88,6 +88,7 @@ Python-2.7.5/Misc/valgrind-python.supp
 Python-2.7.5/Misc/README.klocwork
 cmrailtr@CMRT-Demo:~/python_source$ 
 ```
+Using the tree command the `Python-2.7.5` source code has 345 directories, 4732 files.
 
 Change to the `Python-2.7.5` directory.
 ```
@@ -265,8 +266,34 @@ antigravity         idlelib             sets                zipimport
 anydbm              ihooks              sgmllib             
 argparse            imaplib             sha                 
 ```
+The total modules in the Ubuntu Python 2.7.5 is 322, while the total modules in CloundLinux python 2.7.5 is 502.
 
-If you need the Python 3 that is installed, then launch it with `$ python3`
+These five modules are in Ubuntu Python 2.7.5 and not in CloudLinux Python 2.7.5:
+```
+_md5, _sha, _sha256, _sha512 ,_testcapi
+```
+These 187 modules are in CloudLinu Python 2.7.5 and not in Ubuntu Python 2.7.5:
+```
+IPy, M2Crypto, OpenSSL, _audit, _bsddb, _cffi_backend, _curses_panel, _dbus_bindings, _dbus_glib_bindings, _elementtree, _hashlib,
+_markerlib, _semanage, _snack, _sqlite3, _sqlitecache, _ssl, _tkinter, _yaml, acutil, audit, auparse, autofs_pb2, babel, backports, 
+binfmt_misc_pb2, bz2, cffi, cgroup_pb2, chardet, clcommon, clsudo, configobj, core_aarch64_pb2, core_arm_pb2, core_pb2, core_ppc64_pb2, 
+core_s390_pb2, core_x86_pb2, cpuinfo_pb2, creds_pb2, cryptography, curl, dbm, dbus, decorator, dl, dmidecode, dmidecodemod, dns, 
+drv_libxml2, dsextras, easy_install, engines, enum, ethtool, euca2ools, eventfd_pb2, eventpoll_pb2, ext_file_pb2, fdinfo_pb2, fh_pb2, 
+fifo_pb2, file_lock_pb2, firewall, fown_pb2, fs_pb2, fsnotify_pb2, gdbm, ghost_file_pb2, gi, gio, glib, gobject, gpgme, gudev, hacks, 
+hwdata, idna, imageop, images, iniparse, inventory_pb2, iotop, ipaddr, ipaddress, ipc_desc_pb2, ipc_msg_pb2, ipc_sem_pb2, ipc_shm_pb2, 
+ipc_var_pb2, isc, jinja2, kitchen, liblzma, libxml2, libxml2mod, lve_pb2, lxml, lzma, macvlan_pb2, magic, markupsafe, mm_pb2, mnt_pb2, 
+netdev_pb2, nis, ns_pb2, opts_pb2, packet_sock_pb2, pagemap_pb2, paramiko, pb2dict, pdb, perf, pipe_data_pb2, pipe_pb2, pkg_resources, 
+ply, policycoreutils, procfs, progressbar, pstree_pb2, pyasn1, pycparser, pycriu, pycurl, pygtk, pygtkcompat, pylve, pynche, pyparsing, 
+pyudev, pyzor, readline, regfile_pb2, remap_file_path_pb2, requestbuilder, requests, rhn, rlimit_pb2, rpm, rpmUtils, sa_pb2, schedutils, 
+seccomp_pb2, secureio, selinux, semanage, seobject, sepolgen, sepolicy, setuptools, siginfo_pb2, signalfd_pb2, simplejson, sit_pb2, six, 
+sk_inet_pb2, sk_netlink_pb2, sk_opts_pb2, sk_packet_pb2, sk_unix_pb2, slip, snack, sqlitecachec, stats_pb2, sysctl_pb2, tcp_stream_pb2, 
+time_pb2, timer_pb2, timerfd_pb2, timing, tty_pb2, tun_pb2, tuned, urlgrabber, urllib3, userns_pb2, utsns_pb2, validate, vma_pb2, xattr, 
+yaml, yum, yumutils, zlib
+```
+In writing Python programs on the simulator computer which will later be used on the cmrailtrail.org.au computer, then avoid importing any of the above 192 modules.
+
+
+Note that he Python 3 that is installed on the simulaton may still be used. Launch it with `$ python3`
 ```
 cmrailtr@CMRT-Demo:~/python_source/Python-2.7.5$ python3
 Python 3.12.3 (main, Jun 18 2025, 17:59:45) [GCC 13.3.0] on linux
@@ -281,4 +308,9 @@ python2.7: /usr/local/bin/python2.7 /usr/local/lib/python2.7
 
 cmrailtr@CMRT-Demo:~/python_source/Python-2.7.5$ ls -l /usr/local/bin/python2.7
 -rwxr-xr-x 1 root root 6844608 Jun 28 18:04 /usr/local/bin/python2.7
+```
+
+The Python 2.7.5 source code .tgz file and the source code off the `Python-2.7.5` may be removed.
+```
+
 ```
