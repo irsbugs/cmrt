@@ -299,3 +299,18 @@ The `contact_id`'s above match the `ID` fields in the `civicrm_contact` table.
 Thus, in CiviCRM a search of all contacts in this fresh installation is as shown in the screen shot below:
 ![civicrm_setup1](/images/civicrm_setup/civicrm_setup1.png)
 
+As the *Default Organization* has a *Contact ID* of 1, this will be edited manually to add the *Contact Details* of *CMRT*.
+![civicrm_setup2](/images/civicrm_setup/civicrm_setup2.png)
+
+CMRT Organization - Address Details
+![civicrm_setup3](/images/civicrm_setup/civicrm_setup3.png)
+
+CMRT Organization - Communication Details. Then click on *Save*.
+![civicrm_setup4](/images/civicrm_setup/civicrm_setup4.png)
+
+CMRT Organi
+![civicrm_setup5](/images/civicrm_setup/civicrm_setup5.png)
+![civicrm_setup6](/images/civicrm_setup/civicrm_setup6.png)
+![civicrm_setup7](/images/civicrm_setup/civicrm_setup7.png)
+
+
