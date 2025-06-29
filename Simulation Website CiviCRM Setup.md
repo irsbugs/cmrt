@@ -308,13 +308,32 @@ CMRT Organization - Address Details
 CMRT Organization - Communication Details. Then click on *Save*.
 ![civicrm_setup4](/images/civicrm_setup/civicrm_setup4.png)
 
-CMRT Organization Main screen
+CMRT Organization - View Contact screen
 ![civicrm_setup5](/images/civicrm_setup/civicrm_setup5.png)
 
 Find Contacts Screen
 ![civicrm_setup6](/images/civicrm_setup/civicrm_setup6.png)
 
-View Contact - CMRT.
-![civicrm_setup7](/images/civicrm_setup/civicrm_setup7.png)
+Now that the manual editing to the `Default Organization` has been perform, a check of some of the database fields reveals.
+```
+MariaDB [cmrailtr_civicrm]> SELECT ID, organization_name, first_name, last_name
+FROM civicrm_contact;
++----+------------------------------------+------------+-----------+
+| ID | organization_name                  | first_name | last_name |
++----+------------------------------------+------------+-----------+
+|  1 | Castlemaine-Maryborough Rail Trail | NULL       | NULL      |
+|  2 | NULL                               | NULL       | NULL      |
++----+------------------------------------+------------+-----------+
+2 rows in set (0.000 sec)
 
+MariaDB [cmrailtr_civicrm]> SELECT id, contact_id, email FROM civicrm_email;
++----+------------+--------------------------+
+| id | contact_id | email                    |
++----+------------+--------------------------+
+|  1 |          1 | admin@cmrailtrail.org.au |
+|  2 |          2 | ianstewart56@hotmail.com |
++----+------------+--------------------------+
+2 rows in set (0.000 sec)
+```
+Note that at some point during the installation I entered my e-mail address. This data was used to create a *contact*. However at this stage it is only an `id` and an `e-mail` address and no other data has been entered.
 
