@@ -63,6 +63,17 @@ Related Contact info
 Employee of
 Voluteer is
 ```
+Available for Importing, but not exported
+```
+Availble for importing
+Addressee Custom
+Country ID
+County ID
+Postal Greeting Custom
+State/Province ID
+```
+
+![image](https://github.com/user-attachments/assets/ee3f1108-8f45-451d-b75c-58e08dad6cd0)
 
 The minimum Organization fields that data should be provided for are:
-
+```
