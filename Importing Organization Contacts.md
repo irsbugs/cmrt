@@ -136,6 +136,22 @@ Postal Greeting Custom
 State/Province ID
 ```
 
+Note:
+Duplicate Matching
+
+If a contact in the import file appears to be a duplicate of an existing CiviCRM contact...
+
+    Skip: Reports and then Skips duplicate import file rows - leaving the matching record in the database as-is (default).
+    
+    Update: Updates database fields with available import data. Fields in the database which are NOT included in the import row are left as-is.
+    
+    Fill: Fills in additional contact data only. Database fields which currently have values are left as-is.
+    
+    No Duplicate Checking: Inserts all valid records without comparing them to existing contact records for possible duplicates.
+
+You can only match imported data directly to existing Contact IDs in Update, Fill or No Duplicate Checking modes. 
+
+
 
 From excel spreadsheet
 ![image](https://github.com/user-attachments/assets/ee3f1108-8f45-451d-b75c-58e08dad6cd0)
