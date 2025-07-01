@@ -73,7 +73,11 @@ Postal Greeting Custom
 State/Province ID
 ```
 
-![image](https://github.com/user-attachments/assets/ee3f1108-8f45-451d-b75c-58e08dad6cd0)
-
 The minimum Organization fields that data should be provided for are:
 ```
+xyz
+```
+
+From excel spreadsheet
+![image](https://github.com/user-attachments/assets/ee3f1108-8f45-451d-b75c-58e08dad6cd0)
+
