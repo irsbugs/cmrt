@@ -63,3 +63,6 @@ Related Contact info
 Employee of
 Voluteer is
 ```
+
+The minimum Organization fields that data should be provided for are:
+
