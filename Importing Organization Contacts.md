@@ -104,9 +104,13 @@ Preferred Communication Method ** "Phone, Email"
 Preferred Language ** en_AU
 Contact Source **civicrm_organization_master_list.csv
 ```
-* Mandatory
-** Default data that is already loaded in the csv file.
+* Mandatory fields
   
+** Default data that is already loaded in the csv file.
+
+Contact Subtype: Business, Community, Government - Federal, Government - Local - CGSC, Government - Local - MASC, Government - state
+
+
 Intentionally left out Organization input fields - Not normally required by CMRT
 ```
 Addressee - Automatically assigned?
