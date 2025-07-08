@@ -29,16 +29,8 @@ Additional email accounts will exist, which would normally be routinely checked 
 
 * hello@cmrailtrail.org.au
 * info@cmrailtrail.org.au
-* ? Are there any others?
-
-
-
-
-
-
-
-* 
-
+* ? Are there any others ?
+* ? Keep some old email accounts for backwoards compatibility ? 
 
 
 
