@@ -88,16 +88,27 @@ The *CMRT_Admin_WP* adinistrator, would not have privileges to perform tasks in 
 
 In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
-**Todo** If a mail originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
-
 ### Actions 
 
-* On the simulation computer enter six WordPress Users.
+On the simulation computer:
+
+* Enter six WordPress Users.
 * Synchronize WordPress users to be CiviCRM contacts.
 * Test/Check.
 * Set up mail sending capabilities in CiviCRM for these contacts.
-* CMRT Add Webmail accounts for the above contacts
-* CMRT Add WordPress User accounts for the above contacts
+
+On CMRT system:
+* Add Webmail accounts for the above contacts
+* Add WordPress User accounts for the above contacts
 * Synchronize WordPress users to be CiviCRM contacts.
+* Set up mail sending capabilities in CiviCRM for these contacts.
 * Test/Check. 
-  
+
+**TO DO**
+
+If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
+
+Check-out/Clean-up who can log into:
+
+* C-Panel: https://cmrailtrail.org.au/cpanel
+* VIP Control: https://vip.ventraip.com.au/login (2FA)
