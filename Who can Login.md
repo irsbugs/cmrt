@@ -8,7 +8,7 @@ The cmrailtrail.org.au website is publically available and there is no account l
 
 As there is no additional data that is publically hidden there is no need for a provision for members, etc. to log in to an account to view such data. 
 
-If someone notices a mistake on the website, then they may phone or e-mail a CMRT official to request a correction to the data. i.e. They don't have the ability to change the website. 
+If someone notices a mistake on the website, then they may phone or e-mail a CMRT official to request a correction to the data.
 
 When receiving bulk e-mails from CiviCRM/Wordpress then the receiver has the right to request to have no further bulk e-mails set to them. This is performed by the receiver by checking a field on their received bulk mail. Alternatively they can ring a CMRT Official and request them to set no-bulk-email flag for this client/organization/contact.
 
