@@ -24,12 +24,12 @@ The CMRT officals need to be able to login to the Ventraip account and/or the Wo
 
 Ventraip provide a Webmail service. This is used by CMRT officials to receive emails sent to the account they are responsible for operating. These include:
 
-* CMRT President - president@cmrailtrail.org.au - Current President and VP.
-* CMRT Treasurer - treasurer@cmrailtrail.org.au - Current Treasurer.
-* CMRT Secretary - secretary@cmrailtrail.org.au - Current Secretary.
-* CMRT Committee - committee@cmrailtrail.org.au - Current Committee members.
+* CMRT President - president@cmrailtrail.org.au - Currently: Janice and Geoff
+* CMRT Treasurer - treasurer@cmrailtrail.org.au - Currently: Des
+* CMRT Secretary - secretary@cmrailtrail.org.au - Currently: Maureen.
+* CMRT Committee - committee@cmrailtrail.org.au - Currently: Steve F., Ken, Greg, Steve H. and Kate.
 
-* CMRT Admin - admin@cmrailtrail.org.au - Current IT Support Admistrator(s).
+* CMRT Admin - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Wayne, Castlemaine IT company?, Ian.
   
 If there is a change in the person that performs any of the above roles, then the login details and the e-mail account is passed to the replacement person.
 
@@ -90,3 +90,14 @@ In using CiviCRM it may be convenient to have two tabs open on your browser. One
 
 **Todo** If a mail originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
 
+### Actions 
+
+* On the simulation computer enter six WordPress Users.
+* Synchronize WordPress users to be CiviCRM contacts.
+* Test/Check.
+* Set up mail sending capabilities in CiviCRM for these contacts.
+* CMRT Add Webmail accounts for the above contacts
+* CMRT Add WordPress User accounts for the above contacts
+* Synchronize WordPress users to be CiviCRM contacts.
+* Test/Check. 
+  
