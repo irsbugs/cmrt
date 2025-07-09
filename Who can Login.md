@@ -38,7 +38,7 @@ Additional email accounts will exist, which would normally be routinely checked 
 * hello@cmrailtrail.org.auCMRT
 * info@cmrailtrail.org.au
 * no-reply@cmrailtrail.org.au ?
-* ? Keep some old email accounts for backwards compatibility - janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
+* ? Keep some old email accounts for backwards compatibility - E.g. janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
 
 Old / No-longer-used accounts should be reviewed and have the data backed-up or moved, then the account is deleted.
 
@@ -77,7 +77,7 @@ CiviCRM offers a function to synchronize users to contacts: CiviCRM will check e
 
 The CiviCRM database will be synchronized to contain the above five *Contacts*.
 
-These six *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
+These five *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
 For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a postcode of 3450. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
 
