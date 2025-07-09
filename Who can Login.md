@@ -20,7 +20,7 @@ The CMRT officals need to be able to login to the Ventraip account and/or the Wo
 * WordPress Admin: https://cmrailtrail.org.au/wp-admin  Note: *wp-admin* - may be changed for security reasons.
 
 
-**Webmail**
+### Webmail
 
 Ventraip provide a Webmail service. This is used by CMRT officials to receive emails sent to the account they are responsible for operating. These include:
 
@@ -40,11 +40,11 @@ Additional email accounts will exist, which would normally be routinely checked 
 * no-reply@cmrailtrail.org.au ?
 * ? Keep some old email accounts for backwards compatibility - janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
 
-Old / No-longer-used accounts should be reviewed and have the data backed-up or moved, then deleted.
+Old / No-longer-used accounts should be reviewed and have the data backed-up or moved, then the account is deleted.
 
 **Ventraip Account Management**
 
-As well as the CMRT Administrator(s) having a Webmail account, they also have access to overall management of the website:
+As well as the CMRT Administrator(s) having a Webmail account, they also have access to overall management of the website by logging into the accounts:
 
 * C-Panel: https://cmrailtrail.org.au/cpanel
 * VIP Control: https://vip.ventraip.com.au/login (2FA)
