@@ -35,7 +35,7 @@ If there is a change in the person that performs any of the above roles, then th
 
 Additional email accounts will exist, which would normally be routinely checked by the Secretary:
 
-* hello@cmrailtrail.org.au
+* hello@cmrailtrail.org.auCMRT
 * info@cmrailtrail.org.au
 * no-reply@cmrailtrail.org.au ?
 * ? Keep some old email accounts for backwards compatibility - janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
@@ -62,21 +62,20 @@ The login to WordPress is:
 The WordPress login requires a Username and Password. The Usernames will be:
 
 * CMRT_President
-* CMRT_Treasurer
+* CMRT_TreasurerAdmin
 * CMRT_Secretary
 * CMRT_Committee
 
 ...and for IT Administration and support:
 
-* CMRT_Admin_WP
-* CMRT_Admin_CiviCRM
+* CMRT_Admin
 
 In the CiviCRM System Administrators Guide:
 [Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
 
 CiviCRM offers a function to synchronize users to contacts: CiviCRM will check each user record for a contact record. A new contact record will be created for each user where one does not already exist. To perform this function go to **Administer -> Users and Permissions -> Synchronize Users to Contacts**.
 
-The CiviCRM database will be synchronized to contain the above six *Contacts*.
+The CiviCRM database will be synchronized to contain the above five *Contacts*.
 
 These six *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
