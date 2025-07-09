@@ -1,6 +1,6 @@
 # Who can log in to CMRT Website?
 
-**DRAFT - Input/Changes Welcomed**
+**DRAFT - 2025-07-09 - Input/Changes Welcomed**
 
 ### General Public, CMRT Members, CMRT Volunteers and CMRT Doners, etc.
 
@@ -71,18 +71,14 @@ The WordPress login requires a Username and Password. The Usernames will be:
 * CMRT_Admin_WP
 * CMRT_Admin_CiviCRM
 
-The CiviCRM database will contain the *Contacts*:
+In the CiviCRM System Administrators Guide:
+[Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
 
-* CMRT_President
-* CMRT_Treasurer
-* CMRT_Secretary
-* CMRT_Committee
+CiviCRM offers a function to synchronize users to contacts: CiviCRM will check each user record for a contact record. A new contact record will be created for each user where one does not already exist. To perform this function go to **Administer -> Users and Permissions -> Synchronize Users to Contacts**.
 
-...and for IT Administration and support of CiviCRM
+The CiviCRM database will be synchronized to contain the above six *Contacts*.
 
-* CMRT_Admin_CiviCRM
-
-The above *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
+These six *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
 For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a postcode of 3450. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
 
