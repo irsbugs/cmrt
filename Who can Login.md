@@ -51,7 +51,7 @@ As well as the CMRT Administrator(s) having a Webmail account, they also have ac
   
 ### Wordpress Account
 
-The WordPress *Users* have accounts managed by the WordPress application. On logging into a WordPress account management functions may be performed on WordPress and its plugins. The CiviCRM plugin for WordPress has the ability to control the privilleges a *User* is granted to modify CiviCRM. 
+The WordPress *Users* have accounts managed by the WordPress application. On logging into a WordPress account management functions may be performed on WordPress and its plugins. The CiviCRM plugin for WordPress has the ability to control the privileges a *User* is granted for modifying CiviCRM. 
 
 The WordPress *User* account names, will also be *contacts* in CiviCRM database.
 
@@ -66,6 +66,8 @@ The WordPress login requires a Username and Password. The Usernames will be:
 * CMRT_Secretary
 * CMRT_Committee
 
+...and for IT Administration and support:
+
 * CMRT_Admin_WP
 * CMRT_Admin_CiviCRM
 
@@ -76,17 +78,19 @@ The CiviCRM database will contain the *Contacts*:
 * CMRT_Secretary
 * CMRT_Committee
 
+...and for IT Administration and support of CiviCRM
+
 * CMRT_Admin_CiviCRM
 
 The above *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
-E.g. Janice may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. i.e. Contacts in CiviCRM with a postcode of 3450. She may sign off the email as "Janice - CMRT President".  The Castlemaine recipients of the e-mail will see that it is from president@cmrailtrial.org.au. If they want to reply to Janice the reply goes back to: president@cmrailtrial.org.au. Janice logs into her Webmail to read the replies.
+For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a postcode of 3450. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
 
-The CMRT_Admin_WP adinistrator, would not have privileges to perform tasks in CiviCRM. The rational is that one IT administrator may be focused on WordPress and another IT administrator focused on CiviCRM.
-
+The *CMRT_Admin_WP* adinistrator, would not have privileges to perform tasks in CiviCRM. The rational is that one IT administrator may be focused on WordPress and another IT administrator focused on CiviCRM.
 
 **Operational Consideration**
 
-In using CiviCRM it may be more convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
+In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
+**Todo** If a mail originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
 
