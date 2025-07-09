@@ -35,7 +35,7 @@ If there is a change in the person that performs any of the above roles, then th
 
 Additional email accounts will exist, which would normally be routinely checked by the Secretary:
 
-* hello@cmrailtrail.org.auCMRT
+* hello@cmrailtrail.org.au
 * info@cmrailtrail.org.au
 * no-reply@cmrailtrail.org.au ?
 * ? Keep some old email accounts for backwards compatibility - E.g. janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
@@ -73,15 +73,17 @@ The WordPress login requires a Username and Password. The Usernames will be:
 From the CiviCRM System Administrators Guide:
 [Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
 
-CiviCRM offers a function to synchronize users to contacts: CiviCRM will check each user record for a contact record. A new contact record will be created for each user where one does not already exist. To perform this function go to **Administer -> Users and Permissions -> Synchronize Users to Contacts**. This is automatic upon cli
+    CiviCRM offers a function to synchronize WordPress *users* to CiviCRM *contacts*: CiviCRM will check each user record for a contact record. 
+    A new contact record will be created for each user where one does not already exist. To perform this function go to 
+    **Administer -> Users and Permissions -> Synchronize Users to Contacts**. 
 
-The CiviCRM database will be synchronized to contain the above five *Contacts*.
+This synchronization is now  automatically performed when a *user* is added to WordPress. However the information collected from the WordPress *user* in the CiviCRM *contact* is minimal. It is necessary to edit each of these *contacts* and supply additional data. This *editing* may be performed by importing a .csv file.
+
+Thus, the CiviCRM database will be synchronized to contain the above five *Contacts*.
 
 These five *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
 For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
-
-The *CMRT_Admin_WP* adinistrator, would not have privileges to perform tasks in CiviCRM. The rational is that one IT administrator may be focused on WordPress and another IT administrator focused on CiviCRM.
 
 **Operational Consideration**
 
@@ -91,7 +93,7 @@ In using CiviCRM it may be convenient to have two tabs open on your browser. One
 
 On the simulation computer:
 
-* Enter sixaDMIN WordPress Users.
+* Enter five WordPress Users.
 * Synchronize WordPress users to be CiviCRM contacts.
 * Test/Check.
 * Set up mail sending capabilities in CiviCRM for these contacts.
