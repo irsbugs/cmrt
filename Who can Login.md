@@ -107,9 +107,9 @@ On CMRT system:
 
 **TO DO**
 
-If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
+* If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
 
-Check-out/Clean-up who can log into:
+* Check-out/Clean-up who can log into:
 
-* C-Panel: https://cmrailtrail.org.au/cpanel
-* VIP Control: https://vip.ventraip.com.au/login (2FA)
+    * C-Panel: https://cmrailtrail.org.au/cpanel
+    * VIP Control: https://vip.ventraip.com.au/login (2FA)
