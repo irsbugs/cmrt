@@ -10,7 +10,7 @@ As there is no additional data that is publically hidden there is no need for a 
 
 If someone notices a mistake on the website, then they may phone or e-mail a CMRT official to request a correction to the data.
 
-When receiving bulk e-mails from CiviCRM/Wordpress then the receiver has the right to request to have no further bulk e-mails sent to them. This is performed by the receiver by checking a field on the bulk mail they received. Alternatively they can ring a CMRT Official and request them to set the no-bulk-email flag for this client/organization/contact.
+When receiving bulk e-mails from CiviCRM/WordPress then the receiver has the right to request to have no further bulk e-mails sent to them. This is performed by the receiver by checking a field on the bulk mail they received. Alternatively they can ring a CMRT Official and request them to set the no-bulk-email flag for this client/organization/contact.
 
 ### CMRT Official
 
