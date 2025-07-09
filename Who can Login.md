@@ -79,7 +79,7 @@ The CiviCRM database will be synchronized to contain the above five *Contacts*.
 
 These five *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
-For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a postcode of 3450. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
+For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
 
 The *CMRT_Admin_WP* adinistrator, would not have privileges to perform tasks in CiviCRM. The rational is that one IT administrator may be focused on WordPress and another IT administrator focused on CiviCRM.
 
