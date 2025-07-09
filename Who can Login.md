@@ -70,10 +70,10 @@ The WordPress login requires a Username and Password. The Usernames will be:
 
 * CMRT_Admin
 
-In the CiviCRM System Administrators Guide:
+From the CiviCRM System Administrators Guide:
 [Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
 
-CiviCRM offers a function to synchronize users to contacts: CiviCRM will check each user record for a contact record. A new contact record will be created for each user where one does not already exist. To perform this function go to **Administer -> Users and Permissions -> Synchronize Users to Contacts**.
+CiviCRM offers a function to synchronize users to contacts: CiviCRM will check each user record for a contact record. A new contact record will be created for each user where one does not already exist. To perform this function go to **Administer -> Users and Permissions -> Synchronize Users to Contacts**. This is automatic upon cli
 
 The CiviCRM database will be synchronized to contain the above five *Contacts*.
 
@@ -91,7 +91,7 @@ In using CiviCRM it may be convenient to have two tabs open on your browser. One
 
 On the simulation computer:
 
-* Enter six WordPress Users.
+* Enter sixaDMIN WordPress Users.
 * Synchronize WordPress users to be CiviCRM contacts.
 * Test/Check.
 * Set up mail sending capabilities in CiviCRM for these contacts.
