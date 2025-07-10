@@ -36,7 +36,6 @@ If there is a change in the person that performs any of the above roles, then th
 Additional email accounts may exist, which would normally be routinely checked by the Secretary or Admin:
 
 * hello@cmrailtrail.org.au
-* info@cmrailtrail.org.au
 * no-reply@cmrailtrail.org.au ?
 * Keep email accounts for backwards compatibility - E.g. janice@cmrailtrail.org.au
 * Set up additional redirection of emails. 
