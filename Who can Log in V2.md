@@ -217,3 +217,15 @@ MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, e
 ```
 Note that in the above case it is just coincidental that the Contact ID is the same as the External Identifier.
 
+CiviCRM .csv file when importing additional data on the CMRT officiers.
+
+```
+External Identifier	First Name	Last Name	Preferred Communication Method	Preferred Language	Contact Source	Communication Style	Employee of	Street Address	City	Post Code	State	Country	Phone	Email	Website
+10	President	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	president@cmrailtrail.org.au	https://cmrailtrail.org.au
+11	Treasurer	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	treasurer@cmrailtrail.org.au	https://cmrailtrail.org.au
+12	Secretary	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	secretary@cmrailtrail.org.au	https://cmrailtrail.org.au
+13	Committee	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	committee@cmrailtrail.org.au	https://cmrailtrail.org.au
+14	Admin	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	admin@cmrailtrail.org.au	https://cmrailtrail.org.au
+<img width="1946" height="101" alt="image" src="https://github.com/user-attachments/assets/08d30858-75f3-435b-8d73-b5a2e1dcf5b6" />
+
+```
