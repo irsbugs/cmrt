@@ -166,7 +166,10 @@ MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, e
 | 13 | Individual   | Committee CMRT                     |          0 | NULL                | Individual   |
 | 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
 +----+--------------+------------------------------------+------------+---------------------+--------------+
-
+```
+Using CiviCRM two *contacts* were *delete*, but not *delete permanently*.
+They are permanently deleted from the CivCRM database as follows:
+```
 MariaDB [cmrailtr_civicrm]> DELETE FROM civicrm_contact WHERE is_deleted=1;
 Query OK, 2 rows affected (0.012 sec)
 
