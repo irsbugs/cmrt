@@ -89,6 +89,23 @@ For example: Maureen may write an email in CiviCRM to send to all Castlemaine re
 
 In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
+### Notes:
+
+* To delete a contact with an associated CMS account, first delete the CMS user account linked to that contact, and then proceed to delete the contact itself. This ensures that there are no leftover records in the system.
+
+The *External Identifier* appears to need sequential numbering, even if data is imported by different .csv files. Might pay to have an *External Identifier* policy like:
+* 1 Default Organization. CMRT
+* 10 - 99 Official Positions of the CMRT Community organization. President, Secretary etc.
+* 100 - 199 Organization Business
+* 200 - 299 Organization Community
+* 300 - 399 Organization Goverment - Federal
+* 400 - 499 Organization Government - Local
+* 500 - 599 Organization Government - State   
+* 1000+ Individual
+
+How would this work with an Individual contact that subscribes via an input form on the website? Have no *external identifier* but *contact source* file as *website input*.
+Upon a extract as .csv and restore then *external identifiers* can be set correctly.
+
 ### Actions 
 
 On the simulation computer:
