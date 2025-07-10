@@ -60,16 +60,15 @@ The login to WordPress is:
 * https://cmrailtrail.org.au/wp-admin
 
 The WordPress login requires a Username and Password. The Usernames will be:
-* president_cmrt
-* treasurer_cmrt
-* President_CMRT
-* Treasurer_CMRT
-* Secretary_CMRT
-* Committee_CMRT
+
+* CMRT_President
+* CMRT_Treasurer
+* CMRT_Secretary
+* CMRT_Committee
 
 ...and for IT Administration and tech support:
 
-* Admin_CMRT
+* CMRT_Admin 
 
 From the CiviCRM System Administrators Guide:
 [Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
@@ -185,3 +184,20 @@ MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, e
 | 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
 +----+--------------+------------------------------------+------------+---------------------+--------------+
 ```
+After CiviCRM loads the additional data for the contacts:
+```
+MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
++----+--------------+------------------------------------+------------+---------------------+--------------+
+| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
+| 10 | Individual   | President CMRT                     |          0 | 10                  | Individual   |
+| 11 | Individual   | Treasurer CMRT                     |          0 | 11                  | Individual   |
+| 12 | Individual   | Secretary CMRT                     |          0 | 12                  | Individual   |
+| 13 | Individual   | Committee CMRT                     |          0 | 13                  | Individual   |
+| 14 | Individual   | Admin CMRT                         |          0 | 14                  | Individual   |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+6 rows in set (0.000 sec)
+```
+Note that in the above case it is just coincidental that the Contact ID is the same as the External Identifier.
+
