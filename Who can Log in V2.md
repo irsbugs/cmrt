@@ -38,7 +38,8 @@ Additional email accounts may exist, which would normally be routinely checked b
 * hello@cmrailtrail.org.au
 * info@cmrailtrail.org.au
 * no-reply@cmrailtrail.org.au ?
-* ? Keep some old email accounts for backwards compatibility - E.g. janice@cmrailtrail.org.au - Can e-mail be re-directed ? 
+* Keep email accounts for backwards compatibility - E.g. janice@cmrailtrail.org.au
+* Set up additional redirection of emails. 
 
 Old / No-longer-used accounts should be reviewed and have the data backed-up or moved, then the account is deleted.
 
