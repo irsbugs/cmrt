@@ -1,6 +1,6 @@
-# Who can log in to CMRT Website?
+# Who can log in to CMRT Website? - V2 
 
-**DRAFT - 2025-07-09 - Input/Changes Welcomed**
+**DRAFT - 2025-07-10 - Switched First name and Last name - Input/Changes Welcomed**
 
 ### General Public, CMRT Members, CMRT Volunteers and CMRT Doners, etc.
 
@@ -24,12 +24,12 @@ The CMRT officals need to be able to login to the Ventraip account and/or the Wo
 
 Ventraip provide a Webmail service. This is used by CMRT officials to receive emails sent to the account they are responsible for operating. These include:
 
-* CMRT President - president@cmrailtrail.org.au - Currently: Janice and Geoff
-* CMRT Treasurer - treasurer@cmrailtrail.org.au - Currently: Des
-* CMRT Secretary - secretary@cmrailtrail.org.au - Currently: Maureen.
-* CMRT Committee - committee@cmrailtrail.org.au - Currently: Steve F., Ken, Greg, Steve H. and Kate.
+* President CMRT - president@cmrailtrail.org.au - Currently: Janice and Geoff
+* Treasurer CMRT - treasurer@cmrailtrail.org.au - Currently: Des
+* Secretary CMRT - secretary@cmrailtrail.org.au - Currently: Maureen.
+* Committee CMRT - committee@cmrailtrail.org.au - Currently: Steve F., Ken, Greg, Steve H. and Kate.
 
-* CMRT Admin - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Wayne, Castlemaine IT company?, Ian.
+* Admin CMRT - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Wayne, Castlemaine IT company?, Ian.
   
 If there is a change in the person that performs any of the above roles, then the login details and the e-mail account is passed to the replacement person.
 
@@ -61,14 +61,14 @@ The login to WordPress is:
 
 The WordPress login requires a Username and Password. The Usernames will be:
 
-* CMRT_President
-* CMRT_TreasurerAdmin
-* CMRT_Secretary
-* CMRT_Committee
+* President_CMRT
+* Treasurer_CMRT
+* Secretary_CMRT
+* Committee_CMRT
 
-...and for IT Administration and support:
+...and for IT Administration and tech support:
 
-* CMRT_Admin
+* Admin_CMRT
 
 From the CiviCRM System Administrators Guide:
 [Synchronize WordPress users to CiviCRM contacts](https://docs.civicrm.org/sysadmin/en/latest/integration/wordpress/#synchronize-wordpress-users-to-civicrm-contacts)
