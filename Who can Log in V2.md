@@ -12,9 +12,9 @@ If someone notices a mistake on the website, then they may phone or e-mail a CMR
 
 When receiving bulk e-mails from CiviCRM/WordPress then the receiver has the right to request to have no further bulk e-mails sent to them. This is performed by the receiver by checking a field on the bulk mail they received. Alternatively they can ring a CMRT Official and request them to set the no-bulk-email flag for this client/organization/contact.
 
-### CMRT Official
+### CMRT Officiers
 
-The CMRT officals need to be able to login to the Ventraip account and/or the Wordpress account. The website login pages are:
+The CMRT officers need to be able to login to the Ventraip account and/or the Wordpress account. The website login pages are:
 
 * Webmail: https://cmrailtrail.org.au/webmail
 * WordPress Admin: https://cmrailtrail.org.au/wp-admin  Note: *wp-admin* - may be changed for security reasons.
@@ -31,9 +31,9 @@ Ventraip provide a Webmail service. This is used by CMRT officials to receive em
 
 * Admin CMRT - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Wayne, Castlemaine IT company?, Ian.
   
-If there is a change in the person that performs any of the above roles, then the login details and the e-mail account is passed to the replacement person.
+If there is a change in the person that performs any of the above roles, then the login details and the email account is passed to the replacement person.
 
-Additional email accounts will exist, which would normally be routinely checked by the Secretary:
+Additional email accounts may exist, which would normally be routinely checked by the Secretary:
 
 * hello@cmrailtrail.org.au
 * info@cmrailtrail.org.au
@@ -115,23 +115,29 @@ Upon a extract as .csv and restore then *external identifiers* can be set correc
 
 ### Actions 
 
-On the simulation computer:
+**On the simulation computer**:
 
 * Enter five WordPress Users.
-* Synchronize WordPress users to be CiviCRM contacts.
+* Check previous action automatically synchronized WordPress users to be CiviCRM contacts.
+* Export the five CiviCRM contacts as a csv file.
+* Edit the .csv file to have more information that was collected with WordPress.
+* Remove unwanted columns. For example don't have Contact ID, matching is made using First Nae, Last Name and Email.
+* Import the .csv file to *fill* in the additional details of the *Individual* CiviCRM 
 * Test/Check.
 * Set up mail sending capabilities in CiviCRM for these contacts.
 
-On CMRT system:
+**On CMRT system**:
+
 * Add Webmail accounts for the above contacts
-* Add WordPress User accounts for the above contacts
-* Synchronize WordPress users to be CiviCRM contacts.
+* Manually add WordPress *user accounts* for the above contacts.
+* Check WordPress *users* data was automatically transferred to become CiviCRM *contacts*.
+* Import the .csv file to supply more *Individual* data for each CiviCRM *contact*.
 * Set up mail sending capabilities in CiviCRM for these contacts.
 * Test/Check. 
 
 **TO DO**
 
-* If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder?
+* If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder? Where does CiviCRM store copies of sent emails / one copy of bulk sent emails?
 
 * Check-out/Clean-up who can log into:
 
