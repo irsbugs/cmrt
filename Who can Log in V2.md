@@ -33,7 +33,7 @@ Ventraip provide a Webmail service. This is used by CMRT officials to receive em
   
 If there is a change in the person that performs any of the above roles, then the login details and the email account is passed to the replacement person.
 
-Additional email accounts may exist, which would normally be routinely checked by the Secretary:
+Additional email accounts may exist, which would normally be routinely checked by the Secretary or Admin:
 
 * hello@cmrailtrail.org.au
 * info@cmrailtrail.org.au
