@@ -89,14 +89,17 @@ For example: Maureen may write an email in CiviCRM to send to all Castlemaine re
 
 In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
-**Catch 22** 
+**Deleting CiviCRM *Contacts* and WordPress *Users*** 
 
 Every WordPress *user account* automatically becomes a CiviCRM *contact*. The CiviCRM *contact* can not be deleted, unless the WordPress *user account* has already been deleted. Thus, keeping WordPress *user accounts* to a tidy format and at a minimum reduces *contacts* existing on CiviCRM that may not be necessary.
 
 When deleting CiviCRM *contacts* note they remain in the CiviCRM database, but with the *is_deleted* field set to *True*. If *delete permanently* is selected this removes the *contact* entry from the CiviCRM database.
-### Notes:
 
-* To delete a contact with an associated CMS account, first delete the CMS user account linked to that contact, and then proceed to delete the contact itself. This ensures that there are no leftover records in the system.
+Email accounts created in Webmail do not proliferate their existance or data to WordPress or CiviCRM. Thus, apart from the five detailed above for CMRT officiers, there can be any number of other email accounts.
+
+Upon deleting a WordPress *User*, then it is probably appropriate to backup and delete any Webmail account(s) of the *User*. 
+
+### External Identifier
 
 The *External Identifier* appears to need unique numbering, even if data is imported from different .csv files. Have an *External Identifier* policy like this:
 
