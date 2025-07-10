@@ -140,7 +140,7 @@ Upon a extract as .csv and restore then *external identifiers* can be set correc
 
 **TO DO**
 
-* If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder? Where does CiviCRM store copies of sent emails / one copy of bulk sent emails?
+* Check: If an email originates from the CiviCRM Application from the Secretary, then does a copy of the mail get placed in the Secretaries Webmail sent folder? Where does CiviCRM store copies of sent emails / one copy of bulk sent emails?
 
 * Check-out/Clean-up who can log into:
 
@@ -153,7 +153,7 @@ Upon a extract as .csv and restore then *external identifiers* can be set correc
 **external_identifier**: Supplied via .csv import file. No duplication of External Identifiers between .csv import files.
 **user**: WordPress sequential. Deleted users are removed from WordPress database and User ID is lost.
 
-WordPress database: After *ian* and *president* were deleted. Then *president* added again and is assigned the WordPress ID = 7
+WordPress database: After *ian* and *president* and other experimental *users* were deleted. Then *president* was added again and is assigned the WordPress ID = 14
 ```
 MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_email FROM bsen_users;
 +----+----------------+----------------+----------------+-------------+------------------------------+
@@ -182,7 +182,7 @@ MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, e
 | 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
 +----+--------------+------------------------------------+------------+---------------------+--------------+
 ```
-Using CiviCRM two *contacts* were *delete*, but not *delete permanently*.
+Using CiviCRM two *contacts* were *deleted*, but not *deleted permanently*.
 They are permanently deleted from the CivCRM database as follows:
 ```
 MariaDB [cmrailtr_civicrm]> DELETE FROM civicrm_contact WHERE is_deleted=1;
