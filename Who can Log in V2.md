@@ -60,7 +60,8 @@ The login to WordPress is:
 * https://cmrailtrail.org.au/wp-admin
 
 The WordPress login requires a Username and Password. The Usernames will be:
-
+* president_cmrt
+* treasurer_cmrt
 * President_CMRT
 * Treasurer_CMRT
 * Secretary_CMRT
