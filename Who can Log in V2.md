@@ -83,7 +83,7 @@ Thus, the CiviCRM database will be synchronized to contain the above five *Conta
 
 These five *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
-For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Maureen logs into her Webmail to read the reply.
+For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. This is then forwarded to Maureen's Webmail account maureen@cmtrailtril.org.au.
 
 **Operational Consideration**
 
