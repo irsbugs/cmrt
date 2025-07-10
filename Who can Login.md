@@ -130,3 +130,39 @@ On CMRT system:
 
     * C-Panel: https://cmrailtrail.org.au/cpanel
     * VIP Control: https://vip.ventraip.com.au/login (2FA)
+
+### Identifiers
+
+**id**: CiviCRM Contact ID. Sequential Deleted *contacts* remain in the database. ID is not re-alllocated.
+**external_identifier**: Supplied via .csv import file. No duplication of External Identifiers between .csv import files.
+**user**: WordPress sequential. Deleted users are removed from WordPress database and User ID is lost.
+
+WordPress database: After *ian* and *president* were deleted. Then *president* added again and is assigned the WordPress ID = 7
+```
+MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_url FROM bsen_users;
++----+----------------+----------------+----------------+-------------+----------------------------+
+| ID | user_login     | user_nicename  | display_name   | user_status | user_url                   |
++----+----------------+----------------+----------------+-------------+----------------------------+
+|  3 | CMRT_Treasurer | cmrt_treasurer | CMRT Treasurer |           0 | https://cmrailtrail.org.au |
+|  4 | CMRT_Secretary | cmrt_secretary | CMRT Secretary |           0 | https://cmrailtrail.org.au |
+|  5 | CMRT_Committee | cmrt_committee | CMRT Committee |           0 | https://cmrailtrail.org.au |
+|  6 | CMRT_Admin     | cmrt_admin     | CMRT Admin     |           0 | https://cmrailtrail.org.au |
+|  7 | CMRT_President | cmrt_president | CMRT President |           0 | https://cmrailtrail.org.au |
++----+----------------+----------------+----------------+-------------+----------------------------+
+```
+CiviCRM Datebase: Showing *ian* and *President* having been deleted. Then *President* added again but as *external_identifier* = 6, as 1 has been taken by the CMRT Organization.
+```
+MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
++----+--------------+------------------------------------+------------+---------------------+--------------+
+| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
+|  2 | Individual   | ianstewart56@hotmail.com           |          1 | NULL                | Individual   |
+|  3 | Individual   | CMRT President                     |          1 | NULL                | Individual   | <-- Import file could not add as 1.
+|  4 | Individual   | CMRT Treasurer                     |          0 | 2                   | Individual   |
+|  5 | Individual   | CMRT Secretary                     |          0 | 3                   | Individual   |
+|  6 | Individual   | CMRT Committee                     |          0 | 4                   | Individual   |
+|  7 | Individual   | CMRT Admin                         |          0 | 5                   | Individual   |
+|  8 | Individual   | CMRT President                     |          0 | 6                   | Individual   |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+```
