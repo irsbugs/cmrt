@@ -89,11 +89,17 @@ For example: Maureen may write an email in CiviCRM to send to all Castlemaine re
 
 In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
+**Catch 22** 
+
+Every WordPress *user account* automatically becomes a CiviCRM *contact*. The CiviCRM *contact* can not be deleted, unless the WordPress *user account* has already been deleted. Thus, keeping WordPress *user accounts* to a tidy format and at a minimum reduces *contacts* existing on CiviCRM that may not be necessary.
+
+When deleting CiviCRM *contacts* note they remain in the CiviCRM database, but with the *is_deleted* field set to *True*. If *delete permanently* is selected this removes the *contact* entry from the CiviCRM database.
 ### Notes:
 
 * To delete a contact with an associated CMS account, first delete the CMS user account linked to that contact, and then proceed to delete the contact itself. This ensures that there are no leftover records in the system.
 
-The *External Identifier* appears to need sequential numbering, even if data is imported by different .csv files. Might pay to have an *External Identifier* policy like:
+The *External Identifier* appears to need unique numbering, even if data is imported from different .csv files. Have an *External Identifier* policy like this:
+
 * 1 Default Organization. CMRT
 * 10 - 99 Official Positions of the CMRT Community organization. President, Secretary etc.
 * 100 - 199 Organization Business
@@ -104,6 +110,7 @@ The *External Identifier* appears to need sequential numbering, even if data is 
 * 1000+ Individual
 
 How would this work with an Individual contact that subscribes via an input form on the website? Have no *external identifier* but *contact source* file as *website input*.
+
 Upon a extract as .csv and restore then *external identifiers* can be set correctly.
 
 ### Actions 
