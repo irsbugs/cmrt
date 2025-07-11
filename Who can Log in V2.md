@@ -25,11 +25,12 @@ The CMRT officers need to be able to login to the Ventraip account and/or the Wo
 Ventraip provide a Webmail service. This is used by CMRT officials to receive emails sent to the account they are responsible for operating. These include:
 
 * President CMRT - president@cmrailtrail.org.au - Currently: Janice and Geoff
+* Vice President CMRT - vicepresident@cmrailtrail.org.au - Currently Geoff
 * Treasurer CMRT - treasurer@cmrailtrail.org.au - Currently: Des
 * Secretary CMRT - secretary@cmrailtrail.org.au - Currently: Maureen.
 * Committee CMRT - committee@cmrailtrail.org.au - Currently: Steve F., Ken, Greg, Steve H. and Kate.
 
-* Admin CMRT - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Wayne, Castlemaine IT company?, Ian.
+* Admin CMRT - admin@cmrailtrail.org.au - Current IT Support Admistrator(s). Currently: Ken, Castlemaine IT company?, Ian.
   
 If there is a change in the person that performs any of the above roles, then the login details and the email account is passed to the replacement person.
 
@@ -62,6 +63,7 @@ The login to WordPress is:
 The WordPress login requires a Username and Password. The Usernames will be:
 
 * CMRT_President
+* CMRT_Vicepresident
 * CMRT_Treasurer
 * CMRT_Secretary
 * CMRT_Committee
