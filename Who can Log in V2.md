@@ -91,15 +91,6 @@ For example: Maureen may write an email in CiviCRM to send to all Castlemaine re
 
 In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
 
-**Deleting CiviCRM *Contacts* and WordPress *Users*** 
-
-Every WordPress *user account* automatically becomes a CiviCRM *contact*. The CiviCRM *contact* can not be deleted, unless the WordPress *user account* has already been deleted. Thus, keeping WordPress *user accounts* to a tidy format and at a minimum reduces *contacts* existing on CiviCRM that may not be necessary.
-
-When deleting CiviCRM *contacts* note they remain in the CiviCRM database, but with the *is_deleted* field set to *True*. If *delete permanently* is selected this removes the *contact* entry from the CiviCRM database.
-
-Email accounts created in Webmail do not proliferate their existance or data to WordPress or CiviCRM. Thus, apart from the five detailed above for CMRT officiers, there can be any number of other email accounts.
-
-Upon deleting a WordPress *User*, then it is probably appropriate to backup and delete any Webmail account(s) of the *User*. 
 
 ### External Identifier
 
@@ -117,6 +108,118 @@ The *External Identifier* appears to need unique numbering, even if data is impo
 How would this work with an Individual contact that subscribes via an input form on the website? Have no *external identifier* but *contact source* file as *website input*.
 
 Upon a extract as .csv and restore then *external identifiers* can be set correctly.
+
+### Identifiers
+**ID**: WordPress *user* identification number
+**id**: CiviCRM Contact ID. Sequential Deleted *contacts* remain in the database. ID is not re-alllocated.
+**external_identifier**: Supplied via .csv import file. No duplication of External Identifiers between .csv import files.
+**user**: WordPress sequential. Deleted users are removed from WordPress database and User ID is lost.
+
+The WordPress database has *ID* as a sequential number. Initial experimenting used *ID* numbers 1 to 13, then these *users* were deleted. Their numbers are not re-used. Then next *user* added to WordPress would receive the *ID* of 20
+```
+MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_email FROM bsen_users;
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+| ID | user_login         | user_nicename      | display_name        | user_status | user_email                       |
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+| 14 | CMRT_President     | cmrt_president     | President CMRT      |           0 | president@cmrailtrail.org.au     |
+| 15 | CMRT_Treasurer     | cmrt_treasurer     | Treasurer CMRT      |           0 | treasurer@cmrailtrail.org.au     |
+| 16 | CMRT_Secretary     | cmrt_secretary     | Secretary CMRT      |           0 | secretary@cmrailtrail.org.au     |
+| 17 | CMRT_Committee     | cmrt_committee     | Committee CMRT      |           0 | committee@cmrailtrail.org.au     |
+| 18 | CMRT_Admin         | cmrt_admin         | Admin CMRT          |           0 | admin@cmrailtrail.org.au         |
+| 19 | CMRT_Vicepresident | cmrt_vicepresident | Vice President CMRT |           0 | vicepresident@cmrailtrail.org.au |
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+```
+
+When CiviCRM loads the additional csv data for the *contacts* an *External Identifier* of unique numbers are included as one of the columns of data in the csv file. CiviCRM provides each *contact* with a unique *id* number. Note that in the following case it is just coincidental that the value of the *id* is the same as the value of the *external_identifier*.
+
+```
+MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_email FROM bsen_users;
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+| ID | user_login         | user_nicename      | display_name        | user_status | user_email                       |
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+| 14 | CMRT_President     | cmrt_president     | President CMRT      |           0 | president@cmrailtrail.org.au     |
+| 15 | CMRT_Treasurer     | cmrt_treasurer     | Treasurer CMRT      |           0 | treasurer@cmrailtrail.org.au     |
+| 16 | CMRT_Secretary     | cmrt_secretary     | Secretary CMRT      |           0 | secretary@cmrailtrail.org.au     |
+| 17 | CMRT_Committee     | cmrt_committee     | Committee CMRT      |           0 | committee@cmrailtrail.org.au     |
+| 18 | CMRT_Admin         | cmrt_admin         | Admin CMRT          |           0 | admin@cmrailtrail.org.au         |
+| 19 | CMRT_Vicepresident | cmrt_vicepresident | Vice President CMRT |           0 | vicepresident@cmrailtrail.org.au |
++----+--------------------+--------------------+---------------------+-------------+----------------------------------+
+```
+
+CiviCRM .csv file when importing additional data on the CMRT officiers.
+
+```
+External Identifier	First Name	Last Name	Preferred Communication Method	Preferred Language	Contact Source	Communication Style	Employee of	Street Address	City	Post Code	State	Country	Phone	Email	Website
+10	President	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	president@cmrailtrail.org.au	https://cmrailtrail.org.au
+11	Treasurer	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	treasurer@cmrailtrail.org.au	https://cmrailtrail.org.au
+12	Secretary	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	secretary@cmrailtrail.org.au	https://cmrailtrail.org.au
+13	Committee	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	committee@cmrailtrail.org.au	https://cmrailtrail.org.au
+14	Admin	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	admin@cmrailtrail.org.au	https://cmrailtrail.org.au
+<img width="1946" height="101" alt="image" src="https://github.com/user-attachments/assets/08d30858-75f3-435b-8d73-b5a2e1dcf5b6" />
+
+```
+### Deleting CiviCRM *Contacts* and WordPress *Users* 
+
+The following demonstrates the deleting of contacts.
+
+Every WordPress *user account* automatically becomes a CiviCRM *contact*. The CiviCRM *contact* can not be deleted, unless the WordPress *user account* has already been deleted. Thus, keeping WordPress *user accounts* to a tidy format and at a minimum reduces *contacts* existing on CiviCRM that may not be necessary.
+
+When deleting CiviCRM *contacts* note they remain in the CiviCRM database, but with the *is_deleted* field set to *True*. If *delete permanently* is selected this removes the *contact* entry from the CiviCRM database.
+
+Email accounts created in Webmail do not proliferate their existance or data to WordPress or CiviCRM. Thus, apart from the five detailed above for CMRT officiers, there can be any number of other email accounts.
+
+Upon deleting a WordPress *User*, then it is probably appropriate to backup and delete any Webmail account(s) of the *User*. 
+
+Example: WordPress database: After *ian* and *president* and other experimental *users* were deleted. Then *president* was added again and is assigned the WordPress ID = 14
+```
+MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_email FROM bsen_users;
++----+----------------+----------------+----------------+-------------+------------------------------+
+| ID | user_login     | user_nicename  | display_name   | user_status | user_email                   |
++----+----------------+----------------+----------------+-------------+------------------------------+
+| 14 | CMRT_President | cmrt_president | President CMRT |           0 | president@cmrailtrail.org.au |
+| 15 | CMRT_Treasurer | cmrt_treasurer | Treasurer CMRT |           0 | treasurer@cmrailtrail.org.au |
+| 16 | CMRT_Secretary | cmrt_secretary | Secretary CMRT |           0 | secretary@cmrailtrail.org.au |
+| 17 | CMRT_Committee | cmrt_committee | Committee CMRT |           0 | committee@cmrailtrail.org.au |
+| 18 | CMRT_Admin     | cmrt_admin     | Admin CMRT     |           0 | admin@cmrailtrail.org.au     |
++----+----------------+----------------+----------------+-------------+------------------------------+
+```
+CiviCRM Datebase: Showing *ian* id=2 and *President* id=3  having *is_deleted* = True. Note that id's 4 to 9 were *deleted permanently* by CiviCRM, thus do not show in the database.
+
+Then *President added again but as *external_identifier* = 6, as 1 has been taken by the CMRT Organization.
+```
+MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
++----+--------------+------------------------------------+------------+---------------------+--------------+
+| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
+|  2 | Individual   | ianstewart56@hotmail.com           |          1 | NULL                | Individual   |
+|  3 | Individual   | CMRT President                     |          1 | NULL                | Individual   |
+| 10 | Individual   | President CMRT                     |          0 | NULL                | Individual   |
+| 11 | Individual   | Treasurer CMRT                     |          0 | NULL                | Individual   |
+| 12 | Individual   | Secretary CMRT                     |          0 | NULL                | Individual   |
+| 13 | Individual   | Committee CMRT                     |          0 | NULL                | Individual   |
+| 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+```
+Using CiviCRM two *contacts* were *deleted*, but not *deleted permanently*. They are permanently deleted from the CivCRM database as follows:
+```
+MariaDB [cmrailtr_civicrm]> DELETE FROM civicrm_contact WHERE is_deleted=1;
+Query OK, 2 rows affected (0.012 sec)
+```
+The CiviCRM database now display the following contacts:
+```
+MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
++----+--------------+------------------------------------+------------+---------------------+--------------+
+| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
+| 10 | Individual   | President CMRT                     |          0 | NULL                | Individual   |
+| 11 | Individual   | Treasurer CMRT                     |          0 | NULL                | Individual   |
+| 12 | Individual   | Secretary CMRT                     |          0 | NULL                | Individual   |
+| 13 | Individual   | Committee CMRT                     |          0 | NULL                | Individual   |
+| 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
++----+--------------+------------------------------------+------------+---------------------+--------------+
+```
 
 ### Actions 
 
@@ -148,86 +251,3 @@ Upon a extract as .csv and restore then *external identifiers* can be set correc
 
     * C-Panel: https://cmrailtrail.org.au/cpanel
     * VIP Control: https://vip.ventraip.com.au/login (2FA)
-
-### Identifiers
-
-**id**: CiviCRM Contact ID. Sequential Deleted *contacts* remain in the database. ID is not re-alllocated.
-**external_identifier**: Supplied via .csv import file. No duplication of External Identifiers between .csv import files.
-**user**: WordPress sequential. Deleted users are removed from WordPress database and User ID is lost.
-
-WordPress database: After *ian* and *president* and other experimental *users* were deleted. Then *president* was added again and is assigned the WordPress ID = 14
-```
-MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, user_status, user_email FROM bsen_users;
-+----+----------------+----------------+----------------+-------------+------------------------------+
-| ID | user_login     | user_nicename  | display_name   | user_status | user_email                   |
-+----+----------------+----------------+----------------+-------------+------------------------------+
-| 14 | CMRT_President | cmrt_president | President CMRT |           0 | president@cmrailtrail.org.au |
-| 15 | CMRT_Treasurer | cmrt_treasurer | Treasurer CMRT |           0 | treasurer@cmrailtrail.org.au |
-| 16 | CMRT_Secretary | cmrt_secretary | Secretary CMRT |           0 | secretary@cmrailtrail.org.au |
-| 17 | CMRT_Committee | cmrt_committee | Committee CMRT |           0 | committee@cmrailtrail.org.au |
-| 18 | CMRT_Admin     | cmrt_admin     | Admin CMRT     |           0 | admin@cmrailtrail.org.au     |
-+----+----------------+----------------+----------------+-------------+------------------------------+
-```
-CiviCRM Datebase: Showing *ian* and *President* having been deleted. Then *President* added again but as *external_identifier* = 6, as 1 has been taken by the CMRT Organization.
-```
-MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
-|  2 | Individual   | ianstewart56@hotmail.com           |          1 | NULL                | Individual   |
-|  3 | Individual   | CMRT President                     |          1 | NULL                | Individual   |
-| 10 | Individual   | President CMRT                     |          0 | NULL                | Individual   |
-| 11 | Individual   | Treasurer CMRT                     |          0 | NULL                | Individual   |
-| 12 | Individual   | Secretary CMRT                     |          0 | NULL                | Individual   |
-| 13 | Individual   | Committee CMRT                     |          0 | NULL                | Individual   |
-| 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-```
-Using CiviCRM two *contacts* were *deleted*, but not *deleted permanently*.
-They are permanently deleted from the CivCRM database as follows:
-```
-MariaDB [cmrailtr_civicrm]> DELETE FROM civicrm_contact WHERE is_deleted=1;
-Query OK, 2 rows affected (0.012 sec)
-
-MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
-| 10 | Individual   | President CMRT                     |          0 | NULL                | Individual   |
-| 11 | Individual   | Treasurer CMRT                     |          0 | NULL                | Individual   |
-| 12 | Individual   | Secretary CMRT                     |          0 | NULL                | Individual   |
-| 13 | Individual   | Committee CMRT                     |          0 | NULL                | Individual   |
-| 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-```
-After CiviCRM loads the additional data for the contacts:
-```
-MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-| id | contact_type | display_name                       | is_deleted | external_identifier | contact_type |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-|  1 | Organization | Castlemaine-Maryborough Rail Trail |          0 | 1                   | Organization |
-| 10 | Individual   | President CMRT                     |          0 | 10                  | Individual   |
-| 11 | Individual   | Treasurer CMRT                     |          0 | 11                  | Individual   |
-| 12 | Individual   | Secretary CMRT                     |          0 | 12                  | Individual   |
-| 13 | Individual   | Committee CMRT                     |          0 | 13                  | Individual   |
-| 14 | Individual   | Admin CMRT                         |          0 | 14                  | Individual   |
-+----+--------------+------------------------------------+------------+---------------------+--------------+
-6 rows in set (0.000 sec)
-```
-Note that in the above case it is just coincidental that the Contact ID is the same as the External Identifier.
-
-CiviCRM .csv file when importing additional data on the CMRT officiers.
-
-```
-External Identifier	First Name	Last Name	Preferred Communication Method	Preferred Language	Contact Source	Communication Style	Employee of	Street Address	City	Post Code	State	Country	Phone	Email	Website
-10	President	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	president@cmrailtrail.org.au	https://cmrailtrail.org.au
-11	Treasurer	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	treasurer@cmrailtrail.org.au	https://cmrailtrail.org.au
-12	Secretary	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	secretary@cmrailtrail.org.au	https://cmrailtrail.org.au
-13	Committee	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	committee@cmrailtrail.org.au	https://cmrailtrail.org.au
-14	Admin	CMRT	Email	en_AU	CMRT_contact.csv	Formal	Castlemaine-Maryborough Rail Trail	Unit 6, 167-171 Railway St.	Maryborough	3465	VIC	Australia	61428660038	admin@cmrailtrail.org.au	https://cmrailtrail.org.au
-<img width="1946" height="101" alt="image" src="https://github.com/user-attachments/assets/08d30858-75f3-435b-8d73-b5a2e1dcf5b6" />
-
-```
