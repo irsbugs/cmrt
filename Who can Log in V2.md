@@ -83,14 +83,15 @@ This synchronization is now  automatically performed when a *user* is added to W
 
 Thus, the CiviCRM database will be synchronized to contain the above five *Contacts*.
 
-These five *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
+These six *Contacts* are the only people registered in CiviCRM who can send emails from the CiviCRM application. 
 
-For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. This is then forwarded to Maureen's Webmail account maureen@cmtrailtril.org.au.
+For example: Maureen may write an email in CiviCRM to send to all Castlemaine residents who are listed in the CiviCRM database. E.g. Contacts in CiviCRM with a *postcode*'s of *3450* and *3451*. She may sign off the email as "Maureen - CMRT Secretary".  The Castlemaine recipients of the e-mail will see that it is from secretary@cmrailtrial.org.au. If they decide to reply to Maureen then the reply goes back to: secretary@cmrailtrial.org.au. Webmail then forwards this to Maureen's personal Webmail account maureen@cmtrailtril.org.au.
 
-**Operational Consideration**
+**Operational Considerations**
 
-In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM. 
-
+* In using CiviCRM it may be convenient to have two tabs open on your browser. One tab is for Webmail the other tab is for CiviCRM.
+  
+* When there is a change of an official, then rather than having a new email account created for the new official and forwarding their emails to their personal email account, the new official may wish to log directly into the officials Webmail. i.e. They do not need to have a personal email account.
 
 ### External Identifier
 
@@ -110,6 +111,7 @@ How would this work with an Individual contact that subscribes via an input form
 Upon a extract as .csv and restore then *external identifiers* can be set correctly.
 
 ### Identifiers
+
 **ID**: WordPress *user* identification number
 **id**: CiviCRM Contact ID. Sequential Deleted *contacts* remain in the database. ID is not re-alllocated.
 **external_identifier**: Supplied via .csv import file. No duplication of External Identifiers between .csv import files.
@@ -183,9 +185,9 @@ MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, display_name, us
 | 18 | CMRT_Admin     | cmrt_admin     | Admin CMRT     |           0 | admin@cmrailtrail.org.au     |
 +----+----------------+----------------+----------------+-------------+------------------------------+
 ```
-CiviCRM Datebase: Showing *ian* id=2 and *President* id=3  having *is_deleted* = True. Note that id's 4 to 9 were *deleted permanently* by CiviCRM, thus do not show in the database.
+CiviCRM Datebase: Showing *ian* id=2 and *President* id=3  having *is_deleted* = 1 = True. Note that id's 4 to 9 were *deleted permanently* by CiviCRM, thus they no longer show up in the database.
 
-Then *President added again but as *external_identifier* = 6, as 1 has been taken by the CMRT Organization.
+Then *President* added again and is allocated CiviCRM *id* of 10.
 ```
 MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
 +----+--------------+------------------------------------+------------+---------------------+--------------+
@@ -201,12 +203,12 @@ MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, e
 | 14 | Individual   | Admin CMRT                         |          0 | NULL                | Individual   |
 +----+--------------+------------------------------------+------------+---------------------+--------------+
 ```
-Using CiviCRM two *contacts* were *deleted*, but not *deleted permanently*. They are permanently deleted from the CivCRM database as follows:
+In the above the two CiviCRM *contacts* were *deleted*, but not *deleted permanently*. They may be permanently deleted from the CivCRM database using the followig SQL command:
 ```
 MariaDB [cmrailtr_civicrm]> DELETE FROM civicrm_contact WHERE is_deleted=1;
 Query OK, 2 rows affected (0.012 sec)
 ```
-The CiviCRM database now display the following contacts:
+The CiviCRM database now displays the following contacts:
 ```
 MariaDB [cmrailtr_civicrm]> select id, contact_type, display_name, is_deleted, external_identifier, contact_type from civicrm_contact;
 +----+--------------+------------------------------------+------------+---------------------+--------------+
