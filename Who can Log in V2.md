@@ -24,7 +24,7 @@ The CMRT officers need to be able to login to the Ventraip account and/or the Wo
 
 Ventraip provide a Webmail service. This is used by CMRT officials to receive emails sent to the account they are responsible for operating. These include:
 
-* President CMRT - president@cmrailtrail.org.au - Currently: Janice and Geoff
+* President CMRT - president@cmrailtrail.org.au - Currently: Janice.
 * Vice President CMRT - vicepresident@cmrailtrail.org.au - Currently Geoff
 * Treasurer CMRT - treasurer@cmrailtrail.org.au - Currently: Des
 * Secretary CMRT - secretary@cmrailtrail.org.au - Currently: Maureen.
