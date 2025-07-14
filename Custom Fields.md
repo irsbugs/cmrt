@@ -1,6 +1,6 @@
 # Custom Fields
 
-When importing data from csv files into CiviCRM one aim is that the columns being imported have the same names as the field names reserved by CiviCRM. This simplifies and automates the matching of the imported fields with the CiviCRM fields. For example, If the field on the csv file is *Surame* then change the csv file so the field is "Last Name", which is what CiviCRM expects.
+When importing data from csv files into CiviCRM one aim is that the columns being imported have the same names as the field names reserved by CiviCRM. This simplifies and automates the matching of the imported fields with the CiviCRM fields. For example, If the field on the csv file is *Surname* then change the csv file so the field is *Last Name*, which is what CiviCRM expects.
 
 If data needs to be imported, for which there is not an appropriate CiviCRM field, then a *Custom* field may be created.
 
