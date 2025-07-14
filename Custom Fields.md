@@ -42,7 +42,7 @@ There are two tyes of relationship that exist between an *Organization* and an *
 * Individual: *Employee of* and Organisation: *Employer of*.
 * Individual: *Volunteer for* and Organisation: *Volunteer is*.
 
-When importing a csv *Individual* contact, then either the *Employee of* or *Volunteer for* field can be set. Include in the fields being imported ensure there is an *Organisation Name* column. During importing, from the drop-down menu next to *Organisation Name*, select either  *Employee of* or *Volunteer for*. It then opens an adjacent drop-down menu in which *Organisation* is then selected.
+When importing a csv *Individual* contact, then either the *Employee of* or *Volunteer for* field can be set. Ensure in the fields being imported there is an *Organisation Name* column. During importing, from the drop-down menu next to *Organisation Name*, select either  *Employee of* or *Volunteer for*. It then opens an adjacent drop-down menu in which *Organisation* is then selected. in the case where there are both volunteers and employees, then this requires that two separate csv files be imported. One for importing *Volunteer for* and one for importing *Employee of*.
 
 If the Organisation does not already exist as an *Organisation* contact, then it will be created, with minimal details, as part of the importing of the *Individual* contact. The *Organisation* and *Individual* contacts contain a *Relationship* tab. From the *Relatonship* tab you observe who are the volumteers and employees, etc.
 
@@ -123,7 +123,7 @@ Number records with tags:         330
 Total Number of tags in records: 1432
 ```
 
-Please review this daata and decide if it is of any use in CiviCRM and therefore needs to be imported.
+Please review this *TAGS* data and decide if it is of any use in CiviCRM and therefore needs to be imported or not.
 
 
 
