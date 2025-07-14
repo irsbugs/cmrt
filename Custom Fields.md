@@ -27,7 +27,7 @@ For the data imported from MailChimp the *NOTES* column was renamed *Info* to pe
 [2021-11-01 04:28:57] Community Ambassador Yapeen
 ```
 
-When creating the Individual contacts for the CMRT officer, the *Info* field contains the 2025 elected officials name. E.g. For *President CMRT* the Info field is: *2025: Janice Simpson*. This was done as a way of testing the importing of the csv file. These *Info* for these six *Individual* contacts is open for change.
+When creating the *Individual* contacts for the CMRT officers, the *Info* field contains the 2025 elected officials name. E.g. For *President CMRT* the Info field is: *2025: Janice Simpson*. This was done as a way of havig some data for testing the importing of the csv file. The *Info* for these six *Individual* contacts is open for change or additional information.
 
 
 ### ABN Field
