@@ -4,7 +4,7 @@ When importing data from csv files into CiviCRM one aim is that the columns bein
 
 If data needs to be imported, for which there is not an appropriate CiviCRM field, then a *Custom* field may be created.
 
-For importing to CiviCRM the following *Custom* fields were creaated:
+For importing to CiviCRM the following *Custom* fields were created:
 
 For Individual Contacts:
 * Info
