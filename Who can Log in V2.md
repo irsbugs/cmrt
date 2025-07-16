@@ -99,11 +99,11 @@ The *External Identifier* appears to need unique numbering, even if data is impo
 
 * 1 Default Organization. CMRT
 * 10 - 99 Official Positions of the CMRT Community organization. President, Secretary etc.
-* 100 - 199 Organization Business
-* 200 - 299 Organization Community
-* 300 - 399 Organization Goverment - Federal
-* 400 - 499 Organization Government - Local
-* 500 - 599 Organization Government - State   
+* 100 - 399 Organization Business
+* 400 - 699 Organization Community
+* 700 - 799 Organization Goverment - Federal
+* 800 - 899 Organization Government - Local
+* 900 - 999 Organization Government - State   
 * 1000+ Individual
 
 How would this work with an Individual contact that subscribes via an input form on the website? Have no *external identifier* but *contact source* file as *website input*.
