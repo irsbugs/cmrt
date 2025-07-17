@@ -48,7 +48,6 @@ Country:                Australia
 Job Title:              Programmer
 Employee of:            Castlemaine Maryborough Rail Trail <--- Should be one of the already registered organizations.
 Website:                cmrailtrail.org.au - Because Joe is an employee of CMRT
-Note:                   Text. - Has Subject? and Body fields? <-- Test. Merge Tags with Notes? Organisation: ABN: 24 239 558 815
 Contact Source:         civicrm_contact_importing_template.csv  <-- Test .csv file
 
 ```
@@ -175,6 +174,9 @@ View Mr. Joseph Bloggs - Summary
 ![Step 6](images/import_individual/import_step_6.png)
 
 
+Note:
+Note:                   Text. - Has Subject? and Body fields? <-- Test. Merge Tags with Notes? Organisation: ABN: 24 239 558 815
+Created Info field as Note daatatype. 100 chars x 10 lines.
 
 
 
