@@ -29,7 +29,7 @@ The above "Organisations" would currently have "Employee of" relationships with 
  
 Also there may be, say, a secretary working for one of these "Member of Parliament" organisations, and they are the CMRT point of contact. The secretary, whose name and email details are known, becomes an "Individual"/"Employee of" their "Member of Parliament" organisation in the CMRT database. Otherwise the secretary would be in a relationship as "Employee of" "Parliament House". This may be true with regards to where their salary comes from, but there could be 10 secretaries in the CMRT database and they wouldn't be in a relationship with their respective "Member of Parliament" organisation. 
 
-In the case of Letters of Support, then these will all come from organisations e.g. "Member of Parliament for Mallee" and have been written by an individual e.g. "Anne Webster"
+In the case of Letters of Support, then these will all come from organisations. The link to the Letter of Support that CMRT received is stored in the Organisation not the individual. E.g. the Letter of Support comes from the *Member of Parliament for Mallee* orgnisation and their letter writer at the time was *Anne Webster*.
 
 **Schools**
 
@@ -65,4 +65,14 @@ Groups and Tags
 I thought that few people have titles. However I see there's some *Dr.* E.g. *Dr. Anne Webster*, but she drops the Dr. on her website, and *Cr* which I think is Councillor. Plus I think some want a title of *Hon*.
 
 Maybe instead of entering the "Title" field when loading CSV files, then their *First Name* is prefixed with the title. E.g. First Name: Dr. Anne, Last Name: Webster.
+
+**Job Title**
+
+In most cases a single Individual is employed/volunteer by a single organisation. Thus the Individuals *job title* is simple. E.g. Owner, Propriator, Manager, secretary, etc. of the Organisation.
+
+Does CiviCRM support a single Individual having two job titles and be an employee of two organisation. For example, Peter Strang sent in two Letters of Support. One is from Maldon Cycling where he is the President, and the other from Mt. Alexander Cycling where he is the Secretary. So I'm not sure if CiviCRM supports this or not.
+
+
+
+
 
