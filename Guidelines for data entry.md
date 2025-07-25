@@ -25,7 +25,7 @@ I suggest, in the catagory of Organisation --> Government-Federal, that there be
 * Member of Parliament for Ripon
 * Member of Parliament for Bendigo
 
-The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayayett. When these people change (via elections) then the Organisation ramains, and these individuals job title is prefixed with "Former:". Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
+The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayett. When these people change (via elections) then the Organisation ramains, and these individuals job title is prefixed with "Former:". Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
  
 Also there may be, say, a secretary working for one of these "Member of Parliament" organisations, and they are the CMRT point of contact. The secretary, whose name and email details are known, becomes an "Individual"/"Employee of" their "Member of Parliament" organisation in the CMRT database. Otherwise the secretary would be in a relationship as "Employee of" "Parliament House". This may be true with regards to where their salary comes from, but there could be 10 secretaries in the CMRT database and they wouldn't be in a relationship with their respective "Member of Parliament" organisation. 
 
