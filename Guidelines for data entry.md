@@ -21,9 +21,9 @@ From https://en.wikipedia.org/wiki/List_of_Australian_Government_entities there 
 
 I suggest, in the catagory of Organisation --> Government-Federal, that there be "Member of Parliament" orgnaisations like this:
 
-Member of Parliament for Mallee
-Member of Parliament for Ripon
-Member of Parliament for Bendigo
+* Member of Parliament for Mallee
+* Member of Parliament for Ripon
+* Member of Parliament for Bendigo
 
 The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayayett. When these people change (via elections) then the Organisation ramains, and these individuals job title is prefixed with "Former:". Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
  
