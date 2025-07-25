@@ -21,9 +21,9 @@ From https://en.wikipedia.org/wiki/List_of_Australian_Government_entities there 
 
 In the catagory of Organisation --> Government-Federal, there be *Federal Electoral District of xxxx* organisations like this:
 
-* Federal Electoral District of Mallee
-* Federal Electoral District of Bendigo
-* Federal Electoral District of Ballerat
+* Federal Electoral Division of Mallee
+* Federal Electoral Division of Bendigo
+* Federal Electoral Division of Ballerat
 
 See: https://en.wikipedia.org/wiki/Electorates_of_the_Australian_House_of_Representatives
 
