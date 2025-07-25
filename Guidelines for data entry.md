@@ -19,11 +19,15 @@ The Organisation -> Goverment-Federal. Consists of only one organisation i.e. Pa
 
 From https://en.wikipedia.org/wiki/List_of_Australian_Government_entities there are many "organisations" that would come under "Organisation -> Goverment-Federal", but it looks to me that it would be unlikely there would be direct contact by CMRT and one of these organisation. Most of the federal organisations have equivalents at a Victorian state level. See: https://en.wikipedia.org/wiki/List_of_Victorian_government_agencies so I think that CMRT would be dealing with these state organisations.
 
-I suggest, in the catagory of Organisation --> Government-Federal, that there be "Member of Parliament" orgnaisations like this:
+In the catagory of Organisation --> Government-Federal, there be *Federal Electoral District of xxxx* organisations like this:
 
-* Member of Parliament for Mallee
-* Member of Parliament for Ripon
-* Member of Parliament for Bendigo
+* Federal Electoral District of Mallee
+* Federal Electoral District of Bendigo
+* Federal Electoral District of Ballerat
+
+See: https://en.wikipedia.org/wiki/Electorates_of_the_Australian_House_of_Representatives
+
+The above Organisations would have a relationship with an individual(s). Normally the MP or their staff.
 
 The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayett. When these people change (via elections) then the Organisation ramains, and these individuals job title is prefixed with "Former:". Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
  
