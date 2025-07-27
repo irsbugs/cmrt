@@ -75,6 +75,16 @@ The eight Wards in Mount Alexander Shire Council are:
 * Moonlight Creek Ward
 * Tarrengower Ward
 
+The Castlemaine-Maryborough Rail Trail traverses through these Wards:
+
+* Bakers Creek
+* Forest Creek
+* Campbells Creek
+* Laddon River
+* Tullaroop Ward
+* Maryborough East Ward
+* Maryborough Central Ward
+
 
 
 
