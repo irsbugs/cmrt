@@ -53,7 +53,30 @@ CMRT is mostly interested in these top-level local government organisations:
 * Central Goldfields Shire Council
 * Mount Alexander Shire Council  
 
-  
+The seven Wards in Central Goldfields Shire Council are:
+
+* Flynn Ward
+* Maryborough Central Ward
+* Maryborough East Ward
+* Maryborough North Ward
+* Maryborough West Ward
+* Paddys Ranges Ward
+* Tullaroop Ward 
+
+
+The eight Wards in Mount Alexander Shire Council are:
+
+* Barkers Creek Ward
+* Calder Ward
+* Campbells Creek Ward
+* Coliban Ward
+* Forest Creek Ward
+* Loddon River Ward
+* Moonlight Creek Ward
+* Tarrengower Ward
+
+
+
 
 The Organisation -> Goverment-Federal. Consists of only one organisation i.e. Parliament House in Canberra. While Parliament House could remain in CiviCRM database as an organisation, its unlikely anyone will use the data to contact someone in Parliament House. 
 
