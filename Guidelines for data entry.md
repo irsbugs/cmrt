@@ -26,8 +26,8 @@ CMRT is mostly interested in the Federal Electoral Division organisations in the
 * Federal Electoral Division of Bendigo
 * Federal Electoral Division of Mallee
 
-Between e Parliament of Australia organd these Federal Electoral Division organisations uses the *Electorate* relationship type is used. This relationship is permanent.
-the
+Between the Parliament of Australia organd these Federal Electoral Division organisations uses the *Electorate* relationship type is used. This relationship is permanent.
+
 Members of Parliament are considered to be *Individual*s in an *Employee* relationship type with their Federal Electoral Division *Organisation*. If a Member of Parliament sends a letter, then it is considered to be from the Federal Electoral Division that the Member is the currently the elected representative. After an election, the CiviCRM *Individual* data may need to be changed to reflect the election result of a replacement of a Member of Parliament.
 
 As well as the Member of Parliament being an *Employee* of their Federal Electoral Division, there may have associates that are also in the CiviCRM *Individual* database. For example the secretary of a Member of Parliament. This secretary will also have a relationship type of *Employee* with the relevant Federal Electoral Division.
@@ -99,6 +99,10 @@ Maybe instead of entering the "Title" field when loading CSV files, then their *
 **Job Title**
 
 In most cases a single Individual is employed/volunteer by a single organisation. Thus the Individuals *job title* is simple. E.g. Owner, Propriator, Manager, secretary, etc. of the Organisation.
+Federal Electoral Division of Ballarat
+Federal Electoral Division of Bendigo
+Federal Electoral Division of Mallee
+th<img width="227" height="51" alt="image" src="https://github.com/user-attachments/assets/a8363a65-b849-4d41-b330-bba0cf790cd9" />
 
 Does CiviCRM support a single Individual having two job titles and be an employee of two organisation. For example, Peter Strang sent in two Letters of Support. One is from Maldon Cycling where he is the President, and the other from Mt. Alexander Cycling where he is the Secretary. So I'm not sure if CiviCRM supports this or not.
 
