@@ -11,9 +11,21 @@ Draft: Ian 2025-07-25
 * Organisation -> Government-State
 * Organisation -> Government-Local
 
-### Ideas:
 
-**Organisation -> Government-Federal**
+### Organisation -> Government - Federal Relationship
+
+In CiviCRM, Using *Administer --> Custom Data and Screens --> Relationship Types* the **Electorate** relationship between organisations me be added.
+
+The top-level Federal Organisation is:
+
+* Parliament of Australia
+
+CMRT is interested in the Federal Electoral Divisions in the Castlemaine-Maryborough area:
+
+* Federal Electoral Division of Ballarat
+* Federal Electoral Division of Bendigo
+* Federal Electoral Division of Mallee
+
 
 The Organisation -> Goverment-Federal. Consists of only one organisation i.e. Parliament House in Canberra. While Parliament House could remain in CiviCRM database as an organisation, its unlikely anyone will use the data to contact someone in Parliament House. 
 
