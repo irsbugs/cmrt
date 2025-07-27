@@ -26,8 +26,8 @@ CMRT is mostly interested in the Federal Electoral Division organisations in the
 * Federal Electoral Division of Bendigo
 * Federal Electoral Division of Mallee
 
-Between the the Parliament of Australia organd these Federal Electoral Division organisations uses the *Electorate* relationship type is used. This relationship is permanent.
-
+Between e Parliament of Australia organd these Federal Electoral Division organisations uses the *Electorate* relationship type is used. This relationship is permanent.
+the
 Members of Parliament are considered to be *Individual*s in an *Employee* relationship type with their Federal Electoral Division *Organisation*. If a Member of Parliament sends a letter, then it is considered to be from the Federal Electoral Division that the Member is the currently the elected representative. After an election, the CiviCRM *Individual* data may need to be changed to reflect the election result of a replacement of a Member of Parliament.
 
 As well as the Member of Parliament being an *Employee* of their Federal Electoral Division, there may have associates that are also in the CiviCRM *Individual* database. For example the secretary of a Member of Parliament. This secretary will also have a relationship type of *Employee* with the relevant Federal Electoral Division.
