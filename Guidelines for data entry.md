@@ -113,13 +113,13 @@ In CiviCRM performing a search on Organisation - Local will return:
 
 The Castlemaine-Maryborough Rail Trail traverses through these Wards:
 
-* Bakers Creek
-* Forest Creek
-* Campbells Creek
-* Laddon River
-* Tullaroop Ward
-* Maryborough East Ward
-* Maryborough Central Ward
+* MASC Bakers Creek
+* MASC Forest Creek
+* MASC Campbells Creek
+* MASC Laddon River
+* CGSC Tullaroop Ward
+* CGSC Maryborough East Ward
+* CGSC Maryborough Central Ward
 
 
 
