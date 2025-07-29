@@ -90,7 +90,7 @@ The eight Wards in Mount Alexander Shire Council are:
 * MASC Moonlight Creek Ward
 * MASC Tarrengower Ward
 
-In CiviCRM performing a search on Organisation - State will return:
+In CiviCRM performing a search on Organisation - Local will return:
 
 * Central Goldfields Shire Council
 * Mount Alexander Shire Council  
