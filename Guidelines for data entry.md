@@ -33,7 +33,7 @@ Members of Parliament are considered to be *Individual*s in an *Employee* relati
 
 As well as the Member of Parliament being an *Employee* of their Federal Electoral Division, they may have associates that are also in the CiviCRM *Individual* database. For example the secretary of a Member of Parliament. This secretary will also have a relationship type of *Employee* with the relevant Federal Electoral Division.
 
-In CiviCRM performing a search on Organisation - Federal will return:
+In CiviCRM performing a search on *Organisation Government - Federal* will return:
 
 * Parliament of Australia
 * Federal Electoral Division of Ballarat
@@ -54,7 +54,7 @@ CMRT is mostly interested in the State Electorate organisations in the Castlemai
 
 These organisations have an *Electorate* relatonship. The State Electorates elected member has and *Employee* relationship type.
 
-In CiviCRM performing a search on Organisation - State will return:
+In CiviCRM performing a search on *Organisation Governemnt - State* will return:
 
 * Parliament of Victoria
 * State Electorate of Bendigo West
@@ -90,7 +90,7 @@ The eight Wards in Mount Alexander Shire Council are:
 * MASC Moonlight Creek Ward
 * MASC Tarrengower Ward
 
-In CiviCRM performing a search on Organisation - Local will return:
+In CiviCRM performing a search on *Organisation Government - Local will return:
 
 * Central Goldfields Shire Council
 * Mount Alexander Shire Council  
@@ -122,13 +122,13 @@ The Castlemaine-Maryborough Rail Trail traverses through these Wards:
 * CGSC Maryborough Central Ward
 
 
+**Notes**
 
+The *Organisation -> Goverment - Federal* consists of only one organisation i.e. Parliament House in Canberra. While Parliament House should remain in CiviCRM database as an organisation, its unlikely anyone will make use its data. They may make use of its relationships to the *electorates*. 
 
-The Organisation -> Goverment-Federal. Consists of only one organisation i.e. Parliament House in Canberra. While Parliament House could remain in CiviCRM database as an organisation, its unlikely anyone will use the data to contact someone in Parliament House. 
+From https://en.wikipedia.org/wiki/List_of_Australian_Government_entities there are many *organisations* that would come under *Organisation -> Goverment - Federal*, but it looks to me that it would be unlikely there would be direct contact by CMRT and one of these organisation. Most of the federal organisations have equivalents at a Victorian state level. See: https://en.wikipedia.org/wiki/List_of_Victorian_government_agencies so I think that CMRT would more likely be dealing with these state organisations.
 
-From https://en.wikipedia.org/wiki/List_of_Australian_Government_entities there are many "organisations" that would come under "Organisation -> Goverment-Federal", but it looks to me that it would be unlikely there would be direct contact by CMRT and one of these organisation. Most of the federal organisations have equivalents at a Victorian state level. See: https://en.wikipedia.org/wiki/List_of_Victorian_government_agencies so I think that CMRT would be dealing with these state organisations.
-
-In the catagory of Organisation --> Government-Federal, there be *Federal Electoral District of xxxx* organisations like this:
+In the catagory of Organisation --> Government - Federal, there be *Federal Electoral District of xxxx* organisations like this:
 
 * Federal Electoral Division of Mallee
 * Federal Electoral Division of Bendigo
@@ -138,13 +138,13 @@ See: https://en.wikipedia.org/wiki/Electorates_of_the_Australian_House_of_Repres
 
 The above Organisations would have a relationship with an individual(s). Normally the MP or their staff.
 
-The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayett. When these people change (via elections) then the Organisation ramains, and these individuals job title is prefixed with "Former:". Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
+The above "Organisations" would currently have "Employee of" relationships with these "Inividuals": Anne Webster, Lisa Chesters and Martha Hayett. When these people change (via elections) then the Organisation ramains, and these individuals job title of *MP* becomes *Former MP*. Hopefully the newly elected representative supports CMRT so they are added as an individual to their respective organisation. 
  
 Also there may be, say, a secretary working for one of these "Member of Parliament" organisations, and they are the CMRT point of contact. The secretary, whose name and email details are known, becomes an "Individual"/"Employee of" their "Member of Parliament" organisation in the CMRT database. Otherwise the secretary would be in a relationship as "Employee of" "Parliament House". This may be true with regards to where their salary comes from, but there could be 10 secretaries in the CMRT database and they wouldn't be in a relationship with their respective "Member of Parliament" organisation. 
 
 In the case of Letters of Support, then these will all come from organisations. The link to the Letter of Support that CMRT received is stored in the Organisation not the individual. E.g. the Letter of Support comes from the *Member of Parliament for Mallee* orgnisation and their letter writer at the time was *Anne Webster*.
 
-**Schools**
+### Schools
 
 Of the six schools in the Letter of Support list, their e-mail addresses end with *.vic.gov.au*. This suggests to me that they should all be under "Orgnisation -> Government-State". There is a word before the *.vic.gov.au* but I suspect this just indicates which mail server the school uses. E.g. "education", "edumail", "highview" and "olivet". i.e. They use a governemnt supplied server or have their own mail server.
 
