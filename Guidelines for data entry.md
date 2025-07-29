@@ -182,10 +182,11 @@ Maybe instead of entering the "Title" field when loading CSV files, then their *
 **Job Title**
 
 In most cases a single Individual is employed/volunteer by a single organisation. Thus the Individuals *job title* is simple. E.g. Owner, Propriator, Manager, secretary, etc. of the Organisation.
-Federal Electoral Division of Ballarat
-Federal Electoral Division of Bendigo
-Federal Electoral Division of Mallee
-th<img width="227" height="51" alt="image" src="https://github.com/user-attachments/assets/a8363a65-b849-4d41-b330-bba0cf790cd9" />
+
+* Federal Electoral Division of Ballarat
+* Federal Electoral Division of Bendigo
+* Federal Electoral Division of Mallee
+
 
 Does CiviCRM support a single Individual having two job titles and be an employee of two organisation. For example, Peter Strang sent in two Letters of Support. One is from Maldon Cycling where he is the President, and the other from Mt. Alexander Cycling where he is the Secretary. So I'm not sure if CiviCRM supports this or not.
 
