@@ -33,6 +33,14 @@ Members of Parliament are considered to be *Individual*s in an *Employee* relati
 
 As well as the Member of Parliament being an *Employee* of their Federal Electoral Division, they may have associates that are also in the CiviCRM *Individual* database. For example the secretary of a Member of Parliament. This secretary will also have a relationship type of *Employee* with the relevant Federal Electoral Division.
 
+In CiviCRM performing a search on Organisation - Federal will return:
+
+* Parliament of Australia
+* Federal Electoral Division of Ballarat
+* Federal Electoral Division of Bendigo
+* Federal Electoral Division of Mallee
+
+
 ### Organisation -> Government - State Relationship
 
 The top-level state organisation is:
@@ -46,6 +54,13 @@ CMRT is mostly interested in the State Electorate organisations in the Castlemai
 
 These organisations have an *Electorate* relatonship. The State Electorates elected member has and *Employee* relationship type.
 
+In CiviCRM performing a search on Organisation - State will return:
+
+* Parliament of Victoria
+* State Electorate of Bendigo West
+* State Electorate of Ripon
+
+
 ### Organisation -> Government - Local Relationship
 
 CMRT is mostly interested in these top-level local government organisations:
@@ -55,25 +70,46 @@ CMRT is mostly interested in these top-level local government organisations:
 
 The seven Wards in Central Goldfields Shire Council are:
 
-* Flynn Ward
-* Maryborough Central Ward
-* Maryborough East Ward
-* Maryborough North Ward
-* Maryborough West Ward
-* Paddys Ranges Ward
-* Tullaroop Ward 
+* CGSC Flynn Ward
+* CGSC Maryborough Central Ward
+* CGSC Maryborough East Ward
+* CGSC Maryborough North Ward
+* CGSC Maryborough West Ward
+* CGSC Paddys Ranges Ward
+* CGSC Tullaroop Ward 
 
 
 The eight Wards in Mount Alexander Shire Council are:
 
-* Barkers Creek Ward
-* Calder Ward
-* Campbells Creek Ward
-* Coliban Ward
-* Forest Creek Ward
-* Loddon River Ward
-* Moonlight Creek Ward
-* Tarrengower Ward
+* MASC Barkers Creek Ward
+* MASC Calder Ward
+* MASC Campbells Creek Ward
+* MASC Coliban Ward
+* MASC Forest Creek Ward
+* MASC Loddon River Ward
+* MASC Moonlight Creek Ward
+* MASC Tarrengower Ward
+
+In CiviCRM performing a search on Organisation - State will return:
+
+* Central Goldfields Shire Council
+* Mount Alexander Shire Council  
+* CGSC Flynn Ward
+* CGSC Maryborough Central Ward
+* CGSC Maryborough East Ward
+* CGSC Maryborough North Ward
+* CGSC Maryborough West Ward
+* CGSC Paddys Ranges Ward
+* CGSC Tullaroop Ward 
+* MASC Barkers Creek Ward
+* MASC Calder Ward
+* MASC Campbells Creek Ward
+* MASC Coliban Ward
+* MASC Forest Creek Ward
+* MASC Loddon River Ward
+* MASC Moonlight Creek Ward
+* MASC Tarrengower Ward
+
 
 The Castlemaine-Maryborough Rail Trail traverses through these Wards:
 
