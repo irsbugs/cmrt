@@ -76,6 +76,9 @@ The subscribe button also needs to send this data to Spark Essentials CiviCRM. I
 * Use the CiviCRM variables: "Email Address", First name" and "Last Name"
 * Adding the "Newsletter Subscriber" group to the new Individual contact.
 * Checking the new contact doesn't arleady exists.
+* Checking the new contact is not in the "unsubscribe" list.
+* Checking the email address is all lower case.
+* Checking the Fist and Last names are Title case.
 * Checking that there is no spamming of the input form.
 
   
