@@ -64,10 +64,13 @@ The following is the html associated with the subscribe form:
 </div>
 ```
 
-Upon clicking on the submit button, the data for three input variables are captured and passed to mailchimp, a plugin to Wordpress:
+Upon clicking on the subscribe button, the data for three input variables are captured and passed to mailchimp, a plugin to Wordpress:
 
 	* First Name - id="et_pb_signup_firstname"
 	* Last Name - id="et_pb_signup_lastname"
 	* Email - id="et_pb_signup_email"
 
-	
+For the subscribe button also need to send this data to Spark Essentials CiviCRM. In CiviCRM the actions need to include:
+
+* Creating a new Individual contact.
+* Use the CiviCRM variables: 
