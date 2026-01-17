@@ -63,3 +63,11 @@ The following is the html associated with the subscribe form:
 	</form>
 </div>
 ```
+
+Upon clicking on the submit button, the data for three input variables are captured and passed to mailchimp, a plugin to Wordpress:
+
+	* First Name - id="et_pb_signup_firstname"
+	* Last Name - id="et_pb_signup_lastname"
+	* Email - id="et_pb_signup_email"
+
+	
