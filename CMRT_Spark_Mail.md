@@ -73,4 +73,4 @@ Upon clicking on the subscribe button, the data for three input variables are ca
 For the subscribe button also need to send this data to Spark Essentials CiviCRM. In CiviCRM the actions need to include:
 
 * Creating a new Individual contact.
-* Use the CiviCRM variables: 
+* Use the CiviCRM variables: "Email Address". First name" and "Last Name"
