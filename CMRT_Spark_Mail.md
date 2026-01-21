@@ -93,7 +93,7 @@ Steps:
 * Copy the **Your Registration Info** profile and give it the new name **Newsletter Subscriber Form**
 * Open the **Advanced Settings**
 	* **Add contacts to a group?** select **Newsletter Recipients**
- 	* Note that there is a **Include reCAPTCHA?** option. This provided/requires a sign-up with Google.
+ 	* Note that there is a **Include reCAPTCHA?** option. This is provided by/requires a sign-up with Google.
 * Save
 
 Every Individual created via this profile is automatically added to the group Newsletter Recipients
