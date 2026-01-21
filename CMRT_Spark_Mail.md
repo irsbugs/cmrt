@@ -100,5 +100,12 @@ After a subscriber fills out and **Save**s a form/profile, then if you look at t
 
 While the new Contact takes the new **Contact ID**, there is no **External ID**. It's possible to add code, for example, to copy the unique **Contact ID** to also be the **External ID**.
 
+** Wordpress Webpage
+
+A Wordpress webpage is then needs to be created. To add the CiviCRM Profile/form to the webpage insert a **shortcode** where the **gid** is the **Group ID** of the **Newsleter Subscriber Form** For example...
+
+```
+[civicrm component="profile" gid="16"]
+```
 
 
