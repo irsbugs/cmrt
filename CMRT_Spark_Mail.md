@@ -81,4 +81,21 @@ The subscribe button also needs to send this data to Spark Essentials CiviCRM. I
 * Checking the Fist and Last names are Title case.
 * Checking that there is no spamming of the input form.
 
-  
+# Creating a CiviCRM Profile for Newsletter Subscriber contact
+
+This will create a form to capture a new individual contact who wishes to subscribe to the Newletter.
+
+They only provide: First name. Last name and Email address.
+
+Steps:
+
+* Go to Administer → Customize Data and Screens → Profiles
+* Copy the **Your Registration Info** profile and give it the new name **Newsletter Subscriber Form**
+* Open the **Advanced Settings**
+	* **Add contacts to a group?** select **Newsletter Recipients**
+ 	* Note that there is a **Include reCAPTCHA?** option. This provided/requires a sign-up with Google.
+* Save
+
+Every Individual created via this profile is automatically added to the group Newsletter Recipients
+   
+   
