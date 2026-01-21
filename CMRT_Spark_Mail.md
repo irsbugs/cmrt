@@ -95,7 +95,8 @@ Steps:
 	* **Add contacts to a group?** select **Newsletter Recipients**
  	* Note that there is a **Include reCAPTCHA?** option. This is provided by/requires a sign-up with Google.
 * Save
+   
+After a subscriber fills out and **Save**s a form/profile, then if you look at the **Groups --> Regular Groups** they are members now members of  **Newsletter Recipients** and it has automatically included the **Date Added** time stamp field.
 
-Every Individual created via this profile is automatically added to the group Newsletter Recipients
-   
-   
+While the new Contact takes the new **Contact ID**, there is no **External ID**.
+
