@@ -85,7 +85,7 @@ The subscribe button also needs to send this data to Spark Essentials CiviCRM. I
 
 This will create a form to capture a new individual contact who wishes to subscribe to the Newletter.
 
-They only provide: First name. Last name and Email address.
+All that the new contact provides is: First name. Last name and Email address. 
 
 Steps:
 
@@ -98,5 +98,7 @@ Steps:
    
 After a subscriber fills out and **Save**s a form/profile, then if you look at the **Groups --> Regular Groups** they are members now members of  **Newsletter Recipients** and it has automatically included the **Date Added** time stamp field.
 
-While the new Contact takes the new **Contact ID**, there is no **External ID**.
+While the new Contact takes the new **Contact ID**, there is no **External ID**. It's possible to add code, for example, to copy the unique **Contact ID** to also be the **External ID**.
+
+
 
