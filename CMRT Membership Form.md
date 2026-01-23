@@ -132,15 +132,7 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
 * Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
 * Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
 * Check box. **I consent to my completion of this webform serving as my electronic signature**
- SKU: N/A Category: Membership
 
-    Additional information 
-
-Additional information
-Would you like to add an optional Donation? 	
-
-No thank you, $10, $20, $30, $40, $50, Other amount
-  Note: The Check boxes default to being clear. Clicking them add a tick. Another click will clear them again.
 
 ### Your Order
 
@@ -202,24 +194,52 @@ This page displays the contents of your cart. The red *X* allows the deletion of
 ### Page: https://cmrailtrail.org.au/checkout/
 
 This page is long and is split over multiple images...
-m_+04a
+
+* Prompt Text: *I am a...* Radio buttons: **New Member** or **Renewing Member**
+* **First Name**. If logged in then default name prompt is given - e.g. *Admin*
+* **Last Name**. If logged in then default name prompt given. e.g. *CMRT*
+* **Country/Region**. Prompt: *Australia*
+* **Street Address**. Prompt: *House number and street name*
+* **Apartment, suite, unit, etc (optional)**. Prompt: *Apartment, suite, unit, etc (optional)*
+* **Suburb**. Prompt: (None)
 
 ![m_04a](/images/membership_form/m_04a.png)
 
-m_04b
+* **State**. Prompt: *Victoria*
+* **Postcode**. Prompt: (None)
+* **Phone**. Prompt: (None)
+* **Email address**. If logged in prompt is given - e.g. *admin@cmrailtrail.org.au*
+* Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with: 
+  *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes** (See next image)
+    
+* Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
+* Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
+* Check box. **I consent to my completion of this webform serving as my electronic signature**
 
 ![m_04b](/images/membership_form/m_04b.png)
 
-m_04c
+This is the drop-down menu for which is optional, but can not be cleared...
+
+* Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with: 
+  *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
+
+  Selection options:
+  
+  *  **Yes - Casual volunteer such as at stalls or public events**
+  *  **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
+  *  **No - I'm a bit too busy to volunteer right now**
+
+![m_05](/images/membership_form/m_05.png)
+
+This is **Your Order** section with *Directbank transfer (EFT)* selected...
 
 ![m_04c](/images/membership_form/m_04c.png)
 
-m_04d
+
+This is **Your Order** section with *Credit / Debit Card* selected...
 
 ![m_04d](/images/membership_form/m_04d.png)
 
-m_05
 
-![m_05](/images/membership_form/m_05.png)
 
 
