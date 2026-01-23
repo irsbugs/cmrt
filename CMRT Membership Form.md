@@ -193,7 +193,7 @@ This page displays the contents of your cart. The red *X* allows the deletion of
 
 ### Page: https://cmrailtrail.org.au/checkout/
 
-This page is long and is split over multiple images...
+This *Checkout* page is long and is split over multiple images. It includes these inputs:
 
 * Prompt Text: *I am a...* Radio buttons: **New Member** or **Renewing Member**
 * **First Name**. If logged in then default name prompt is given - e.g. *Admin*
@@ -204,6 +204,8 @@ This page is long and is split over multiple images...
 * **Suburb**. Prompt: (None)
 
 ![m_04a](/images/membership_form/m_04a.png)
+
+Continuing the *Checkout* page with these inputs:
 
 * **State**. Prompt: *Victoria*
 * **Postcode**. Prompt: (None)
@@ -218,7 +220,7 @@ This page is long and is split over multiple images...
 
 ![m_04b](/images/membership_form/m_04b.png)
 
-This is the drop-down menu for which is optional, but can not be cleared...
+This is the expanded drop-down menu for which is *optional*, but can not be cleared...
 
 * Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with: 
   *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
@@ -231,12 +233,12 @@ This is the drop-down menu for which is optional, but can not be cleared...
 
 ![m_05](/images/membership_form/m_05.png)
 
-This is **Your Order** section with *Directbank transfer (EFT)* selected...
+The last section of the *Checkout* page is **Your Order**. This has the *Directbank transfer (EFT)* selected...
 
 ![m_04c](/images/membership_form/m_04c.png)
 
 
-This is **Your Order** section with *Credit / Debit Card* selected...
+In this last section of the *Checkout* page, **Your Order** has the *Credit / Debit Card* selected...
 
 ![m_04d](/images/membership_form/m_04d.png)
 
