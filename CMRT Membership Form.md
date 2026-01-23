@@ -117,10 +117,10 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
 There is a breakdown of the order, along these lines...
 
 ```
-Product 	                                                        Subtotal
-1 Year Individual Membership (with Donation optional) - $10  × 1 	$25.00
-Subtotal 	                                                        $25.00
-Total 	                                                          $25.00
+Product                                                           Subtotal
+1 Year Individual Membership (with Donation optional) - $10  × 1  $25.00
+Subtotal                                                          $25.00
+Total                                                             $25.00
 ```
 
 There a two radio buttons for payment options:
