@@ -60,7 +60,7 @@ Upon selecting a donation option:
 * A field displays the total of the membership fee and the donation. E.g. $25.00
 * The *Add to cart* button becomes highlighted.
 * On hover over of the *Add to Cart* button a proceed arrow appears in the button at the end of the text "Add to cart".
-* There is also the button *GPay*
+* There is also the button *GPay*. Note: Should GPay be in this form. I figure it should first appear in the next form when you've reviewed what is in your cart. 
   
 Clicking on the *Add to cart* button this takes you the the page: https://cmrailtrail.org.au/cart/
 
@@ -94,13 +94,13 @@ Note: Orange font on white does not show up very clearly.
 There are then two buttons:
 
 * Proceed to checkout
-* G Pay
+* G Pay - Note: Does GPay need to have a black background?
 
 * Clicking Proceed to Checkout...
 
 ## Page: https://cmrailtrail.org.au/checkout/
 
-THe **Checkout** page has two sections:
+The **Checkout** page has two sections:
 * Billing Details
 * Your Order  
 
@@ -182,7 +182,8 @@ The top of the *membership* page...
 
 ![m_01](/images/membership_form/m_01.png)
 
-The bottom of the *membership* page with Donation selected, and waiting for **Add to cart** or **GPay** to be clicked. Also shown is the extraneous *Additional Information*...
+The bottom of the *membership* page with Donation selected, and waiting for **Add to cart** or **GPay** to be clicked. Note: Also shown is the extraneous *Additional Information*...
+Note: Should GPay be in this form. I figure it should first appear in the next form 
 
 ![m_02](/images/membership_form/m_02.png)
 
