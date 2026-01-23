@@ -55,12 +55,28 @@ $50
 
 Upon selecting a donation option:
 
-* a "Clear" button appears, so you can make a different choice
+* a *Clear* button appears, so you can make a different choice
 * A field displays the total of the membership fee and the donation. E.g. $25.00
-* The "Add to cart" button becomes highlighted.
-* On hover over of the "Add to Cart" button a "proceed arrow" appears in the button at the end of the text "Add to cart".
+* The *Add to cart* button becomes highlighted.
+* On hover over of the *Add to Cart* button a proceed arrow appears in the button at the end of the text "Add to cart".
+* There is also the button *GPay*
+  
+Clicking on the *Add to cart* button this takes you the the page: https://cmrailtrail.org.au/cart/
 
-Clicking on the "Add to cart button takes you the the page: https://cmrailtrail.org.au/cart/
+At the base of the page is the following, (which seems to be internal information that should not be being displayed?):
+
+```
+ SKU: N/A Category: Membership
+
+    Additional information 
+
+Additional information
+
+Would you like to add an optional Donation? 	
+
+No thank you, $10, $20, $30, $40, $50, Other amount
+```
+
 
 ## Page: https://cmrailtrail.org.au/cart/
 
