@@ -37,3 +37,41 @@ NOTE: Please include only 1 x membership application per transaction. We are obl
 
 ```
 
+This is followed by the optional Donation with drop-down menu
+
+```
+Would you like to add an optional Donation?
+
+Drop Down Menu titled: Choose an Option
+No thank you
+$10
+$20
+$30
+$40
+$50
+```
+
+Upon selecting a donation option:
+
+* a "Clear" button appears, so you can make a different choice
+* A field displays the total of the membership fee and the donation. E.g. $25.00
+* The "Add to cart" button becomes highlighted.
+* On hover over of the "Add to Cart" button a "proceed arrow" appears in the button at the end of the text "Add to cart".
+
+
+Clicking on the "Add to cart button takes you the the page: https://cmrailtrail.org.au/cart/
+
+This page gives a summary of your whats in your shopping cart. E.g. 1 Year donation with $10 donation. You have the ability to "remove" items from your cart.
+
+Note: Orange font on white does not show up very clearly.
+
+There are then two buttons:
+
+* Proceed to checkout
+* G Pay
+
+## Clicking Proceed to Checkout
+
+This goes to the page: https://cmrailtrail.org.au/checkout/
+
+
