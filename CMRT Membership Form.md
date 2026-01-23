@@ -176,11 +176,11 @@ You understand that we respect your privacy, send you only occasional emails and
 
 ### Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
-The top of this page...
+The top of the *membership* page...
 
 ![m_01](/images/membership_form/m_01.png)
 
-The bottom of this page with Donation selected, and waiting for **Add to cart** or **GPay** to be clicked. Also extraneous *Additional Information*...
+The bottom of the *membership* page with Donation selected, and waiting for **Add to cart** or **GPay** to be clicked. Also shown is the extraneous *Additional Information*...
 
 ![m_02](/images/membership_form/m_02.png)
 
@@ -190,6 +190,7 @@ The bottom of this page with Donation selected, and waiting for **Add to cart** 
 This page displays the contents of your cart. The red *X* allows the deletion of of a line item...
 
 ![m_03](/images/membership_form/m_03.png)
+
 
 ### Page: https://cmrailtrail.org.au/checkout/
 
@@ -212,7 +213,7 @@ Continuing the *Checkout* page with these inputs:
 * **Phone**. Prompt: (None)
 * **Email address**. If logged in prompt is given - e.g. *admin@cmrailtrail.org.au*
 * Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with: 
-  *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes** (See next image)
+  *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes** (See the image after this image.)
     
 * Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
 * Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
@@ -220,7 +221,7 @@ Continuing the *Checkout* page with these inputs:
 
 ![m_04b](/images/membership_form/m_04b.png)
 
-This is the expanded drop-down menu for which is *optional*, but can not be cleared...
+This is the drop-down menu, when expanded. Note that its *optional*, but can not be cleared...
 
 * Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with: 
   *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
