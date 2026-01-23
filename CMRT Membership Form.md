@@ -6,7 +6,7 @@
 
 At the top of the home page of cmrailtrail.org.au there is a button to: "Join us / Renew Membership" 
 
-Upon clicking the button you are take to the page: https://cmrailtrail.org.au/product/1-year-individual-membership/
+Upon clicking the button you are taken to the page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
 
 ## Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
