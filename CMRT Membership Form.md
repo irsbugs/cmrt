@@ -180,4 +180,4 @@ You understand that we respect your privacy, send you only occasional emails and
 
 The top of this page...
 
-![M01](/images/membership_form/m01.png)
+![m_01](/images/membership_form/m_01.png)
