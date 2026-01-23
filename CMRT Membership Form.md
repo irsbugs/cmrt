@@ -11,7 +11,7 @@ Upon clicking the button you are taken to the page: https://cmrailtrail.org.au/p
 
 ## Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
-Note: For some reason there is and (un-needed) zoom feature on the image "1 Year Individual Membership"
+Note: For some reason there is an un-needed zoom feature on the image "1 Year Individual Membership"
 
 On the top left is an image of 1 Year Individual Membership, on the right is the following introductory text:
 
@@ -40,7 +40,7 @@ NOTE: Please include only 1 x membership application per transaction. We are obl
 
 ```
 
-This is followed by the optional Donation with drop-down menu
+This is followed by the optional **Donation** with drop-down menu
 
 ```
 Would you like to add an optional Donation?
@@ -64,7 +64,7 @@ Upon selecting a donation option:
   
 Clicking on the *Add to cart* button this takes you the the page: https://cmrailtrail.org.au/cart/
 
-At the base of the page is the following, (which seems to be internal information that should not be being displayed?):
+At the base of the page is the following, (Note: which seems to be internal information that should not be being displayed?):
 
 ```
  SKU: N/A Category: Membership
@@ -119,7 +119,7 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
 * **Postcode**. Prompt: (None)
 * **Phone**. Prompt: (None)
 * **Email address**. If logged in prompt is given - e.g. *admin@cmrailtrail.org.au*
-* Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with:
+* Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Drop down menu with... 
   
   *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
 
@@ -128,6 +128,8 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
   *  **Yes - Casual volunteer such as at stalls or public events**
   *  **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
   *  **No - I'm a bit too busy to volunteer right now**
+  
+  Note: the above is *Optional*, but can't opt out of supplying and option. 
 
 * Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
 * Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
@@ -154,7 +156,7 @@ There a two radio buttons for payment options:
   * **Secutity code**.
   * Checkbox: (unchecked). Prompt: Save payment information to my account for future purchases.
 
-Note: Can it really Save payment information to my account? You don't have an account do you?
+Note: Can it really Save payment information to my account? Most members won't have an account? Only Admin has an account
 
 * Text as follows:
 ```
