@@ -181,3 +181,8 @@ You understand that we respect your privacy, send you only occasional emails and
 The top of this page...
 
 ![m_01](/images/membership_form/m_01.png)
+
+The bottom of this page with Donation selected, and waiting for **Ad to cart** or **GPay** to be clicked. Also extraneous *Additional Information*...
+
+![m_02](/images/membership_form/m_02.png)
+
