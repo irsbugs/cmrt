@@ -251,9 +251,9 @@ In this last section of the *Checkout* page, **Your Order** has the *Credit / De
 
 Some suggestions: 
 
-* Review theFields in the above information and decide which input fields are no longer required.
+* Review the Fields in the above information and decide which input fields are no longer required.
 
-* Cut and Paste sections of text from above to aid in creating the input fields in a Spark Profile (Membership form).
+* Cut and Paste sections of text from above in this document to aid in creating the input fields in a Spark Profile (Membership form).
 
 * The CMRT Wordpress website will have two buttons: *New Membership* and *Renew membership*. 
 
