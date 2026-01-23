@@ -81,8 +81,14 @@ No thank you, $10, $20, $30, $40, $50, Other amount
 
 ## Page: https://cmrailtrail.org.au/cart/
 
-This **Cart** page gives a summary of your whats in your shopping cart. E.g. 1 Year donation with $10 donation. You have the ability to "remove" items from your cart.
+This **Cart** page gives a summary of your whats in your shopping cart. E.g. 1 Year donation with $10 donation. You have the ability to "remove" items from your cart by clicking on the **x**.
 
+```
+   Product                                                      Price   Quantity  Subtotal
+×  1 Year Individual Membership (with Donation optional) - $10 	$25.00 	          $25.00
+
+```
+Note: Underneath this is the "greyed out" *Update cart* button. On mouse-over it changes to an un-highlighted orange colour. This button does not appear to do anything.
 Note: Orange font on white does not show up very clearly.
 
 There are then two buttons:
@@ -176,7 +182,7 @@ You understand that we respect your privacy, send you only occasional emails and
 
 # Images
 
-## https://cmrailtrail.org.au/product/1-year-individual-membership/
+### Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
 The top of this page...
 
@@ -185,4 +191,34 @@ The top of this page...
 The bottom of this page with Donation selected, and waiting for **Add to cart** or **GPay** to be clicked. Also extraneous *Additional Information*...
 
 ![m_02](/images/membership_form/m_02.png)
+
+
+### Page: https://cmrailtrail.org.au/cart/
+
+This page displays the contents of your cart. The red *X* allows the deletion of of a line item...
+
+![m_03](/images/membership_form/m_03.png)
+
+### Page: https://cmrailtrail.org.au/checkout/
+
+This page is long and is split over multiple images...
+m_+04a
+
+![m_04a](/images/membership_form/m_04a.png)
+
+m_04b
+![m_04b](/images/membership_form/m_04b.png)
+
+m_04c
+
+![m_04c](/images/membership_form/m_04c.png)
+
+m_04d
+
+![m_04d](/images/membership_form/m_04d.png)
+
+m_05
+
+![m_05](/images/membership_form/m_05.png)
+
 
