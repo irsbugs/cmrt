@@ -247,5 +247,25 @@ In this last section of the *Checkout* page, **Your Order** has the *Credit / De
 ![m_04d](/images/membership_form/m_04d.png)
 
 
+# Guidelines for Membership on Spark Esssentials CiviCRM
 
+Some suggestions: 
+
+* Review the above information decide what input fields are not required.
+
+* Cut and Paste sections of text from above to create the input fields in a Spark Profile (form).
+
+* The CMRT Wordpress website will have two buttons: *New Membership* and *Renew membership*. 
+
+* Alternative CMRT Wordpress website will have one button: *New Membership or Renew membership"*. Decision logic in next ste
+
+* The first to Inputs required are: *Email address* and *Phone number*. These are the primary keys for determining if a member is already in the Spark contact database.
+
+* For *New* membership then the prompting for the Input field's should either be blank, or something that is highly likely, E.g. Country = Australia
+  
+* For the *Renew* membership you will have already supplied your *E-mail address*and *Phone number*. These two items are the primary keys used to search if for your membership / contact details from the Spark database.  If a match is found, then this contacts details are used to fill in the prompting for all the input fields. 
+
+* If someone is *renew*ing their membership, then they should be able to change the existing data if applicable. E.g. A lady gets married and changes her surname, then she updates *Last Name* field when she renews her membership. Also if someone has changed address, etc.
+
+* If someone is *renew*ing a membership and there is no match for their existing membership data, then they are re-routed to be entering a *new* membership. Likewise, if someone is entering a *new* membership, and they already exist in the database, then they are re-routed to be *renew*ing their membership. 
 
