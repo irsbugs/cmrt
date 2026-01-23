@@ -8,6 +8,8 @@ At the top of the home page of cmrailtrail.org.au there is a button to: "Join us
 
 Upon clicking the button you are take to the page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
+## Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
+
 Note: For some reason there is and (un-needed) zoom feature on the image "1 Year Individual Membership"
 
 On the top left is an image of 1 Year Individual Membership, on the right is the following introductory text:
@@ -58,10 +60,11 @@ Upon selecting a donation option:
 * The "Add to cart" button becomes highlighted.
 * On hover over of the "Add to Cart" button a "proceed arrow" appears in the button at the end of the text "Add to cart".
 
-
 Clicking on the "Add to cart button takes you the the page: https://cmrailtrail.org.au/cart/
 
-This page gives a summary of your whats in your shopping cart. E.g. 1 Year donation with $10 donation. You have the ability to "remove" items from your cart.
+## Page: https://cmrailtrail.org.au/cart/
+
+This **Cart** page gives a summary of your whats in your shopping cart. E.g. 1 Year donation with $10 donation. You have the ability to "remove" items from your cart.
 
 Note: Orange font on white does not show up very clearly.
 
@@ -70,8 +73,81 @@ There are then two buttons:
 * Proceed to checkout
 * G Pay
 
-## Clicking Proceed to Checkout
+* Clicking Proceed to Checkout...
 
-This goes to the page: https://cmrailtrail.org.au/checkout/
+## Page: https://cmrailtrail.org.au/checkout/
+
+THe **Checkout** page has two sections:
+* Billing Details
+* Your Order  
+
+### Billing Details
+
+The **Billing Details** section has about 14 mandatory input fields and one optional field and one optional, but from whch you can not opt out of answering.
+
+* Prompt Text: *I am a...* Radio buttons: **New Member** or **Renewing Member**
+* **First Name**. If logged in then default name prompt is given - e.g. *Admin*
+* **Last Name**. If logged in then default name prompt given. e.g. *CMRT*
+* **Country/Region**. Prompt: *Australia*
+* **Street Address**. Prompt: *House number and street name*
+* **Apartment, suite, unit, etc (optional)**. Prompt: *Apartment, suite, unit, etc (optional)*
+* **Suburb**. Prompt: (None)
+* **State**. Prompt: *Victoria*
+* **Postcode**. Prompt: (None)
+* **Phone**. Prompt: (None)
+* **Email address**. If logged in prompt is given - e.g. *admin@cmrailtrail.org.au*
+* Prompt Text: *Are you able to make a difference by volunteering with CMRT? (optional)* Optional, but can't opt out. Drop down menu with:
+  
+  *  Default selection: **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
+
+  Other selection options:
+  
+  *  **Yes - Casual volunteer such as at stalls or public events**
+  *  **Yes - As a regular or project volunteer in the commmunity ot behind the scenes**
+  *  **No - I'm a bit too busy to volunteer right now**
+
+* Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
+* Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
+* Check box. **I consent to my completion of this webform serving as my electronic signature**
+
+  Note: The Check boxes default to being clear. Clicking them add a tick. Another click will clear them again.
+
+### Your Order
+
+There is a breakdown of the order, along these lines...
+
+```
+Product 	                                                        Subtotal
+1 Year Individual Membership (with Donation optional) - $10  × 1 	$25.00
+Subtotal 	                                                        $25.00
+Total 	                                                          $25.00
+```
+
+There a two radio buttons for payment options:
+
+* **Direct bank transfer (EFT)** When selected the message displayed is:  *Thanks for your membership application and offline payment pledge.*
+* **Credit/Debit Card** (with small credit card icon) When selected a Credit card input form appears with:
+  * **Card number**. Prompt: *1234 1234 1234 1234* plus icons of Visa, Mastercard and Amex
+  * **Expiration date**. Prompt: *MM/YY*
+  * **Secutity code**.
+  * Checkbox: (unchecked). Prompt: Save payment information to my account for future purchases.
+
+Note: Can it really Save payment information to my account? You don't have an account do you?
+
+* Text as follows:
+```
+Privacy Policy
+
+You understand that we respect your privacy, send you only occasional emails and texts and have processes to keep your information confidential. We do not share your information with any third parties other than Landcare Victoria which provides us our volunteer insurance.
+```
+
+* **Button**. Text: *Place Order*
+  Notes:
+  * Clicking button with no details results in message at top of page under the **Chekout** heading with the text: *Your card number is incomplete.*
+  * The Credit card input form changes to have these messages :
+    * *Your card number is incomplete*.
+    * *Your card’s expiration date is incomplete*.
+    * *Your card’s security code is incomplete*.
 
 
+ [ ](https://cmrailtrail.org.au/checkout/#:~:text=Privacy,insurance)  
