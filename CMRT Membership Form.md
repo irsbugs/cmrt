@@ -113,7 +113,7 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
 * **Last Name**. If logged in then default name prompt given. e.g. *CMRT*
 * **Country/Region**. Prompt: *Australia*
 * **Street Address**. Prompt: *House number and street name*
-* **Apartment, suite, unit, etc (optional)**. Prompt: *Apartment, suite, unit, etc (optional)*
+* **Apartment, suite, unit, etc (optional)**. Prompt: *Apartment, suite, unit, etc (optional)* Note: Add P.O. Box here?
 * **Suburb**. Prompt: (None)
 * **State**. Prompt: *Victoria*
 * **Postcode**. Prompt: (None)
