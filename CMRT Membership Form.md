@@ -8,6 +8,7 @@ At the top of the home page of cmrailtrail.org.au there is a button to: "Join us
 
 Upon clicking the button you are take to the page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
+
 ## Page: https://cmrailtrail.org.au/product/1-year-individual-membership/
 
 Note: For some reason there is and (un-needed) zoom feature on the image "1 Year Individual Membership"
@@ -125,7 +126,14 @@ The **Billing Details** section has about 14 mandatory input fields and one opti
 * Check box. Text: **Yes, I agree to support our goal to establish a new Central Victorian rail trail, and respect the rules of our association and my fellow members I will be campaigning alongside **
 * Checkbox: Text **Yes, I understand that being a member also means being involved from time-to-time at things like AGMs and member events to help keep our association strong.**
 * Check box. **I consent to my completion of this webform serving as my electronic signature**
+ SKU: N/A Category: Membership
 
+    Additional information 
+
+Additional information
+Would you like to add an optional Donation? 	
+
+No thank you, $10, $20, $30, $40, $50, Other amount
   Note: The Check boxes default to being clear. Clicking them add a tick. Another click will clear them again.
 
 ### Your Order
@@ -166,4 +174,10 @@ You understand that we respect your privacy, send you only occasional emails and
     * *Your card’s security code is incomplete*.
 
 
- [ ](https://cmrailtrail.org.au/checkout/#:~:text=Privacy,insurance)  
+# Images
+
+## https://cmrailtrail.org.au/product/1-year-individual-membership/
+
+The top of this page...
+
+![M01](/images/membership_form/m01.png)
