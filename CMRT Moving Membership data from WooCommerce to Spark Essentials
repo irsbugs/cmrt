@@ -38,9 +38,9 @@ The following fields are supported when Importing Membership data.
 These are the fields most likely to be used when importing to :
 * Membership Expiration Date
 * Membership Start Date
-* Membership Type (Always: Individual Membership)
+* Membership Type (Always: *Individual* Membership ?)
 * Member Since
-* Status: (What are the status rules? Probably most members are *Current*. WooCommerce uses *Completed*.  Other categories: Grace, Expired, Pending.
+* Status: (What are the status rules? Probably most members are *Current*. WooCommerce uses *Completed*.  Other categories: Grace, Expired, Pending.)
 
 
 The following fields are used to match the Contact data:
