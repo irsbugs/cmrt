@@ -62,7 +62,7 @@ It looks to me like:
 
 * After a year his partner decided to renew Tony's membership, but she put her own name, Deborah Macer, instead of Tony's, however she used the same email address: macerfam@yahoo.com.au
 
-* the next day Deborah decided to register herself for membership and used her own name Deborah and the same email address: macerfam@yahoo.com.au
+* The next day Deborah decided to register herself for membership and used her own name Deborah and the same email address: macerfam@yahoo.com.au
 
 If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. macerfam@yahoo.com.au and something else.
 
