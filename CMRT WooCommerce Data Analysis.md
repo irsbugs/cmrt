@@ -23,11 +23,11 @@ The interest is in those who have become new or renewed members in the last 12 m
 
 ## Corrections to First Name and Last Name.
 
-Where necessary names were modified to match the naming convention being implemented, where the first letter of a name is a Capital and the rest of the name is lower case.
+Where necessary, *First Name* and *Last Name* were modified to match the naming convention being implemented. The first letter of a name is a Capital and the rest of the name is lower case. Exceptions apply. For example, someone with a *Last Name* of *Van der Wal*.
 
 ## Uniqueness of Email Address
 
-The 
+The *Email Address* for each contact/member must be unique. If a couple both register as members, then they can not share an emal address.
 
 
 
