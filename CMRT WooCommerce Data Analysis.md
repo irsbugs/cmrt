@@ -28,7 +28,7 @@ Where necessary, *First Name* and *Last Name* were modified to match the naming 
 
 ## Uniqueness of Email Address
 
-The *Email Address* for each contact/member must be unique. the *Email Address* is used as the primary key when mapping data, etc. For example, if a couple both register as members, then they can not share an emal address. Also implement all Email addresses to be all lower case. 
+The *Email Address* for each contact/member must be unique. the *Email Address* is used as the primary key when mapping data, etc. For example, if a couple both register as members, then they can not share an email address. Also implement Email addresses to be written in all lower case letters. 
 
 ## Issues with Uniqueness of Email Addresses
 
