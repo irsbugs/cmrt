@@ -37,8 +37,8 @@ The *Email Address* for each contact/member must be unique. the *Email Address* 
 The person or persons that use the email address: kate.couttie@gmail.com has normally been going by the name Kate and last renewed her membership in Sep 2025. However 2 months after Kate Couttie renewed her membership then a Kathleen Couttie renewed her membership.
 
 ```
-Renewing Member	288	Completed	2025-11-09 13:53		Kathleen	Couttie	kate.couttie@gmail.com
-Renewing Member	252	Completed	2025-09-08 15:45		Kate	Couttie	kate.couttie@gmail.com
+Renewing Member	288	Completed	2025-11-09 13:53		Kathleen Couttie	kate.couttie@gmail.com
+Renewing Member	252	Completed	2025-09-08 15:45		Kate Couttie		kate.couttie@gmail.com
 ```
 
 I assume they are two people, Kate and Kathleen. E.g. Sisters or Mother and daughter. If so then we need different 2 x different email addresses. E.g. kate.couttie@gmail.com and, say, kathleen.couttie@gmail.com
@@ -51,9 +51,9 @@ Might be best to give them a call: 419010609 <-- This is the same number for bot
 I'm not sure about this data. Might pay to ring them up and have a chat. Phone 400029068 or 438309772
 
 ```
-	          271	Completed	2025-10-07 21:37		Deborah	Macer	macerfam@yahoo.com.au
-	          266	Completed	2025-10-06 22:26		Deborah	Macer	macerfam@yahoo.com.au
-New Member	204	Completed	2024-10-23 17:31		Tony	Macer	macerfam@yahoo.com.au
+	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au
+	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au
+New Member		204	Completed	2024-10-23 17:31		Tony Macer		macerfam@yahoo.com.au
 ```
 
 It looks to me like: 
