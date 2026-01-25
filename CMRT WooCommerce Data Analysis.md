@@ -17,7 +17,7 @@ A total of 12 order numbers are missing. Maybe these orders got cancelled if the
 
 The interest is in those who have become new or renewed members in the last 12 months, and include those in a grace payment period of an additional 4 months. This is effectively from 31 Jan 2026 back to 1 October 2024. These members will have their Contact and Membership data uploaded to Spark CiviCRM. Details are:
 
-* 77 paid-up members in the last 12 months. Two of these are in *Processing* and 1 is *On Hold* all others are *Ccompleted*. 
+* 77 paid-up members in the last 12 months. Two of these are in *Processing* and one is *On Hold* all others are *Completed*. 
 * 9 members are in the 13 to 16 months grace period and are behind with paying their membership or have decided not to renew their membership.
 
 
