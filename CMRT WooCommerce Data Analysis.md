@@ -34,7 +34,7 @@ The *Email Address* for each contact/member must be unique. the *Email Address* 
 
 ### Issue #1:
 
-The person or persons that use the email address: kate.couttie@gmail.com has normally been going by the name Kate and last renewed her membership in Sep 2025. However 2 months after Kate Couttie renewed her membership then a Kathleen Couttie renewed her membership.
+The person or persons that use the email address: kate.couttie@gmail.com has normally been going by the name Kate and last renewed her membership in Sep 2025. However 2 months after Kate Couttie renewed her membership then a Kathleen Couttie "renewed" her membership.
 
 ```
 Renewing Member	288	Completed	2025-11-09 13:53		Kathleen Couttie	kate.couttie@gmail.com
