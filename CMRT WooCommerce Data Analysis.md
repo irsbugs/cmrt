@@ -20,7 +20,7 @@ The interest is in those who have become new or renewed members in the last 12 m
 * 78 paid-up members over the last 12 month period. Two of these are in *Processing* and one is *On Hold* all others are *Completed*. 
 * 9 members are in the 13 to 16 months grace period and are behind with paying their membership or have decided not to renew their membership.
 
-This total of 87 members will have their *contact* and *membership* data uploaded to Spark CiviCRM. Data of former members, who have expired membership, will not be uploaded. If a former member applies for membership again, then they will be treated a a *new* member, and not as a *renew*ing member. 
+This total of 87 members will have their *contact* and *membership* data uploaded to Spark CiviCRM. Data of former members, who have expired membership, will not be uploaded. If a former member applies for membership again, then they will be treated as a *new* member, and not as a *renew*ing member. 
 
 ## Corrections to First Name and Last Name.
 
