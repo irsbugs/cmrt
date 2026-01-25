@@ -27,7 +27,7 @@ Where necessary, *First Name* and *Last Name* were modified to match the naming 
 
 ## Uniqueness of Email Address
 
-The *Email Address* for each contact/member must be unique. If a couple both register as members, then they can not share an emal address.
+The *Email Address* for each contact/member must be unique. the *Email Address* is used as the primary key when mapping data, etc. For example, if a couple both register as members, then they can not share an emal address.
 
 
 
