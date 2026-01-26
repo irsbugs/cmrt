@@ -45,6 +45,9 @@ I assume they are two people, Kate and Kathleen. E.g. Sisters or Mother and daug
 
 Might be best to give them a call: 419010609 <-- This is the same number for both Kate and Kathleen
 
+## Resolved #1:
+Kathleen should have been Kate. Corrected.  Accidently paid 10 months in advance for 2026 membership. Test CiviCRM to see if it works this out.
+
 
 ### Issue #2: 
 
@@ -54,8 +57,8 @@ I'm not sure about this data. Might pay to ring them up and have a chat. Phone 4
 	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au
 	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au
 New Member		204	Completed	2024-10-23 17:31		Tony Macer		macerfam@yahoo.com.au
+Renewing Member	176	Completed	2024-08-12 13:14		Owen Macer	    owen.macer@gmail.com
 ```
-
 It looks to me like: 
 
 * Tony Macer registered as a new member in 2024-10-06 and used the email address: macerfam@yahoo.com.au
@@ -65,6 +68,20 @@ It looks to me like:
 * The next day Deborah decided to register herself for membership and used her own name Deborah and the same email address: macerfam@yahoo.com.au
 
 If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. macerfam@yahoo.com.au and something else.
+
+## Issue #3:
+
+Why did John Cook pay membership and donate 3 times last year?
+
+John Cook phone 438049683
+```
+For 2025...
+Renewing Member	297	Completed	2025-12-25 09:28		John	Cook	wcookjohn@yahoo.com.au
+Renewing Member	262	Completed	2025-09-28 16:23		John	Cook	wcookjohn@yahoo.com.au
+Renewing Member	233	Completed	2025-05-29 11:22		John	Cook	wcookjohn@yahoo.com.au
+For 2024...
+Renewing Member	197	Completed	2024-09-13 16:39		John	Cook	wcookjohn@yahoo.com.au
+```
 
 ## Import Mapping
 
