@@ -46,7 +46,7 @@ I assume they are two people, Kate and Kathleen. E.g. Sisters or Mother and daug
 Might be best to give them a call: 419010609 <-- This is the same number for both Kate and Kathleen
 
 ## Resolved #1:
-Kathleen should have been Kate. Corrected.  Accidently paid 10 months in advance for 2026 membership. Test CiviCRM to see if it works this out.
+Kathleen should have been Kate. Changed.  Kate effectively paid 10 months in advance for her 2026 membership. Test CiviCRM in Sep/Nov 2026 to see if it works this out OK.
 
 
 ### Issue #2: 
