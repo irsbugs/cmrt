@@ -84,14 +84,14 @@ From Spark CiviCRM V6.9.1 on 2026-01-26
 Addressee
 Addressee Custom
 Birth Date
-City
+City (Main, Billing Primary)
 Communication Style
 Contact ID *
 Contact Source
 Contact Subtype
-Country
-Country ID
-County ID
+Country (Main, Billing Primary)
+Country ID (Main, Billing Primary)
+County ID (Main, Billing Primary)
 Deceased / Closed
 Deceased / Closed Date
 Do Not Email
@@ -99,43 +99,43 @@ Do Not Mail
 Do Not Phone
 Do Not Sms
 Do Not Trade
-Email *
+Email * (Main, Billing Primary)
 Email Greeting
 Email Greeting Custom
 External Identifier *
 First Name *
 Formal Title
 Gender ID
-IM Screen Name
+IM Screen Name (Main, Billing Primary) (Yahoo, MSN, AIM, Gtalk, Jabber, Skype)
 Image URL
 Individual Prefix
 Individual Suffix
 Job Title
 Last Name *
 Legal Identifier
-Master Address ID
+Master Address ID (Main, Billing Primary)
 Middle Name
 Nickname
 No Bulk Emails (User Opt Out)
 Note
-OpenID
-Phone
-Phone Extensioon
-Postal Code
+OpenID (Main, Billing Primary)
+Phone (Main, Billing Primary) (Phone, Mobile)
+Phone Extension (Main, Billing Primary) (Phone, Mobile)
+Postal Code (Main, Billing Primary)
 Postal Greeting
 Postal Greeting Custom
 Preferred Communication Method
 Preferred Language
-Signature Html
-Signature Text 
-State
-State/Province ID 
-Street Address
+Signature Html (Main, Billing Primary)
+Signature Text (Main, Billing Primary)
+State (Main, Billing Primary)
+State/Province ID (Main, Billing Primary)
+Street Address (Main, Billing Primary)
 Uniqie ID (OpenID)
-Website 
+Website (Work, Main, Social)
 
 -related contact info- 
-Benefits Specialist
+Benefits Specialist 
 Benefits Specialist is
 Case Coordinator
 Case Coordinator is
@@ -156,6 +156,8 @@ Spouse of
 Supervised by
 Supervisor
 Volunteer for
+
+For the above *related contact info*, these can be expanded. Presumably *Employee of* could select an Organisation.
 ```
 
 ### Contribution Fields:
