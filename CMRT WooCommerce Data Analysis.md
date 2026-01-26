@@ -66,7 +66,156 @@ It looks to me like:
 
 If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. macerfam@yahoo.com.au and something else.
 
+## Import Mapping
 
+When transfering WooCommerce csv data to Spark CiviCRM, then three Imports need to be performed:
+
+* **Contacts --> Import Contacts**
+* **Contributions --> Import Contributions**
+* **Memberships --> Import Memberships**
+
+To simplify the mapping of data, it is easier to rename WooCommmerce column headers so they become the available Spark CiviCRM import fields. Below are the lists of available Spark CiviCRM fields for importing Contacts, Contributions and Memberships.
+From Spark CiviCRM V6.9.1 on 2026-01-26
+
+### Contact Fields:
+
+```
+-do not import-
+Addressee
+Addressee Custom
+Birth Date
+City
+Communication Style
+Contact ID *
+Contact Source
+Contact Subtype
+Country
+Country ID
+County ID
+Deceased / Closed
+Deceased / Closed Date
+Do Not Email
+Do Not Mail
+Do Not Phone
+Do Not Sms
+Do Not Trade
+Email *
+Email Greeting
+Email Greeting Custom
+External Identifier *
+First Name *
+Formal Title
+Gender ID
+IM Screen Name
+Image URL
+Individual Prefix
+Individual Suffix
+Job Title
+Last Name *
+Legal Identifier
+Master Address ID
+Middle Name
+Nickname
+No Bulk Emails (User Opt Out)
+Note
+OpenID
+Phone
+Phone Extensioon
+Postal Code
+Postal Greeting
+Postal Greeting Custom
+Preferred Communication Method
+Preferred Language
+Signature Html
+Signature Text 
+State
+State/Province ID 
+Street Address
+Uniqie ID (OpenID)
+Website 
+
+-related contact info- 
+Benefits Specialist
+Benefits Specialist is
+Case Coordinator
+Case Coordinator is
+Child of
+Employee of
+Head of Household for
+Health Services Coordinator 
+Health Services Coordinator is
+Homeless Services Cooordinator 
+Homeless Services Cooordinator is
+Household Member of
+Parent of
+Partner of
+Senior Service Coordinator
+Senior Service Coordinator is
+Sibling of
+Spouse of
+Supervised by
+Supervisor
+Volunteer for
+```
+
+### Contribution Fields:
+
+```
+Contribution ID
+Financial Type *
+Contribution Page
+Payment Method
+Contribution Date
+Non-deductible Amount
+Total Amount *
+Fee Amount
+Net Amount
+Transaction ID
+Invoice Reference
+Invoice Number
+Currency
+Cancelled / Refunded Date
+Cancellation Refund Reason
+Receipt Date
+Thank-you Date
+Contribution Source
+Amount Label
+Test Mode
+Is Pay Later
+Contribution Status
+Check Number
+Credit Note ID
+Tax Amount
+Revenue Recognition Date
+Note
+PAN Truncation
+
+Contact Fields:
+Contact ID
+External Identifier
+Email
+```
+
+### Membership Fields:
+
+```
+Is Pay Later
+Membership Expiration Date
+Membership ID
+Membership Source
+Membership Start Date
+Membership Type
+Member Since
+Stataus
+Status Override
+Status Override End date
+Test
+
+Contact Fields:
+Contact ID
+External Identifier
+Email
+```
 
 
 
