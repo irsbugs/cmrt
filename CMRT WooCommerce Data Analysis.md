@@ -77,7 +77,8 @@ When transfering WooCommerce csv data to Spark CiviCRM, then three Imports need 
 To simplify the mapping of data, it is easier to rename WooCommmerce column headers so they become the available Spark CiviCRM import fields. Below are the lists of available Spark CiviCRM fields for importing Contacts, Contributions and Memberships.
 From Spark CiviCRM V6.9.1 on 2026-01-26
 
-### Contact Fields:
+### Contact Fields: 
+Some fields have sub-categories. E.g. Main, Billing Primary
 
 ```
 -do not import-
@@ -160,7 +161,8 @@ Volunteer for
 For the above *related contact info*, these can be expanded. Presumably *Employee of* could select an Organisation.
 ```
 
-### Contribution Fields:
+### Contribution Fields: 
+Have no sub-categories
 
 ```
 Contribution ID
@@ -199,6 +201,7 @@ Email
 ```
 
 ### Membership Fields:
+Have no sub-categories
 
 ```
 Is Pay Later
