@@ -211,7 +211,7 @@ Membership Source
 Membership Start Date
 Membership Type
 Member Since
-Stataus
+Status
 Status Override
 Status Override End date
 Test
