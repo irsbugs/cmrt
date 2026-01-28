@@ -15,12 +15,12 @@ The Order Numbers for the rows are from
 There are a total of 290 actual orders of the 302 possible order numbers.
 A total of 12 order numbers are missing. Maybe these orders got cancelled if the payment never came through?
 
-The interest is in those who have become new or renewed members in the last 12 months, and also include those in a grace payment period of an additional 4 months. This is effectively from 31 Jan 2026 and going back to 1 October 2024. These members will have their Contact and Membership data uploaded to Spark CiviCRM. Details are:
+The interest is in those who have become new or renewed members in the last 12 months, and also include those in a grace payment period of an additional 12 months. This is effectively from 31 Jan 2026 and going back to 1 February 2024. These members will have their Contact and Membership data uploaded to Spark CiviCRM. Details are:
 
-* 78 paid-up members over the last 12 month period. Two of these are in *Processing* and one is *On Hold* all others are *Completed*. 
-* 9 members are in the 13 to 16 months grace period and are behind with paying their membership or have decided not to renew their membership.
+* 77 paid-up members over the last 12 month period. Two of these are in *Processing* and one is *On Hold* all others are *Completed*. 
+* 14 members are in the 13 to 24 months grace period and are behind with paying their membership or have decided not to renew their membership.
 
-This total of 87 members will have their *contact* and *membership* data uploaded to Spark CiviCRM. Data of former members, who have expired membership, will not be uploaded. If a former member applies for membership again, then they will be treated as a *new* member, and not as a *renew*ing member. 
+This total of 91 members will have their *contact* and *membership* data uploaded to Spark CiviCRM. Data of former members, who have expired membership, will not be uploaded. If a former member applies for membership again, then they will be treated as a *new* member, and not as a *renew*ing member. 
 
 ## Corrections to First Name and Last Name.
 
@@ -46,7 +46,10 @@ I assume they are two people, Kate and Kathleen. E.g. Sisters or Mother and daug
 Might be best to give them a call: 419010609 <-- This is the same number for both Kate and Kathleen
 
 ## Resolved #1:
-Kathleen should have been Kate. Changed.  Kate effectively paid 10 months in advance for her 2026 membership. Test CiviCRM in Sep/Nov 2026 to see if it works this out OK.
+Kathleen should have been Kate. Changed.  Kate effectively paid 10 months in advance for her 2026 membership.
+
+Action: Removed the data to avoid duplication when uploading to Spark
+Renewing Member	252	Completed	2025-09-08 15:45		Kate Couttie		kate.couttie@gmail.com
 
 
 ### Issue #2: 
@@ -69,6 +72,9 @@ It looks to me like:
 
 If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. macerfam@yahoo.com.au and something else.
 
+Action: Removed 176, 204,and 266 until get response from Macer family.
+
+
 ## Issue #3:
 
 Why did John Cook pay membership and donate 3 times last year?
@@ -82,6 +88,7 @@ Renewing Member	233	Completed	2025-05-29 11:22		John	Cook	wcookjohn@yahoo.com.au
 For 2024...
 Renewing Member	197	Completed	2024-09-13 16:39		John	Cook	wcookjohn@yahoo.com.au
 ```
+Action: Remove 197, 233, 262. Uploaded 297
 
 ## Import Mapping
 
