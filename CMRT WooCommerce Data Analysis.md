@@ -246,6 +246,37 @@ External Identifier
 Email
 ```
 
+## Updating Contact and Membership from Massaged WooCommerce CSV file
 
+The csv file to update Spark Essentials will contain the following fields:
+
+### Contact Imported Fields
+
+* **External Identifier**
+* **Email**
+* First Name
+* Last Name
+* Street Address
+* City
+* State
+* Postal Code
+* Country
+* Phone
+
+
+### Membership Imported Fields
+
+* **External Identifier**
+* **Email**
+* Member Since
+* Membership Start Date
+* Membership End Date
+* Membership Type
+* Membership Status
+
+
+The External Identifier and the Email are the unique identifiers when importing the Contact and the Membership data. The External Identifier is the *Order Number* that WooCommerce provided.
+
+The import mapping will make use of -do not import- so the one csv file can be used for both Contact and Membership importing.
 
 
