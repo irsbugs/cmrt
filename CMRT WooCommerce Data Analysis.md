@@ -290,6 +290,10 @@ The Spark CiviCRM database has already been loaded with data for the 400+ subscr
 In many cases, when loading the Contact information for members, they will already be in the database as they subscribe to the Newsletter.
 
  
+# Importing error
+
+Invalid value for field(s) : Status,Membership Type
+
 
 
 
