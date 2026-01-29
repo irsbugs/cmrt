@@ -263,6 +263,7 @@ The csv file to update Spark Essentials will contain the following fields:
 * Country
 * Phone
 
+For fields that have the sub-categories: *Main*, *Billing* and *Primary*, then *Main* will be used.
 
 ### Membership Imported Fields
 
