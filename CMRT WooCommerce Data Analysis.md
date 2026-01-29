@@ -274,9 +274,22 @@ The csv file to update Spark Essentials will contain the following fields:
 * Membership Type
 * Membership Status
 
-
 The External Identifier and the Email are the unique identifiers when importing the Contact and the Membership data. The External Identifier is the *Order Number* that WooCommerce provided.
 
 The import mapping will make use of -do not import- so the one csv file can be used for both Contact and Membership importing.
+
+## Newsletter Subscribers
+
+The Spark CiviCRM database has already been loaded with data for the 400+ subscribers to the Newsletter. The following data was provided for each subscriber:
+
+* Email Address
+* First Name
+* Last Name
+
+In many cases, when loading the Contact information for members, they will already be in the database as they subscribe to the Newsletter.
+
+ 
+
+
 
 
