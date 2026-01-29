@@ -271,9 +271,9 @@ For fields that have the sub-categories: *Main*, *Billing* and *Primary*, then *
 * **Email**
 * Member Since
 * Membership Start Date
-* Membership End Date
+* Membership Expiration Date
 * Membership Type
-* Membership Status
+* Status
 
 The External Identifier and the Email are the unique identifiers when importing the Contact and the Membership data. The External Identifier is the *Order Number* that WooCommerce provided.
 
