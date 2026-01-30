@@ -301,7 +301,7 @@ Membership Type of *Individual* needed to be defined
 Administer --> CiviMember --> Membership Status Rules
 
 Membership status:
-* New - Change: From Enabled to Disabled
+* New - Change: From Enabled to Disabled. Might be required to flag new members no able to vote at AGM.
 * Current Enabled - Uses Start and Expiry dates. i.e. 1 year
 * Grace  Enabled - Edit: Change from 1 month to 1 year
 * Expired Enabled - Edit: Change to start after end date plus 1 year
@@ -319,12 +319,14 @@ goes backwards to: February 12th, 2025	February 12th, 2025	February 12th, 2026
 Doesn't include the last 3 months. Removes the "New" membership status.
 
 
-## Spark Membership Sttus Rules Changes
+## Spark Membership Status Rules Changes
 
-The Rules before making changes:
+Accessed via: Administer --> CiviMember --> Membership Status Rules
+
+The default Membership Status Rules before making changes:
 
 ![spark1](/images/membership_status_rules/spark_membership_status_rules_1.png)
 
-The Rules changed to fit the CMRT Charter:
+The Membership Status Rules changed to fit the CMRT Charter:
 
 ![spark2](/images/membership_status_rules/spark_membership_status_rules_2.png)
