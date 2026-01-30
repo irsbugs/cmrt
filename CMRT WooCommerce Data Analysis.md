@@ -294,7 +294,28 @@ In many cases, when loading the Contact information for members, they will alrea
 
 Invalid value for field(s) : Status,Membership Type
 
+Membership Type of *Individual* needed to be defined
+
+## Modifying Membership Status Rules
+
+Administer --> CiviMember --> Membership Status Rules
+
+Membership status:
+New - Change: From Enabled to Disabled
+Current Enabled
+Grace  Enabled - Edit: Change from 1 month to 1 year
+Expired Enabled - Edit: Change to start after end date plus 1 year
+Pending <-- Uses *Member Since* (which is *Member Start Date*)
+Cancelled <-- Uses *Member Since* (which is *Member Start Date*)
+Deceased
+
+The data being imported will be changed to have 12 months of Current followed by 12 months of Grace
 
 
+Error occurred as "New" Membership Status was used "Current": 
+start from October 28th, 2025 Expiration	October 28th, 2026
+goes backwards to: February 12th, 2025	February 12th, 2025	February 12th, 2026
+
+Doesn't include the last 3 months. Removes the "New" membership status.
 
 
