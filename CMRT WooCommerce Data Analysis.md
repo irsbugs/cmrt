@@ -301,13 +301,13 @@ Membership Type of *Individual* needed to be defined
 Administer --> CiviMember --> Membership Status Rules
 
 Membership status:
-New - Change: From Enabled to Disabled
-Current Enabled
-Grace  Enabled - Edit: Change from 1 month to 1 year
-Expired Enabled - Edit: Change to start after end date plus 1 year
-Pending <-- Uses *Member Since* (which is *Member Start Date*)
-Cancelled <-- Uses *Member Since* (which is *Member Start Date*)
-Deceased
+* New - Change: From Enabled to Disabled
+* Current Enabled - Uses Start and Expiry dates. i.e. 1 year
+* Grace  Enabled - Edit: Change from 1 month to 1 year
+* Expired Enabled - Edit: Change to start after end date plus 1 year
+* Pending <-- Uses *Member Since* (which is *Member Start Date*)
+* Cancelled <-- Uses *Member Since* (which is *Member Start Date*)
+* Deceased
 
 The data being imported will be changed to have 12 months of Current followed by 12 months of Grace
 
