@@ -330,3 +330,28 @@ The default Membership Status Rules before making changes:
 The Membership Status Rules changed to fit the CMRT Charter:
 
 ![spark2](/images/membership_status_rules/spark_membership_status_rules_2.png)
+
+
+Below are examples of modifying Spark Member Since, Member Start and Member Expiry date to observe when transitioning occurs between *New, Current, Grace, Expiry*:
+
+```
+These status results were captured on Spark CiviCRM on 31 Jan 2026
+
+Type               Member Since        Membership Start    Membership Expir     Status
+Individual Member  January 31st, 2026  January 31st, 2026  January 30th, 2027	New
+
+Transitioning from New to Current. (3 months after 30 Oct 2025 status becomes Current on 31 Jan 2026)
+Type               Member Since        Membership Start    Membership Expir     Status
+Individual Member  October 31st, 2025  October 31st, 2025  October 30th, 2026	New
+Individual Member  October 30th, 2025  October 30th, 2025  October 29th, 2026	Current
+
+Transitioning from Current to Grace (1 year after 31 Jan  2025 status becomes Grace on 31 Jan 2026)
+Type               Member Since        Membership Start    Membership Expir     Status
+Individual Member  February 1st, 2025  February 1st, 2025  January 31st, 2026   Current	
+Individual Member  January 31st, 2025  January 31st, 2025  January 30th, 2026   Grace
+
+Transitioning from Grace to Expired (2 years after 31 Jan 2024 status becomes Expired on 31 Jan 2026)
+Type               Member Since        Membership Start    Membership Expir     Status
+Individual Member  February 1st, 2024  February 1st, 2024  January 31st, 2025   Grace
+Individual Member  January 31st, 2024  January 31st, 2024  January 30th, 2025   Expired
+```
