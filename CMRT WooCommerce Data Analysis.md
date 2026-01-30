@@ -319,3 +319,12 @@ goes backwards to: February 12th, 2025	February 12th, 2025	February 12th, 2026
 Doesn't include the last 3 months. Removes the "New" membership status.
 
 
+## Spark Membership Sttus Rules Changes
+
+The Rules before making changes:
+
+![spark1](/images/membership_status_rules/spark_membership_status_rules_1.png)
+
+The Rules changed to fit the CMRT Charter:
+
+![spark2](/images/membership_status_rules/spark_membership_status_rules_2.png)
