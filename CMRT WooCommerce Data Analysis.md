@@ -366,3 +366,7 @@ Type               Member Since        Membership Start    Membership Expir     
 Individual Member  February 1st, 2024  February 1st, 2024  January 31st, 2025   Grace
 Individual Member  January 31st, 2024  January 31st, 2024  January 30th, 2025   Expired
 ```
+
+Using a csv file to import 3 x memberships for Ian Stewart.
+
+![ian](/images/ian_memberships.png)
