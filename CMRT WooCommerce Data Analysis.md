@@ -323,7 +323,12 @@ The data being imported will be changed to have 12 months of Current followed by
  	* Membership Expiry Date: January 27th, 2027 <-- plus 1 year and minus one day.
 
 * Without the *Membership Expiry Date* the Grace and Expired Status is not calculated and displayed. Status is left as Current.
-* Can force the Status fields and not use the Membership Expiry Date
+* Can force the Status fields and not use the Membership Expiry Date, but error:
+```
+``Status in import row (2) does not match calculated status based on your configured Membership Status Rules (New).
+  Record was not imported.
+```
+* Subtract one day from expiry date in spreadsheet to match calculation done by CiviCRM 
 
 ## Spark Membership Status Rules Changes
 
