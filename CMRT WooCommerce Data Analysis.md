@@ -369,4 +369,13 @@ Individual Member  January 31st, 2024  January 31st, 2024  January 30th, 2025   
 
 Using a csv file to import 3 x memberships for Ian Stewart.
 
+The csv import file is as follows:
+```
+External Identifier	First Name	Last Name	Email	Member Since	Membership Start Date	Membership Expiration Date	Membership Type
+127	Ian	Stewart	ianstewart56@hotmail.com	2023-06-06 15:16	2023-06-06 15:16	2024-06-05 15:16	Individual
+180	Ian	Stewart	ianstewart56@hotmail.com	2023-06-06 15:16	2024-08-26 16:24	2025-08-25 16:24	Individual
+247	Ian	Stewart	ianstewart56@hotmail.com	2023-06-06 15:16	2025-08-17 18:57	2026-08-16 18:57	Individual
+```
+After Importing then looking at the Memberships of Ian
+
 ![ian](/images/ian_memberships.png)
