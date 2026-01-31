@@ -290,7 +290,7 @@ The Spark CiviCRM database has already been loaded with data for the 400+ subscr
 In many cases, when loading the Contact information for members, they will already be in the database as they subscribe to the Newsletter.
 
  
-# Importing error
+### Importing error
 
 Invalid value for field(s) : Status,Membership Type
 
@@ -300,24 +300,29 @@ Membership Type of *Individual* needed to be defined
 
 Administer --> CiviMember --> Membership Status Rules
 
+## Importing Memberships
+
 Membership status:
-* New - Change: From Enabled to Disabled. Might be required to flag new members no able to vote at AGM.
-* Current Enabled - Uses Start and Expiry dates. i.e. 1 year
-* Grace  Enabled - Edit: Change from 1 month to 1 year
-* Expired Enabled - Edit: Change to start after end date plus 1 year
+* New - Enabled - Set to 3 months. Need to check CiviCRM Charter for how long to be a member before able to vote at the AGM.
+* Current - Enabled - Uses Start and Expiry dates. i.e. 1 year
+* Grace - Enabled - Edit: Change from 1 month to 1 year. Compliance with CMRT Charter
+* Expired - Enabled - Edit: Change to start after end date plus 1 year. Compliance with CMRT Charter
 * Pending <-- Uses *Member Since* (which is *Member Start Date*)
 * Cancelled <-- Uses *Member Since* (which is *Member Start Date*)
 * Deceased
 
 The data being imported will be changed to have 12 months of Current followed by 12 months of Grace
 
+# Errors - Notes:
 
-Error occurred as "New" Membership Status was used "Current": 
-start from October 28th, 2025 Expiration	October 28th, 2026
-goes backwards to: February 12th, 2025	February 12th, 2025	February 12th, 2026
+* Importing does not need *Membership Expiration Date*. This will be calculate based on the Administer -> CiviMember -> Membership Status Rules.
 
-Doesn't include the last 3 months. Removes the "New" membership status.
+* The one year membership will end one year from Membership Start date, minus one day. For example:
+	* Membership Since: January 28th, 2026
+ 	* Membership Start Date:  January 28th, 2026	
+ 	* Membership Expiry Date: January 27th, 2027 <-- plus 1 year and minus one day.
 
+* Without the *Membership Expiry Date* the Grace and Expired Status is not reflected. Left as Current.
 
 ## Spark Membership Status Rules Changes
 
