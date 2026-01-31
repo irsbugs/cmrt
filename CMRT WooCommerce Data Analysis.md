@@ -322,7 +322,8 @@ The data being imported will be changed to have 12 months of Current followed by
  	* Membership Start Date:  January 28th, 2026	
  	* Membership Expiry Date: January 27th, 2027 <-- plus 1 year and minus one day.
 
-* Without the *Membership Expiry Date* the Grace and Expired Status is not reflected. Left as Current.
+* Without the *Membership Expiry Date* the Grace and Expired Status is not calculated and displayed. Status is left as Current.
+* Can force the Status fields and not use the Membership Expiry Date
 
 ## Spark Membership Status Rules Changes
 
