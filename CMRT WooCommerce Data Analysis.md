@@ -383,3 +383,12 @@ After Importing then looking at the Memberships of Ian
 ![ian](/images/ian_memberships.png)
 
 Having 2 x Active Memberships will be quite common with a long (one year) Grace period.
+
+
+## Logging in to renew???
+
+Online renewals¶
+
+CiviCRM uses the same page for new memberships as it does for renewals. The only difference is that the page title and introductory message with the text you entered into the renewal fields on the memberships tab when you were configuring your online membership page. The renewal page is automatically displayed at the same URL as the membership join page when viewed by a logged in website visitor that has a valid current or expired membership.
+
+When you are setting up membership sign up pages, it is worth remembering that current members will only see the renewal page if they are logged in. If they are not logged in, they will see the sign up page. If they fill that page in and, based on their contact information, CiviCRM can find their existing contact record then their membership will be renewed. If CiviCRM can't find their existing contact record (perhaps they have changed their email address) then a new contact record and membership will be created. This is one source of duplicates in your database and you need to minimise the chances that this will happen. Two ways to do this are to always include a checksum token in renewal reminder emails and add text to the new member introductory message to remind people that they should log in before they renew
