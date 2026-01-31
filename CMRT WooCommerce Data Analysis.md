@@ -367,6 +367,8 @@ Individual Member  February 1st, 2024  February 1st, 2024  January 31st, 2025   
 Individual Member  January 31st, 2024  January 31st, 2024  January 30th, 2025   Expired
 ```
 
+## Importing Membership data with history
+
 Using a csv file to import 3 x memberships for Ian Stewart.
 
 The csv import file is as follows:
@@ -379,3 +381,5 @@ External Identifier	First Name	Last Name	Email	Member Since	Membership Start Dat
 After Importing then looking at the Memberships of Ian
 
 ![ian](/images/ian_memberships.png)
+
+Having 2 x Active Memberships will be quite common with a long (one year) Grace period.
