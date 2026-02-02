@@ -23,10 +23,10 @@ As an example, below are some of the fields of data in the rows for Ian Stewart:
 
 Ian Stewart was the 90th member to join CMRT, and has renewed his membership twice:
 ```
-Row Name        No. Member since        Start Date          End Date
-127 Ian	Stewart	90	2023-06-06 15:16	2023-06-06 15:16	2024-06-05 15:16:00
-180 Ian	Stewart	90	2023-06-06 15:16	2024-08-26 16:24	2025-08-25 16:24:00
-247 Ian	Stewart	90	2023-06-06 15:16	2025-08-17 18:57	2026-08-16 18:57:00
+Row Name        No. Member since        Start Date          End Date              CiviCRM Calculated Status if date is 1 Feb 2026
+127 Ian	Stewart	90	2023-06-06 15:16	2023-06-06 15:16	2024-06-05 15:16:00   <- Expired
+180 Ian	Stewart	90	2023-06-06 15:16	2024-08-26 16:24	2025-08-25 16:24:00   <- Grace
+247 Ian	Stewart	90	2023-06-06 15:16	2025-08-17 18:57	2026-08-16 18:57:00   <- Active
 ```
 
 CiviCRM calculates the Membership Status each day. As of 1 Feb 2026, in the above example, Ian's first entry is *Expired*, the second entry is in the *Grace* period and the third entry is *Active*.
