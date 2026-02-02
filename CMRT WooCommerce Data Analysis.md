@@ -1,6 +1,6 @@
 # Analysis of WooCommerce Data.
 
-On 2025-01-25 the WooCommerce data was exported by Ken as a csv file.
+On 2025-01-25 the WooCommerce Membership data was exported by Ken as a csv file.
 
 The file comprised:
 
@@ -11,22 +11,52 @@ The Order Numbers for the rows are from
 
 * 302	2026-01-19 20:28 - latest
 * 1 2021-08-20 16:24 - oldest
-
+  
 There are a total of 290 actual orders of the 302 possible order numbers.
 A total of 12 order numbers are missing. Maybe these orders got cancelled if the payment never came through?
 
-The interest is in those who have become new or renewed members in the last 12 months, and also include those in a grace payment period of an additional 12 months. This is effectively from 31 Jan 2026 and going back to 1 February 2024. These members will have their Contact and Membership data uploaded to Spark CiviCRM. Details are:
+The total number of new individual memberships is 151, and an additional 139 are the annual re-newal of memberships. The rows of data were sorted by the person with the oldest membership start date to the most recent membership start date. For each member with membershp renewals, these were added after the new membership. 
 
-* 77 paid-up members over the last 12 month period. Two of these are in *Processing* and one is *On Hold* all others are *Completed*. 
-* 14 members are in the 13 to 24 months grace period and are behind with paying their membership or have decided not to renew their membership.
+The records go back to 20 Aug 2021, when the WooCommerce membership database was created. The first record is for Janice Simpson. The CMRT organisation commenced memberships before 20 Aug 2021, but the data of these earlier membership dates is no longer available.   
 
-This total of 91 members will have their *contact* and *membership* data uploaded to Spark CiviCRM. Data of former members, who have expired membership, will not be uploaded. If a former member applies for membership again, then they will be treated as a *new* member, and not as a *renew*ing member. 
+As an example, below are some of the fields of data in the rows for Ian Stewart:
 
-## Corrections to First Name and Last Name.
+Ian Stewart was the 90th member to join CMRT, and has renewed his membership twice:
+```
+Row Name        No. Member since        Start Date          End Date
+127 Ian	Stewart	90	2023-06-06 15:16	2023-06-06 15:16	2024-06-05 15:16:00
+180 Ian	Stewart	90	2023-06-06 15:16	2024-08-26 16:24	2025-08-25 16:24:00
+247 Ian	Stewart	90	2023-06-06 15:16	2025-08-17 18:57	2026-08-16 18:57:00
+```
 
-Where necessary, *First Name* and *Last Name* were modified to match the naming convention being implemented. The first letter of a name is a Capital and the rest of the name is lower case. Exceptions apply. For example, someone with a *Last Name* of *Van der Wal*.
+CiviCRM calculates the Membership Status each day. As of 1 Feb 2026, in the above example, Ian's first entry is *Expired*, the second entry is in the *Grace* period and the third entry is *Active*.
 
-## Uniqueness of Email Address
+### Membership Status Rules.
+
+The CiviCRM Membership Status Rules are accessed via *Administer -> CiviMember -> Membership Status Rules*.
+
+CiviCRM has had its Membership Status Rules set to comply with the CMRT Charter. In summary:
+
+* *New* - A new membership that is less than 3 months. A new member is unable to vote at the AGM.
+* *Active* - A new membership for 4th to 12th months, or a renewing member for the full 12 months.
+* *Grace* - A membership for the next 13 to 24th months after becoming a new or renewed member.
+* *Expired* - A membershhip from 25 months onward.
+
+The one year membership will end a year later on the day before the start date anniversary. E.g. If start date is on 1 Jan 2026 then the end date is 31 Dec 2026.
+
+Importing membership data via a csv file does not need the *Status* field. Thiss is calculated by CiviCRM as the data is loaded.
+
+
+### Modification of Data
+
+The fields of many records were modified in order to standardise the data. E.g. All phone numbers commence with the country code. Abbreviations were expanded. E.g. St. and Rd. expanded to Street and Road. Email addresses all lower-case, etc.
+
+
+#### Corrections to First Name and Last Name.
+
+Where necessary, *First Name* and *Last Name* were modified to match the naming convention being implemented. The first letter of a name is a Capital and the rest of the name is lower case. Exceptions apply. For example, a person with a *Last Name* of *Van der Wal*.
+
+#### Uniqueness of Email Address
 
 The *Email Address* for each contact/member must be unique. The *Email Address* is used as the primary key when mapping data, etc. For example, if a couple both register as members, then they can not share an email address. Also implement Email addresses to be written in all lower case letters. 
 
@@ -34,23 +64,17 @@ The *Email Address* for each contact/member must be unique. The *Email Address* 
 
 ### Issue #1:
 
-The person or persons that use the email address: kate.couttie@gmail.com has normally been going by the name Kate and last renewed her membership in Sep 2025. However 2 months after Kate Couttie renewed her membership then a Kathleen Couttie "renewed" her membership.
+The person that uses the email address: kate.couttie@gmail.com has normally been going by the name Kate and last renewed her membership in Sep 2025. However 2 months after Kate Couttie renewed her membership then a Kathleen Couttie "renewed" her membership.
 
 ```
 Renewing Member	288	Completed	2025-11-09 13:53		Kathleen Couttie	kate.couttie@gmail.com
 Renewing Member	252	Completed	2025-09-08 15:45		Kate Couttie		kate.couttie@gmail.com
 ```
 
-I assume they are two people, Kate and Kathleen. E.g. Sisters or Mother and daughter. If so then we need different 2 x different email addresses. E.g. kate.couttie@gmail.com and, say, kathleen.couttie@gmail.com
-
-Might be best to give them a call: 419010609 <-- This is the same number for both Kate and Kathleen
+I assume that Kate is the nickname for Kathleen and the nickname is more commonly used.
 
 ## Resolved #1:
-Kathleen should have been Kate. Changed.  Kate effectively paid 10 months in advance for her 2026 membership.
-
-Action: Removed the data to avoid duplication when uploading to Spark
-Renewing Member	252	Completed	2025-09-08 15:45		Kate Couttie		kate.couttie@gmail.com
-
+Changed Kathleen to Kate. Kate need to contact CMRT for refund or credit for next year as she paid twice for the year 2025 membership.
 
 ### Issue #2: 
 
@@ -70,9 +94,9 @@ It looks to me like:
 
 * The next day Deborah decided to register herself for membership and used her own name Deborah and the same email address: macerfam@yahoo.com.au
 
-If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. macerfam@yahoo.com.au and something else.
+If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. deborah_macer@yahoo.com.au and tony_macer@yahoo.com.au
 
-Action: Removed 176, 204,and 266 until get response from Macer family.
+Action: Sent an e-mail to Deborah and Tony explain the issue. For Tony used a temporary / fake, tony@example.com, email address.
 
 
 ## Issue #3:
@@ -88,7 +112,7 @@ Renewing Member	233	Completed	2025-05-29 11:22		John	Cook	wcookjohn@yahoo.com.au
 For 2024...
 Renewing Member	197	Completed	2024-09-13 16:39		John	Cook	wcookjohn@yahoo.com.au
 ```
-Action: Remove 197, 233, 262. Uploaded 297
+Action: None
 
 ## Import Mapping
 
