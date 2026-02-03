@@ -435,7 +435,15 @@ When you are setting up membership sign up pages, it is worth remembering that c
 
 ## After Importing the massaged WooCommerce membership data
 
-The following is a screenshot of how the memberships for Ken Stewart are displayed...
+The following is a screenshot of how the memberships for Ken Stewart are displayed as of 3 Feb 2026.
 
+* *Member Since* remains the date of the initial new membership.
+* The 4 x *Membership Start Date* are the dates the annual membership dues were paid.
+* The 4 x *Membership Expiry Date* were uploaded from the csv file, to help CiviCRM get the *Status* calculation correct.
+* The 4 x *Membership Expiry Date* are the 365th day, or 366th day on leap years, since the *Membership Start Date*.
+* CiviCRM calculates the *Status*. This field is not uploaded from the CSV file.
+* Two membership are **Active** as one is *Current*, within the last year, and one is "Grace" within 13 to 24 months.
+  
+ 
 ![ken_memberships](/images/ken_membership_screenshot.png)
 
