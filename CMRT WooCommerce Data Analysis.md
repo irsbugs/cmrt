@@ -82,22 +82,19 @@ I'm not sure about this data. Might pay to ring them up and have a chat. Phone 4
 
 ```
 	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au
-	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au
+	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au <-- Probably meant to be debmacer1957@gmail.com
 New Member		204	Completed	2024-10-23 17:31		Tony Macer		macerfam@yahoo.com.au
 Renewing Member	176	Completed	2024-08-12 13:14		Owen Macer	    owen.macer@gmail.com
 ```
-It looks to me like: 
 
-* Tony Macer registered as a new member in 2024-10-06 and used the email address: macerfam@yahoo.com.au
+Resolution: 
 
-* After a year his partner decided to renew Tony's membership, but she put her own name, Deborah Macer, instead of Tony's, however she used the same email address: macerfam@yahoo.com.au
+It looks to me like it should be the following:
+Deborah Macer normally uses the email debmacer1957@gmail.com and accidently used Tony's macerfam@yahoo.com.au for herself.
+Tony Macer normally uses the email macerfam@yahoo.com.au
+Owen Macer always uses owen.macer@gmail.com
 
-* The next day Deborah decided to register herself for membership and used her own name Deborah and the same email address: macerfam@yahoo.com.au
-
-If there are two members of the Macer family that are members, E.g. Tony and Deborah, then we need two email address. E.g. deborah_macer@yahoo.com.au and tony_macer@yahoo.com.au
-
-Action: Sent an e-mail to Deborah and Tony explain the issue. For Tony used a temporary / fake, tony@example.com, email address.
-
+Action: Sent an e-mail to Deborah and Tony requesting information
 
 ## Issue #3:
 
