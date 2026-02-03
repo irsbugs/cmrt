@@ -111,6 +111,16 @@ Renewing Member	197	Completed	2024-09-13 16:39		John	Cook	wcookjohn@yahoo.com.au
 ```
 Action: None
 
+## Issue #4
+Is it tim.laugher or timelaugher?
+
+170	tim.laugher@gmail.com	tim.laugher@gmail.com	78	Tim	Laugher
+223	timlaugher@gmail.com	timlaugher@gmail.com	78	Tim	Laugher
+
+Action:
+Opted for tim.laugher in the meantime. Need to check.
+
+
 ## Import Mapping
 
 When transfering WooCommerce csv data to Spark CiviCRM, then three Imports need to be performed:
