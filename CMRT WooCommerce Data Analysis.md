@@ -81,8 +81,8 @@ Changed Kathleen to Kate. Kate need to contact CMRT for refund or credit for nex
 I'm not sure about this data. Might pay to ring them up and have a chat. Phone 400029068 or 438309772
 
 ```
-	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au
-	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au <-- Probably meant to be debmacer1957@gmail.com
+	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au <-- Name probably meant to by Tony Macer
+	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au <-- Email probably meant to be debmacer1957@gmail.com
 New Member		204	Completed	2024-10-23 17:31		Tony Macer		macerfam@yahoo.com.au
 Renewing Member	176	Completed	2024-08-12 13:14		Owen Macer	    owen.macer@gmail.com
 ```
