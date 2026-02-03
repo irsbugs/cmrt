@@ -120,6 +120,14 @@ Is it tim.laugher or timelaugher?
 Action:
 Opted for tim.laugher in the meantime. Need to check.
 
+## Issue #5
+
+About 20 members had a descrepency between their new membership email address and / or their renewal membership email addresses.
+
+Action:
+
+Pick the email address which they currently appear to use, and make this the email for all memberships.
+
 
 ## Import Mapping
 
