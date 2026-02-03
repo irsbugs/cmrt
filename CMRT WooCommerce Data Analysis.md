@@ -15,7 +15,7 @@ The Order Numbers for the rows are from
 There are a total of 290 actual orders of the 302 possible order numbers.
 A total of 12 order numbers are missing. Maybe these orders got cancelled if the payment never came through?
 
-The total number of new individual memberships is 151, and an additional 139 are the annual re-newal of memberships. The rows of data were sorted by the person with the oldest membership start date to the most recent membership start date. For each member with membershp renewals, these were added after the new membership. 
+The total number of new individual memberships is 150, and an additional 140 are the annual re-newal of memberships. The rows of data were sorted by the person with the oldest membership start date to the most recent membership start date. For each member with membershp renewals, these were added after the new membership. 
 
 The records go back to 20 Aug 2021, when the WooCommerce membership database was created. The first record is for Janice Simpson. The CMRT organisation commenced memberships before 20 Aug 2021, but the data of these earlier membership dates is no longer available.   
 
@@ -23,7 +23,7 @@ As an example, below are some of the fields of data in the rows for Ian Stewart:
 
 Ian Stewart was the 90th member to join CMRT, and has renewed his membership twice:
 ```
-Row Name        No. Member since        Start Date          End Date              CiviCRM Calculated Status if date is 1 Feb 2026
+Row Name        No. Member since        Start Date          End Date              CiviCRM Calculated Status when date was 1 Feb 2026
 127 Ian	Stewart	90	2023-06-06 15:16	2023-06-06 15:16	2024-06-05 15:16:00   <- Expired
 180 Ian	Stewart	90	2023-06-06 15:16	2024-08-26 16:24	2025-08-25 16:24:00   <- Grace
 247 Ian	Stewart	90	2023-06-06 15:16	2025-08-17 18:57	2026-08-16 18:57:00   <- Active
@@ -40,7 +40,7 @@ CiviCRM has had its Membership Status Rules set to comply with the CMRT Charter.
 * *New* - A new membership that is less than 3 months. A new member is unable to vote at the AGM.
 * *Active* - A new membership for 4th to 12th months, or a renewing member for the full 12 months.
 * *Grace* - A membership for the next 13 to 24th months after becoming a new or renewed member.
-* *Expired* - A membershhip from 25 months onward.
+* *Expired* - A membership from 25 months onward.
 
 The one year membership will end a year later on the day before the start date anniversary. E.g. If start date is on 1 Jan 2026 then the end date is 31 Dec 2026.
 
@@ -81,7 +81,7 @@ Changed Kathleen to Kate. Kate need to contact CMRT for refund or credit for nex
 I'm not sure about this data. Might pay to ring them up and have a chat. Phone 400029068 or 438309772
 
 ```
-	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au <-- Name probably meant to by Tony Macer
+	          	271	Completed	2025-10-07 21:37		Deborah Macer	macerfam@yahoo.com.au <-- Name probably meant to be Tony Macer
 	          	266	Completed	2025-10-06 22:26		Deborah Macer	macerfam@yahoo.com.au <-- Email probably meant to be debmacer1957@gmail.com
 New Member		204	Completed	2024-10-23 17:31		Tony Macer		macerfam@yahoo.com.au
 Renewing Member	176	Completed	2024-08-12 13:14		Owen Macer	    owen.macer@gmail.com
