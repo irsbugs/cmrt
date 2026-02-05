@@ -1,5 +1,17 @@
 # Analysis of WooCommerce Data.
 
+Subscriber:
+/home/ian/ken2/cmrt subscribers/
+-rw-r--r-- 1 ian ian  25674 Jan  2 15:10 subscribed_email_audience_export_6b37f65b1b_cut_down_2026-01-02_sorted_cleaned-up_final.csv
+
+
+
+Member: \ken3\woocommerce_data_3\woocommerce-orders-2026-01-25-06-34-15-final-for-importing.csv
+master ods: woocommerce-orders-2026-01-25-06-34-15-final-for-importing.ods
+
+TODO: Check emal addresses with Subscribers email addresses:
+
+
 On 2025-01-25 the WooCommerce Membership data was exported by Ken as a csv file.
 
 The file comprised:
