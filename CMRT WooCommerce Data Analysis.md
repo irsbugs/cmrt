@@ -124,7 +124,7 @@ Renewing Member	197	Completed	2024-09-13 16:39		John	Cook	wcookjohn@yahoo.com.au
 Action: None
 
 ## Issue #4
-Is it tim.laugher or timelaugher?
+Is it tim.laugher or timlaugher?
 
 170	tim.laugher@gmail.com	tim.laugher@gmail.com	78	Tim	Laugher
 223	timlaugher@gmail.com	timlaugher@gmail.com	78	Tim	Laugher
