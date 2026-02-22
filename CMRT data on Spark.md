@@ -16,54 +16,34 @@ With the above data imported to Spark's database, then performing various search
 
 ### Totals
 
-443 Total Individuals
-63 Total Organizations, including CMRT as the default organization.
-
+* 443 Total Individuals
+* 63 Total Organizations, including CMRT as the default organization. Breakdown:  
+  * 18 Business
+  * 29 Community
+  * 4 Federal
+  * 3 Local
+  * 9 State
+    
 ### Membership
 
 150 Total members since 2021.
 
 Current Status of Members:
-5 New
-70 Current
-19 Grace
-56 Expired
+
+* 5 New
+* 70 Current
+* 19 Grace
+* 56 Expired
 
 ### Letters of Support
 
-56 Organizations that have sent Letters of Support
-0 Individuals that have sent Letters of Support
+* 56 Organizations that have sent Letters of Support. 10 of these did not provide an e-mail address
+* 0 Individuals that have sent Letters of Support
 
-Impoer organization as
-Update, Organizaation, SubContact 
+### Newsletter
 
-Import State - 9
+* 465 Total Newsletter subscribers
 
-All in LOS Group except State Parliament <-- Deleted
+* 434 Individual Newsletter Subscribers
+* 31 Orgaization Newsletter Subscribers
 
-Import Local - 3 - No LOS Group
-
-Import Federal - 4 - 2 in LOS Group 2 not in.
-
-
-Import Community - Change phone to mobile. Did not import CMRT- All LOS except CMRT
-
-Import Business
-
-63 Total Organizations
-
-
-56 Org and LOS Group
-
-31 Org and Newsletter sub Group
-
-0 Individual and LOS Group
-
-434 Individual and Newsletter subscriber
-
-
-
-
-TODO: 
-* Organizations and relationship to sub-organizations. E.g. Council to Wards, CMRT to officials and committee,
-*   
