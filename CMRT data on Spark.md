@@ -47,5 +47,5 @@ Current Status of Members:
 * 465 Total Newsletter subscribers
 
 * 434 Individual Newsletter Subscribers
-* 31 Orgaization Newsletter Subscribers
+* 31 Organization Newsletter Subscribers
 
