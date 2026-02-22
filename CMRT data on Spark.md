@@ -17,7 +17,9 @@ With the above data imported to Spark's database, then performing various search
 ### Totals
 
 * 443 Total Individuals
-* 63 Total Organizations, including CMRT as the default organization. Breakdown:  
+* 63 Total Organizations, including CMRT as the default organization.
+
+Organization Breakdown:  
   * 18 Business
   * 29 Community
   * 4 Federal
