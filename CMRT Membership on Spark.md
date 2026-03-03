@@ -44,11 +44,30 @@ Chatgpt was used to generate the following Audit and  Implementation Plan
 
 Go to: Administer → CiviMember → Membership Types
 
-Confirmed the following:
-* Individual Membership (correct fee)
-* Grace Period set correctly (you were considering 12 months — confirm)
-* Auto-renew unchecked (unless intentionally enabled)
-* Renewal reminders not yet activated (or note status)
+Confirmed the following - 2026-03-03:
+* Individual Membership. - Minimum fee $15.
+* Grace Period set correctly. - Duration 1 year.
+* Auto-renew Option. - No. Nothing checked. Choices: No auto-renew option, Give option, but not required and Auto-renew required.
+* Renewal reminders not yet activated. - Note: Configure membership renewal reminders using [Schedule Reminders](https://cmrailtrail.civicrm.org/civicrm/admin/scheduleReminders?reset=1). If you have previously configured renewal reminder templates, you can re-use them with your new scheduled reminders. [Schedule Reminders documentation](https://docs.civicrm.org/user/en/latest/email/scheduled-reminders/)
+
+### Contribution Page (Join/Renew Form)
+
+Go to: Administer → CiviContribute → Manage Contribution Pages
+
+Ken created:
+* CMRT Donate. - Configure 8 sections, Contributions 3 sections, Links 2 sections, more 3 options
+* CMRT Membership Signup Page
+  
+
+TODO: Confirm the following - 2026-03-03:
+* One active *Join / Renew Membership* page. - CMRT Membership Signup Page
+* Connected to correct Membership Type(s) - huh?
+* Stripe processor selected (IPN 4 is correct for Spark — yes, keep it while WooCommerce still runs) - huh?
+* Thank-you page wording correct - huh?
+* Test payment works (you already confirmed 200 success) - huh?
+
+* 
+    
 
 ## STAGE 1 
 
