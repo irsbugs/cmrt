@@ -36,7 +36,7 @@ Notes:
   * 19 Grace
   * 56 Expired
  
-Chatgpt was used to generate the following Audit and  Implementation Plan
+Chatgpt was used to generate the following Audit and Implementation Plan
  
 ## PART 1  - Audit
 
@@ -45,22 +45,22 @@ Chatgpt was used to generate the following Audit and  Implementation Plan
 Go to: Administer → CiviMember → Membership Types
 
 Confirmed the following - 2026-03-03:
-* Individual Membership. - Minimum fee $15.
-* Grace Period set correctly. - Duration 1 year.
-* Auto-renew Option. - No. Nothing checked. Choices: No auto-renew option, Give option, but not required and Auto-renew required.
-* Renewal reminders not yet activated. - Note: Configure membership renewal reminders using [Schedule Reminders](https://cmrailtrail.civicrm.org/civicrm/admin/scheduleReminders?reset=1). If you have previously configured renewal reminder templates, you can re-use them with your new scheduled reminders. [Schedule Reminders documentation](https://docs.civicrm.org/user/en/latest/email/scheduled-reminders/)
+* Individual Membership. <-- Minimum fee $15.
+* Grace Period set correctly. <-- Duration 1 year.
+* Auto-renew Option. <-- No. Nothing checked. Choices: No auto-renew option, Give option, but not required and Auto-renew required.
+* Renewal reminders not yet activated. <-- Note: Configure membership renewal reminders using [Schedule Reminders](https://cmrailtrail.civicrm.org/civicrm/admin/scheduleReminders?reset=1). If you have previously configured renewal reminder templates, you can re-use them with your new scheduled reminders. [Schedule Reminders documentation](https://docs.civicrm.org/user/en/latest/email/scheduled-reminders/)
 
 ### 2 Contribution Page (Join/Renew Form)
 
 Go to: Administer → CiviContribute → Manage Contribution Pages
 
 Ken created:
-* CMRT Donate. - Configure 8 sections, Contributions 3 sections, Links 2 sections, more 3 options
+* CMRT Donate. <-- Configure 8 sections, Contributions 3 sections, Links 2 sections, more 3 options
 * CMRT Membership Signup Page
   
 
 TODO: Confirm the following - 2026-03-xx:
-* One active *Join / Renew Membership* page. - CMRT Membership Signup Page
+* One active *Join / Renew Membership* page. <-- CMRT Membership Signup Page
 * Connected to correct Membership Type(s) - huh?
 * Stripe processor selected (IPN 4 is correct for Spark — yes, keep it while WooCommerce still runs) - huh?
 * Thank-you page wording correct - huh?
@@ -71,7 +71,7 @@ TODO: Confirm the following - 2026-03-xx:
 Go to: Administer → Customize Data and Screens → Profiles
 
 TODO Confirmed the following on - 2026-03-xx:
-* Membership signup profile exists. - 
+* Membership signup profile exists. <-- 
 * First Name / Last Name added (thanks to Ian)
 * Email required
 * Volunteer interest question present (if desired)
@@ -79,7 +79,7 @@ TODO Confirmed the following on - 2026-03-xx:
 
 ### 4 Groups
 
-Go to: Contacts → MAnage Groups
+Go to: Contacts → Manage Groups
 
 TODO: Confirmed on 2026-03-xx:
 * *Current Members* - huh ? No
@@ -102,7 +102,7 @@ Make sure membership type is set to automatically add/remove from “Current Mem
 Checked on 2026-03-xx:
 
 * Receipt sender name/email updated (remove John’s details). huh?
-* Organisation name = Castlemaine Maryborough Rail Trail. - Legal Name: Castlemaine Maryborough Rail Trail Inc
+* Organisation name = Castlemaine Maryborough Rail Trail. <-- Legal Name: Castlemaine Maryborough Rail Trail Inc
 * CMRT used only in informal contexts. huh?
 * Test receipt looks correct. huh?
 
@@ -120,7 +120,7 @@ So we implement in stages.
 
 * Confirm Grace Period (recommend 12 months if matching model rules — your admin-saving insight was correct).
    
-The CiviCRM Membership Status Rules are accessed via Administer -> CiviMember -> Membership Status Rules.
+The CiviCRM Membership Status Rules are accessed via Administer →  CiviMember →  Membership Status Rules.
 
 ![Membership Status Rules](/images/membership_status_rules/membership_status_rules.png)
 
