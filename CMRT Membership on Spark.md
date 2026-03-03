@@ -30,10 +30,37 @@ The Individuals Membership Information Fields
 Notes: 
 * An *External Identifier* number was made to match the *Contact ID* of the Individual. This could be handy in future.
 * For fields that have the sub-categories: Main, Billing and Primary, then Main was used.
-* As part of the uploading process CiviCRM calculates the Membership *Status* for each Individual. This is the current the status:
+* As part of the Membership uploading process CiviCRM calculates the Membership *Status* for each Individual. There have been a total of 150 since 2021. This is the status as of 14 February 2026:
   * 5 New
   * 70 Current
   * 19 Grace
   * 56 Expired
-  * 150 Total members since 2021.
  
+Chatgpt was used to generate the following Audit and  Implementation Plan
+ 
+## PART 1  - Audit
+
+### Membership Types
+
+Go to: Administer → CiviMember → Membership Types
+
+Confirmed the following:
+* Individual Membership (correct fee)
+* Grace Period set correctly (you were considering 12 months — confirm)
+* Auto-renew unchecked (unless intentionally enabled)
+* Renewal reminders not yet activated (or note status)
+
+## STAGE 1 
+
+1. Finalise Membership Structure
+   
+The CiviCRM Membership Status Rules are accessed via Administer -> CiviMember -> Membership Status Rules.
+
+![Membership Status Rules](/images/membership_status_rules/membership_status_rules.png)
+
+CiviCRM has had its Membership Status Rules set to comply with the CMRT Charter. In summary:
+
+* New - A new membership that is less than 3 months. A new member is unable to vote at the AGM.
+* Active - A new membership for 4th to 12th months, or a renewing member for the full 12 months.
+* Grace - A membership for the next 13 to 24th months after becoming a new or renewed member.
+* Expired - A membership from 25 months onward.
