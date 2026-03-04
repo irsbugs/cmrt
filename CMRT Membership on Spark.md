@@ -29,7 +29,7 @@ The Individuals Membership Information Fields
 
 Notes: 
 * An *External Identifier* number was made to match the *Contact ID* of the Individual. This could be handy in future.
-* For fields that have the sub-categories: Main, Billing and Primary, then Main was used.
+* For fields that have the sub-categories: Main, Billing, Home and Primary, then Main was used.
 * As part of the Membership uploading process CiviCRM calculates the Membership *Status* for each Individual. There have been a total of 150 since 2021. This is the status as of 14 February 2026:
   * 5 New
   * 70 Current
