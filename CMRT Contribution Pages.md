@@ -10,7 +10,25 @@ Screenshots of *Manage Contribution Pages* as of 2026-03-05
 
 ## Opening the Manage Contribution Pages main screen.
 
-Administer --> CiviContribute -->  Manage Contibution Pages
+Administer --> CiviContribute -->  Manage Contibution Pages.
+
+Current Contribution Pages:
+* CMRT Donate
+* CMRT Membership Signup Page
 
 ![mcp-01](/images/mcp/mcp-01.png)
+
+## Configure
+The following catagories may be configured:
+* Title and Settings
+* Contribution Amounts
+* Membership settings
+* Thank-you and Receipting
+* Include Profiles
+* Contribution Widget
+* Premiums
+* Personal Campaign Pages
+
+  ![mcp_02](/images/mcp/mcp-02.png)
+  
 
