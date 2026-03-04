@@ -10,4 +10,4 @@ Screenshots of *Manage Contribution Pages* as of 2026-03-05
 
 Opening the Manage Contribution Pages main screen.
 
-![mcp-01](/images/mcp/mcp-01.png])
+![mcp-01](/images/mcp/mcp-01.png)
