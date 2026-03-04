@@ -29,6 +29,6 @@ The following catagories may be configured:
 * Premiums
 * Personal Campaign Pages
 
-  ![mcp_02](/images/mcp/mcp-02.png)
+  ![mcp-02](/images/mcp/mcp-02.png)
   
 
