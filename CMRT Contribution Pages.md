@@ -8,6 +8,9 @@ GDPR stands for General Data Protection Regulation, which is a comprehensive law
 
 Screenshots of *Manage Contribution Pages* as of 2026-03-05
 
-Opening the Manage Contribution Pages main screen.
+## Opening the Manage Contribution Pages main screen.
+
+Administer --> CiviContribute -->  Manage Contibution Pages
 
 ![mcp-01](/images/mcp/mcp-01.png)
+
