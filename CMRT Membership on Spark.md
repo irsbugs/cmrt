@@ -6,7 +6,7 @@ On 25 January 2026, the WooCommerce data from the CMRT website was exported to C
 
 The WooCommerce csv file was massaged to correct typos, etc. Also, where necessary, Field Headers were renamed to match the defaults used by CiviCRM. E.g. *Surname* changed to *Last Name*. 
 
-The Contact and Membership csv data was uploaded to Spark Essentials CiviCRM database on 14 Feb 2026. The CiviCRM fields uploaded to Spark essentails database for each member are:
+The Contact and Membership csv data was uploaded to Spark Essentials CiviCRM database on 14 Feb 2026. The CiviCRM fields uploaded to Spark Essentials database for each member are:
 
 The Individuals Contact Details Fields:
 
