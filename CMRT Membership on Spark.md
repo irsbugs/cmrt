@@ -126,10 +126,10 @@ The CiviCRM Membership Status Rules are accessed via Administer →  CiviMember 
 
 CiviCRM has had its Membership Status Rules set to comply with the CMRT Charter. In summary:
 
-* New - A new membership that is less than 3 months. A new member is unable to vote at the AGM.
-* Active - A new membership for 4th to 12th months, or a renewing member for the full 12 months.
-* Grace - A membership for the next 13 to 24th months after becoming a new or renewed member.
-* Expired - A membership from 25 months onward.
+* *New* - A new membership that is less than 3 months. A new member is unable to vote at the AGM.
+* *Active* - A new membership for 4th to 12th months, or a renewing member for the full 12 months.
+* *Grace* - A membership for the next 13 to 24th months after becoming a new or renewed member.
+* *Expired* - A membership from 25 months onward.
 
 * Set Renewal Reminders:
   * 30 days before expiry. - Ken - 20 days?
