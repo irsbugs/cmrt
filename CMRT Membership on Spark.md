@@ -132,9 +132,9 @@ CiviCRM has had its Membership Status Rules set to comply with the CMRT Charter.
 * *Expired* - A membership from 25 months onward.
 
 * Set Renewal Reminders:
-  * 30 days before expiry. - Ken - 20 days?
+  * 14 days before expiry. <-- Changed from 30 days by Ken after talking to Committee.
   * 7 days before expiry.
-  * 1 month after expiry (optional). ???
+  * 1 month after expiry. <-- Ken still to do this
  
 Civi automatically stops reminders once someone renews — not a dumb question, you were right.
 
