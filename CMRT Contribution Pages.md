@@ -37,3 +37,7 @@ Title and Settings for CMRT Donate. The *Title* tab.
 
 ![mcp-03](/images/mcp/mcp-03.png)
 
+## Contribution Amounts
+
+![mcp-04](/images/mcp/mcp-04.png)
+
