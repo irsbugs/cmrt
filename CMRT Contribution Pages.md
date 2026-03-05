@@ -79,7 +79,7 @@ Include Profiles
 
 ## 7. Widgets 9
 
-Contribution Widget
+Contribution Widget 9
 
 ![mcp-09](/images/mcp/mcp-09.png)
 
