@@ -49,4 +49,26 @@ Membership settings
 
 ![mcp-05](/images/mcp/mcp-05.png)
 
+## Receipt
 
+Thank-you and Receipting
+
+![mcp-06](/images/mcp/mcp-06.png)
+
+## Profiles
+
+Include Profiles
+
+Thank-you and Receipting
+
+![mcp-07](/images/mcp/mcp-07.png)
+
+## Widgets
+
+Contribution Widget
+
+![mcp-08](/images/mcp/mcp-08.png)
+
+## Terms and Conditions
+
+![mcp-09](/images/mcp/mcp-09.png)
