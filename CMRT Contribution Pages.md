@@ -27,7 +27,7 @@ Each Contribution Page has a *Configure >* option which opens a drop-down menu o
 4. Thank-you and Receipting. *Receipt*
 5. Include Profiles. *Profiles*
 6. Contribution Widget. *Widgets*
-7. Premiums *Premuiums*
+7. Premiums. *Premuiums*
 8. Personal Campaign Pages. *Personal Campaigns*
 
 The nineth option that is available only as a tab selection is: *Terms and Conditions* 
