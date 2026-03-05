@@ -75,18 +75,20 @@ Include Profiles
 
 ![mcp-07](/images/mcp/mcp-07.png)
 
-## 6. Premiums 8
+## 6. Premiums
 
-## 7. Widgets 9
+![mcp-08](/images/mcp/mcp-08.png)
 
-Contribution Widget 9
+## 7. Widgets
+
+Contribution Widget
 
 ![mcp-09](/images/mcp/mcp-09.png)
 
-## 8. Personal Campaigns 10
+## 8. Personal Campaigns
 
-TODO:
+![mcp-10](/images/mcp/mcp-10.png)
 
-## 9. Terms and Conditions 11
+## 9. Terms and Conditions
 
 ![mcp-11](/images/mcp/mcp-11.png)
