@@ -21,26 +21,30 @@ Current Contribution Pages:
 
 Each Contribution Page has a *Configure >* option which opens a drop-down menu of eight selectable items as follows:
 
-1. Title and Settings. *Title* <-- This opens the *Contribution Links* page with 7 tab option.
-2. Contribution Amounts. *Amounts* <-- All other options open *Contribution Links* page with 9 tabs.
-3. Membership settings. *Memberships*
-4. Thank-you and Receipting. *Receipt*
-5. Include Profiles. *Profiles*
-6. Contribution Widget. *Widgets*
-7. Premiums. *Premuiums*
-8. Personal Campaign Pages. *Personal Campaigns*
+* Title and Settings. *Title* <-- This opens the *Contribution Links* page with 7 tab options.
+* Contribution Amounts. *Amounts* <-- All other options open *Contribution Links* page with 9 tab options.
+* Membership settings. *Memberships*
+* Thank-you and Receipting. *Receipt*
+* Include Profiles. *Profiles*
+* Contribution Widget. *Widgets*
+* Premiums. *Premuiums*
+* Personal Campaign Pages. *Personal Campaigns*
 
 The nineth option that is available only as a tab selection is: *Terms and Conditions* 
 
-The anomaly of 7 tabs for *Titles and Settings* compared with 9 tabs from selecting anoy of the other 8 options. 
+The anomaly of 7 tabs for *Titles and Settings* compared with 9 tabs from selecting any of the other options. 
 
 ![mc-01](/images/mcp/mc-01.png)
 ![mc-02](/images/mcp/mc-02.png)
 
-*Configure* The following catagories may be configured:
+The *Configure>* option provides direct access to 8 of the tabs on the *Contribution Links* page...
 
 ![mcp-02](/images/mcp/mcp-02.png)
-  
+
+# Contribution Links
+
+The following are the 9 tabs of the Contribution Links
+
 ## 1. Title
 
 Title and Settings for CMRT Donate. The *Title* tab.
@@ -71,18 +75,18 @@ Include Profiles
 
 ![mcp-07](/images/mcp/mcp-07.png)
 
-## 6. Premiums
+## 6. Premiums 8
 
-## 7. Widgets
+## 7. Widgets 9
 
 Contribution Widget
 
-![mcp-08](/images/mcp/mcp-08.png)
+![mcp-09](/images/mcp/mcp-09.png)
 
-## 8. Personal Campaigns
+## 8. Personal Campaigns 10
 
 TODO:
 
-## 9. Terms and Conditions
+## 9. Terms and Conditions 11
 
-![mcp-09](/images/mcp/mcp-09.png)
+![mcp-11](/images/mcp/mcp-11.png)
