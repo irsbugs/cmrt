@@ -43,3 +43,10 @@ Contribution Amounts for CMRT Donate
 
 ![mcp-04](/images/mcp/mcp-04.png)
 
+## Membership
+
+Membership settings
+
+![mcp-05](/images/mcp/mcp-05.png)
+
+
