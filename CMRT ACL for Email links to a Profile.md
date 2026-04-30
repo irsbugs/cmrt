@@ -13,9 +13,9 @@ If the contact had previously filled in the questionnaire, then they will see th
 ### Notes: 
 
 * With HTML5 the html `&amp;` is the same as html `&`.
-* The tail of a URL contains the query "?" component. This is single *attribute-value* pair, or, multiple *attribute-value* pairs separated by the `&` or `&amp;` delimiter.
+* The tail of a URL may contain the *query* "?" component. This is single *attribute=value* pair, or, multiple *attribute=value* pairs separated by the `&` or `&amp;` delimiter.
 * The email editor provides the insertion of "tokens". For example: `id={contact.contact_id}` will insert the unique contact identifier number for each email that is sent.
-* Some tokens are an attribute-value pair. For example: `{contact.checksum}` expands to `cs=aaaaaaaaaaaaaaa`, where `cs` is the attribute *checksum*.
+* Some tokens are an attribute=value pair. For example: `{contact.checksum}` expands to `cs=aaaaaaaaaaaaaaa`, where `cs` is the attribute *checksum*.
 
 An example of a link that is embedded inside an email so that the email receipent can be taken to a questionnaire to fill out.
 
@@ -23,8 +23,8 @@ An example of a link that is embedded inside an email so that the email receipen
 https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&reset=1&id={contact.contact_id}&{contact.checksum}
 ```
 In the above the query string contains:
-* gid=17
-* reset=1
-* id={contact.contact_id}
-* {contact.checksum}
+* gid=17 <-- The profile (questionnaire) with an id of 17
+* reset=1 <-- Clear the questionnaire when loading it.
+* id={contact.contact_id} <-- The CiviCRM contacts identification. Unique integer for each contact.
+* {contact.checksum} <-- Checksum this URL is using.
 
