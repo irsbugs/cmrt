@@ -100,7 +100,7 @@ After saving the above form the Manage ACLs is now displayed as follows, with th
 * *Select source and paste -->*
 ```html
 <p>Hi {contact.first_name},</p>
-<p>This is a test of accessing the CMRT questionnaire. gid=17.</p>
+<p>This is a test of accessing the CMRT questionnaire.</p>
 <p><a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&amp;reset=1&amp;id={contact.contact_id}&amp;{contact.checksum}">Click to go to questionnaire</a></p>
 ```
 
