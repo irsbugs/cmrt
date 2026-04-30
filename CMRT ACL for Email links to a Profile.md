@@ -1,4 +1,4 @@
-# CMRT ACL for Email links to a Profile.md
+# CMRT ACL for Email links to a Profile
 
 2026-04-30 - Ian Stewart
 
