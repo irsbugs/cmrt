@@ -81,6 +81,7 @@ Fill in the form as follows:
 
 After filling out form
 
-![/images/ACL_Profile_Form.png]
+![ACL Profile Form](/images/ACL_Profile_Form.png)
+
 
 
