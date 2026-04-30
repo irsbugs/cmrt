@@ -84,6 +84,10 @@ Filling out form will apppear as follows:
 
 ![ACL Profile Form](/images/ACL_Profile_Form.png)
 
+After saving the above form the ACL Manage is now displayedd as follows:
+
+![ACL Manage](/images/ACL_Manage.png)
+
 ### Testing
 
 * Create a test email
