@@ -79,5 +79,8 @@ Fill in the form as follows:
 * Profile: All profiles
 * Enabled: Checked.
 
+After filling out form
+
+![/images/ACL_Profile_Form.png]
 
 
