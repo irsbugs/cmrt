@@ -49,3 +49,35 @@ In the above the query string contains:
 * id=400 <-- Contact ID
 * cs=9617662130870fa4676132bbe5e841e7_1777457844_336 <-- Checksum
 
+## Issue - Forced to Login
+
+When the tracking link is clicked, the Spark system may conclude that the contact does not have sufficient permissions to access the profile (questionnaire). The Spark system then launches a Login screen, such that if the contact logged in with sufficient permissions then the profile (questionnaire) could be accessed and displayed.
+
+### Solution
+
+On Spark Essentials, go to...
+Administer --> Users and Permissions --> Permissions (Access Control)
+
+This will display the screen: https://cmrailtrail.civicrm.org/civicrm/admin/access?reset=1
+
+Click option **3. Manage ACLs**
+
+This will display the screen: https://cmrailtrail.civicrm.org/civicrm/acl?reset=1
+
+There will be one item on the list which allows the Administrator account to Edit All Contacts.
+
+Click on **Add ACL**.
+
+Fill in the form as follows:
+
+Description: Allow access to profiles
+Role: Everybody
+Operation: Edit
+Type of Data: A profile
+Mode: Allow
+Priority: 2
+Profile: All profiles
+Enabled: Checked.
+
+
+
