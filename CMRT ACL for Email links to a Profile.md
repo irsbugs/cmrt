@@ -70,14 +70,14 @@ Click on **Add ACL**.
 
 Fill in the form as follows:
 
-Description: Allow access to profiles
-Role: Everybody
-Operation: Edit
-Type of Data: A profile
-Mode: Allow
-Priority: 2
-Profile: All profiles
-Enabled: Checked.
+* Description: Allow access to profiles
+* Role: Everybody
+* Operation: Edit
+* Type of Data: A profile
+* Mode: Allow
+* Priority: 2
+* Profile: All profiles
+* Enabled: Checked.
 
 
 
