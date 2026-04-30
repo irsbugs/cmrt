@@ -39,7 +39,8 @@ gid=17&reset=1&id={contact.contact_id}&{contact.checksum}">Click to go to questi
 When Spark Essentials performs mailings it re-writes the links for tracking before sending. Thus the above hyperlink may be embedded in the email as:
 
 ```html
-<a href="https://cmrailtrail.civicrm.org/civicrm/mailing/url?u=167&qid=980&id=400&cs=9617662130870fa4676132bbe5e841e7_1777457844_336">Click to go to questionnaire</a>
+<a href="https://cmrailtrail.civicrm.org/civicrm/mailing/url?
+u=167&qid=980&id=400&cs=9617662130870fa4676132bbe5e841e7_1777457844_336">Click to go to questionnaire</a>
 ```
 
 In the above the query string contains:
