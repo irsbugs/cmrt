@@ -84,14 +84,23 @@ Filling out form will apppear as follows:
 
 ![ACL Profile Form](/images/ACL_Profile_Form.png)
 
-After saving the above form the ACL Manage is now displayedd as follows:
+After saving the above form the Manage ACLs is now displayed as follows, with the second entry providing Everyone having access to Profiles:
 
 ![ACL Manage](/images/ACL_Manage.png)
 
 ### Testing
 
-* Create a test email
-* 
-
-
+* Create a test email. Mailings --> New Mailing
+* *Mailing Name:* Test Questionnaire
+* *Recipients:* CMRT Test Newsletter
+* *Subject:* Test ACL to Questionniare
+* *Click -->* Continue
+* *Select-->* versafix-1
+* *Edit -->* Drop a text block.
+* *Select source and paste -->*
+```html
+<p>Hi {contact.first_name},</p>
+<p>This is a test of accessing the CMRT questionnaire. gid=17.</p>
+<p><a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&amp;reset=1&amp;id={contact.contact_id}&amp;{contact.checksum}">Click to go to questionnaire</a></p>
+```
 
