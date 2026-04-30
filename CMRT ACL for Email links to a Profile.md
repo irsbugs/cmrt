@@ -28,3 +28,11 @@ In the above the query string contains:
 * id={contact.contact_id} <-- The CiviCRM contacts identification. Unique integer for each contact.
 * {contact.checksum} <-- Checksum this URL is using.
 
+Note: The *profile/edit* has opther options, like *profile/create*, *profile/view*
+
+The above link my be placed in a hyperlink *<a>* tag which has the *href* asttribute. For example:
+```html
+<a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&reset=1&id={contact.contact_id}&{contact.checksum}">Click to go to questionnaire</a>
+```
+
+
