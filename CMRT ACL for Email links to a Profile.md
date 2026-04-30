@@ -51,11 +51,12 @@ In the above the query string contains:
 
 ## Issue - Forced to Login
 
-When the tracking link is clicked, the Spark system may conclude that the contact does not have sufficient permissions to access the profile (questionnaire). The Spark system then launches a Login screen, such that if the contact logged in with sufficient permissions then the profile (questionnaire) could be accessed and displayed.
+When the tracking link is clicked, the Spark system may conclude that the contact does not have sufficient permissions to access the profile (questionnaire). The Spark system then launches a Login screen, such that if the contact logged into an account with sufficient permissions then the profile (questionnaire) could be accessed and displayed.
 
 ### Solution
 
 On Spark Essentials, go to...
+
 Administer --> Users and Permissions --> Permissions (Access Control)
 
 This will display the screen: https://cmrailtrail.civicrm.org/civicrm/admin/access?reset=1
@@ -64,7 +65,7 @@ Click option **3. Manage ACLs**
 
 This will display the screen: https://cmrailtrail.civicrm.org/civicrm/acl?reset=1
 
-There will be one item on the list which allows the Administrator account to Edit All Contacts.
+There will be one item on the list which allows the Administrator account to *Edit All Contacts*.
 
 Click on **Add ACL**.
 
@@ -79,9 +80,14 @@ Fill in the form as follows:
 * *Profile:* All profiles
 * *Enabled:* Checked.
 
-After filling out form
+Filling out form will apppear as follows:
 
 ![ACL Profile Form](/images/ACL_Profile_Form.png)
+
+### Testing
+
+* Create a test email
+* 
 
 
 
