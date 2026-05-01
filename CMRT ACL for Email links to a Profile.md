@@ -103,7 +103,7 @@ After saving the above form the Manage ACLs is now displayed as follows, with th
 <p>This is a test of accessing the CMRT questionnaire.</p>
 <p><a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&amp;reset=1&amp;id={contact.contact_id}&amp;{contact.checksum}">Click to go to questionnaire</a></p>
 ```
-* *Test -->* click **Test** and in *Send test email:* enter and e-mail address you have access to.
-* *Receive Email -->* Click on link in email and you should go to the questionnaire for updating this contact.
+* *Test -->* click **Test** and in *Send test email:* enter an email address you have access to.
+* *Receive Email -->* Click on the link in email and you should go to the questionnaire and allow updating questionnaire details for this contact.
 
-Note: It seems that *hotmail* can block emails from Spark Essentials or there is something unstable with Spark Essentials test mailing, as some emails are not received.
+Note: It seems that *hotmail* can block emails from Spark Essentials or there is something unstable with Spark Essentials *test mailing*, as some emails are not received.
