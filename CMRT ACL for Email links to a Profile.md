@@ -44,8 +44,8 @@ u=167&qid=980&id=400&cs=9617662130870fa4676132bbe5e841e7_1777457844_336">Click t
 ```
 
 In the above the query string contains:
-* u=167 <-- Internal *URL ID* in the mailing system
-* qid=980 <-- Queue ID (which specific email instance was sent to which contact)
+* u=167 <-- Internal *URL ID* in the mailing system. Resolves u=167 to the original URL
+* qid=980 <-- Queue ID to identify the recipient. Which specific email instance was sent to which contact
 * id=400 <-- Contact ID
 * cs=9617662130870fa4676132bbe5e841e7_1777457844_336 <-- Checksum
 
@@ -103,4 +103,7 @@ After saving the above form the Manage ACLs is now displayed as follows, with th
 <p>This is a test of accessing the CMRT questionnaire.</p>
 <p><a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?gid=17&amp;reset=1&amp;id={contact.contact_id}&amp;{contact.checksum}">Click to go to questionnaire</a></p>
 ```
+* *Test -->* click **Test** and in *Send test email:* enter and e-mail address you have access to.
+* *Receive Email -->* Click on link in email and you should go to the questionnaire for updating this contact.
 
+Note: It seems that *hotmail* can block emails from Spark Essentials or there is something unstable with Spark Essentials test mailing, as some emails are not received.
