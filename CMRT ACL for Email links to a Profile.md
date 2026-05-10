@@ -30,7 +30,7 @@ In the above the query string contains:
 
 Note: The *profile/edit* has opther options, like *profile/create*, *profile/view*
 
-The above link my be placed in a hyperlink `<a>` tag which has the `href` asttribute. For example:
+The above link my be placed in a hyperlink `<a>` tag which has the `href` attribute. For example:
 ```html
 <a href="https://cmrailtrail.civicrm.org/civicrm/profile/edit?
 gid=17&reset=1&id={contact.contact_id}&{contact.checksum}">Click to go to questionnaire</a>
