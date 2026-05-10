@@ -84,7 +84,7 @@ Filling out form will apppear as follows:
 
 ![ACL Profile Form](/images/ACL_Profile_Form.png)
 
-After saving the above form the Manage ACLs is now displayed as follows, with the second entry providing Everyone having access to Profiles:
+After saving the above form the Manage ACLs is now displayed as follows, with the second entry providing *Everyone* having access to Profiles:
 
 ![ACL Manage](/images/ACL_Manage.png)
 
