@@ -15,7 +15,7 @@ If the contact had previously filled in the questionnaire, then they will see th
 * With HTML5 the html `&` is the same as html `&amp;`.
 * The tail of a URL may contain the *query* "?" component. This is single *attribute=value* pair, or, multiple *attribute=value* pairs separated by the `&` or `&amp;` delimiter.
 * The email editor provides the insertion of "tokens". For example: `id={contact.contact_id}` will insert the unique contact identifier number for each email that is sent.
-* Some tokens are an attribute=value pair. For example: `{contact.checksum}` expands to `cs=aaaaaaaaaaaaaaa`, where `cs` is the attribute *checksum*.
+* Some tokens are an attribute=value pair. For example: `{contact.checksum}` expands to `cs=aaaaaaaaaaaaaaa`, where `cs` is the attribute *checksum* and `cs=aaaaaaaaaaaaaaa` is the *value*.
 
 An example of a link that is embedded inside an email so that the email receipent can be taken to a questionnaire to fill out.
 
