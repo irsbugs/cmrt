@@ -17,8 +17,43 @@ This document describes the steps in building the simulation PC.
 
 ## TODO List
 *
-*
 
+
+## Aspects of the VentraIP hosting system
+
+The following are aspects of the current VentraIP hosting configuration. These features will be replicated on the server.
+
+* The webserver used is Apache2. However there is no permission to */etc/apqache2/sites-available/xxx.conf* to help understand the configuration. 
+* The user account name is *cmrailtr*. All files and directories have owner and group of *cmrailtr*.
+* Files have chmod permissions of 664 by default.
+* Directories have chmod permissions of 775 by default.
+* public_html is the directory for WordPress. i.e. */home/cmtailtr/public_html*.
+* A symbolic link exists from www to public_html. Thus */home/cmrailtr/www* is also a path to WordPress
+
+* home directory listingls
+*  
+```bash
+[cmrailtr@s03dd ~]$ ls -l
+total 68
+lrwxrwxrwx  1 cmrailtr cmrailtr    34 Feb 12  2021 access-logs -> /etc/apache2/logs/domlogs/cmrailtr
+drwxr-x---  3 cmrailtr mail      4096 Apr  8 00:17 etc
+drwx------  3 cmrailtr cmrailtr  4096 May 13 03:35 logs
+drwxrws--- 19 nobody   cmrailtr  4096 May 20  2021 lscache
+drwx------  2 cmrailtr cmrailtr  4096 Jun  9  2025 lscmData
+drwxr-x--x 12 cmrailtr cmrailtr  4096 May 11 18:08 mail
+drwxr-x---  3 cmrailtr cmrailtr  4096 Feb 12  2021 public_ftp
+drwxr-x---  6 cmrailtr nobody    4096 May 13 00:57 public_html
+drwxr-xr-x  5 cmrailtr cmrailtr  4096 May  2 17:44 ssl
+drwxr-xr-x  8 cmrailtr cmrailtr 12288 May 13 08:27 tmp
+drwxr-xr-x  2 cmrailtr cmrailtr  4096 Jun  3  2025 virtualenv
+drwx------  2 cmrailtr cmrailtr  4096 Mar 23  2022 wordpress-backups
+lrwxrwxrwx  1 cmrailtr cmrailtr    11 Feb 12  2021 www -> public_html
+
+[cmrailtr@s03dd ~]$ ls /etc/apache2/logs/domlogs/cmrailtr -l
+total 876
+-rw-r----- 2 root cmrailtr  39930 May 13 08:45 cmrailtrail.org.au
+-rw-r----- 2 root cmrailtr 846564 May 13 08:44 cmrailtrail.org.au-ssl_log
+```
 
 ## Server Initial Setup
 
@@ -29,13 +64,14 @@ This document describes the steps in building the simulation PC.
 * Configured the server as:
   * Your name: CMRT
   * Server name: cmrailtr
-  * Username: cmrailtr
+  * Username: cmrailtr <-- This is a replication of the Username for the VentraIP account. Resulting in *Owner* and *Group* being *cmrailtr*.
   * password: f8
 * Release has corrupted */etc/apt/sources.list.d/ubuntu.sources* file. Was missing the line: *URIs: http://nz.archive.ubuntu.com/ubuntu/*
 * Performed update and upgrqade. Doesn't use any snap applications.
 * Setup fixed wifi address of *192.168.1.101* for connection to the local lan.
 * Installed open-ssh server. Check with: *$ systemctl status ssh*
 * Able to connect, viua SSH, from a remote system into this server.
+* A bin directory was created to hold python or bash scripts. E.g. Backup utilities. Need to disconnect SSH, then reconnect SSH, to invoke.
 
 ## Static wifi address
 
