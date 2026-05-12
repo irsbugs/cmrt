@@ -62,7 +62,7 @@ total 876
   * Your name: CMRT
   * Server name: cmrailtr
   * Username: cmrailtr <-- This is a replication of the Username for the VentraIP account. Resulting in *Owner* and *Group* being *cmrailtr*.
-  * password: f8
+  * password: f6d
 * Release has corrupted */etc/apt/sources.list.d/ubuntu.sources* file. Was missing the line: *URIs: http://nz.archive.ubuntu.com/ubuntu/*
 * Performed update and upgrqade. Doesn't use any snap applications.
 * Setup fixed wifi address of *192.168.1.101* for connection to the local lan.
