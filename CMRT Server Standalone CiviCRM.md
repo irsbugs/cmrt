@@ -34,7 +34,7 @@ This document describes the steps in building the simulation PC.
 * Release has corrupted */etc/apt/sources.list.d/ubuntu.sources* file. Was missing the line: *URIs: http://nz.archive.ubuntu.com/ubuntu/*
 * Performed update and upgrqade. Doesn't use any snap applications.
 * Setup fixed wifi address of *192.168.1.101* for connection to the local lan.
-* Installed open-ssh server
+* Installed open-ssh server. Check with: *$ systemctl status ssh*
 * Able to connect, viua SSH, from a remote system into this server.
 
 ## Static wifi address
