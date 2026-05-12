@@ -27,7 +27,7 @@ The following are aspects of the current VentraIP hosting configuration. These f
 * Files have chmod permissions of 664 by default.
 * Directories have chmod permissions of 775 by default.
 * public_html is the directory for WordPress. i.e. */home/cmtailtr/public_html*.
-* A symbolic link exists from www to public_html. Thus */home/cmrailtr/www* is also a path to WordPress
+* A symbolic link exists from *www* to *public_html*. Thus */home/cmrailtr/www* is also a path to WordPress.
 * home directory listing
 ```bash
 [cmrailtr@s03dd ~]$ ls -l
