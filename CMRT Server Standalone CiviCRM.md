@@ -16,7 +16,6 @@ The sub-domain will go-live and the civicrm.org system will be decommissioned.
 This document describes the steps in building the simulation PC.
 
 ## TODO List
-*
 
 
 ## Aspects of the VentraIP hosting system
@@ -29,9 +28,7 @@ The following are aspects of the current VentraIP hosting configuration. These f
 * Directories have chmod permissions of 775 by default.
 * public_html is the directory for WordPress. i.e. */home/cmtailtr/public_html*.
 * A symbolic link exists from www to public_html. Thus */home/cmrailtr/www* is also a path to WordPress
-
-* home directory listingls
-*  
+* home directory listing
 ```bash
 [cmrailtr@s03dd ~]$ ls -l
 total 68
