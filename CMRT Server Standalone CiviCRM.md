@@ -364,59 +364,62 @@ PHP 8.5. Modules available via atp with 26.04 repository
 ### WordPress PHP Modules
 The repository [https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md](https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md) lists the WordPress PHP modules under a variety of catagories from *Required* to *May USe*, etc. Note that installing the main PHP module 
 
-* Built-in extensions (no hosting action required)
-pcre 
+* Last update: 2026-04-09 
+  
+Built-in extensions (no hosting action required) 
+* pcre  
+  
+Required extensions 
+* json 
+* mysqli 
+  
+Highly recommended  
+* curl 
+* dom 
+* exif 
+* fileinfo 
+* hash 
+* igbinary 
+* imagick 
+* intl 
+* mbstring 
+* openssl 
+* xml 
+* zip 
+  
+Recommended  
+* apcu 
+* memcached 
+* opcache 
+* redis 
+*  
+Optional  
+* timezonedb 
+  
+May use in certain situations 
+* bc 
+* filter 
+* image 
+* iconv 
+* shmop 
+* simplexml 
+* sodium 
+* xmlreader 
+* zlib 
+*  
+Extensions are used for file changes, such as updates and plugin/theme installation 
+* ssh2 
+* ftp 
+* sockets 
+  
+System Packages 
+* curl 
+* Ghost 
+* ImageMagick 
+* OpenSSL 
+* WebP 
+* AVIF
 
-* Required extensions
-json
-mysqli
-
-*Highly recommended 
-curl
-dom
-exif
-fileinfo
-hash
-igbinary
-imagick
-intl
-mbstring
-openssl
-xml
-zip
-
-* Recommended 
-apcu
-memcached
-opcache
-redis
-
-* Optional 
-timezonedb
-
-* May use in certain situations
-bc
-filter
-image
-iconv
-shmop
-simplexml
-sodium
-xmlreader
-zlib
-
-* Extensions are used for file changes, such as updates and plugin/theme installation
-ssh2
-ftp
-sockets
-
-* System Packages
-curl
-Ghost
-ImageMagick
-OpenSSL
-WebP
-AVIF
 
 ### CiviCRM Standalone PHP Modules
 
