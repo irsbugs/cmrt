@@ -27,9 +27,9 @@ This document describes the steps in building the simulation PC.
 * Create netplan fixed wifi address at 192.168.1.101. sudo nano 01-wifi-101-config.yaml
 * sudo netplan apply
 * sudo apt install tree
-* mkdir bin. Make python program in bin sudo nano hello. OK from console not from ssh. Strange? echo $PATH
+* mkdir bin. Make python program in bin sudo nano hello. OK from console not from ssh. Strange? Need logout/login? echo $PATH finds ~/bin
 * No Apache or PHP. php -m fails requires either php-cli or php-8.5-cli.
-* Accidently ran sudo apt install php-common.
+* Accidently ran sudo apt install php-common. No obvious change.
 
 
 
@@ -159,6 +159,70 @@ sudo chown www-data: /srv/www
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
 
     Note that this sets the ownership to the user www-data, which is potentially insecure, such as when your server hosts multiple sites with different maintainers. You should investigate using a user per website in such scenarios and make the files readable and writable to only those users. This will require configuring PHP-FPM to launch a separate instance per site each running as the site’s user account. In such setup the wp-config.php should (read: if you do it differently you need a good reason) be readonly to the site owner and group and other permissions set to no-access (chmod 400). This is beyond the scope of this guide, however.
+
+## Setup of Domain and Sub-domain
+
+This server is currrently only recognised by its IP address of 192.168.1.100. It needs a domain name to be used to access WordPress and a sub-domain name to access CiviCRM standalone.  The plan is to have:
+
+* Domain name: cmtrailtrail.local.pc to equate to cmrialtrail.org.au
+* Sub-Domain name: crm.cmrailtrail.local.pc to equate in the future to cmr.cmrailtrail.org.au
+
+Actions required:
+
+On the local server pc, the /etc/hosts file is appended:
+
+* 192.168.1.101 cmrailtrail.local.pc  # for WordpPress
+* 192.168.1.101 crm.cmrailtrail.local.pc  # for CiviCRM Standalone
+
+The paths for the webserver to access theses applications are:
+
+* WordPress: /home/cmrailtr/public_html/
+* CiviCMR: /home/cmrailtr/civicrm-standalone
+
+Note: *civicrm-standalone* is the name of the root directory in the civicrm distribution .tar.gz file.
+
+Owner and Group
+
+In both cases the Owner and Group will be *cmrailtr* the username of the account. i.e. The same as VentraIP account username. Creation of directories and files will have permissions of:
+
+* directories 755
+* files 644
+
+Apache2 defaults to using an account name of *www-data*
+
+The cmrailtr should be made a member of this *www-data* group
+
+The /apache2/envvars file will have the following two lines changed from:
+```
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
+```
+to:
+```
+export APACHE_RUN_USER=cmrailtr
+export APACHE_RUN_GROUP=cmrailtr
+```
+
+PHP8.5-FPM will be installed as Apache seems to need this for permission to access CiviCRM files with cmrailtr owner and group. This will probably require PHP8.3.
+
+In the root directory of public_html a index.html will be create to repesent the WordPress home page and in the civicrm-standalone an index.html created to represent the home page of CiviCRM.
+
+Testing is performed to see if a browser can access: cmrailtrail.locl.pc and crm.,cmrailtril.locl.pc
+
+
+
+
+
+  
+
+
+
+Apache2, php8.5 and php8.5-fpm are installed as a minimum applications required to test the domain/sub-domains work
+
+
+  
+Setup a domain to match cmrailtrail.org.au
+
 
 ## PHP Modules
 
