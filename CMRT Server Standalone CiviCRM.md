@@ -282,6 +282,85 @@ According to:
 * Xdebug (shared) 
 * Zend OPcache (builtin)
 
+PHP 8.5. Modules available via atp with 26.04 repository
+* libapache2-mod-php8.5  
+* libphp8.5-embed 
+* php8.5 
+* php8.5-amqp 
+* php8.5-apcu 
+* php8.5-ast 
+* php8.5-bcmath 
+* php8.5-bz2 
+* php8.5-cgi 
+* php8.5-cli 
+* php8.5-common 
+* php8.5-curl 
+* php8.5-dba 
+* php8.5-decimal 
+* php8.5-dev 
+* php8.5-ds 
+* php8.5-enchant 
+* php8.5-excimer 
+* php8.5-fpm 
+* php8.5-gd 
+* php8.5-gearman 
+* php8.5-gmagick 
+* php8.5-gmp 
+* php8.5-gnupg 
+* php8.5-http 
+* php8.5-igbinary 
+* php8.5-imagick 
+* php8.5-inotify 
+* php8.5-interbase 
+* php8.5-intl 
+* php8.5-ldap 
+* php8.5-libvirt-php 
+* php8.5-litespeed 
+* php8.5-mailparse 
+* php8.5-maxminddb 
+* php8.5-mbstring 
+* php8.5-mcrypt 
+* php8.5-memcache 
+* php8.5-memcached 
+* php8.5-mongodb 
+* php8.5-msgpack 
+* php8.5-mysql 
+* php8.5-oauth 
+* php8.5-odbc 
+* php8.5-pcov 
+* php8.5-pgsql 
+* php8.5-phpdbg 
+* php8.5-pq 
+* php8.5-ps 
+* php8.5-pspell 
+* php8.5-psr 
+* php8.5-raphf 
+* php8.5-readline 
+* php8.5-redis 
+* php8.5-rrd 
+* php8.5-smbclient 
+* php8.5-snmp 
+* php8.5-soap 
+* php8.5-solr 
+* php8.5-sqlite3 
+* php8.5-ssh2 
+* php8.5-stomp 
+* php8.5-sybase 
+* php8.5-tidy 
+* php8.5-uopz 
+* php8.5-uploadprogress 
+* php8.5-uuid 
+* php8.5-xdebug 
+* php8.5-xml 
+* php8.5-xmlrpc 
+* php8.5-xsl 
+* php8.5-yac 
+* php8.5-yaml 
+* php8.5-zip 
+* php8.5-zmq 
+* php8.5-zstd 
+
+
 ### WordPress PHP Modules
 The repository [https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md](https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md) lists the WordPress PHP modules under a variety of catagories from *Required* to *May USe*, etc. Note that installing the main PHP module 
 
@@ -351,3 +430,5 @@ Required for CiviCRM Core¶
 * PHP INTL - required for outputting localized formatted number strings from CiviCRM 5.28 onwards
 * PHP File Information - required for spreadsheet support from 5.44 onwards
 * PHP MySQL PDO - required for running tests and working with Drupal (WordPress mysqli)
+
+Note: PHP-FPM appears to be a requirement of CiviCRM Standalone
