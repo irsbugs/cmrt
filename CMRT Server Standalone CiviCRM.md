@@ -127,12 +127,14 @@ network:
 
 WordPress and CiviCRM have dependencies on:
 
-* Mariadb 11.8.6-5 LTS database. EOL June 2028. VentraIP use Mariadb 10.6.19 rather than Mysql
-* PHP 8.5. VentraIP currently uses PHP 8.3
-* Apache 2.4.66-2ubuntu2.1 amd64.
-* 
+* Mariadb 11.8.6-5 LTS database. EOL June 2028 or 2030. VentraIP use Mariadb 10.6.19 rather than Mysql
+* PHP 8.5 modules. VentraIP currently uses PHP 8.3
+* Apache 2.4.66. Assuming VentraIP use Apache2 no permission to access it.
+* Ghostscript 10.06.0. Used for part of the PDF processing and reading, generating thumbnails, etc. 
 
-## Note from Ubuntu Inswtalling WordPress
+
+
+## Note from Ubuntu Installing WordPress
 
 Create the installation directory and download the file from WordPress.org:
 
@@ -142,8 +144,210 @@ curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www
 
     Note that this sets the ownership to the user www-data, which is potentially insecure, such as when your server hosts multiple sites with different maintainers. You should investigate using a user per website in such scenarios and make the files readable and writable to only those users. This will require configuring PHP-FPM to launch a separate instance per site each running as the site’s user account. In such setup the wp-config.php should (read: if you do it differently you need a good reason) be readonly to the site owner and group and other permissions set to no-access (chmod 400). This is beyond the scope of this guide, however.
 
+## PHP Modules
 
+The apt installation of some PHP modules will also install their dependencies if they have not aready been installed. For example, the main *PHP8.5* module will also install the following dependencies if they are not already installed:
 
+* apache2
+* apache2-bin
+* apache2-data
+* apache2-utils
+* libapache2-mod-php8.5
+* libapr1t64
+* libaprutil1-dbd-sqlite3
+* libaprutil1-ldap
+* libaprutil1t64
+* libargon2-1
+* liblua5.4-0
+* php-common
+* php8.5-cli
+* php8.5-common
+* php8.5-readline
+* ssl-cert
 
+Some PHP modules have other PHP modules built-in. These builtin modules may not available on their own via apt. For example *php8.5-common* contains:
 
+* php8.5-calendar
+* php8.5-ctype
+* php8.5-exif
+* php8.5-ffi
+* php8.5-fileinfo
+* php8.5-ftp
+* php8.5-gettext
+* php8.5-iconv
+* php8.5-pdo
+* php8.5-phar
+* php8.5-posix
+* php8.5-shmop
+* php8.5-sockets
+* php8.5-sysvmsg
+* php8.5-sysvsem
+* php8.5-sysvshm
+* php8.5-tokenizer
 
+According to: 
+  
+[https://github.com/shivammathur/setup-php/wiki/Php-extensions-loaded-on-ubuntu-24.04#php-85](https://github.com/shivammathur/setup-php/wiki/Php-extensions-loaded-on-ubuntu-24.04#php-85) 
+  
+* PHP extensions loaded on ubuntu 24.04 
+
+8.5 
+
+[PHP Modules] 
+* apcu (shared) 
+* ast (shared) 
+* bcmath (shared) 
+* bz2 (shared) 
+* calendar (shared) 
+* Core (builtin) 
+* ctype (shared) 
+* curl (shared) 
+* date (builtin) 
+* dba (shared) 
+* dom (shared) 
+* ds (shared) 
+* enchant (shared) 
+* exif (shared) 
+* FFI (shared) 
+* fileinfo (shared) 
+* filter (builtin) 
+* ftp (shared) 
+* gd (shared) 
+* gettext (shared) 
+* gmp (shared) 
+* hash (builtin) 
+* iconv (shared) 
+* igbinary (shared) 
+* imagick (shared) 
+* imap (shared) 
+* intl (shared) 
+* json (builtin) 
+* ldap (shared) 
+* lexbor (builtin) 
+* libxml (builtin) 
+* mbstring (shared) 
+* memcache (shared) 
+* memcached (shared) 
+* mongodb (shared) 
+* msgpack (shared) 
+* mysqli (shared) 
+* mysqlnd (shared) 
+* odbc (shared) 
+* openssl (builtin) 
+* pcntl (builtin) 
+* pcre (builtin) 
+* PDO (shared) 
+* pdo_dblib (shared) 
+* PDO_Firebird (shared) 
+* pdo_mysql (shared) 
+* PDO_ODBC (shared) 
+* pdo_pgsql (shared) 
+* pdo_sqlite (shared) 
+* pdo_sqlsrv (shared) 
+* pgsql (shared) 
+* Phar (builtin) 
+* posix (shared) 
+* random (builtin) 
+* readline (shared) 
+* redis (shared) 
+* Reflection (builtin) 
+* session (builtin) 
+* shmop (shared) 
+* SimpleXML (shared) 
+* snmp (shared) 
+* soap (shared) 
+* sockets (shared) 
+* sodium (builtin) 
+* SPL (builtin) 
+* sqlite3 (shared) 
+* sqlsrv (shared) 
+* standard (builtin) 
+* sysvmsg (shared) 
+* sysvsem (shared) 
+* sysvshm (shared) 
+* tidy (shared) 
+* tokenizer (shared) 
+* uri (builtin) 
+* xdebug (shared) 
+* xml (shared) 
+* xmlreader (shared) 
+* xmlwriter (shared) 
+* xsl (shared) 
+* yaml (shared) 
+* Zend OPcache (builtin) 
+* zip (shared) 
+* zlib (builtin) 
+* zmq (shared) 
+[Zend Modules] 
+* Xdebug (shared) 
+* Zend OPcache (builtin)
+
+### WordPress PHP Modules
+The repository [https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md](https://github.com/WordPress/hosting-handbook/blob/main/server-environment.md) lists the WordPress PHP modules under a variety of catagories from *Required* to *May USe*, etc. Note that installing the main PHP module 
+
+* Built-in extensions (no hosting action required)
+pcre 
+
+* Required extensions
+json
+mysqli
+
+*Highly recommended 
+curl
+dom
+exif
+fileinfo
+hash
+igbinary
+imagick
+intl
+mbstring
+openssl
+xml
+zip
+
+* Recommended 
+apcu
+memcached
+opcache
+redis
+
+* Optional 
+timezonedb
+
+* May use in certain situations
+bc
+filter
+image
+iconv
+shmop
+simplexml
+sodium
+xmlreader
+zlib
+
+* Extensions are used for file changes, such as updates and plugin/theme installation
+ssh2
+ftp
+sockets
+
+* System Packages
+curl
+Ghost
+ImageMagick
+OpenSSL
+WebP
+AVIF
+
+### CiviCRM Standalone PHP Modules
+
+Required for CiviCRM Core¶
+
+* PHP BCMath - required for calculating financial values in CiviCRM Core.
+* PHP Curl - required for many payment processors, the extension manager, and the CiviCRM News dashlet. (WordPress)
+* PHP DOM XML - required by CiviCase.
+* PHP Multibyte - required for internationalisation and proper encoding of fields.
+* PHP Zip - required for unzipping auto-downloaded extensions so they can be installed from the browser.
+* PHP INTL - required for outputting localized formatted number strings from CiviCRM 5.28 onwards
+* PHP File Information - required for spreadsheet support from 5.44 onwards
+* PHP MySQL PDO - required for running tests and working with Drupal (WordPress mysqli)
