@@ -18,6 +18,22 @@ This document describes the steps in building the simulation PC.
 ## TODO List
 
 
+## Actions Taken:
+
+* The Ubuntu 26.0-4 server was installed from USB stick. Opted out of installing SSH during install.
+* Fixed /etc/apt/sources.list.d/ubuntu.sources file.
+* update, upgrade and autoremove. No snap appps
+* sudo apt install openssh-server
+* Create netplan fixed wifi address at 192.168.1.101. sudo nano 01-wifi-101-config.yaml
+* sudo netplan apply
+* sudo apt install tree
+* mkdir bin. Make python program in bin sudo nano hello. OK from console not from ssh. Strange? echo $PATH
+* No Apache or PHP. php -m fails requires either php-cli or php-8.5-cli.
+* Accidently ran sudo apt install php-common.
+
+
+
+
 ## Aspects of the VentraIP hosting system
 
 The following are aspects of the current VentraIP hosting configuration. These features will be replicated on the server.
