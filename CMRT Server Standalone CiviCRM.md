@@ -203,21 +203,42 @@ export APACHE_RUN_USER=cmrailtr
 export APACHE_RUN_GROUP=cmrailtr
 ```
 
+Apache2, php8.5 and php8.5-fpm are installed as a minimum applications required to test the domain/sub-domains work
+
 PHP8.5-FPM will be installed as Apache seems to need this for permission to access CiviCRM files with cmrailtr owner and group. This will probably require PHP8.3.
 
 In the root directory of public_html a index.html will be create to repesent the WordPress home page and in the civicrm-standalone an index.html created to represent the home page of CiviCRM.
 
 Testing is performed to see if a browser can access: cmrailtrail.locl.pc and crm.,cmrailtril.locl.pc
 
+```
+cmrailtr@office:~$ sudo apt install php8.5-fpm 
+Installing:                     
+  php8.5-fpm
 
+Message as part of install....
 
+Processing triggers for php8.5-fpm (8.5.4-0ubuntu1)…
+NOTICE: Not enabling PHP 8.5 FPM by default.
+NOTICE: To enable PHP 8.5 FPM in Apache2 do:
+NOTICE: a2enmod proxy_fcgi setenvif
+NOTICE: a2enconf php8.5-fpm
+NOTICE: You are seeing this message because you have apache2 package installed.
 
-
-  
-
-
-
-Apache2, php8.5 and php8.5-fpm are installed as a minimum applications required to test the domain/sub-domains work
+cmrailtr@office:~$ sudo a2enmod proxy_fcgi setenvif
+Considering dependency proxy for proxy_fcgi:
+Enabling module proxy.
+Enabling module proxy_fcgi.
+Module setenvif already enabled
+To activate the new configuration, you need to run:
+  systemctl restart apache2
+cmrailtr@office:~$ sudo a2enmod php8.5-fpm
+ERROR: Module php8.5-fpm does not exist!
+cmrailtr@office:~$ sudo a2enconf php8.5-fpm
+Enabling conf php8.5-fpm.
+To activate the new configuration, you need to run:
+  systemctl reload apache2
+```
 
 
   
