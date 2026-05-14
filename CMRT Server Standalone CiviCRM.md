@@ -469,14 +469,14 @@ The repository [https://github.com/WordPress/hosting-handbook/blob/main/server-e
 
 * Last update: 2026-04-09 
   
-Built-in extensions (no hosting action required) 
+1. Built-in extensions (no hosting action required) 
 * pcre  
   
-Required extensions 
+2. Required extensions 
 * json 
 * mysqli 
   
-Highly recommended  
+3. Highly recommended  
 * curl 
 * dom 
 * exif 
@@ -490,16 +490,17 @@ Highly recommended
 * xml 
 * zip 
   
-Recommended  
+4. Recommended  
 * apcu 
 * memcached 
 * opcache 
 * redis 
 *  
-Optional  
+
+5. Optional  
 * timezonedb 
   
-May use in certain situations 
+6. May use in certain situations 
 * bc 
 * filter 
 * image 
@@ -509,14 +510,14 @@ May use in certain situations
 * sodium 
 * xmlreader 
 * zlib 
-*  
-Extensions are used for file changes, such as updates and plugin/theme installation 
+  
+7. Extensions are used for file changes, such as updates and plugin/theme installation 
+* ftp
 * ssh2 
-* ftp 
 * sockets 
   
-System Packages 
-* curl 
+8. System Packages 
+* curl (3)
 * Ghost 
 * ImageMagick 
 * OpenSSL 
@@ -529,157 +530,189 @@ Required for CiviCRM Core¶
 
 * PHP BCMath - required for calculating financial values in CiviCRM Core.
 * PHP Curl - required for many payment processors, the extension manager, and the CiviCRM News dashlet. (WordPress)
-* PHP DOM XML - required by CiviCase.
-* PHP Multibyte - required for internationalisation and proper encoding of fields.
+* PHP DOM - required by CiviCase.
+* PHP XML - required by CiviCase.
+* PHP Multibyte (mbstring) - required for internationalisation and proper encoding of fields.
 * PHP Zip - required for unzipping auto-downloaded extensions so they can be installed from the browser.
 * PHP INTL - required for outputting localized formatted number strings from CiviCRM 5.28 onwards
-* PHP File Information - required for spreadsheet support from 5.44 onwards
-* PHP MySQL PDO - required for running tests and working with Drupal (WordPress mysqli)
+* PHP File Information (fileinfo) - required for spreadsheet support from 5.44 onwards
+* PHP MySQL - required for running tests and working with Drupal (WordPress mysqli)
+* PHP PDO - required for running tests and working with Drupal (WordPress mysqli)
 
 Note: PHP-FPM appears to be a requirement of CiviCRM Standalone
 
-```
-VentraIP Selected PHP 8.3 Modules
 
-PHP 8.5         PHP 8.3         Selected
-amqp            amqp            0
-apcu            apcu            1
-bcmath          bcmath          1
-bitset          bitset          0
-brotli          brotli          0
-bz2             bz2             1
-calendar        calendar        1
-core            core            1
-ctype           ctype           1
-curl            curl            1
-date            date            1
-dba             dba             0
-dbase           dbase           0
-                diseval         0
-dom             dom             1
-eio             eio             0
-                elastic_apm     0
-enchant         enchant         0
-exif            exif            1
-ffi             ffi             0
-fileinfo        fileinfo        1
-filter          filter          1
-ftp             ftp             1
-gd              gd              1
-gearman         gearman         0
-gender          gender          0
-geoip           geoip           0
-geos            geos            0
-gettext         gettext         1
-gmagick         gmagick         0
-gmp             gmp             0
-gnupg           gnupg           0
-grpc            grpc            0
-hash            hash            0
-htscanner       htscanner       0
-http            http            0
-iconv           iconv           1
-igbinary        igbinary        1
-imagick         imagick         1
-imap            imap            1
-inotify         inotify         0
-intl            intl            1
-                ioncube_loader  0
-jsmin           jsmin           0
-json            json            1
-ldap            ldap            0
-leveldb         leveldb         0
-lexbor                           
-libxml          libxml          1
-luasandbox      luasandbox      0
-lzf             lzf             0
-mailparse       mailparse       0
-mbstring        mbstring        1
-mcrypt          mcrypt          0
-memcache        memcache        0
-memcached       memcached       1
-                monarxprotect   1
-mongodb         mongodb         0
-msgpack         msgpack         1
-mysqli          mysqli          1
-mysqlnd         mysqlnd         1
-nd_mysqli       nd_mysqli       0
-nd_pdo_mysql    nd_pdo_mysql    0
-                newrelic        0
-oauth           oauth           0
-oci8            oci8            0
-odbc            odbc            0
-                opcache         1
-openssl         openssl         1
-pcntl           pcntl           1
-pcre            pcre            1
-pdf             pdf             0
-pdo             pdo             1
-pdo_dblib       pdo_dblib       0
-                pdo_firebird    0
-pdo_mysql       pdo_mysql       0
-pdo_oci         pdo_oci         0
-pdo_odbc        pdo_odbc        0
-pdo_pgsql       pdo_pgsql       0
-pdo_sqlite      pdo_sqlite      1
-pdo_sqlsrv      pdo_sqlsrv      0
-pgsql           pgsql           0
-phalcon5        phalcon5        0
-phar            phar            1
-posix           posix           1
-protobuf        protobuf        0
-pspell          pspell          0
-psr             psr             0
-random          random          1
-raphf           raphf           0
-rar             rar             0
-readline        readline        1
-redis           redis           1
-reflection      reflection      1
-rrd             rrd             0
-scoutapm        scoutapm        0
-session         session         1
-shmop           shmop           1
-simplexml       simplexml       1
-snmp            snmp            0
-                snuffleupagus   0
-soap            soap            1
-sockets         sockets         1
-sodium          sodium          1
-solr            solr            0
-                sourceguardian  0
-spl             spl             1
-sqlite3         sqlite3         1
-sqlsrv          sqlsrv          0
-ssh2            ssh2            1
-standard        standard        1
-stats           stats           0
-                swoole          0
-sysvmsg         sysvmsg         0
-sysvsem         sysvsem         0
-sysvshm         sysvshm         0
-tideways_xhprof tideways_xhprof 0
-tidy            tidy            1
-timezonedb      timezonedb      1
-tokenizer       tokenizer       1
-trader          trader          0
-uploadprogress  uploadprogress  0
-uri                              
-uuid            uuid            1
-vips            vips            0
-xdebug          xdebug          0
-xdiff           xdiff           0
-xml             xml             1
-xmlreader       xmlreader       1
-xmlrpc          xmlrpc          0
-xmlwriter       xmlwriter       1
-xsl             xsl             1
-yaf             yaf             0
-yaml            yaml            0
-yaz             yaz             0
-zend_opcache                    ?
-zip             zip             1
-zlib            zlib            1
-zmq             zmq             0
+## Upgrading VentraIP Selection from PHP 8.3 to PHP 8.5.
+
+The following columns are:
+* PHP8.5 These are the total modules available on VentreIP C-Panel for PHP 8.5
+* PHP8.3 These are the modules available on VentreIP C-Panel for PHP 8.3
+* Sel 8.3 The modules currently selected on VentraIP C-Panel for PHP 8.3
+* WordPres. The modules the Wordpress installation manual suggests. In groups 1 through 7 (see above.)
+* CiviCRM. The modules the CiviCRM installation suggests.
+* 
+```
+Php8.5          	Php 8.3         	Sel 8.3 	WordPres	CiviCRM 
+amqp            	amqp            	0       	        	        
+apcu            	apcu            	1       	4       	        
+bcmath          	bcmath          	1       	6       	1       
+bitset          	bitset          	0       	        	        
+brotli          	brotli          	0       	        	        
+bz2             	bz2             	1       	        	        
+calendar        	calendar        	1       	        	        
+core            	core            	1       	        	        
+ctype           	ctype           	1       	        	        
+curl            	curl            	1       	3       	1       
+date            	date            	1       	        	        
+dba             	dba             	0       	        	        
+dbase           	dbase           	0       	        	        
+                	diseval         	0       	        	        
+dom             	dom             	1       	3       	1       
+eio             	eio             	0       	        	        
+                	elastic_apm     	0       	        	        
+enchant         	enchant         	0       	        	        
+exif            	exif            	1       	3       	        
+ffi             	ffi             	0       	        	        
+fileinfo        	fileinfo        	1       	3       	1       
+filter          	filter          	1       	6       	        
+ftp             	ftp             	1       	7       	        
+gd              	gd              	1       	        	        
+gearman         	gearman         	0       	        	        
+gender          	gender          	0       	        	        
+geoip           	geoip           	0       	        	        
+geos            	geos            	0       	        	        
+gettext         	gettext         	1       	        	        
+gmagick         	gmagick         	0       	        	        
+gmp             	gmp             	0       	        	        
+gnupg           	gnupg           	0       	        	        
+grpc            	grpc            	0       	        	        
+hash            	hash            	0       	3       	        
+htscanner       	htscanner       	0       	        	        
+http            	http            	0       	        	        
+iconv           	iconv           	1       	6       	        
+igbinary        	igbinary        	1       	3       	        
+imagick         	imagick         	1       	3       	        
+imap            	imap            	1       	        	        
+inotify         	inotify         	0       	        	        
+intl            	intl            	1       	3       	1       
+                	ioncube_loader  	0       	        	        
+jsmin           	jsmin           	0       	        	        
+json            	json            	1       	2       	        
+ldap            	ldap            	0       	        	        
+leveldb         	leveldb         	0       	        	        
+lexbor          	                	        	        	        
+libxml          	libxml          	1       	        	        
+luasandbox      	luasandbox      	0       	        	        
+lzf             	lzf             	0       	        	        
+mailparse       	mailparse       	0       	        	        
+mbstring        	mbstring        	1       	3       	1       
+mcrypt          	mcrypt          	0       	        	        
+memcache        	memcache        	0       	        	        
+memcached       	memcached       	1       	4       	        
+                	monarxprotect   	1       	        	        
+mongodb         	mongodb         	0       	        	        
+msgpack         	msgpack         	1       	        	        
+mysqli          	mysqli          	1       	2       	1       
+mysqlnd         	mysqlnd         	1       	        	        
+nd_mysqli       	nd_mysqli       	0       	        	        
+nd_pdo_mysql    	nd_pdo_mysql    	0       	        	        
+                	newrelic        	0       	        	        
+oauth           	oauth           	0       	        	        
+oci8            	oci8            	0       	        	        
+odbc            	odbc            	0       	        	        
+                	opcache         	1       	        	        
+openssl         	openssl         	1       	3       	        
+pcntl           	pcntl           	1       	        	        
+pcre            	pcre            	1       	1       	        
+pdf             	pdf             	0       	        	        
+pdo             	pdo             	1       	        	1       
+pdo_dblib       	pdo_dblib       	0       	        	        
+                	pdo_firebird    	0       	        	        
+pdo_mysql       	pdo_mysql       	0       	        	        
+pdo_oci         	pdo_oci         	0       	        	        
+pdo_odbc        	pdo_odbc        	0       	        	        
+pdo_pgsql       	pdo_pgsql       	0       	        	        
+pdo_sqlite      	pdo_sqlite      	1       	        	        
+pdo_sqlsrv      	pdo_sqlsrv      	0       	        	        
+pgsql           	pgsql           	0       	        	        
+phalcon5        	phalcon5        	0       	        	        
+phar            	phar            	1       	        	        
+posix           	posix           	1       	        	        
+protobuf        	protobuf        	0       	        	        
+pspell          	pspell          	0       	        	        
+psr             	psr             	0       	        	        
+random          	random          	1       	        	        
+raphf           	raphf           	0       	        	        
+rar             	rar             	0       	        	        
+readline        	readline        	1       	        	        
+redis           	redis           	1       	4       	        
+reflection      	reflection      	1       	        	        
+rrd             	rrd             	0       	        	        
+scoutapm        	scoutapm        	0       	        	        
+session         	session         	1       	        	        
+shmop           	shmop           	1       	6       	        
+simplexml       	simplexml       	1       	6       	        
+snmp            	snmp            	0       	        	        
+                	snuffleupagus   	0       	        	        
+soap            	soap            	1       	        	        
+sockets         	sockets         	1       	7       	        
+sodium          	sodium          	1       	6       	        
+solr            	solr            	0       	        	        
+                	sourceguardian  	0       	        	        
+spl             	spl             	1       	        	        
+sqlite3         	sqlite3         	1       	        	        
+sqlsrv          	sqlsrv          	0       	        	        
+ssh2            	ssh2            	1       	7       	        
+standard        	standard        	1       	        	        
+stats           	stats           	0       	        	        
+                	swoole          	0       	        	        
+sysvmsg         	sysvmsg         	0       	        	        
+sysvsem         	sysvsem         	0       	        	        
+sysvshm         	sysvshm         	0       	        	        
+tideways_xhprof 	tideways_xhprof 	0       	        	        
+tidy            	tidy            	1       	        	        
+timezonedb      	timezonedb      	1       	5       	        
+tokenizer       	tokenizer       	1       	        	        
+trader          	trader          	0       	        	        
+uploadprogress  	uploadprogress  	0       	        	        
+uri             	                	        	        	        
+uuid            	uuid            	1       	        	        
+vips            	vips            	0       	        	        
+xdebug          	xdebug          	0       	        	        
+xdiff           	xdiff           	0       	        	        
+xml             	xml             	1       	3       	1       
+xmlreader       	xmlreader       	1       	6       	        
+xmlrpc          	xmlrpc          	0       	        	        
+xmlwriter       	xmlwriter       	1       	        	        
+xsl             	xsl             	1       	        	        
+yaf             	yaf             	0       	        	        
+yaml            	yaml            	0       	        	        
+yaz             	yaz             	0       	        	        
+zend_opcache    	                	?       	4       	        
+zip             	zip             	1       	3       	1       
+zlib            	zlib            	1       	6       	        
+zmq             	zmq             	0       	        	        
+
+
+Note Wordpress suggest "image" (Wordpress group 6) as a php module to install. This is not available on VentraIP
+The following are suggested by WordPress as applications to install via apr, etc. Check for these apps in VentraIP /bin folder.
+VentrIP has 3 of these installed:
+ 
+8 Curl - -rwxr-xr-x 1 root root       156672 Apr 29 01:48 curl
+8 Ghost - lrwxrwxrwx 1 root root            2 Aug 17  2022 ghostscript -> gs
+8 ImageMagick
+8 OpenSSL - -rwxr-xr-x 1 root root       555288 Apr 30 19:22 openssl
+8 WebP
+8 AVIF
+
+
+8 Curl
+8 Ghost
+8 ImageMagick
+8 OpenSSL
+8 WebP
+8 AVIF
+
+
 
 ```
