@@ -521,7 +521,6 @@ System Packages
 * WebP 
 * AVIF
 
-
 ### CiviCRM Standalone PHP Modules
 
 Required for CiviCRM Core¶
@@ -536,3 +535,149 @@ Required for CiviCRM Core¶
 * PHP MySQL PDO - required for running tests and working with Drupal (WordPress mysqli)
 
 Note: PHP-FPM appears to be a requirement of CiviCRM Standalone
+
+```
+VentraIP Selected PHP 8.3 Modules
+
+PHP 8.5         PHP 8.3         Selected
+amqp            amqp            0
+apcu            apcu            1
+bcmath          bcmath          1
+bitset          bitset          0
+brotli          brotli          0
+bz2             bz2             1
+calendar        calendar        1
+core            core            1
+ctype           ctype           1
+curl            curl            1
+date            date            1
+dba             dba             0
+dbase           dbase           0
+                diseval         0
+dom             dom             1
+eio             eio             0
+                elastic_apm     0
+enchant         enchant         0
+exif            exif            1
+ffi             ffi             0
+fileinfo        fileinfo        1
+filter          filter          1
+ftp             ftp             1
+gd              gd              1
+gearman         gearman         0
+gender          gender          0
+geoip           geoip           0
+geos            geos            0
+gettext         gettext         1
+gmagick         gmagick         0
+gmp             gmp             0
+gnupg           gnupg           0
+grpc            grpc            0
+hash            hash            0
+htscanner       htscanner       0
+http            http            0
+iconv           iconv           1
+igbinary        igbinary        1
+imagick         imagick         1
+imap            imap            1
+inotify         inotify         0
+intl            intl            1
+                ioncube_loader  0
+jsmin           jsmin           0
+json            json            1
+ldap            ldap            0
+leveldb         leveldb         0
+lexbor                           
+libxml          libxml          1
+luasandbox      luasandbox      0
+lzf             lzf             0
+mailparse       mailparse       0
+mbstring        mbstring        1
+mcrypt          mcrypt          0
+memcache        memcache        0
+memcached       memcached       1
+                monarxprotect   1
+mongodb         mongodb         0
+msgpack         msgpack         1
+mysqli          mysqli          1
+mysqlnd         mysqlnd         1
+nd_mysqli       nd_mysqli       0
+nd_pdo_mysql    nd_pdo_mysql    0
+                newrelic        0
+oauth           oauth           0
+oci8            oci8            0
+odbc            odbc            0
+                opcache         1
+openssl         openssl         1
+pcntl           pcntl           1
+pcre            pcre            1
+pdf             pdf             0
+pdo             pdo             1
+pdo_dblib       pdo_dblib       0
+                pdo_firebird    0
+pdo_mysql       pdo_mysql       0
+pdo_oci         pdo_oci         0
+pdo_odbc        pdo_odbc        0
+pdo_pgsql       pdo_pgsql       0
+pdo_sqlite      pdo_sqlite      1
+pdo_sqlsrv      pdo_sqlsrv      0
+pgsql           pgsql           0
+phalcon5        phalcon5        0
+phar            phar            1
+posix           posix           1
+protobuf        protobuf        0
+pspell          pspell          0
+psr             psr             0
+random          random          1
+raphf           raphf           0
+rar             rar             0
+readline        readline        1
+redis           redis           1
+reflection      reflection      1
+rrd             rrd             0
+scoutapm        scoutapm        0
+session         session         1
+shmop           shmop           1
+simplexml       simplexml       1
+snmp            snmp            0
+                snuffleupagus   0
+soap            soap            1
+sockets         sockets         1
+sodium          sodium          1
+solr            solr            0
+                sourceguardian  0
+spl             spl             1
+sqlite3         sqlite3         1
+sqlsrv          sqlsrv          0
+ssh2            ssh2            1
+standard        standard        1
+stats           stats           0
+                swoole          0
+sysvmsg         sysvmsg         0
+sysvsem         sysvsem         0
+sysvshm         sysvshm         0
+tideways_xhprof tideways_xhprof 0
+tidy            tidy            1
+timezonedb      timezonedb      1
+tokenizer       tokenizer       1
+trader          trader          0
+uploadprogress  uploadprogress  0
+uri                              
+uuid            uuid            1
+vips            vips            0
+xdebug          xdebug          0
+xdiff           xdiff           0
+xml             xml             1
+xmlreader       xmlreader       1
+xmlrpc          xmlrpc          0
+xmlwriter       xmlwriter       1
+xsl             xsl             1
+yaf             yaf             0
+yaml            yaml            0
+yaz             yaz             0
+zend_opcache                    ?
+zip             zip             1
+zlib            zlib            1
+zmq             zmq             0
+
+```
