@@ -16,7 +16,9 @@ The sub-domain will go-live and the civicrm.org system will be decommissioned.
 This document describes the steps in building the simulation PC.
 
 ## TODO List
-
+* Places error_log into the civicrm_standalone directory
+* cgi-bin directory in civicrm-standalone.
+* 
 
 ## Actions Taken:
 
