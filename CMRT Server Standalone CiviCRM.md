@@ -933,3 +933,7 @@ timezonedb
 uuid
 zip
 ```
+
+Screenshot of PHP Selector with 8.5 modules selected:
+
+[PHP 8.5 Enabled](/imaqges/php8.5_enabled.png)
