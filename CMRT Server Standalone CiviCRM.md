@@ -707,7 +707,7 @@ VentrIP has 3 of these installed:
 8 AVIF
 
 ```
-## Summary of the 8.5 modules that will be enabled in the VentraIP C-Panel PHP Selector:
+## The 8.5 modules that will be enabled in the VentraIP C-Panel PHP Selector:
 
 Both WordPress and CiviCRM requirement: 
 ```
@@ -722,12 +722,12 @@ xml
 zip
 ```
 
-CiviCRM Only
+CiviCRM Only requirement:
 ```
 pdo
 ```
 
-WordPress only
+WordPress Only requirement:
 ```
 apcu
 exif
@@ -753,7 +753,7 @@ zend_opcache
 zlib
 ```
 
-General Modules - Most are built-ins included in php8.5-common module.
+General Modules - Most are built-ins included in mandatory php8.5 / php8.5-common module.
 ```
 bz2
 calendar
@@ -784,7 +784,7 @@ xmlwriter
 xsl
 ```
 
-In 8.3 not in 8.5
+In 8.3 not in 8.5:
 ```
 monarxprotect
 opcache in 8.3 replaced by zend opcache
