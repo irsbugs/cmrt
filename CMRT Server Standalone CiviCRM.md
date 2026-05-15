@@ -936,4 +936,4 @@ zip
 
 Screenshot of PHP Selector with 8.5 modules selected:
 
-![PHP 8.5 Enabled](imaqes/php8.5_enabled.png)
+![PHP 8.5 Enabled](../imaqes/php8.5_enabled.png)
