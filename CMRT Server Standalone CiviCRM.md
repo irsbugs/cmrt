@@ -707,7 +707,7 @@ VentrIP has 3 of these installed:
 8 AVIF
 
 ```
-Summary of the 8.5 modules that will be enabled in the VentraIP C-Panel PHP Selector:
+## Summary of the 8.5 modules that will be enabled in the VentraIP C-Panel PHP Selector:
 
 Both WordPress and CiviCRM requirement: 
 ```
