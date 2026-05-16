@@ -299,6 +299,12 @@ Permissions: Grant write access to public, private and ext directories on Linux 
 
 This should have been done by ther VentraIP folks
 
+
+## Step 8. Run the installer¶
+
+The installer verifies requirements, prepares the database, and initializes the configuration file. You may run the installer through the web interface (which is simpler) or the command-line interface (which has more options).
+Run installer via web UI
+
 ## Next steps...
 
 Log in and review users and permissions¶
@@ -312,3 +318,31 @@ The Configuration Checklist provides a convenient way to work through the settin
 Test-drive CiviCRM¶
 
 Start exploring your new CiviCRM Standalone site. Please report any issues you find in the Issue Tracker
+
+## Download CiviCREM Standalone
+
+```
+[cmrailtr@s03dd ~]$ wget https://download.civicrm.org/civicrm-6.14.0-standalone.tar.gz
+--2026-05-16 20:15:53--  https://download.civicrm.org/civicrm-6.14.0-standalone.tar.gz
+Resolving download.civicrm.org (download.civicrm.org)... 2001:41d0:725:7100:100::, 51.77.81.200
+Connecting to download.civicrm.org (download.civicrm.org)|2001:41d0:725:7100:100::|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://storage.googleapis.com/civicrm/civicrm-stable/6.14.0/civicrm-6.14.0-standalone.tar.gz [following]
+--2026-05-16 20:15:55--  https://storage.googleapis.com/civicrm/civicrm-stable/6.14.0/civicrm-6.14.0-standalone.tar.gz
+Resolving storage.googleapis.com (storage.googleapis.com)... 2404:6800:4006:804::201b, 2404:6800:4006:801::201b, 2404:6800:4006:805::201b, ...
+Connecting to storage.googleapis.com (storage.googleapis.com)|2404:6800:4006:804::201b|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 36465377 (35M) [application/x-tar]
+Saving to: ‘civicrm-6.14.0-standalone.tar.gz’
+
+100%[=======================================================================================================>] 36,465,377  8.04MB/s   in 5.1s
+
+2026-05-16 20:16:00 (6.88 MB/s) - ‘civicrm-6.14.0-standalone.tar.gz’ saved [36465377/36465377]
+
+[cmrailtr@s03dd ~]$
+[cmrailtr@s03dd ~]$ ls -l civicrm-6.14.0-standalone.tar.gz
+-rw-rw-r-- 1 cmrailtr cmrailtr 36465377 May  7 08:24 civicrm-6.14.0-standalone.tar.gz
+
+```
+
+TODO: SSH?
