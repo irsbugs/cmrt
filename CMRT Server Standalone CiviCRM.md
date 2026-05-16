@@ -941,3 +941,87 @@ Screenshot of PHP Selector with 8.5 modules selected:
 Screenshot of PHP Selector with 8.3 modules as of 2026-05-15
 
 ![PHP 8.3 Enabled](/images/php_8.3_enabled.png)
+
+
+## Implementation of PHP
+
+The cmrailtrial.org.au system was switch from PHP8.3 to PHP8.5 on 2026-05-15 at 18:06. The website appears to be functioning OK. 
+
+The `public_html_error_log` file:
+
+* Indicates the following types of errors about every 3 minutes:
+```
+[15-May-2026 20:06:55 Australia/Sydney] PHP Deprecated:  Non-canonical cast (double) is deprecated, use the (float) cast instead in /home/cmrailtr/public_html/wp-content/plugins/wordfence/vendor/wordfence/wf-waf/src/lib/xmlrpc.php on line 216
+```
+
+The WordFence plugin to WordPress was *deactivated* however these errors continue at the same rate. On investigating the WordFence website a caqses has been opened to fix this issue. 
+
+Resolution: Monitor for a new release of WordFence that is compatible with PHP8.5
+
+* In the first 12 hours there were also these two errors:
+```
+[16-May-2026 00:59:27 Australia/Sydney] PHP Deprecated:  Constant E_STRICT is deprecated since 8.4, the error level was removed in /home/cmrailtr/public_html/deleteme.wp3d0a6e2d047f443ea041b91c00720f43.php on line 32.
+
+[16-May-2026 06:58:47 Australia/Sydney] PHP Deprecated:  Constant E_STRICT is deprecated since 8.4, the error level was removed in /home/cmrailtr/public_html/deleteme.wp2f4f10a57a6545a890da80d283b05b17.php on line 32
+```
+From Google AI...
+
+The E_STRICT constant has been deprecated in PHP 8.4, meaning it is no longer used and will trigger a deprecation notice if accessed. You can update your error reporting to ignore E_STRICT to prevent these notices.
+
+GitHub lindevs.com
+
+Understanding the E_STRICT Deprecation in PHP 8.4
+
+What is E_STRICT?
+
+The E_STRICT constant was used in PHP to indicate strict coding standards and best practices. It was part of the error reporting system, helping developers identify code that may not be strictly correct.
+
+Changes in PHP 8.4
+
+In PHP 8.4, the E_STRICT constant has been deprecated. This means that if your code attempts to access E_STRICT, it will trigger a deprecation notice. The deprecation is part of a broader effort to streamline error reporting in PHP, as E_STRICT notices have been largely converted to E_NOTICE since PHP 8.0.
+
+Recommended Action
+
+To avoid seeing deprecation notices related to E_STRICT, you should update your error reporting settings. Here’s how you can adjust your error reporting configuration:
+
+Current Setting: `error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);`	
+
+Recommended Update: `error_reporting(E_ALL & ~E_DEPRECATED);`
+
+This change will ensure that your application no longer reports E_STRICT notices, aligning with the updates in PHP 8.4 and later versions.
+
+Conclusion
+The deprecation of the E_STRICT constant in PHP 8.4 is a significant change aimed at improving the error handling process. By updating your error reporting settings, you can prevent unnecessary deprecation notices and maintain cleaner logs.
+
+Developers can update error reporting in PHP 8.4 by modifying the php.ini file or using the error_reporting() function in their scripts. To avoid deprecation notices, they should set the error reporting level to E_ALL & ~E_DEPRECATED & ~E_STRICT.
+
+Removing E_STRICT in PHP means that developers will no longer receive strict standards warnings, which were previously used to ensure code interoperability and forward compatibility. This change simplifies error reporting and encourages developers to focus on more relevant error types, as E_STRICT notices have been upgraded to E_NOTICE since PHP 8.0.
+
+After the deprecation of the E_STRICT constant in PHP 8.4, you can use the error_reporting() function with other error level constants like E_ALL, E_WARNING, E_NOTICE, or E_DEPRECATED to control which errors are reported. For example, you can use error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT) to report all errors except deprecation and strict standards warnings.
+
+Backward Compatibility Impact
+
+The E_STRICT constant is deprecated in PHP 8.4. Using the constant anywhere in PHP code now emits a deprecation notice in PHP 8.4 and later.
+
+The E_STRICT constant will be removed in PHP 9.0.
+
+Custom error handlers and error reporting controls that selectively exclude E_STRICT notices can adjust them to ignore E_STRICT notices to avoid the deprecation notice.
+
+## PHP Configuration
+
+PHP Configuration
+
+The [CiviCRM Installation guide](https://docs.civicrm.org/installation/en/latest/requirements/#php-configuration) recommends the following minimim PHP parameter settings.
+
+The following PHP directives is the recommended minimum. These are defined in the php.ini file.
+
+Goto C-Panel and select *Options*:
+
+```
+    memory_limit 256M - 256M+
+    max_execution_time 240 - 300
+    max_input_time 120 - 120
+    post_max_size 50M - 128M+
+    upload_max_filesize 50M - 128M+
+```
+The current settings in C-Panel equal or exceed the minimum settings in the CIviCRM Installation manual. 
