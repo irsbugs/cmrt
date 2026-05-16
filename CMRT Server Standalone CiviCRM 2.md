@@ -278,3 +278,37 @@ Able to execute commands on cmrailtr_civi database from the command line...
 | cmrailtr_czhn1     |
 | information_schema |
 +--------------------+
+
+## Step 6. Configure your webserver¶
+
+Now you need to configure your webserver to point to your CiviCRM Standalone project folder.
+
+The exact steps vary based on your specific environment. Here are some typical tasks for common environments:
+Web hosting: Point a new subdomain to your Standalone project folder
+
+This has been done by VentraIP staff.
+
+## Step 7. Configure webserver permissions¶
+
+Your webserver will need to be able to write to at least your public and private directories. If you wish to install extensions through the web UI on your site, the webserver will also need to write to the ext directory.
+
+On many webhosts the webserver will be able to write to all directories, and you won't need to do anything.
+
+If you have ssh access to your server, you may need to set the user permissions directly.
+Permissions: Grant write access to public, private and ext directories on Linux server
+
+This should have been done by ther VentraIP folks
+
+## Next steps...
+
+Log in and review users and permissions¶
+
+You should now be able to log in to your site at e.g. https://your-site.test/civicrm/login. Use the administrator username and password you created during install.
+
+Head to Adminster >> Users and Permissions to configure users and roles for your site.
+Review the checklist¶
+
+The Configuration Checklist provides a convenient way to work through the settings that need to be reviewed and configured for a new site. You can link to this checklist from the installation success page AND you can visit it at any time from Administer » Administration Console » Configuration Checklist.
+Test-drive CiviCRM¶
+
+Start exploring your new CiviCRM Standalone site. Please report any issues you find in the Issue Tracker
