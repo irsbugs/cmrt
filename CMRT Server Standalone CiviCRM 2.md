@@ -477,3 +477,90 @@ This provides drag and drop construction of mails. This was installed via:
 Administrator --> System Settings --> Extensions --> *Add New*
 
 
+## C-Panel SSH
+
+Deleted previous public and Private key
+
+ SSH Access
+Generating a Public Key
+
+RSA vs DSA: RSA and DSA are encryption algorithms used to encrypt your key. DSA is faster for Key Generation and Signing and RSA is faster for Verification.
+
+Key Name (This value defaults to “id_rsa”.):
+Key Password: Sg(D3+lH0Bp=B]   <-- Same as cmrailtr account password
+
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/cmrailtr/.ssh/id_rsa.
+Your public key has been saved in /home/cmrailtr/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:NLbEOsfpBqmm9RenNmS4JqDlZEzrpILNyPPuGPctnTw 
+The key's randomart image is:
++---[RSA 2048]----+
+|                 |
+|       .         |
+|        *        |
+|  .    B +       |
+| o .  =.S        |
+|  O  ..=+ .      |
+|o# o+ o+++       |
+|*oO+oo+E=        |
+|..*+ +o+..       |
++----[SHA256]-----+
+
+-rw-r--r-- 1 cmrailtr cmrailtr    1 May 17 08:13 authorized_keys
+-rw------- 1 cmrailtr cmrailtr 1766 May 17 08:22 id_rsa
+-rw-r--r-- 1 cmrailtr cmrailtr  382 May 17 08:22 id_rsa.pub
+
+[cmrailtr@s03dd .ssh]$ cat id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,E675FBC3A0E619BB6023D42FD696AD12
+
+gpqTfuBrBPPEf3kVmEili0u2icfZzzRwyYwjI8gmLJZttUDCNWyuXdX/XWx0mZXL
+A/1Q6ZipxPqoE1eDQvZbsSHsoyfo3PcKqD8xoCXvKCt7HKzdbrynQgRNX4j3kecX
+LaKmTbyoyFSiaOs/LwzXZKS+xyX7l1aHr123qEd52civvcQ1XPp5yIH69XMZCINk
+jY2UwT9f3CkVPjNaoCa7bJTNwDXY7uotwjkiBxDs3Wzp9yXrgtzhjaO9E5eDMiG7
+5funrxFceImDMHuQMtHsbxtJ+5+qvhPuWldfYKbHXiHzQF2T0WfYVkD+GcTkt+NV
++fPHPgIYLtX/JwVgtr6bpoXTOVRorRUENUPnMohrAJEUgxyBUxe8QiZcOLWTdCek
+6fwXbMrfwchWBTYd9muKUeKqpHhX3pRGN3CNop1ddPa3iU927wTRzZEaEpVLAIuy
+eYcC937os6oF7wToWreq/vG5TdOt4kuYVp4FluXYigoyd2KSElmugAagbCrXkIdX
+pG7q+GfwiosGDaMWH181ZwZkM5uTNHxhaJsACOkxY7TGh0SsC9kUu4rlXVqMiL0R
+QzIz2cbzRC+QgttbV9ecnDwQIWJJJgzKEKUVCZqRsIGQd/Wx1rX/aOZwsXntINOr
+MOE2m7MsyiaeabOJH+ujZ1knH+MIdC5ime6P6SIdgUxS/gQ5brx8wwh4BNhpId1X
+m+izrP5/0RVDe+/B9F0d5QGXUIxwpjlRpM7dRr+/OFCk1xXV34jqLZE/gHTviQ6t
+hTHonr8qBoUSBvpIg1skzwuT3Ef4zsdeU2y7DrlLS3udEpzcthDCns/OuA4q4bs9
+c5CGVgM8Kbt5JSK23yM2EvRWaUdP/u/ynz6ghhcwhp8rOZ2ceoCVdfYrtn/QUNk/
+GUluBHn62r654XtzS3DGnWiaqlyb3rZbu6mkxMjARnIq80OjK/cbzC6IMH3wf9ft
+h6TWpj2/7H8hT+reoEAq80bUI2HRVpL0R0s8dsjsYTOlpodoudNmommLi6BULB9F
+o2H3Rm4TOERr5a4Wx6HlZ4OGWjZJqlxKeH63nH4sRRaKz/cjwpOxh+55JbjQ200K
+TFYJ0iqfRmwAfYRaf/PtPV8aLr48hZCUSUDycQtE/Ph/561xINktcxShCflePx1U
+Jo3lVRmu6t/BdZ2FitaGcULpygrugMKk+PtqQx9YvNqW1zM6BLoPacvSOlyzzowB
+5Sy6LDzQgSJW+hFccnC2C0WaKFim48RLpFELLuv+xtdf3yn9EnpLClPtMhb05LPy
+1soZZt+DquTECSQv5wOwenQ+GaHNkOqyy1SE3Y6dBAZhY1PRuEra3l+68Eub3afm
+8rFeaNk9pMjDoQCpTrnPLUkfuoG+cCOFec8Xp394DRS95Qo9NvRlD6bSlqaF4KmW
+/oo5CacMiN5EkfZ38kUpBwLC1VcgpMQCuV0ED8mhTi4b6XYEuGbRofct3QN0Ur5G
+hL7HuPUdoCVCPw0tyjkSioDksgwIKjecyEdZIJMs9pAedMftCq/4YwT/3P+m2tSA
+3k66iuDkSt3W8i/aJ/r497NuOY7E/iyz9ivkmMEb1Prd/UC9xNaGq8so2xToPq8o
+-----END RSA PRIVATE KEY-----
+
+
+[cmrailtr@s03dd .ssh]$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDK0uqNzckGl2NPDP1muiXJRpDa0Qrnawd74rGzdVBjUEuQjHXeJ6Bunua7dB2vaJRe2fOEo8QrrzuOcsojeMX3+/GzF+claUfj8xJ93SEuhBL3DCBCpBdqq/1sUZYXzZaeeWoIhElnq6tH9h6pvVfPhDyEotHd8ypkqzKITlop/Cr3pR8fZ7iOQG5qJmMIbPk1znWSJILLV3kjQptARuT6ALSRvF+YK8jO4gsLBjSeAiZgEAxXH8yas+t0J/QetkYKtah+nw+c/50QUhyJcgAK6sIRBPBV6OXupA/LXMO5iwmkrc2YpMWxAMnkV/0cfVN72UbHojTsTQJjKrGcgyJj
+[cmrailtr@s03dd .ssh]$
+
+
+cmrailtr@s03dd
+
+[cmrailtr@s03dd .ssh]$ ping s03dd
+PING s03dd.syd6.hostingplatform.net.au (110.232.143.15) 56(84) bytes of data.
+64 bytes from s03dd.syd6.hostingplatform.net.au (110.232.143.15): icmp_seq=1 ttl=64 time=0.065 ms
+
+ian@hp:~$ ssh cmrailtr@s03dd.syd6.hostingplatform.net.au
+ssh: connect to host s03dd.syd6.hostingplatform.net.au port 22: Network is unreachable
+
+ian@hp:~$ ssh cmrailtr@cmrailtrail.org.au
+
+
+
