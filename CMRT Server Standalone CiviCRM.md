@@ -1028,9 +1028,10 @@ Recommended value - PHP current setting value
 The current settings in C-Panel equal or exceed the minimum settings in the CIviCRM Installation manual. 
 
 
-## Mysql
+## MySql / MariaDB
 
-[cmrailtr@s03dd ~]$ mysql -u cmrailtr_czhn1 -p
+
+$ mysql -u cmrailtr_czhn1 -p
 Enter password: W-19-0
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 799223
@@ -1055,17 +1056,18 @@ MariaDB [(none)]> show databases;
  mysql --defaults-file=/home/cmrailtr/.my_civicrm.cnf --execute='SHOW DATABASES;'
  mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf --silent --disable-column-names --execute='SHOW DATABASES; SHOW TABLES;'
 ```
-Interactive:
+
+### Interactive using configuration files:
 ```
 mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf
 ```
 
 ### Prefixes to tables:
-Wordpress: bsen
-CiviCRM: civicrm
+* Wordpress: bsen
+* CiviCRM: civicrm
 
 ### WordPress. Table: bsne_users
-
+```
 MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, user_email FROM bsen_users;
 +----+--------------------+--------------------+----------------------------------+
 | ID | user_login         | user_nicename      | user_email                       |
@@ -1078,4 +1080,4 @@ MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, user_email FROM 
 | 17 | CMRT_Treasurer     | cmrt_treasurer     | treasurer@cmrailtrail.org.au     |
 | 18 | CMRT_Vicepresident | cmrt_vicepresident | vicepresident@cmrailtrail.org.au |
 +----+--------------------+--------------------+----------------------------------+
-
+```
