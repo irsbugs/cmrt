@@ -1026,3 +1026,56 @@ Recommended value - PHP current setting value
     upload_max_filesize 50M - 128M+
 ```
 The current settings in C-Panel equal or exceed the minimum settings in the CIviCRM Installation manual. 
+
+
+## Mysql
+
+[cmrailtr@s03dd ~]$ mysql -u cmrailtr_czhn1 -p
+Enter password: W-19-0
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 799223
+Server version: 10.6.19-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+
+
+### Using configuration files for command line access to databases.
+```
+ mysql --defaults-file=/home/cmrailtr/.my_civicrm.cnf --execute='SHOW DATABASES;'
+ mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf --silent --disable-column-names --execute='SHOW DATABASES; SHOW TABLES;'
+```
+Interactive:
+```
+mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf
+```
+
+### Prefixes to tables:
+Wordpress: bsen
+CiviCRM: civicrm
+
+### WordPress. Table: bsne_users
+
+MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, user_email FROM bsen_users;
++----+--------------------+--------------------+----------------------------------+
+| ID | user_login         | user_nicename      | user_email                       |
++----+--------------------+--------------------+----------------------------------+
+|  1 | CMRT_Admin         | admin              | admin@cmrailtrail.org.au         |
+|  8 | Janice             | janice             | janice@cmrailtrail.org.au        |
+| 14 | CMRT_Committee     | cmrt_committee     | committee@cmrailtrail.org.au     |
+| 15 | CMRT_President     | cmrt_president     | president@cmrailtrail.org.au     |
+| 16 | CMRT_Secretary     | cmrt_secretary     | secretary@cmrailtrail.org.au     |
+| 17 | CMRT_Treasurer     | cmrt_treasurer     | treasurer@cmrailtrail.org.au     |
+| 18 | CMRT_Vicepresident | cmrt_vicepresident | vicepresident@cmrailtrail.org.au |
++----+--------------------+--------------------+----------------------------------+
+
