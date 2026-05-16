@@ -1030,7 +1030,8 @@ The current settings in C-Panel equal or exceed the minimum settings in the CIvi
 
 ## MySql / MariaDB
 
-
+### Interactive connection
+```
 $ mysql -u cmrailtr_czhn1 -p
 Enter password: W-19-0
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -1049,7 +1050,7 @@ MariaDB [(none)]> show databases;
 | cmrailtr_czhn1     |
 | information_schema |
 +--------------------+
-
+```
 
 ### Using configuration files for command line access to databases.
 ```
@@ -1066,7 +1067,7 @@ mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf
 * Wordpress: bsen
 * CiviCRM: civicrm
 
-### WordPress. Table: bsne_users
+### WordPress. Using bsen_users table
 ```
 MariaDB [cmrailtr_czhn1]> SELECT ID, user_login, user_nicename, user_email FROM bsen_users;
 +----+--------------------+--------------------+----------------------------------+
