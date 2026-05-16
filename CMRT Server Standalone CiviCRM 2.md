@@ -345,4 +345,124 @@ Saving to: ‘civicrm-6.14.0-standalone.tar.gz’
 
 ```
 
-TODO: SSH?
+## Unzip
+
+```
+drwxr-xr-x 2 cmrailtr cmrailtr 4096 May 14 19:13 cgi-bin
+-rw-r--r-- 1 cmrailtr cmrailtr 1143 May 14 20:45 error_log
+-rw-rw-r-- 1 cmrailtr cmrailtr  146 May 14 20:26 index.html
+-rw-rw-r-- 1 cmrailtr cmrailtr  361 May 14 20:52 index.php
+drwxr-xr-x 3 cmrailtr cmrailtr 4096 May 14 19:14 .well-known
+
+[cmrailtr@s03dd ~]$ ls -lA civicrm-standalone/
+drwxr-xr-x 2 cmrailtr cmrailtr 4096 May 14 19:13 cgi-bin
+-rw-r--r-- 1 cmrailtr cmrailtr 1143 May 14 20:45 error_log
+drwxr-xr-x 3 cmrailtr cmrailtr 4096 May 14 19:14 .well-known
+
+
+[cmrailtr@s03dd ~]$ tar -xzf civicrm-6.14.0-standalone.tar.gz #<-- Takes about 30 secs
+[cmrailtr@s03dd ~]$
+
+[cmrailtr@s03dd ~]$ ls civicrm-standalone/
+cgi-bin  civicrm.standalone.php  core  error_log  ext  index.php  private  public
+
+cgi-bin  civicrm.standalone.php  core  error_log  ext  .htaccess  index.php  private  public  .well-known
+
+[cmrailtr@s03dd civicrm-standalone]$ ls -l
+total 36
+drwxr-xr-x  2 cmrailtr cmrailtr 4096 May 14 19:13 cgi-bin
+-rw-r--r--  1 cmrailtr cmrailtr 1160 May  7 08:21 civicrm.standalone.php
+drwxr-xr-x 24 cmrailtr cmrailtr 4096 May  7 08:21 core
+-rw-r--r--  1 cmrailtr cmrailtr 1143 May 14 20:45 error_log
+drwxr-xr-x  2 cmrailtr cmrailtr 4096 May  7 08:21 ext
+-rw-r--r--  1 cmrailtr cmrailtr 1039 May  7 08:21 index.php
+drwxr-xr-x  2 cmrailtr cmrailtr 4096 May  7 08:21 private
+drwxr-xr-x  2 cmrailtr cmrailtr 4096 May  7 08:21 public
+
+```
+Note that dir's core, ext private, public are all chmod 755. - Should have access for thge webserver
+
+
+## Switch to browser
+
+Should use index.php.
+
+Server: 127.0.0.1:3306
+
+Username: civicrm_admin
+Pdw: redfred4
+
+Whats this?... Error messaggews when no database defined...
+We are not able to install the software. Please review the errors and warnings below.
+Severity 	Section 	Name 	Details
+Error 	Database 	CiviCRM InnoDB support 	Could not determine if MySQL has InnoDB support. Assuming none.
+Error 	Database 	CiviCRM MySQL AutoIncrementIncrement 	Could not connect to database
+Error 	Database 	CiviCRM MySQL Lock Tables 	Could not connect to database
+Error 	Database 	CiviCRM MySQL Temp Tables 	Could not connect to database
+Error 	Database 	CiviCRM MySQL Trigger 	Could not connect to database
+Error 	Database 	CiviCRM MySQL connection 	Access denied for user ''@'localhost' (using password: NO)
+Error 	Database 	CiviCRM MySQL utf8mb4 Support 	Could not connect to database
+Error 	Database 	CiviCRM Mysql thread stack 	Could not connect to database
+Warning 	Database 	CiviCRM MySQL Version 	Cannot determine the version of MySQL installed. Please ensure at least version 5.7 is installed.
+Warning 	Database 	db.password 	The property "db.password" is blank. This may be correct in some controlled environments; it could also be a mistake or a symptom of an insecure configuration.
+
+
+====
+
+Defin...
+
+## Database
+Server: 127.0.0.1:3306
+Database: cmrailtr_civi
+Username: cmrailtr_czhn1
+Password: W-19-0
+
+## Administrative Account
+Administrative User: civicrm_admin
+Administrative: redfred4
+Administrative: stwrtn@gmail.com
+
+CiviCRM Settings File 	/home/cmrailtr/civicrm-standalone/private/civicrm.settings.php
+CiviCRM Source Code 	/home/cmrailtr/civicrm-standalone/core
+
+[cmrailtr@s03dd civicrm-standalone]$  mysql --defaults-file=/home/cmrailtr/.my_civi.cnf
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 881084
+Server version: 10.6.19-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [cmrailtr_civi]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+4 rows in set (0.006 sec)
+
+MariaDB [cmrailtr_civi]> SHOW TABLES;
++------------------------------------------+
+| Tables_in_cmrailtr_civi                  |
++------------------------------------------+
+| civicrm_acl                              |
+| civicrm_acl_cache                        |
+| civicrm_acl_contact_cache                |
+| civicrm_acl_entity_role                  |
+
+...snip...
+
+| civicrm_user_job                         |
+| civicrm_user_role                        |
+| civicrm_website                          |
+| civicrm_word_replacement                 |
+| civicrm_worldregion                      |
++------------------------------------------+
+162 rows in set (0.001 sec)
