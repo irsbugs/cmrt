@@ -264,3 +264,17 @@ Empty set (0.000 sec)
 -rw-------  1 cmrailtr cmrailtr   617 Apr  9 10:03 .my_civicrm.cnf
 -rw-------  1 cmrailtr cmrailtr  4133 May 16 19:52 .mysql_history
 -rw-------  1 cmrailtr cmrailtr   627 Apr  9 09:43 .my_wordpress.cnf
+
+### Created a .my_civi.cnf file.
+
+Able to execute commands on cmrailtr_civi database from the command line...
+
+[cmrailtr@s03dd ~]$ mysql --defaults-file=/home/cmrailtr/.my_civi.cnf --execute='SHOW DATABASES;'
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
