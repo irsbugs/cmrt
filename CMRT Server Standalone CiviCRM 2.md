@@ -427,6 +427,7 @@ Note: Only added the default 5 extensions. The other 3 can be added via Administ
 CiviCRM Settings File 	/home/cmrailtr/civicrm-standalone/private/civicrm.settings.php
 CiviCRM Source Code 	/home/cmrailtr/civicrm-standalone/core
 
+```
 [cmrailtr@s03dd civicrm-standalone]$  mysql --defaults-file=/home/cmrailtr/.my_civi.cnf
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -468,7 +469,7 @@ MariaDB [cmrailtr_civi]> SHOW TABLES;
 | civicrm_worldregion                      |
 +------------------------------------------+
 162 rows in set (0.001 sec)
-
+```
 ## Mosiaico
 
 This provides drag and drop construction of mails. This was installed via:
