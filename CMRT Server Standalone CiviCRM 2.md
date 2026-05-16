@@ -419,8 +419,10 @@ Password: W-19-0
 
 ## Administrative Account
 Administrative User: civicrm_admin
-Administrative: redfred4
+Administrative: r-6-4
 Administrative: stwrtn@gmail.com
+
+Note: Only added the default 5 extensions. The other 3 can be added via Administrator --> System Settings --> Extensions
 
 CiviCRM Settings File 	/home/cmrailtr/civicrm-standalone/private/civicrm.settings.php
 CiviCRM Source Code 	/home/cmrailtr/civicrm-standalone/core
@@ -466,3 +468,11 @@ MariaDB [cmrailtr_civi]> SHOW TABLES;
 | civicrm_worldregion                      |
 +------------------------------------------+
 162 rows in set (0.001 sec)
+
+## Mosiaico
+
+This provides drag and drop construction of mails. This was installed via:
+
+Administrator --> System Settings --> Extensions --> *Add New*
+
+
