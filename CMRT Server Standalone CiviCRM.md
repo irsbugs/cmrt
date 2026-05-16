@@ -1015,8 +1015,9 @@ The [CiviCRM Installation guide](https://docs.civicrm.org/installation/en/latest
 
 The following PHP directives is the recommended minimum. These are defined in the php.ini file.
 
-Goto C-Panel and select *Options*:
+Goto C-Panel and in *Software* select *Select PHP Version* then change from *Extensions* to *Options*:
 
+Recommended value - PHP current setting value
 ```
     memory_limit 256M - 256M+
     max_execution_time 240 - 300
