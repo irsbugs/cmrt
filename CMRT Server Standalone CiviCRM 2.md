@@ -29,6 +29,9 @@ MariaDB [(none)]> show databases;
 | information_schema |
 +--------------------+
 ```
+It is a litte confusing as the Wordpress database name of *cmrailtr_czhn1* is also same as its username of *cmrailtr_czhn1*.
+For CiviCRM Standalone the database name of *cmrailtr_civi* with the username of *cmrailtr_czhn1*. 
+For both the passwortc is the same: W-19-0
 
 ### Using configuration files for command line access to databases.
 ```
@@ -121,3 +124,143 @@ ON civicrm.*
 TO 'civicrm_user'@'localhost'
 IDENTIFIED BY 'realpasswordhere';
 ```
+
+converted to
+
+```
+GRANT
+  SELECT,
+  INSERT,
+  UPDATE,
+  DELETE,
+  CREATE,
+  DROP,
+  INDEX,
+  ALTER,
+  CREATE TEMPORARY TABLES,
+  LOCK TABLES,
+  TRIGGER,
+  CREATE ROUTINE,
+  ALTER ROUTINE,
+  REFERENCES,
+  CREATE VIEW,
+  SHOW VIEW
+ON cmrailtr_civi.*
+TO 'cmrailtr_czhn1'@'localhost'
+IDENTIFIED BY 'W.VDfqMNL4CNg2SasTH40';
+```
+
+The Installation guide on the CIviCRM Standalone page 
+
+Recommended:
+```
+Now, you can configure a database (civicrm), user (civicrm), and password (__TOP_SECRET__):
+
+mysql> CREATE DATABASE civicrm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+mysql> CREATE USER 'civicrm'@'localhost' IDENTIFIED BY '__TOP_SECRET__';
+
+mysql> GRANT ALL on civicrm.* to 'civicrm'@'localhost';
+```
+
+Actual entries
+```
+Now, you can configure a database (cmrailtr_civi), user (cmrailtr_czhn1), and password (W-19-0):
+
+mysql> CREATE DATABASE cmrailtr_civi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+mysql> CREATE USER 'cmrailtr_czhn1'@'localhost' IDENTIFIED BY 'W-19-0';
+
+mysql> GRANT ALL on cmrailtr_civi.* to 'cmrailtr_czhn1'@'localhost';
+
+```
+
+```
+[cmrailtr@s03dd ~]$ mysql -u cmrailtr_czhn1 -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 842085
+Server version: 10.6.19-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+
+MariaDB [(none)]> CREATE DATABASE cmrailtr_civi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+====
+
+
+
+
+
+ERROR 1044 (42000): Access denied for user 'cmrailtr_czhn1'@'localhost' to database 'cmrailtr_civi'
+MariaDB [(none)]>
+
+```
+Uable to log in. Dont' know root password to create another database.
+Need to keep using current database
+```
+[cmrailtr@s03dd ~]$ mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+```
+
+## Used C-Panel: Mysql Databases
+
+* Created the database *cmrailtr_civi*
+* Add User *cmrailtr_czhn1* to database *cmrailtr_civi*
+* User cmrailtr_czhn1 granted ALL PRIVELEGES to *cmrailtr_civi*
+
+Using the recomendation in CiviCRM Standalone document, then All PRIV compared to select PRIV will be missing EVENT and EXECUTE
+
+* ALTER
+* ALTER ROUTINE
+* CREATE
+* CREATE ROUTINE
+* CREATE TEMPORARY TABLES
+* CREATE VIEW
+* DELETE
+* DROP
+EVENT
+EXECUTE
+* INDEX
+* INSERT
+* LOCK TABLES
+* REFERENCES
+* SELECT
+* SHOW VIEW
+* TRIGGER
+* UPDATE 
+
+Opted for ALL PRIVILEGES
+
+```
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      | <-- CiviCRM Standalone
+| cmrailtr_civicrm   | <-- CiviCRM plugin
+| cmrailtr_czhn1     | <-- WordPress
+| information_schema |
++--------------------+
+
+MariaDB [(none)]> use cmrailtr_civi
+Database changed
+MariaDB [cmrailtr_civi]> SHOW TABLES;
+Empty set (0.000 sec)
+```
+
+-rw-------  1 cmrailtr cmrailtr   617 Apr  9 10:03 .my_civicrm.cnf
+-rw-------  1 cmrailtr cmrailtr  4133 May 16 19:52 .mysql_history
+-rw-------  1 cmrailtr cmrailtr   627 Apr  9 09:43 .my_wordpress.cnf
+
+
+-rw-------  1 cmrailtr cmrailtr   617 May 16 19:54 .my_civi.cnf
+-rw-------  1 cmrailtr cmrailtr   617 Apr  9 10:03 .my_civicrm.cnf
+-rw-------  1 cmrailtr cmrailtr  4133 May 16 19:52 .mysql_history
+-rw-------  1 cmrailtr cmrailtr   627 Apr  9 09:43 .my_wordpress.cnf
