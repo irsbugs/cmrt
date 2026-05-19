@@ -102,3 +102,24 @@ civicrm-standalone                      php
 [cmrailtr@s03dd ~]$ 
 
 ```
+
+## SCP
+
+Sending a file from the desktop PC to the VentrIP server. Note -P 2683 is the SSH port to use at VentraIP
+```
+$ scp -P 2683 test_scp.txt cmrailtr@s03dd.syd6.hostingplatform.net.au:
+test_scp.txt                                  100%  116     2.1KB/s   00:00    
+
+```
+
+Checking the file got to the VentraIP server cmrailtr account
+```
+[cmrailtr@s03dd ~]$ ls -l test_scp.txt
+-rw-rw-r-- 1 cmrailtr cmrailtr 116 May 19 19:10 test_scp.txt
+[cmrailtr@s03dd ~]$ cat test_scp.txt
+This is test_scp.txt
+
+It is used to test if a file can be scp'ed from a PC to the VentraIP server.
+
+Ian 2026-05-19
+```
