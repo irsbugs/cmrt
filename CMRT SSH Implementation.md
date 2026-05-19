@@ -9,41 +9,14 @@ SCP, *Secure CoPy*, is a partner application to *SSH*, which allows the copying 
 Allowing SSH access is a potential VentraIP security issue, so it is not enabled by default. The following describes the steps to enable SSH on the VentraIP system. 
 
 ## C-Panel
-
-
+File permissions on Desktop PC
 ```
-ian@hp:~$ cd ~/
-ian@hp:~$ ls -l .ssh/
-total 64
--rw-rw-r-- 1 ian ian  1766 May 19 11:19 id_rsa
--rw-rw-r-- 1 ian ian  1766 May 17 18:16 id_rsa_another_o0ld
--rw-rw-r-- 1 ian ian  1766 May 17 12:04 id_rsa_new_private_21026-05-17
--rw------- 1 ian ian  3389 Jun 13  2025 id_rsa_old
--rw------- 1 ian ian  1766 Jun 13  2025 id_rsa_old_2025-05-17
--rw-rw-r-- 1 ian ian  1766 May 17 12:23 id_rsa_old_2026-05-17_1800
--rw-rw-r-- 1 ian ian  1615 May 17 12:17 id_rsa.ppk
--rw-rw-r-- 1 ian ian   382 May 17 19:34 id_rsa.pub
--rw-rw-r-- 1 ian ian   382 May 17 12:07 id_rsa.pub_old
--rw-r--r-- 1 ian ian   745 Mar  6  2025 id_rsa.pub_old_2026-05-17
--rw------- 1 ian ian 10018 May 19 12:17 known_hosts
--rw------- 1 ian ian  9796 May 19 12:16 known_hosts.old
-ian@hp:~$ chmod 600 .ssh/id_rsa
-ian@hp:~$ ls -l .ssh/
-total 64
+700
+drwx------  2 ian      ian          4096 May 20 09:55  .ssh
+600
 -rw------- 1 ian ian  1766 May 19 11:19 id_rsa
--rw-rw-r-- 1 ian ian  1766 May 17 18:16 id_rsa_another_o0ld
--rw-rw-r-- 1 ian ian  1766 May 17 12:04 id_rsa_new_private_21026-05-17
--rw------- 1 ian ian  3389 Jun 13  2025 id_rsa_old
--rw------- 1 ian ian  1766 Jun 13  2025 id_rsa_old_2025-05-17
--rw-rw-r-- 1 ian ian  1766 May 17 12:23 id_rsa_old_2026-05-17_1800
--rw-rw-r-- 1 ian ian  1615 May 17 12:17 id_rsa.ppk
+644
 -rw-rw-r-- 1 ian ian   382 May 17 19:34 id_rsa.pub
--rw-rw-r-- 1 ian ian   382 May 17 12:07 id_rsa.pub_old
--rw-r--r-- 1 ian ian   745 Mar  6  2025 id_rsa.pub_old_2026-05-17
--rw------- 1 ian ian 10018 May 19 12:17 known_hosts
--rw------- 1 ian ian  9796 May 19 12:16 known_hosts.old
-ian@hp:~$ 
-
 ```
 
 ```
