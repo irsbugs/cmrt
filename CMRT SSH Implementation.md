@@ -56,4 +56,33 @@ drwx------ 2 cmrailtr cmrailtr 4096 May 17 10:17 putty
 
 ```
 
+After changing the id_rsa to chmod 600
+
+ian@hp:~$ ssh cmrailtr@s03dd.syd6.hostingplatform.net.au -p 2683
+sign_and_send_pubkey: signing failed for RSA "/home/ian/.ssh/id_rsa" from agent: agent refused operation
+cmrailtr@s03dd.syd6.hostingplatform.net.au's password: 
+[cmrailtr@s03dd ~]$ 
+[cmrailtr@s03dd ~]$ 
+
+private key in .ssh/id_rsa in VentraIP is same as .ssh/id_rsa in PC 
+
+ian@hp:~$ ssh-add
+Enter passphrase for /home/ian/.ssh/id_rsa: 
+Bad passphrase, try again for /home/ian/.ssh/id_rsa: 
+Bad passphrase, try again for /home/ian/.ssh/id_rsa: <-- Sg(D3+lH0Bp=B]
+Identity added: /home/ian/.ssh/id_rsa (/home/ian/.ssh/id_rsa)
+
+Now logs in OK
+
+ian@hp:~$ ssh cmrailtr@s03dd.syd6.hostingplatform.net.au -p 2683
+[cmrailtr@s03dd ~]$ ls
+access-logs                             etc         public_ftp
+bin                                     index.html  public_html
+civicrm-6.14.0-standalone.tar.gz        index.php   ssl
+civicrm_backup_2026-04-09_11:11:33.sql  logs        tmp
+civicrm_backup_2026-04-09_12:12:44.sql  lscache     virtualenv
+civicrm_log                             lscmData    wordpress-backups
+civicrm_logs                            mail        www
+civicrm-standalone                      php
+[cmrailtr@s03dd ~]$ 
 
