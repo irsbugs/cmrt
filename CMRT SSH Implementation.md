@@ -64,18 +64,33 @@ cmrailtr@s03dd.syd6.hostingplatform.net.au's password:
 [cmrailtr@s03dd ~]$ 
 [cmrailtr@s03dd ~]$ 
 
-private key in .ssh/id_rsa in VentraIP is same as .ssh/id_rsa in PC 
 
+The local desktop PC that will be used to make SSH connections to the VentraIP server, needs to have OpenSSH-client installed on it, to provide the *ssh* related applications. With Ubunutu desktop OpenSSH can be installed with the command:
+```
+$ sudo apt install openssh-client
+```
+Note that there is also a product called *openssh-server*. It should not be necessaryu to instyall this on the desktop PC. This application is on the VentraIP server and it is what the ssh application on the desktop PC commimnicates with on the server.
+
+THe VertraIP server contains a private key in the file *id_rsa* and a public key in the file id_rsa.pub. The private key is downloaded/copied to the file ~/.ssh/id_rsa. This private key file is the same as the file in the VentraIP *cmrailtr* account ~/.ssh/id_rsa directory.
+
+When this file id_rsa is added to the dektop PC ~/.ssh/ directory. It should be set with Owner Read/Write Only. i.e.
+```
+$ chmod 600 ~/.ssh/id_rsa
+```
+It then needs to be added to the desktop PC's local ssh. The *ssh-add* application is used as follows:
+```
 ian@hp:~$ ssh-add
-Enter passphrase for /home/ian/.ssh/id_rsa: 
-Bad passphrase, try again for /home/ian/.ssh/id_rsa: 
-Bad passphrase, try again for /home/ian/.ssh/id_rsa: <-- Sg(D3+lH0Bp=B]
+Enter passphrase for /home/ian/.ssh/id_rsa:   <-- The passphrase is the password to the VentraIP cmrailtr account. E.g *S-12-]* 
 Identity added: /home/ian/.ssh/id_rsa (/home/ian/.ssh/id_rsa)
-
-Now logs in OK
-
+```
+Now, when making a connection from the desktop PC to the VertraIP server, it will not prompt for the password and will directly login to the cmrailtr account:
+Note that the ssh port used by VentraIP is not the default of 22, but is 2683.
+```
 ian@hp:~$ ssh cmrailtr@s03dd.syd6.hostingplatform.net.au -p 2683
-[cmrailtr@s03dd ~]$ ls
+[cmrailtr@s03dd ~]$
+```
+```
+ls
 access-logs                             etc         public_ftp
 bin                                     index.html  public_html
 civicrm-6.14.0-standalone.tar.gz        index.php   ssl
@@ -86,3 +101,4 @@ civicrm_logs                            mail        www
 civicrm-standalone                      php
 [cmrailtr@s03dd ~]$ 
 
+```
