@@ -19,6 +19,7 @@ drwx------  2 ian      ian          4096 May 20 09:55  .ssh
 -rw-rw-r-- 1 ian ian   382 May 17 19:34 id_rsa.pub
 ```
 
+File permissions on the VentraIP server
 ```
 [cmrailtr@s03dd ~]$ ls -l .ssh/
 total 28
@@ -96,3 +97,49 @@ It is used to test if a file can be scp'ed from a PC to the VentraIP server.
 
 Ian 2026-05-19
 ```
+
+## SSH Server Setup
+
+The server is setup to accept SSH connections from C-Panel
+
+
+## SSH Server Whitelisting
+
+The VentraIP server needs to *whitelist* the IP addresses of the remote desktop PC's that will make SSH connections. The remote PC may be on a network that hands out IP addresses from a pool. Thus the IP address of the desktop PC change. For example, when the modem is restarted. If this happens the desktop PC receives a new IP address and the *whitewlist* at VentraIP needs to be updated before a SSH connection can be re-established.
+
+To find out the IP address of the desktop PC. Use a browser to open [https://www.showmyip.com/](https://www.showmyip.com/)
+
+It will display an IPV4 address like: `122.63.67.51` OR an IPV6 address, like `2001:8004:6fe2:30b1:c3fe:02c4:3c50`. Make a note of this IP address.
+
+On the browser connect to the VIP account at VentraIP: `https://vip.ventraip.com.au/login`. As well as a *username* and *password* being required there is 2FA and an authorization code is sent.
+
+Upon logging into this, top level, VIP account: 
+
+* Click on **Websites & Hosting** tab.
+* Then, below the tab, click on **Web Hosting** button.
+* Then, on the right hand side, click on **Manage** button
+* The left-hand column provides a list of items that can be managed. Under the Configuration section, Click on **SSH Access**.
+* The SSH Access will display something like:
+```
+Your hosting account can be enabled for SSH access by allowing the IP address you want to give access to.
+Username: cmrailtr
+Hostname: s03dd.syd6.hostingplatform.net.au
+Port: 2683
+This device's IP Address: 122.63.67.51
+```
+* Confirm that the *This device's IP Address* is the same address as was observer when using **www.showmyip.com/**
+* Click the button **ADD IP ADDRESS +**.
+* A new screen is displayed to **Add IP Address for SSH Access** with radio buttons to choose:
+    * Add my IP address
+    * Add my IPV6 address
+    * Add a different address
+* Select one of the above and click on **Enable SSH Access**.
+* On returning to the previous screen the address should now have been added to the *whitelist* table.
+* Note that there is an option to Enable IPv6 Management.
+  
+Finished: Log-out of VIP services account.
+
+
+
+
+
