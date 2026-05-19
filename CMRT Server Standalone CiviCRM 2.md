@@ -475,7 +475,7 @@ MariaDB [cmrailtr_civi]> SHOW TABLES;
 
 Most of the CiviCRM-Standalone distribution files untar into the *core* directory. This core directory has over 2900 subdirectories and contains a total of over 18300 files.
 Based on the file extensions these are the extension who have totals greater than 100:
-
+```
 * .php  8972
 * .js   4106
 * .svg  2070
@@ -490,7 +490,7 @@ Based on the file extensions these are the extension who have totals greater tha
 * .scss  148
 * .gif   124
 * .hlp   113
-
+```
 
 ## Mosiaico
 
