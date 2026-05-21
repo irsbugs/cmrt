@@ -101,3 +101,54 @@ Default One Click Unsubscribe Mode:L Unsubscribe
 ```
 So, does the above sound OK with you? 
 cheers, Ian.
+
+
+From [cmrailtrail.org.au] Client configuration settings for “bounce@cmrailtrail.org.au”. 
+```
+Client Configuration settings for "bounce@cmrailtrail.org.au".
+	
+Mail Client Manual Settings
+Secure SSL/TLS Settings (Recommended)
+Username: 	bounce@cmrailtrail.org.au
+Password: 	Use the email account's password.
+Incoming Server: 	mail.cmrailtrail.org.au
+
+    IMAP Port: 993 POP3 Port: 995 
+
+Outgoing Server: 	mail.cmrailtrail.org.au
+
+    SMTP Port: 465 
+
+IMAP, POP3, and SMTP require authentication.
+Calendar & Contacts Manual Settings
+Secure SSL/TLS Settings (Recommended).
+Username: 	bounce@cmrailtrail.org.au
+Password: 	Use the email account's password.
+Server: 	https://mail.cmrailtrail.org.au:2080
+
+    Port: 2080 
+
+Full Calendar URL(s): 	
+
+    Calendar: https://mail.cmrailtrail.org.au:2080/calendars/__uids__//calendar Task List: https://mail.cmrailtrail.org.au:2080/calendars/__uids__//tasks 
+
+Full Contact List URL(s): 	
+
+    Address Book: https://mail.cmrailtrail.org.au:2080/addressbooks/__uids__//addressbook 
+
+Non-SSL Settings (NOT Recommended).
+Username: 	bounce@cmrailtrail.org.au
+Password: 	Use the email account's password.
+Server: 	http://mail.cmrailtrail.org.au:2079
+
+    Port: 2079 
+
+Full Calendar URL(s): 	
+
+    Calendar: http://mail.cmrailtrail.org.au:2079/calendars/__uids__//calendar Task List: http://mail.cmrailtrail.org.au:2079/calendars/__uids__//tasks 
+
+Full Contact List URL(s): 	
+
+    Address Book: http://mail.cmrailtrail.org.au:2079/addressbooks/__uids__//addressbook 
+
+```
