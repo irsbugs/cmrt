@@ -103,3 +103,6 @@ A default CiviCRM mail account has been created for Bounce Processing. Editing t
 
 Click on *Save and Test*: Connection succeeded. Found at least 2 new messages. There are two messages but they are not bounce messages.
 
+====
+Tried *Save & Send Test Email* with admin email address changed to stwrtnzxc@gmail.com aat about 11:40. Monitoring bounce@cmrailtrail.org.au for bounce message in inbox.
+11:47 nothing added to inbox.
