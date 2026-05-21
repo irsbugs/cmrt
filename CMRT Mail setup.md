@@ -28,7 +28,7 @@ Click on *Add Email Address* and enter:
 * Description: Default domain email address and from name.
 * Default: Check
 
-When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an email address of *hello@cmrailtrail.org.au*
+When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an email address that they can respond to of *hello@cmrailtrail.org.au*
 
 Note that other *from email* addresses may be added. E.g. President or The Committee, etc.  
 
