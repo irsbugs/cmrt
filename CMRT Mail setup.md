@@ -2,10 +2,39 @@
 
 ## Introduction
 
-CiviCRM defaults to using PHP mailer, mail(). Which VentraIP supports. However VentraIP, and othjer documentation, suggest that SNMP mailing is superior.
+CiviCRM defaults to using PHP mailer, mail(). Which VentraIP supports. However VentraIP, and other documentation, suggest that SNMP mailing is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail.
 
-* VentraIP provide the e-mail service *mail.cmrailtrail.org.au*
-* An e-mail account is created Using C-Panel -> Email -> Email Accounts
+### Prerequisites
+
+Notes and prerequisites for setting up CiviCMR mail:
+
+* VentraIP provide the email service *mail.cmrailtrail.org.au* for CMRT.
+* An email account is created using C-Panel --> Email --> Email Accounts
+* At least two email accounts need to be created for CiviCRM mailing opeerations:
+  	* An account that is the default that CiviCRM uses as: *Site from Email Address*
+  	* The account called *bounce*, the allows SMTP outgoing email, and a return address for email bounce errors.
+ 
+### Site from Email Address
+
+Using C-Panel --> Email --> Email Accounts. Create a default outgoing mail sender address. For example: **hello** so that, by default, all bulk emails appear to have been sent by *hello@cmrailtrail.org.au*. If a recipient replies to one of these mails then their reply mail goes into the inbox of the *hello* email account. It is envisaged that the CMRT secretary monitors the inbox of this email account, and responds to any queries raised in these reply emails.
+
+On CiviCRM go to *Site from Email Address* options with either of these links:
+* Administer --> CiviMail --> Site from Email Address
+* Mailings --> Site from Email Address
+
+Click on *Add Email Address* and enter:
+* Display Name: Castlemaine Maryborough Rail Trail
+* Email: hello@cmrailtrail.org.au
+* Description: Default domain email address and from name.
+* Default: Check
+
+When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an emal address of *hello@cmrailtrail.org.au*
+
+Note that other *from email* addresses may be added. E.g. President or The Committee, etc.  
+
+### Bounce Email Address
+
+
 * The account may be named *bounces*, so its address for incoming emails from the internet is: *bounces@mail.cmrailtrail.org.au*
 
 
