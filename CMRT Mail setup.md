@@ -21,6 +21,29 @@ The account could be
 
 must exist
 
+##  Setup of Settings - Outbound Mail.
+
+With CiviCRM-Standalone, *Administer --> System Settings --> Outbound Email (SMTP/Sendmail)*, the CiviCRM default Outbound Mail of PHP mailer i.e. *mail()*, needs to be changed to using the superior *SMTP* method of sending emails.
+
+Regarding using *mail()*, it should be noted that: 
+* Logged into *Admin Standalone* account of CiviCRM this account email is currently set to stwrtn@gmail.com
+* With the selected mailer set to *mail()* then the *Save and Send Test* would sucessfully send an email to stwrtn@gmail.com with trhe subject: *Test for PHP mail setting*.
+  
+### SMTP Settings
+
+For CiviCRM to send out emails, it needs to have a VentraIP email account to pass the emails through and thus find the VentraIP SMTP server which get the mail out onto the internet.
+
+An email account was created on the cmrailtrail.org.au VentraIP account. The name of the account is *bounce*. An email can be sent to this email account by addressing it to *bounce@cmrailtrail.org.au* It was called bounce as later it will be set up so that CiviCRM can read its inbox and see if any "bounced" emails occurred.
+
+Upon selecting the mailer to be *SMTP* the *SMTP Configuration* panel apears and requires the following details to be entered.
+
+* **SMTP Server:** ssl://mail.cmrailtrail.org.au
+* **SMTP Port:** 465
+* **Authentication:** Yes (checked)
+* **SMTP Username:** bounce@cmrailtrail.org.au
+* **SMTP Password:** r-8-@
+
+When *Save & Send Test Email* is clicked, then an email is sent to stwrtn@gmail.com with the subject: *Test for SMTP settings*.
 
 
 ```
@@ -154,3 +177,84 @@ Full Contact List URL(s):
     Address Book: http://mail.cmrailtrail.org.au:2079/addressbooks/__uids__//addressbook 
 
 ```
+
+Mail not sent  timeout...
+```
+Mail Not Sent
+Sending test email.:
+From: hello@cmrailtrail.org.au
+To: stwrtn@gmail.com
+Oops. Your SMTP settings are incorrect. No test mail has been sent.
+
+An error occurred when CiviCRM attempted to send an email (via SMTP). If you received this error after submitting on online contribution or event registration - the transaction was completed, but we were unable to send the email receipt.
+
+The mail library returned the following error message:
+Failed to connect to mail.cmrailtrail.org.au:465 [SMTP: Invalid response code received from SMTP server while sending email. This is often caused by a misconfiguration in Outbound Email settings. Please verify the settings at Administer CiviCRM >> Global Settings >> Outbound Email (SMTP). (code: -1, response: )]
+
+This is probably related to a problem in your Outbound Email Settings (Administer CiviCRM » System Settings » Outbound Email), OR the FROM email address specifically configured for your contribution page or event. Possible causes are:
+
+    Your Sendmail path is incorrect.
+    Your Sendmail argument is incorrect.
+    The Site From Email Address configured for this feature may not be a valid sender based on your email service provider rules.
+
+Check this page for more information.
+
+```
+
+Try again, Save and Test Email, without authentication: 
+```
+Mail Not Sent
+Sending test email.:
+From: hello@cmrailtrail.org.au
+To: stwrtn@gmail.com
+Oops. Your SMTP settings are incorrect. No test mail has been sent.
+
+An error occurred when CiviCRM attempted to send an email (via SMTP). If you received this error after submitting on online contribution or event registration - the transaction was completed, but we were unable to send the email receipt.
+
+The mail library returned the following error message:
+Failed to connect to mail.cmrailtrail.org.au:465 [SMTP: Invalid response code received from SMTP server while sending email. This is often caused by a misconfiguration in Outbound Email settings. Please verify the settings at Administer CiviCRM >> Global Settings >> Outbound Email (SMTP). (code: -1, response: )]
+
+This is probably related to a problem in your Outbound Email Settings (Administer CiviCRM » System Settings » Outbound Email), OR the FROM email address specifically configured for your contribution page or event. Possible causes are:
+
+    Your Sendmail path is incorrect.
+    Your Sendmail argument is incorrect.
+    The Site From Email Address configured for this feature may not be a valid sender based on your email service provider rules.
+
+Check this page for more information.
+
+https://docs.civicrm.org/user/en/latest/advanced-configuration/email-system-configuration
+```
+
+Try adding ssl://mail.cmrailtraial.org.au
+
+SAame mail-not dent message.
+
+The mail library returned the following error message:
+authentication failure 
+
+SMTP: Invalid response code received from SMTP server while sending email. This is often caused by a misconfiguration in Outbound Email settings. Please verify the settings at Administer CiviCRM >> Global Settings >> Outbound Email (SMTP). (code: 535, response: Incorrect authentication data)
+ssl error code 535
+Tried Username of just "bounce" with ssl:// 
+
+Tried
+
+https://mail.cmrailtrail.org.au
+
+The mail library returned the following error message:
+Unable to find the socket transport "https" - did you forget to enable it when you configured PHP?
+
+=====
+
+Failed to connect to mail.cmrailtrail.org.au:465 
+SMTP: Invalid response code received from SMTP server while sending email. This is often caused by a misconfiguration in Outbound Email settings. Please verify the settings at Administer CiviCRM >> Global Settings >> Outbound Email (SMTP). (code: -1, response: )
+
+SMTP USername off bounce@cmrailtrail.org.au
+
+Above but with ssl://
+
+Worked.
+
+
+redfred4@@
+
+
