@@ -14,7 +14,7 @@ Notes and prerequisites for setting up CiviCMR mail:
   	* An account that is the default that CiviCRM uses as: *Site from Email Address*
   	* The account called *bounce*, the allows SMTP outgoing email, and a return address for email bounce errors.
  
-### Site from Email Address
+### Site from Email Address Account
 
 Using C-Panel --> Email --> Email Accounts. Create a default outgoing mail sender address. For example: **hello** so that, by default, all bulk emails appear to have been sent by *hello@cmrailtrail.org.au*. If a recipient replies to one of these mails then their reply mail goes into the inbox of the *hello* email account. It is envisaged that the CMRT secretary monitors the inbox of this email account, and responds to any queries raised in these reply emails.
 
@@ -28,11 +28,12 @@ Click on *Add Email Address* and enter:
 * Description: Default domain email address and from name.
 * Default: Check
 
-When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an emal address of *hello@cmrailtrail.org.au*
+When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an email address of *hello@cmrailtrail.org.au*
 
 Note that other *from email* addresses may be added. E.g. President or The Committee, etc.  
 
-### Bounce Email Address
+### Bounce Email Account
+
 
 
 * The account may be named *bounces*, so its address for incoming emails from the internet is: *bounces@mail.cmrailtrail.org.au*
