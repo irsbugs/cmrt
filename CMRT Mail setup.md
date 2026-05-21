@@ -120,6 +120,8 @@ Outgoing Server: 	mail.cmrailtrail.org.au
     SMTP Port: 465 
 
 IMAP, POP3, and SMTP require authentication.
+
+
 Calendar & Contacts Manual Settings
 Secure SSL/TLS Settings (Recommended).
 Username: 	bounce@cmrailtrail.org.au
