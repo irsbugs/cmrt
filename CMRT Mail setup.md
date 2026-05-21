@@ -2,7 +2,7 @@
 
 ## Introduction
 
-CiviCRM defaults to using PHP mailer, mail(). Which VentraIP supports. However VentraIP, and other documentation, suggest that SMTP mailing is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail.
+CiviCRM defaults to using *mail()* the PHP mailer. VentraIP supports this mailer. However VentraIP, and other documentation, suggest that the *SMTP* mailer is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail. It also includes the setting up of an inbox for *bounce* messages, and being able to pass this inbox contents to CiviCRM.
 
 ### Prerequisites
 
@@ -10,10 +10,10 @@ Notes and prerequisites for setting up CiviCMR mail:
 
 * VentraIP provide the email service *mail.cmrailtrail.org.au* for CMRT.
 * An email account is created using C-Panel --> Email --> Email Accounts
-* At least two email accounts need to be created for CiviCRM mailing opeerations:
+* At least two email accounts need to be created for CiviCRM mailing operations:
   	* An account that is the default that CiviCRM uses as: *Site from Email Address*
-  	* The account called *bounce*, the allows SMTP outgoing email, and a return address for email bounce errors.
-* When installing CiviCRM the administration login account that was created and given a temporary external personal email address. E.g. A gmail address. Having CiviCRM successfully send emails to this external gmail address will be used in testing. 
+  	* The account called *bounce*, that allows SMTP outgoing email, and privides a return address for email bounce errors.
+* When installing CiviCRM the administration login account that was created was given a temporary external personal email address. E.g. A gmail address. Having CiviCRM successfully send emails to this external gmail address will be used in testing. 
  
 ### Site from Email Address Account
 
@@ -27,7 +27,7 @@ Click on *Add Email Address* and enter:
 * Display Name: Castlemaine Maryborough Rail Trail
 * Email: hello@cmrailtrail.org.au
 * Description: Default domain email address and from name.
-* Default: Check
+* Default: Checked
 
 When a bulk email is sent from CiviCRM, then, by default, the recipient sees in their inbox an email from *Castlemaine Maryborough Rail Trail* which has an email address that they can respond to of *hello@cmrailtrail.org.au*
 
@@ -35,7 +35,7 @@ Note that other *from email* addresses may be added. E.g. President or The Commi
 
 ### The Bounce Email Account
 
-This email account may be given any name, but *bounce* is probably the most appropriate. So its email address is *bounce@cmrailtrail.org.au*. The e-mail account serves two purposes:
+This email account may be given any name, but *bounce* is probably the most appropriate. Thus its email address is *bounce@cmrailtrail.org.au*. The e-mail account serves two purposes:
 
 * It allows CiviCRM bulk e-mails to have a path to get to the VentraIP SMTP server and then onto the internet to be delivered to the recipient.
 * If a recipients email address is incorrect, then then *bounce* error information will be delivered to the inbox of *bounce@cmrailrailt.org.au*. CiviCRM reads the inbox of the bounce email account and generates bulk email reports on sucessful email deliveries and failed / bounced email deliveries.
@@ -60,7 +60,7 @@ For CiviCRM to send out SMTP emails, it needs to make use of the VentraIP email 
 
 In the prerequisites section, the VentraIP email account *bounce@cmrailtrail.org.au* was created.
 
-In CiviCRM, upon selecting the radio buttron for the mailer to be *SMTP* the *SMTP Configuration* panel apears and requires the following details to be entered.
+In CiviCRM, upon selecting the radio button for the mailer to be *SMTP* the *SMTP Configuration* panel apears and requires the following details to be entered.
 
 * **SMTP Server:** ssl://mail.cmrailtrail.org.au
 * **SMTP Port:** 465
@@ -104,5 +104,5 @@ A default CiviCRM mail account has been created for Bounce Processing. Editing t
 Click on *Save and Test*: Connection succeeded. Found at least 2 new messages. There are two messages but they are not bounce messages.
 
 ====
-Tried *Save & Send Test Email* with admin email address changed to stwrtnzxc@gmail.com aat about 11:40. Monitoring bounce@cmrailtrail.org.au for bounce message in inbox.
+Tried *Save & Send Test Email* with admin email address changed to stwrtnzxc@gmail.com at about 11:40. Monitoring bounce@cmrailtrail.org.au for bounce message in inbox.
 11:47 nothing added to inbox.
