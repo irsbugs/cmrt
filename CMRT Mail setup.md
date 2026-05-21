@@ -1,8 +1,8 @@
-# Mail setup for CiviCRM Stanalone
+# Mail setup for CiviCRM Standalone
 
 ## Introduction
 
-CiviCRM defaults to using PHP mailer, mail(). Which VentraIP supports. However VentraIP, and other documentation, suggest that SNMP mailing is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail.
+CiviCRM defaults to using PHP mailer, mail(). Which VentraIP supports. However VentraIP, and other documentation, suggest that SMTP mailing is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail.
 
 ### Prerequisites
 
@@ -13,6 +13,7 @@ Notes and prerequisites for setting up CiviCMR mail:
 * At least two email accounts need to be created for CiviCRM mailing opeerations:
   	* An account that is the default that CiviCRM uses as: *Site from Email Address*
   	* The account called *bounce*, the allows SMTP outgoing email, and a return address for email bounce errors.
+* When installing CiviCRM the administration login account that was created and given a temporary external personal email address. E.g. A gmail address. Having CiviCRM successfully send emails to this external gmail address will be used in testing. 
  
 ### Site from Email Address Account
 
@@ -32,11 +33,69 @@ When a bulk email is sent from CiviCRM, then, by default, the recipient sees in 
 
 Note that other *from email* addresses may be added. E.g. President or The Committee, etc.  
 
-### Bounce Email Account
+### The Bounce Email Account
+
+This email account may be given any name, but *bounce* is probably the most appropriate. So its email address is *bounce@cmrailtrail.org.au*. The e-mail account serves two purposes:
+
+* It allows CiviCRM bulk e-mails to have a path to get to the VentraIP SMTP server and then onto the internet to be delivered to the recipient.
+* If a recipients email address is incorrect, then then *bounce* error information will be delivered to the inbox of *bounce@cmrailrailt.org.au*. CiviCRM reads the inbox of the bounce email account and generates bulk email reports on sucessful email deliveries and failed / bounced email deliveries.
+
+
+## CiviCRM Settings - Outbound Mail.
+
+CiviCRM, in conjuction with bounce@cmrailtrail.org.au, needs to be setup to use SMTP as its outbound mail.
+
+In CiviCRM-Standalone go to: *Administer --> System Settings --> Outbound Email (SMTP/Sendmail)*. 
+
+The CiviCRM Outbound Mailer Configuration will be defaulted to using *mail()*. i.e. The PHP mailer. This radio button needs to be changed to using the superior *SMTP* mailer method.
+
+Aside: Regarding using *mail()*, it should be noted that: 
+* Logged into *Admin Standalone* account of CiviCRM this account email is currently set to stwrtn@gmail.com
+* With the selected mailer set to *mail()* then the *Save and Send Test* would sucessfully send an email to stwrtn@gmail.com with the subject: *Test for PHP mail setting*.
+
+  
+### SMTP Settings
+
+For CiviCRM to send out SMTP emails, it needs to make use of the VentraIP email account *bounce@cmrailtrail.org.au*. CiviCRM bulk emails pass through the *bounce* account in order to get permission to use the VentraIP SMTP server and out on to the internet for delivery.
+
+In the prerequisites section, the VentraIP email account *bounce@cmrailtrail.org.au* was created.
+
+In CiviCRM, upon selecting the radio buttron for the mailer to be *SMTP* the *SMTP Configuration* panel apears and requires the following details to be entered.
+
+* **SMTP Server:** ssl://mail.cmrailtrail.org.au
+* **SMTP Port:** 465
+* **Authentication:** Yes (checked)
+* **SMTP Username:** bounce@cmrailtrail.org.au
+* **SMTP Password:** r-8-@
+
+When *Save & Send Test Email* is clicked, then an email is sent to the email address of the administrator with the emails subject: *Test for SMTP settings*. In this case it went to a personal gmail account as proof it was transmitted through the internet.
+
+## CiviCRM Settings - for Bounced Mail.
+
+If a CiviCRM originated email is undeliverable, a *bounce* message is sent back from the internet mail delivery systems to the *bounce@cmrailtrail.org.au* inbox. CiviCRM reads this inbox and generates report on the emails that bounced.
+
+In CiviCRM go to: Administer --> CiviMail --> Mail Accounts
+
+* Where I setup the "default" mail account to be bounce@mail.cmrailtrail.org.au. i.e.
+* 
+* Name: default - Name of this group of settings.
+* Server: mail.cmrailtrail.org.au - Name or IP address of mail server machine.
+* Username: bounce@mail.cmrailtrail.org.au - Username to use when polling (for IMAP and POP3).
+* Password: redfred4 - Password to use when polling (for IMAP and POP3).
+* Localpart bounce - Optional local part (e.g., 'civimail+' for addresses like civimail+s.1.2@example.com).
+* Email Domain: mail.cmrailtrail.org.au - Email address domain (the part after @).
+* Return-Path:   - Contents of the Return-Path header. Consult with your SMTP provider what address to put in here so that the SMTP server accepts outgoing mail from CiviMail. If this field is left blank, the From email address will be used as the Return-Path.
+* Protocol IMAP - Name of the protocol to use for polling.
+* Mail Folder - Folder to poll from when using IMAP (will default to INBOX when empty), path to poll from when using Maildir, etc..
+* Use SSL?: Checked - Secure Socket Layer is probablyt best. Whether to use SSL for IMAP and POP3 or not.
+* Used For?: Bounce Processing - How this mail account will be used. Only one box may be used for bounce processing. It will also be used as the envelope email when sending mass mailings.
 
 
 
-* The account may be named *bounces*, so its address for incoming emails from the internet is: *bounces@mail.cmrailtrail.org.au*
+=====
+
+
+, so its address for incoming emails from the internet is: *bounces@mail.cmrailtrail.org.au*
 
 
 Is this true?
@@ -51,31 +110,6 @@ The account could be
 
 must exist
 
-##  Setup of Settings - Outbound Mail.
-
-With CiviCRM-Standalone, *Administer --> System Settings --> Outbound Email (SMTP/Sendmail)*, the CiviCRM default Outbound Mail of PHP mailer i.e. *mail()*, needs to be changed to using the superior *SMTP* method of sending emails.
-
-Regarding using *mail()*, it should be noted that: 
-* Logged into *Admin Standalone* account of CiviCRM this account email is currently set to stwrtn@gmail.com
-* With the selected mailer set to *mail()* then the *Save and Send Test* would sucessfully send an email to stwrtn@gmail.com with trhe subject: *Test for PHP mail setting*.
-  
-### SMTP Settings
-
-For CiviCRM to send out emails, it needs to have a VentraIP email account to pass the emails through and thus find the VentraIP SMTP server which get the mail out onto the internet.
-
-An email account was created on the cmrailtrail.org.au VentraIP account. The name of the account is *bounce*. An email can be sent to this email account by addressing it to *bounce@cmrailtrail.org.au* It was called bounce as later it will be set up so that CiviCRM can read its inbox and see if any "bounced" emails occurred.
-
-Upon selecting the mailer to be *SMTP* the *SMTP Configuration* panel apears and requires the following details to be entered.
-
-* **SMTP Server:** ssl://mail.cmrailtrail.org.au
-* **SMTP Port:** 465
-* **Authentication:** Yes (checked)
-* **SMTP Username:** bounce@cmrailtrail.org.au
-* **SMTP Password:** r-8-@
-
-When *Save & Send Test Email* is clicked, then an email is sent to stwrtn@gmail.com with the subject: *Test for SMTP settings*.
-
-
 ```
 Ken Stewart
 	
@@ -85,30 +119,6 @@ Ian <stwrtn@gmail.com>
 	
 7:53 PM (6 minutes ago)
 	
-	
-to Ken
-Hi Ken,
-
-The VentraIP guy is not really very clear to me, but I guess he doesn't know CiviCRM, so he stays clear of mentioning it.
-
-I figure we need to create in C-Panel an email account called "bounce" along with the 29 other e-mail accounts that exist.
-The email is set to have a password of, say, redfred4. MY understanding is that through the bounce account the CiviCRM bulk emails will go out, and CiviCRM will monitor the bounce inbox to see if there were any bounces.
-
-Then  I go ahead with seting up the Administer -->  System and Settings --> Outbound Email (SMNP/Sendmail)  
-and select the smtp (instead of mail())
- 
-For SMTP configuration I set...
-
-    SMTP Server: mail.cmrailtrail.org.au
-    SMTP Port: 465
-    Authentication: Yes
-    Username: bounce@mail.cmrailtrial.org.au
-    Password: redfred1
-
-These questions don't seem to be asked...
-
-    Security Type: SSL/TLS
-    Authentication Method: Password
 
 
 In the General Section I leave unchanged. Not that I understand what they are all about i.e.:
@@ -118,9 +128,7 @@ Use Smarty in schedule reminders: Disabled
 VERP Separator: .
 Treat SMRP Error 450.4.1.2 as permanent: No
 
-I should then be able to simulate sending a bulk email to stwrtn@gmail.com
 
-Moving on... If that works I'll then try setting up:
 
 Administer --> CiviMail --> Mail Accounts
 
