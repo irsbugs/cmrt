@@ -41,7 +41,7 @@ The utility will be placed in the ~/bin directory.
 
 * Go to C-Panel Terminal
 * `cd ~/bin`
-* ` wget -q https://download.civicrm.org/cv/cv.phar -O cv`
+* `wget -q https://download.civicrm.org/cv/cv.phar -O cv`
 * `chmod +x cv`
 
 Performing downloading of cv utility into ~/bin
