@@ -35,4 +35,33 @@ The following was Cron administration account was setup
 * Status: Active
 * Role: Administrator
 
-  
+## Step 2: Install the CiviCRM CLI Utility (cv)
+
+The utility will be placed in the ~/bin directory. 
+
+* Go to C-Panel Terminal
+* cd ~/bin
+* wget -q https://download.civicrm.org/cv/cv.phar -O cv
+* chmod +x cv
+```
+[cmrailtr@s03dd bin]$ ls -l
+total 8
+-rwxr-xr-- 1 cmrailtr cmrailtr 221 May 29  2025 hello
+[cmrailtr@s03dd bin]$ wget -q https://download.civicrm.org/cv/cv.phar -O cv
+[cmrailtr@s03dd bin]$ chmod +x cv
+[cmrailtr@s03dd bin]$ ls -l
+total 3344
+-rwxrwxr-x 1 cmrailtr cmrailtr 3415269 Mar 20 16:58 cv
+-rwxr-xr-- 1 cmrailtr cmrailtr     221 May 29  2025 hello
+```
+
+Test:
+```
+[cmrailtr@s03dd ~]$ cv --version
+cv 0.3.71
+
+```
+    
+
+
+
