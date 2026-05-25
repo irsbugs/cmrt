@@ -40,9 +40,11 @@ The following was Cron administration account was setup
 The utility will be placed in the ~/bin directory. 
 
 * Go to C-Panel Terminal
-* cd ~/bin
-* wget -q https://download.civicrm.org/cv/cv.phar -O cv
-* chmod +x cv
+* `cd ~/bin`
+*` wget -q https://download.civicrm.org/cv/cv.phar -O cv`
+* `chmod +x cv`
+
+Performing downloading of cv utility into ~/bin
 ```
 [cmrailtr@s03dd bin]$ ls -l
 total 8
@@ -55,7 +57,7 @@ total 3344
 -rwxr-xr-- 1 cmrailtr cmrailtr     221 May 29  2025 hello
 ```
 
-Test:
+Test
 ```
 [cmrailtr@s03dd ~]$ cv --version
 cv 0.3.71
