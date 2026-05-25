@@ -30,8 +30,8 @@ The following was Cron administration account was setup
 * Username: admin-cron
 * First name: CMRT  
 * Last name: Admin-Cron
-* Email: admin@cmrailtrail.org.au
-* Password: r-8-#
+* Email: stwrtn@gmail.com Later make it: admin-cron@cmrailtrail.org.au
+* Password: r-6-4
 * Status: Active
 * Role: Administrator
 
