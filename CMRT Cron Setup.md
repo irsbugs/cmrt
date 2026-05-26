@@ -139,3 +139,17 @@ So should send emails to me every 5 mins?
 Changed to:
 
  `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone`
+
+
+drwxr-x---  7 cmrailtr nobody       4096 May 26 09:48 public_html
+drwxr-x---  8 cmrailtr nobody       4096 May 25 15:41 civicrm-standalone
+750
+
+Change civicrm-strandalone to 755:
+
+drwxr-xr-x  8 cmrailtr nobody       4096 May 25 15:41 civicrm-standalone
+
+/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
+
+/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
+
