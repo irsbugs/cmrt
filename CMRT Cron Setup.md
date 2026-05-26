@@ -118,3 +118,12 @@ Once configured in cPanel, CiviCRM handles the individual micro-jobs inside its 
 * Navigate to Administer > System Settings > Scheduled Jobs.
 * Look at any active job (like Send Scheduled Mailings or Clean-up temp data). Check the Last Run column. It should show a timestamp matching your newest cron cycle.
 
+
+[Job.version_check](https://docs.civicrm.org/user/en/latest/initial-set-up/scheduled-jobs/#job_version_check)
+
+Checks for CiviCRM version updates. Important for keeping the database secure. Also sends anonymous usage statistics to civicrm.org to to assist in prioritizing ongoing development efforts.
+
+    Name of scheduled job created by default: CiviCRM Update Check
+    Recommended frequency: daily
+    Parameters: none
+
