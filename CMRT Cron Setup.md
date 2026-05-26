@@ -36,23 +36,23 @@ Although CiviCRM documents the setting up of [Schedule Jobs](https://docs.civicr
 
 Using Administrator > Users and Permissions > User Accounts, there is currently the account with the username *civicrm_admin* which was created as part of the CiviCRM Standalone installation process:
 
-* Role: Administrator
-* Username: civicrm_admin
-* Contact: Admin, Standalone
-* User Email: Leave Blank to use the primary email from the selected contact.
-* Enabled: Checked
-* Timezone: Server Default Timezone
-* Preferred Language: Server Default Language 
+* Role: *Administrator*
+* Username: *civicrm_admin*
+* Contact: *Admin, Standalone*
+* User Email: *Leave Blank to use the primary email from the selected contact*.
+* Enabled: *Checked*
+* Timezone: *Server Default Timezone*
+* Preferred Language: *Server Default Language* 
 
 
 Using Administrator > Users and Permissions > User Accounts, the following Cron administration account was setup using *+ Add User* to *Edit User account*:
-* Role: Administer
-* Username: civicrm_cron
-* Contact: Admin, Cron Note: Clicking New Individual opens a registration window to add a new individual contact with email address.
-* User Email: Leave Blank to use the primary email from the selected contact. (wrtn@gmail.com Later make it: admin-cron@cmrailtrail.org.au )
-* Enabled: Checked
-* Timezone: Server Default Timezone
-* Preferred Language: Server Default Language
+* Role: *Administer*
+* Username: *civicrm_cron*
+* Contact: *Admin, Cron* Note: Clicking New Individual opens a registration window to add a new individual contact with email address.
+* User Email: *Leave Blank to use the primary email from the selected contact*. Cron Admin Individual Contact email is: cron@cmrailtrail.org.au
+* Enabled: *Checked*
+* Timezone: *Server Default Timezone*
+* Preferred Language: *Server Default Language*
 
 Test. The following should work OK in Terminal from civicrm-standalone directory:
 ```
@@ -62,26 +62,6 @@ OR this from another directory:
 ```
 [cmrailtr@s03dd ~]$ /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone
 ```
-
-
-NOtes:
-
-* Username: civicrm_admin
-* First name: Standalone  
-* Last name: Admin
-* Email: admin@cmrailtrail.org.au
-* Password:
-* Status: Active
-* 
-The following was Cron administration account was setup using *Edit User account*
-
-* First name: Cron 
-* Last name: Admin
-* 
-* Password: r-6-4 -
-* Status: Active
-
-
 
 ## Step 2: Install the CiviCRM CLI Utility (cv)
 
@@ -119,7 +99,35 @@ Test
 cv 0.3.71
 
 ```
-## Step 3: Configure the cPanel Cron Job Settings
+
+## Step 3: Cron email address
+
+Create an email account for cron messages to go to.
+* In CPanel > Email Accounts
+* Domain: cmrailtrailo.org.au
+* Username: cron
+* Password: r-8-@
+* Click: Create
+
+```
+Client Configuration settings for "cron@cmrailtrail.org.au".
+	
+Mail Client Manual Settings
+Secure SSL/TLS Settings (Recommended)
+Username: 	cron@cmrailtrail.org.au
+Password: 	Use the email account's password.
+Incoming Server: 	mail.cmrailtrail.org.au
+
+    IMAP Port: 993 POP3 Port: 995 
+
+Outgoing Server: 	mail.cmrailtrail.org.au
+
+    SMTP Port: 465 
+
+IMAP, POP3, and SMTP require authentication.
+```
+
+## Step 4: Configure the cPanel Cron Job Settings
 
 * Log into your VentraIP **cPanel**.
 * Scroll down to the **Advanced** section and click on **Cron Jobs**.
@@ -130,15 +138,15 @@ You can have cron send an email every time it runs a command which produces outp
 
 If you do not want an email to be sent for an individual cron job, you can redirect the command’s output to /dev/null. For example: mycommand >/dev/null 2>&1 
 
-The --user=admin-cron flag tells the cv utility to log into CiviCRM as that specific user before running the background tasks. Because CiviCRM is running via the server's command line, it has no web browser session to tell it who is performing the action. Giving it a username lets CiviCRM know:
+The `--user=civicrm_cron` flag tells the cv utility to log into CiviCRM as that specific user before running the background tasks. Because CiviCRM is running via the server's command line, it has no web browser session to tell it who is performing the action. Giving it a username lets CiviCRM know:
 * It has the correct administrator permissions to execute system tasks.
 * How to record the actions in the system logs (e.g., if a contact is updated by a cron job, the change log will correctly show it was modified by your cron user).
 
 
-
-* Email: stwrtn@gmail.com
+* Email: cron@cmrailtrail.org.au
 * Clicked: Update Email
-* Current Email: stwrtn@gmail.com
+* Current Email: cron@cmrailtrail.org.au
+  
 * Common Settings: `Once per Five Minutes(*/5 ****)`
 * Minute: `*/5 Oncew Per Five Minutes(*/5)`
 * Hour: `* Every Hour(*)`
@@ -146,27 +154,40 @@ The --user=admin-cron flag tells the cv utility to log into CiviCRM as that spec
 * Month: `* Every Month(*)`
 * Weekday: `* Every Day(*)`
 
-PHP command examples: /usr/local/bin/php /home/cmrailtr/public_html/path/to/cron/script 
-
-Command: 
-* `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1`
+Command Normal Usage: 
+* `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1`
+Command when wanting to send an email confirmation every time the Cron job fires
+* `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone`
 * Click: Add New Cron Job
 
 
 Displays: Current Cron Jobs
 ```
 Minute 	Hour 	Day 	Month 	Weekday 	Command
-*/5     *       *       *       *           /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
+*/5     *       *       *       *      /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
+```
+When cron job fires successfully, without the >/dev/null 2>&1 in the command, the email logged will look like this:
+```
+Cron <cmrailtr@s03dd> /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone
+Contact photo
+From (Cron Daemon) on 2026-05-27 09:10
+Details Headers
+{
+    "is_error": 0,
+    "version": 3,
+    "count": 1,
+    "values": 1
+}
 ```
 
-## Step 4: Verify It Is Running
+## Step 5: Verify It Is Running
 
 Once configured in cPanel, CiviCRM handles the individual micro-jobs inside its own UI database.
 * Go back into your CiviCRM interface.
 * Navigate to Administer > System Settings > Scheduled Jobs.
 * Look at any active job (like Send Scheduled Mailings or Clean-up temp data). Check the Last Run column. It should show a timestamp matching your newest cron cycle.
 
-
+### Testing using Version Check 
 [Job.version_check](https://docs.civicrm.org/user/en/latest/initial-set-up/scheduled-jobs/#job_version_check)
 
 Checks for CiviCRM version updates. Important for keeping the database secure. Also sends anonymous usage statistics to civicrm.org to to assist in prioritizing ongoing development efforts.
@@ -174,30 +195,22 @@ Checks for CiviCRM version updates. Important for keeping the database secure. A
     Name of scheduled job created by default: CiviCRM Update Check
     Recommended frequency: daily
     Parameters: none
+Change the frequency from Dailty to Every Five Minutes, or Hourly, to check cron jobs aare firing OK.
 
 
+## Links to Places to Review Cron Job status, etc:
 
-Not triggering
+The following are links to aspects related to Cron, the Cron Account, and Scheduled Jobs
+* [Administer User Accounts](https://crm.cmrailtrail.org.au/civicrm/admin/users)
+* [Cron Admin Individual Contact](https://crm.cmrailtrail.org.au/civicrm/contact/view?reset=1&cid=3)
+* [Manage Schedule Jobs](https://crm.cmrailtrail.org.au/civicrm/admin/job?reset=1)
+* [CiviCRM System Status](https://crm.cmrailtrail.org.au/civicrm/a/#/status)
 
-Rewmoved
-* >/dev/null 2>&1
-
-So should send emails to me every 5 mins?
-
-Changed to:
-
- `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone`
+Email
+* [Email Accounts](https://s03dd.syd6.hostingplatform.net.au:2083/cpsess9498689760/frontend/jupiter/email_accounts/index.html#/list)
+* [Cron Email account](https://s03dd.syd6.hostingplatform.net.au:2096/cpsess7418404251/3rdparty/roundcube/?_task=mail&_mbox=INBOX)
 
 
-drwxr-x---  7 cmrailtr nobody       4096 May 26 09:48 public_html
-drwxr-x---  8 cmrailtr nobody       4096 May 25 15:41 civicrm-standalone
-750
-
-Change civicrm-strandalone to 755:
-
-drwxr-xr-x  8 cmrailtr nobody       4096 May 25 15:41 civicrm-standalone
-
-/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
-
-/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1
-
+Documentation
+* [Documentation Scheduled Jobs](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/)
+* [Documentation - Systemd Timer](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/#systemd-timers)
