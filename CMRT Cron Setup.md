@@ -127,3 +127,15 @@ Checks for CiviCRM version updates. Important for keeping the database secure. A
     Recommended frequency: daily
     Parameters: none
 
+
+
+Not triggering
+
+Rewmoved
+* >/dev/null 2>&1
+
+So should send emails to me every 5 mins?
+
+Changed to:
+
+ `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=admin-cron --cwd=/home/cmrailtr/civicrm-standalone`
