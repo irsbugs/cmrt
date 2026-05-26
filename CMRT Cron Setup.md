@@ -1,6 +1,6 @@
 # Cron Setup
 
-The Cron utility will be used so that Linux can trigger *scheduled jobs* to run in CiviCRM Standalone.
+The Cron utility is used so that Linux can trigger *scheduled jobs* to run in CiviCRM Standalone.
 
 VentraIP has a C-Panel application called *Cron Jobs*. *Add New Cron Job* is performed, where the *Common Setting* is selected to be *Once per Five Minutes(\*5\*\*\*\*)*. Every five minutes the following command is excecuted:
 
