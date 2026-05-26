@@ -16,7 +16,6 @@ To understand this command, the following is a break down of its components:
 * `--cwd=/home/cmrailtr/civicrm-standalone` is the path to the current-working-directory where CiviCRM is located.
 
 
-
 There are two options for scheduling the CiviCRM jobs:
 * Cron - Time-based job scheduler.
 * [Systemd timers](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/#systemd-timers)  Used as a cron-like job scheduler.
@@ -53,8 +52,10 @@ Using Administrator > Users and Permissions > User Accounts, the following Cron 
 * Timezone: Server Default Timezone
 * Preferred Language: Server Default Language
 
-Test. This should work OK in Terminal from civicrm-standalone directory:
-[cmrailtr@s03dd civicrm-standalone]$ cv api job.execute --user=civicrm_cron
+Test. The following should work OK in Terminal from civicrm-standalone directory:
+`[cmrailtr@s03dd civicrm-standalone]$ cv api job.execute --user=civicrm_cron`
+OR this from another directory:
+`[cmrailtr@s03dd ~]$ /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_admin --cwd=/home/cmrailtr/civicrm-standalone`
 
 
 
