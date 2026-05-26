@@ -4,16 +4,17 @@ The Cron utility is used so that the Linux operating system can trigger *schedul
 
 VentraIP has a C-Panel application called *Cron Jobs*. New cron jobs can be added using *Add New Cron Job*. The new cron job has a *Common Setting* that has been selected to be *Once per Five Minutes(\*5\*\*\*\*)*. Every five minutes the following command is excecuted:
 
-`/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone`
+`/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone >/dev/null 2>&1`
 
 To understand this command, the following is a break down of its components:
 * `/usr/local/bin/php` tells linux to find `php` down the path `/usr/local/bin/`
 * `/home/cmrailtr/bin/cv` tells `php` to find `cv` utility down the path `/home/cmrailtr/bin/`
-* The CiviCRM `cv` utility is a command-line tool designed for managing CiviCRM installations, allowing users to perform various administrative tasks directly from the terminal.
+* `cv` utility is a command-line tool designed for managing CiviCRM installations, allowing users to perform various administrative tasks directly from the terminal.
 * `cv api` tells `cv` to use the CiviCRM *Application Programming Interface*, `api`. It should default to using the more modern `api4`, rather than `api3`.
 * `job.execute` is the command passed to the `api`, to fire the relavent tasks on the CiviCRM Scheduled Jobs list.
 * `--user=civicrm_cron` defines the username of the account `civicrm_cron` that has administrative priviledge that allows access to the api.  
 * `--cwd=/home/cmrailtr/civicrm-standalone` is the path to the current-working-directory where CiviCRM is located.
+* `>/dev/null 2>&1` is to run the command in the background and not to send any emails or logs about it.
 
 
 There are two options for scheduling the CiviCRM jobs:
