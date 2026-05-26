@@ -53,8 +53,11 @@ Using Administrator > Users and Permissions > User Accounts, the following Cron 
 * Preferred Language: Server Default Language
 
 Test. The following should work OK in Terminal from civicrm-standalone directory:
+
 `[cmrailtr@s03dd civicrm-standalone]$ cv api job.execute --user=civicrm_cron`
+
 OR this from another directory:
+
 `[cmrailtr@s03dd ~]$ /usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_admin --cwd=/home/cmrailtr/civicrm-standalone`
 
 
