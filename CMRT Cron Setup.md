@@ -2,11 +2,11 @@
 
 The Cron utility is used so that the Linux operating system can trigger *scheduled jobs* to run in CiviCRM Standalone.
 
-VentraIP has a C-Panel application called *Cron Jobs*. *Add New Cron Job* is performed, where the *Common Setting* is selected to be *Once per Five Minutes(\*5\*\*\*\*)*. Every five minutes the following command is excecuted:
+VentraIP has a C-Panel application called *Cron Jobs*. New cron jobs can be added using *Add New Cron Job*. The new cron job has a *Common Setting* that has been selected to be *Once per Five Minutes(\*5\*\*\*\*)*. Every five minutes the following command is excecuted:
 
 `/usr/local/bin/php /home/cmrailtr/bin/cv api job.execute --user=civicrm_cron --cwd=/home/cmrailtr/civicrm-standalone`
 
-Breaking down the components of the command:
+To understand this command, the following is a break down of its components:
 * `/usr/local/bin/php` tells linux to find `php` down the path `/usr/local/bin/`
 * `/home/cmrailtr/bin/cv` tells `php` to find `cv` utility down the path `/home/cmrailtr/bin/`
 * The CiviCRM `cv` utility is a command-line tool designed for managing CiviCRM installations, allowing users to perform various administrative tasks directly from the terminal.
