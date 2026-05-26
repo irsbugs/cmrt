@@ -45,7 +45,7 @@ Using Administrator > Users and Permissions > User Accounts, there is currently 
 
 
 Using Administrator > Users and Permissions > User Accounts, the following Cron administration account was setup using *+ Add User* to *Edit User account*:
-* Role: Administer > 
+* Role: Administer
 * Username: civicrm_cron
 * Contact: Admin, Cron Note: Clicking New Individual opens a registration window to add a new individual contact with email address.
 * User Email: Leave Blank to use the primary email from the selected contact. (wrtn@gmail.com Later make it: admin-cron@cmrailtrail.org.au )
