@@ -29,26 +29,53 @@ Although CiviCRM documents the setting up of [Schedule Jobs](https://docs.civicr
 
 * For security and traceability, do not use your primary admin account to fire cron tasks.  
 * Log in to your CiviCRM Standalone site.
-* Go to Administer > Users and Permissions > Manage Users.
-* Create a user named cron (or similar) and assign them the Administrator role.
+* Go to Administer > Users and Permissions > User Accounts.
+* Create a User with the user *civicrm_cron*, or similar, and assign them the Administrator role.
+* Also register the User as an Individual contact.
 
-Currently there is the administration account:
-* Username: admin
-* First name: CMRT  
+Using Administrator > Users and Permissions > User Accounts, there is currently the account with the username *civicrm_admin* which was created as part of the CiviCRM Standalone installation process:
+
+* Role: Administrator
+* Username: civicrm_admin
+* Contact: Admin, Standalone
+* User Email: Leave Blank to use the primary email from the selected contact.
+* Enabled: Checked
+* Timezone: Server Default Timezone
+* Preferred Language: Server Default Language 
+
+
+Using Administrator > Users and Permissions > User Accounts, the following Cron administration account was setup using *+ Add User* to *Edit User account*:
+* Role: Administer > 
+* Username: civicrm_cron
+* Contact: Admin, Cron Note: Clicking New Individual opens a registration window to add a new individual contact with email address.
+* User Email: Leave Blank to use the primary email from the selected contact. (wrtn@gmail.com Later make it: admin-cron@cmrailtrail.org.au )
+* Enabled: Checked
+* Timezone: Server Default Timezone
+* Preferred Language: Server Default Language
+
+Test. This should work OK in Terminal from civicrm-standalone directory:
+[cmrailtr@s03dd civicrm-standalone]$ cv api job.execute --user=civicrm_cron
+
+
+
+NOtes:
+
+* Username: civicrm_admin
+* First name: Standalone  
 * Last name: Admin
 * Email: admin@cmrailtrail.org.au
 * Password:
 * Status: Active
-* Role: Administrator
+* 
+The following was Cron administration account was setup using *Edit User account*
 
-The following was Cron administration account was setup
-* Username: admin-cron
-* First name: CMRT  
-* Last name: Admin-Cron
-* Email: stwrtn@gmail.com Later make it: admin-cron@cmrailtrail.org.au
-* Password: r-6-4
+* First name: Cron 
+* Last name: Admin
+* 
+* Password: r-6-4 -
 * Status: Active
-* Role: Administrator
+
+
 
 ## Step 2: Install the CiviCRM CLI Utility (cv)
 
