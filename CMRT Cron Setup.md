@@ -215,7 +215,7 @@ Documentation
 * [Documentation Scheduled Jobs](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/)
 * [Documentation - Systemd Timer](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/#systemd-timers)
 
-## CiviCRM Standalone - Scheduled Jobd list
+## CiviCRM Standalone - Scheduled Jobs list
 
 CiviCRM Standalone is supplied with a list of 22 Jobs to [review](https://docs.civicrm.org/user/en/latest/initial-set-up/scheduled-jobs/) and decide if they are to be enabled.
 
