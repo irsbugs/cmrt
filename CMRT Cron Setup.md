@@ -214,3 +214,34 @@ Email
 Documentation
 * [Documentation Scheduled Jobs](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/)
 * [Documentation - Systemd Timer](https://docs.civicrm.org/sysadmin/en/latest/setup/jobs/#systemd-timers)
+
+## CiviCRM Standalone - Scheduled Jobd list
+
+CiviCRM Standalone is supplied with a list of 22 Jobs to review and decide if they are to be enabled.
+
+```
+Job                                 Frequency                  Enabled  API
+---------------------------------------------------------------------------------------------------------
+CiviCRM Update Check                 Daily                       Yes    Job.version_check 
+Clean-up Temporary Data and Files    Weekly                      Yes    Job.cleanup 
+Dedupe Contacts                      Daily                       No     Job.process_batch_merge 
+Disable expired relationships        Daily                       No     Job.disable_expired_relationships 
+Fetch Bounces                        Hourly                      No     Job.fetch_bounces 
+Geocode and Parse Addresses          Daily                       No     Job.geocode 
+Group Cache Flush                    Hourly                      No     Job.group_cache_flush 
+Mail Reports                         Daily                       No     Job.mail_report 
+Process CiviMail Queue items         Hourly                      No     Mailing.runQueue 
+Process Inbound Emails               Hourly                      No     Job.fetch_activities 
+Process Pledges                      Daily                       No     Job.process_pledge 
+Process Survey Respondents           Every time cron job is run  No     Job.process_respondent 
+Rebuild Smart Group Cache            Hourly                      No     Job.group_rebuild 
+Send Scheduled Mailings              Every time cron job is run  No     Job.process_mailing 
+Send Scheduled Reminders             Hourly                      No     Job.send_reminder 
+Send Scheduled SMS                   Every time cron job is run  No     Job.process_sms 
+Update Individual Addressee          Daily                       No     Job.update_greeting 
+Update Individual Email Greeting     Daily                       No     Job.update_greeting 
+Update Individual Postal Greeting    Daily                       No     Job.update_greeting 
+Update Membership Statuses           Daily                       No     Job.process_membership 
+Update Participant Statuses          Every time cron job is run  No     Job.process_participant 
+Validate Email Address from Mailings Daily                       No     Mailing.update_email_resetdate 
+```
