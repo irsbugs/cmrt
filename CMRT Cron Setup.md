@@ -218,6 +218,7 @@ Documentation
 ## CiviCRM Standalone - Scheduled Jobd list
 
 CiviCRM Standalone is supplied with a list of 22 Jobs to review and decide if they are to be enabled.
+Note that the Cron job is run every five minutes
 
 ```
 Job                                 Frequency                  Enabled  API
