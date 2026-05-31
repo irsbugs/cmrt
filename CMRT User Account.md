@@ -39,6 +39,42 @@ Connection to login page from Web-browser: https://crm.cmrailtrail.org.au/civicr
 
 Connection to VentraIP Webmail login from a web-browser: https://s03dd.syd6.hostingplatform.net.au:2096/
 
+Note: During the Installation of CiviCRM Standalone the installation process requests and Administration User account, pssword and email address. 
+
+
+## Example of adding password for Cron after creating the civicrm_cron user account. 
+
+Performed by copying and pasting the Admin password.
+
+```
+
+MariaDB [cmrailtr_civi]> SELECT id, uf_id, uf_name, username, hashed_password FROM civicrm_uf_match;
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+| id | uf_id | uf_name                        | username            | hashed_password                                         |
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+|  1 |     1 | hello@cmrailtrail.org.au       | civicrm_admin       | $$1234------secure Bcrypt hashing algorithm------4321$$ |
+|  2 |     2 | cron@cmrailtrail.org.au        | civicrm_cron        |                                                         |
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+
+```
+Use SQL to add the password for the Cron account with uf_id = 2.
+```
+MariaDB [cmrailtr_civi]> UPDATE civicrm_uf_match SET hashed_password = '$$1234------secure Bcrypt hashing algorithm-----4321$$' WHERE id = 2;
+
+MariaDB [cmrailtr_civi]> SELECT id, uf_id, uf_name, username, hashed_password FROM civicrm_uf_match;
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+| id | uf_id | uf_name                        | username            | hashed_password                                         |
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+|  1 |     1 | hello@cmrailtrail.org.au       | civicrm_admin       | $$1234------secure Bcrypt hashing algorithm------4321$$ |
+|  2 |     2 | cron@cmrailtrail.org.au        | civicrm_cron        | $$1234------secure Bcrypt hashing algorithm------4321$$ |
++----+-------+--------------------------------+---------------------+---------------------------------------------------------+
+
+```
+
+On a web-browser go to: https://crm.cmrailtrail.org.au/civicrm/login
+
+Log into civicrm_cron with password the same as civicrm_admin
+
 
 
 ## Gemini response to query on setting password in CiviCRM Standalone
@@ -83,7 +119,7 @@ Log into your MySQL/MariaDB terminal and execute the update query against your t
 
 ```SQL
 UPDATE civicrm_uf_match 
-SET password = '$2y$10$YourGeneratedHashStringGoesHere...' 
+SET hashed_password = '$2y$10$YourGeneratedHashStringGoesHere...' 
 WHERE id = 12;
 ```
 
