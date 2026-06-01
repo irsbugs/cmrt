@@ -39,7 +39,7 @@ Connection to login page from Web-browser: https://crm.cmrailtrail.org.au/civicr
 
 Connection to VentraIP Webmail login from a web-browser: https://s03dd.syd6.hostingplatform.net.au:2096/
 
-Note: During the Installation of CiviCRM Standalone the installation process requests and Administration User account, pssword and email address. 
+Note: During the Installation of CiviCRM Standalone the installation process requests and Administration User account, password and email address. 
 
 
 ## Example of adding password for Cron after creating the civicrm_cron user account. 
