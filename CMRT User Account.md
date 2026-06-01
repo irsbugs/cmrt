@@ -337,7 +337,7 @@ MariaDB [cmrailtr_civi]> show tables;
 
 ```
 
-
+```
 MariaDB [cmrailtr_civi]> SHOW COLUMNS FROM civicrm_user_role;
 +---------+------------------+------+-----+---------+----------------+
 | Field   | Type             | Null | Key | Default | Extra          |
@@ -380,3 +380,227 @@ MariaDB [cmrailtr_civi]> SHOW COLUMNS FROM civicrm_relationship;
 +----------------------+------------------+------+-----+---------------------+-------------------------------+
 13 rows in set (0.003 sec)
 EMPTY
+```
+
+All Permissions
+
+* Afform	 Inherit permission of afformQuickAddIndividual
+* Afform	 Inherit permission of afformQuickAddOrganization
+* Afform	 Inherit permission of afformQuickEditHousehold
+* Afform	 Inherit permission of afformQuickEditIndividual
+* Afform	 Inherit permission of afformQuickEditOrganization
+* Afform	 Inherit permission of afformSiteEmailAddress
+* Afform	 Inherit permission of afformSiteToken
+* Afform	 Inherit permission of afsearchAdminCustomFields
+* Afform	 Inherit permission of afsearchAdminCustomGroups
+* Afform	 Inherit permission of afsearchCustomFieldOptions
+* Afform	 Inherit permission of afsearchSiteEmailAddresses
+* Afform	 Inherit permission of afsearchSiteTokens
+* Afform	 Inherit permission of afsearchTabNote
+* Afform	 Inherit permission of afsearchTabRel
+* Afform	 Inherit permission of afsearchMosaicoTemplateList
+* Afform	 Inherit permission of afformEditMyAccount
+* Afform	 Inherit permission of afformEditRole
+* Afform	 Inherit permission of afformEditUserAccount
+* Afform	 Inherit permission of afsearchAdministerRoles
+* Afform	 Inherit permission of afsearchAdministerUserAccounts
+* Afform	 Inherit permission of afsearchMyAccount
+* Afform	 Inherit permission of afsearchPermissions
+* Afform	 Inherit permission of afAdminFormSubmissionList
+* Afform	 Inherit permission of afblockContactAddress
+* Afform	 Inherit permission of afblockContactEmail
+* Afform	 Inheritpermission of afblockContactIM
+* Afform	 Inherit permission of afblockContactNote
+* Afform	 Inherit permission of afblockContactPhone
+* Afform	 Inherit permission of afblockContactWebsite
+* Afform	 Inherit permission of afblockEventLocBlock
+* Afform	 Inherit permission of afblockNameHousehold
+* Afform	 Inherit permission of afblockNameIndividual
+* Afform	 Inherit permission of afblockNameOrganization
+* Afform	 Inherit permission of afblockParticipantNote
+* Afform	 Inherit permission of crmMsgadmMonaco
+* Afform	 Inherit permission of afsearchAllImports
+* Afform	 Inherit permission of afsearchMyImports
+* Afform	 Inherit permission of afsearchTemplates
+* Afform	 Inherit permission of afsearchCiviGrantDashboard
+* Afform	 Inherit permission of afsearchTabGrant
+* Afform	 Inherit permission of afformTabMember
+* Afform	 Inherit permission of afsearchAdminBadgelayout
+* Afform	 Inherit permission of afsearchAdminContactTypes
+* Afform	 Inherit permission of afsearchAdminFinancialTypes
+* Afform	 Inherit permission of afsearchAdminScheduledReminders
+* Afform	 Inherit permission of afsearchAdministerLocationTypes
+* Afform	 Inherit permission of afsearchAdministerMembershipStatusRules
+* Afform	 Inherit permission of afsearchAdministerNavigationMenu
+* Afform	 Inherit permission of afsearchAdministerPaymentProcessors
+* Afform	 Inherit permission of afsearchAdministerPriceFieldValues
+* Afform	 Inherit permission of afsearchAdministerPriceFields
+* Afform	 Inherit permission of afsearchAdministerPriceSets
+* Afform	 Inherit permission of afsearchAssignUsersToRoles
+* Afform	 Inherit permission of afsearchAssignedFinancialAccounts
+* Afform	 Inherit permission of afsearchCiviCRMQueues
+* Afform	 Inherit permission of afsearchFinancialAccounts
+* Afform	 Inherit permission of afsearchHeadersFootersAndAutomatedMessages
+* Afform	 Inherit permission of afsearchImportExportMappings
+* Afform	 Inherit permission of afsearchLabelFormats
+* Afform	 Inherit permission of afsearchMailAccounts
+* Afform	 Inherit permission of afsearchMailingBrowseScheduled
+* Afform	 Inherit permission of afsearchMailingClickThroughsResults
+* Afform	 Inherit permission of afsearchManageACLs
+* Afform	 Inherit permission of afsearchManageContributionPages
+* Afform	 Inherit permission of afsearchManageGroups
+* Afform	 Inherit permission of afsearchManageScheduledJobs
+* Afform	 Inherit permission of afsearchPersonalCampaignPages
+* Afform	 Inherit permission of afsearchPremiumProducts
+* Afform	 Inherit permission of afsearchPrintPagePDFFormats
+* Afform	 Inherit permission of afsearchProfileFields
+* Afform	 Inherit permission of afsearchProfiles
+* Afform	 Inherit permission of afsearchRelationshipTypes
+* Afform	 Inherit permission of afsearchSMSProvider
+* Afform	 Inherit permission of afsearchScheduledJobsLog
+* Afform	 Inherit permission of afsearchSettingsDatePreferences
+* Afform	 Inherit permission of afsearchTabActivity
+* Afform	 Inherit permission of afsearchTabCase
+* Afform	 Inherit permission of afsearchTabMember
+* Afform	 Inherit permission of afsearchTabParticipant
+* Afform	 Inherit permission of afsearchTabPledge
+* Afform	 Inherit permission of afsearchEmailBounceHistory
+* Afform	 Inherit permission of afformNewDonation
+* Afform	 Inherit permission of afsearchCampaignDashboard
+* Afform	 Inherit permission of afsearchSurveyOptionGroup
+* AuthX	 Authenticate to services with password
+* AuthX	 Authenticate to services with API key
+* AuthX	 Generate new JWT credentials for other users via the API
+* AuthX	 Validate credentials for other users via the API
+* AuthX	 Administer settings
+* CiviCampaign	 administer CiviCampaign
+* CiviCampaign	 manage campaign
+* CiviCampaign	 reserve campaign contacts
+* CiviCampaign	 release campaign contacts
+* CiviCampaign	 interview campaign contacts
+* CiviCampaign	 GOTV campaign contacts
+* CiviCampaign	 sign CiviCRM Petition
+* CiviCase	 delete in CiviCase
+* CiviCase	 administer CiviCase
+* CiviCase	 access my cases and activities
+* CiviCase	 access all cases and activities
+* CiviCase	 add cases
+* CiviContribute	 access CiviContribute
+* CiviContribute	 edit contributions
+* CiviContribute	 Refund contributions
+* CiviContribute	 make online contributions
+* CiviContribute	 delete in CiviContribute
+* CiviCRM	 add contacts
+* CiviCRM	 view all contacts
+* CiviCRM	 edit all contacts
+* CiviCRM	 view my contact
+* CiviCRM	 edit my contact
+* CiviCRM	 delete contacts
+* CiviCRM	 access deleted contacts
+* CiviCRM	 import contacts
+* CiviCRM	 import SQL datasource
+* CiviCRM	 edit groups
+* CiviCRM	 administer CiviCRM
+* CiviCRM	 skip IDS check
+* CiviCRM	 access uploaded files
+* CiviCRM	 profile listings and forms
+* CiviCRM	 profile listings
+* CiviCRM	 profile create
+* CiviCRM	 profile edit
+* CiviCRM	 profile view
+* CiviCRM	 access all custom data
+* CiviCRM	 view all activities
+* CiviCRM	 Delete activities
+* CiviCRM	 edit inbound email basic information
+* CiviCRM	 edit inbound email basic information and content
+* CiviCRM	 access CiviCRM backend and API
+* CiviCRM	 access Contact Dashboard
+* CiviCRM	 translate CiviCRM
+* CiviCRM	 manage tags
+* CiviCRM	 administer reserved groups
+* CiviCRM	 administer Tagsets
+* CiviCRM	 administer reserved tags
+* CiviCRM	 administer queues
+* CiviCRM	 administer dedupe rules
+* CiviCRM	 merge duplicate contacts
+* CiviCRM	 force merge duplicate contacts
+* CiviCRM	 view debug output
+* CiviCRM	 view all notes
+* CiviCRM	 add contact notes
+* CiviCRM	 access AJAX API
+* CiviCRM	 access contact reference fields
+* CiviCRM	 create manual batch
+* CiviCRM	 edit own manual batches
+* CiviCRM	 edit all manual batches
+* CiviCRM	 close own manual batches
+* CiviCRM	 close all manual batches
+* CiviCRM	 reopen own manual batches
+* CiviCRM	 reopen all manual batches
+* CiviCRM	 view own manual batches
+* CiviCRM	 view all manual batches
+* CiviCRM	 delete own manual batches
+* CiviCRM	 delete all manual batches
+* CiviCRM	 export own manual batches
+* CiviCRM	 export all manual batches
+* CiviCRM	 administer payment processors
+* CiviCRM	 render templates
+* CiviCRM	 edit message templates
+* CiviCRM	 edit system workflow message templates
+* CiviCRM	 edit user-driven message templates
+* CiviCRM	 view my invoices
+* CiviCRM	 edit api keys
+* CiviCRM	 edit own api keys
+* CiviCRM	 send SMS
+* CiviCRM	 administer CiviCRM System
+* CiviCRM	 administer CiviCRM Data
+* CiviCRM	 all CiviCRM permissions and ACLs
+* CiviCRM Standalone Users	 Allow users to access the reset password system
+* CiviCRM Standalone Users	 Administer user accounts
+* CiviCRM Standalone Users	 Bypass maintenance mode
+* CiviCRM Standalone Users	 Administer settings
+* CiviCRM StandaloneUsers	 View user accounts
+* CiviEvent	 access CiviEvent
+* CiviEvent	 edit event participants
+* CiviEvent	 edit all events
+* CiviEvent	 register for events
+* CiviEvent	 view event info
+* CiviEvent	 view event participants
+* CiviEvent	 delete in CiviEvent
+* CiviEvent	 manage event profiles
+* CiviGrant	 access CiviGrant
+* CiviGrant	 edit grants
+* CiviGrant	 delete in CiviGrant
+* CiviMail	 access CiviMail
+* CiviMail	 access CiviMail subscribe/unsubscribe pages
+* CiviMail	 delete in CiviMail
+* CiviMail	 view public CiviMail content
+* CiviMail	 create mailings
+* CiviMail	 schedule mailings
+* CiviMail	 approve mailings
+* CiviMember	 access CiviMember
+* CiviMember	 edit memberships
+* CiviMember	 delete in CiviMember
+* CiviPledge	 access CiviPledge
+* CiviPledge	 edit pledges
+* CiviPledge	 delete in CiviPledge
+* CiviReport	 access CiviReport
+* CiviReport	 access Report Criteria
+* CiviReport	 save Report Criteria
+* CiviReport	 administer private reports
+* CiviReport	 administer reserved reports
+* CiviReport	 administer Reports
+* CiviReport	 view report sql
+* cms	administer users
+* cms	view user account
+* cms	bypass maintenance mode
+* FormBuilder	 edit and delete forms
+* FormBuilder	 edit and delete own forms
+* Generic	 Deny all users
+* Generic	 Allow all users (including anonymous)
+* Generic	 Allow any authenticated contact
+* Generic	 Anyone with secret link
+* reCAPTCHA	 Administer settings
+* SearchKit	 edit and delete all searches
+* SearchKit	 edit and delete own searches
+* User Role	 Administrator
+* User Role	 Staff
