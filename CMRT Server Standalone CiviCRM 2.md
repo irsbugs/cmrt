@@ -786,11 +786,12 @@ fred
 fred
 
 
-Administrative User: admin
+Administrative User: admin  <---user account is: admin  Creates Individual Contact: Standalone Admin
 Administrative Password: fred
 Administrative Email: stwrtn@gmail.com
 
-
+Creates Individual Contact: Standalone Admin
+and Default Organization
 
 CiviCRM Settings File 	/home/ian/civicrm-standalone/private/civicrm.settings.php
 CiviCRM Source Code 	/home/ian/civicrm-standalone/core
