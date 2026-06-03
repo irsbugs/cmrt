@@ -584,5 +584,221 @@ ssh: connect to host s03dd.syd6.hostingplatform.net.au port 22: Network is unrea
 
 ian@hp:~$ ssh cmrailtr@cmrailtrail.org.au
 
+## Ian PC setting up CiviCRM Standalone 
+```
 
+(nikola-2025-env) ian@hp:/etc/apache2/sites-available$ cat nano civicrm.conf
+cat: nano: No such file or directory
+<VirtualHost *:80>
+    # CiviCRM Standalone Configuration.
+    # civicrm.conf - Ian Stewart 2026-05-12. 
+    # Resides in: /etc/apache2/sites-available/ 
+    # Uses path: /home/ian/civicrm-standalone as civicrm-standalone is top level of .tar.gz distribution
+    #ServerName crm.cmrailtrail.local.pc
+    Servername civi.local.pc
+    # CiviCRM Standalone uses a modern directory structure where only the public is exposed to the web.
+    DocumentRoot /home/ian/civicrm-standalone
+
+    <Directory /home/ian/civicrm-standalone>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Ensure Authorization headers are passed to PHP (needed for CiviCRM API)
+    SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+    ErrorLog ${APACHE_LOG_DIR}/crm_error.log
+    CustomLog ${APACHE_LOG_DIR}/crm_access.log combined
+</VirtualHost>
+(nikola-2025-env) ian@hp:/etc/apache2/sites-available$ 
+
+
+===
+(nikola-2025-env) ian@hp:/etc/apache2$ cat envvars
+# envvars - default environment variables for apache2ctl
+
+# this won't be correct after changing uid
+unset HOME
+
+# for supporting multiple apache2 instances
+if [ "${APACHE_CONFDIR##/etc/apache2-}" != "${APACHE_CONFDIR}" ] ; then
+	SUFFIX="-${APACHE_CONFDIR##/etc/apache2-}"
+else
+	SUFFIX=
+fi
+
+# Since there is no sane way to get the parsed apache2 config in scripts, some
+# settings are defined via environment variables and then used in apache2ctl,
+# /etc/init.d/apache2, /etc/logrotate.d/apache2, etc.
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
+
+====
+
+ian@hp:/etc$ cat hosts
+127.0.0.1	localhost
+127.0.1.1	hp
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# Add domain name resolver for civi. CiviCRM Standalone Ian 2026-06-04
+127.0.0.1 civi.local.pc
+
+
+=====
+
+
+
+(nikola-2025-env) ian@hp:/etc$ sudo a2enmod rewrite
+Module rewrite already enabled
+
+(nikola-2025-env) ian@hp:/etc$ sudo systemctl restart apache2
+
+
+
+ian@hp:~$ sudo mysql -u root -p 
+[sudo] password for ian: 
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 42
+Server version: 10.11.14-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| civicrm            |
+| ian_test_1         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| wordpress          |
++--------------------+
+7 rows in set (0.004 sec)
+
+MariaDB [(none)]> Use mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [mysql]> Use mysql
+Database changed
+MariaDB [mysql]> CREATE DATABASE civi;
+Query OK, 1 row affected (0.001 sec)
+MariaDB [mysql]> 
+MariaDB [mysql]> CREATE USER cmrailtr_czhn1@localhost IDENTIFIED BY 'W.---HIDDEN---40';
+MariaDB [mysql]> 
+MariaDB [mysql]> CREATE USER ian@localhost IDENTIFIED BY 'ian';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'ian'@'localhost'
+MariaDB [mysql]> history
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'history' at line 1
+MariaDB [mysql]> CREATE USER ian@localhost IDENTIFIED BY 'ian';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'ian'@'localhost'
+MariaDB [mysql]> CREATE USER civi@localhost IDENTIFIED BY 'ian';
+Query OK, 0 rows affected (0.008 sec)
+
+
+ I thinnk Ian already exists
+MariaDB [mysql]> CREATE USER ian@localhost IDENTIFIED BY 'ian';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'ian'@'localhost'
+MariaDB [mysql]> CREATE USER civi@localhost IDENTIFIED BY 'ian';
+Query OK, 0 rows affected (0.008 sec)
+
+
+
+
+
+MariaDB [mysql]> GRANT ALL ON ian.* TO civi@localhost
+    -> ;
+Query OK, 0 rows affected (0.005 sec)
+
+
+
+MariaDB [(none)]> CREATE USER 'ian'@'localhost' IDENTIFIED BY 'ian';
+ERROR 1396 (HY000): Operation CREATE USER failed for 'ian'@'localhost'
+MariaDB [(none)]> CREATE USER 'fred'@'localhost' IDENTIFIED BY 'fred';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> GRANT ALL on civi.* to 'fred'@'localhost';
+Query OK, 0 rows affected (0.003 sec)
+
+
+
+ian@hp:~$ nano .my_civi.cnf
+
+ian@hp:~$ cat .my_civi.cnf
+# ~/.my_civi.cnf
+# mysql configuration file for Civicrm Standalone.
+# 2026-06-04
+# Ian
+# Resides in: ~/.my_civi.cnf 
+# Based on content of: Setup prior to installation of civicrm
+# $ mysql --defaults-file=/home/ian/.my_civi.cnf  --execute='show databases; show tables;'
+#
+[client]
+host=localhost
+user=fred
+#user=wordpress
+password=fred
+
+[mysql]
+database=civi # For CiviCRM standalone
+
+
+ian@hp:~$ mysql --defaults-file=/home/ian/.my_civi.cnf
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 48
+Server version: 10.11.14-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+MariaDB [civi]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| civi               |
+| information_schema |
++--------------------+
+2 rows in set (0.000 sec)
+
+
+CiviCRM Browser install
+
+127.0.0.1:3306
+civi
+fred
+fred
+
+
+Administrative User: admin
+Administrative Password: fred
+Administrative Email: stwrtn@gmail.com
+
+
+
+CiviCRM Settings File 	/home/ian/civicrm-standalone/private/civicrm.settings.php
+CiviCRM Source Code 	/home/ian/civicrm-standalone/core
+
+
+Browser: http://civi.local.pc/civicrm/home = 127.0.0.1
+
+
+
+```
 
