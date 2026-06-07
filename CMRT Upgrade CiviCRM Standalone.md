@@ -2,6 +2,8 @@
 
 A guide to upgrading CiviCRM-Standalone to a newer release.
 
+Python2 code: [civicrm_upgrade](/code/civicrm_upgrade)
+
 ## Introduction
 
 There is a new release of CiviCRM-Standalone about once a month. Checking for a new release and downloading it may be done at [CiviCRM Download](https://civicrm.org/download)
