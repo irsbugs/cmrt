@@ -1,0 +1,969 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+#
+# Change the date with newer versions of this program.
+PROGRAM = "civicrm_upgrade.py - ©CC0 CMRT - 2026-06-07"
+# This program resides, with executable permissions, in: ~/bin/civicrm_upgrade
+# Author: Ian Stewart
+
+# TODO: Have numbering for progresss of steps 1/10 2/20 etc.
+# Do a backup when finished
+
+# Import modules:
+
+import sys
+import os
+import pwd
+import grp
+import hashlib
+import shutil
+import tarfile
+import getpass
+from datetime import datetime
+import xml.etree.ElementTree as ET
+
+# Use try for these imports
+try:
+    import subprocess
+except:
+    sys.exit("Error: Python module 'subprocess' not found")
+
+# distutils is used to sort version numbers correctly
+try:
+    from distutils.version import StrictVersion
+except:
+    sys.exit("Error: Python module 'distutils' not found")
+
+# Setup Constants
+# CiviCRM Top Level directories and unique names.
+CIVICRM = "civicrm-standalone" # Web-server access directory name
+UPGRADE = "civicrm-upgrade"
+BACKUP = "civicrm-backup"
+MYSQL_CNF = ".my_civi.cnf"
+URL_DOMAIN = "https://cmrailtrail.org.au"
+URL_SUB_DOMAIN = "https://crm.cmrailtrail.org.au"
+
+
+# General Constants. If ported, should not need changing.
+USERNAME = getpass.getuser()  # OR: os.environ.get('USER')
+ORIGINAL_DIR = os.getcwd()
+HOME = os.path.expanduser("~")  # '/home/cmrailtr'
+
+CIVICRM_DIR = HOME + os.sep + CIVICRM
+CIVICRM_DIR_CORE = CIVICRM_DIR + os.sep + "core"
+
+BACKUP_DIR = HOME + os.sep + BACKUP # /home/cmrailtr/civicrm-backup
+
+CIVICRM_RELEASE_LINK = "https://download.civicrm.org/release/"
+CIVICRM_RELEASE_PAGE = BACKUP_DIR + os.sep + "page.html"
+
+BIN_DIR = HOME + os.sep + "bin" # /home/cmrailtr/bin
+
+DATABASE_NAME = "civi" #<-- Used by msqldump backing up
+
+UPGRADE_DIR = HOME + os.sep + UPGRADE # /home/cmrailtr/civicrm-upgrade
+UPGRADE_DIR_CIVI = UPGRADE_DIR + os.sep + "civicrm-standalone"
+UPGRADE_DIR_CORE = UPGRADE_DIR_CIVI + os.sep + "core"
+
+
+#print(UPGRADE_DIR)  # /home/cmrailtr/civicrm-upgrade
+#print(UPGRADE_DIR_CIVI)  # /home/cmrailtr/civicrm-upgrade/civicrm-standalone
+#print(UPGRADE_DIR_CORE)  # /home/cmrailtr/civicrm-upgrade/civicrm-standalone/core
+
+# CiviCRM Standalone xml file containing the version and release date
+CIVICRM_VERSION_FILE = CIVICRM_DIR + os.sep + "core/xml/version.xml"
+
+CIVICRM_CNF = HOME + os.sep + MYSQL_CNF
+
+#===== Start of Functions =====
+def main_menu():
+
+    # Start in HOME dir and try to stay there...
+    os.chdir(HOME)
+    print("Current working directory: {}".format(os.getcwd()))
+
+    # Check if CiviCRM mysql database configuration file exists
+    check_mysql_configuration_file_exist()
+
+    # Set default to civicrm_backup directory. Create it if it doesn't exist.
+    check_civicrm_backup_dir()
+
+    # Set default to civicrm-upgrade directory. Create it if it doesn't exist.
+    check_civicrm_upgrade_dir()
+
+    # Check CIVICRM_DIR - civicrm-standalone dir exists
+    check_civicrm_production_dir()
+    # Check the owner and group of CIVICRM_DIR top level directory
+    user_name, group_name = get_dir_file_owner(CIVICRM_DIR)
+    print("CiviCRM Production directory: Owner: {} Group: {}".format(user_name, group_name))
+
+    # Review Information and continue
+    prompt = "\nReview above information then continue to clearing backup directory."
+    select_list = ["Continue", "Exit program",]
+    result_int, result_str = selector(prompt, select_list)
+    #print(result_int, result_str)
+    if result_int == 1:
+        exit_program("Exiting...")
+
+    # Perform selection on cleaning up backup directory
+    backup_dir_cleanup()
+
+    # Review Information and continue
+    prompt = "\nCleaning backup directory completed. Continue to performing backup."
+    select_list = ["Continue", "Exit program",]
+    result_int, result_str = selector(prompt, select_list)
+    #print(result_int, result_str)
+    if result_int == 1:
+        exit_program("Exiting...")
+
+    # Check MySQL database access returns information OK.
+    mysql_queries_info()
+
+    # Perform backup
+    backup_civicrm()
+
+
+    # Starting upgrade
+    # Get a list of releases up to 5 either side of current release. Plus latest release.
+    civicrm_version_list, civicrm_latest_release = get_civicrm_release_list()
+    #print(civicrm_version_list)
+
+    print("CiviCRM latest_release: {}".format(civicrm_latest_release))
+    print("CiviCRM current release: {}".format(CIVICRM_VERSION))
+    print("It is recommended to make small changes from the installed version at one time.")
+
+    # Review Information and continue
+    prompt = "\nSelect a CiviCRM version to change to."
+    no_change_list = ['Continue - Do not change version']
+    select_list =  no_change_list + civicrm_version_list
+    result_int, result_str = selector(prompt, select_list)
+    #print(result_int, result_str)
+    if result_int == 0:
+        exit_program("No change of CiviCRM performed. Exiting...")
+
+    # TODO: Do this in a function
+    # Not global variables
+    DOWNLOAD_PATH = "https://download.civicrm.org/"
+    DOWNLOAD_FILENAME = "civicrm-{}-standalone.tar.gz".format(result_str)
+    DOWNLOAD_SHA_FILENAME = "civicrm-{}.SHA256SUMS".format(result_str)
+    DOWNLOAD_CIVICRM = "{}{}".format(DOWNLOAD_PATH, DOWNLOAD_FILENAME)
+    DOWNLOAD_SHA256 = "{}{}".format(DOWNLOAD_PATH, DOWNLOAD_SHA_FILENAME)
+
+    print("\nThe following files are intended to be downloaded...")
+    print(DOWNLOAD_CIVICRM)
+    print(DOWNLOAD_SHA256)
+
+    prompt = "\nDo you want to download CiviCRM version {}?".format(result_str)
+    select_list = ["No", "Yes"]
+    default = 0
+    result_int, result_str = selector(prompt, select_list, default)
+    if result_int == 0:
+        exit_program("\nNo change of CiviCRM performed. Exiting...")
+
+    print("\nDownloading may take a minute. Please wait for its completion.")
+    #
+    OUTPUT_TO = "--directory-prefix={}".format(UPGRADE_DIR)
+    subprocess.check_output(["wget", OUTPUT_TO, "--quiet", DOWNLOAD_CIVICRM], shell=False)
+    #subprocess.check_output("wget " + DOWNLOAD_CIVICRM, shell=True)  # verbose
+
+    subprocess.check_output(["wget", OUTPUT_TO, "--quiet", DOWNLOAD_SHA256], shell=False)
+    #subprocess.check_output("wget " + DOWNLOAD_SHA256, shell=True)  # verbose
+
+
+    print("Download completed.")
+    print("{} filesize: {} bytes".format(UPGRADE_DIR + os.sep + DOWNLOAD_FILENAME, os.path.getsize(UPGRADE_DIR + os.sep + DOWNLOAD_FILENAME)))
+    print("{} filesize: {} bytes".format(UPGRADE_DIR + os.sep + DOWNLOAD_SHA_FILENAME, os.path.getsize(UPGRADE_DIR + os.sep + DOWNLOAD_SHA_FILENAME)))
+
+    """
+    Download completed
+    civicrm-6.3.0-standalone.tar.gz filesize: 36427702 bytes
+    civicrm-6.3.0.SHA256SUMS filesize: 835 bytes
+
+    # TODO: Messy - Release notes not for every release
+    # Do you want to read the release notes? - Provide a link.
+    # Released notes /home/cmrailtr/civicrm-upgrade/civicrm-standalone/core
+    # /civicrm-upgrade/civicrm-standalone/core/release-notes
+    #-rw-r--r-- 1 ian ian 31345 Apr 15 08:20 6.12.0.md
+    #-rw-r--r-- 1 ian ian 36353 Apr 16 18:32 6.13.0.md
+    #-rw-r--r-- 1 ian ian 32829 May  7 04:40 6.14.0.md <-- No 6.13.1 or 6.14.2?
+    #-rw-r--r-- 1 ian ian 31194 Jun  4 08:40 6.15.0.md
+    """
+
+    sha256_civicrm_distribution = get_calculate_file_hash(UPGRADE_DIR + os.sep + DOWNLOAD_FILENAME)
+    sha256_civicrm_document = get_sha256_from_civi_file(UPGRADE_DIR + os.sep + DOWNLOAD_SHA_FILENAME, DOWNLOAD_FILENAME)
+
+    print(sha256_civicrm_distribution)
+    print(sha256_civicrm_document)
+
+    matched = compare(sha256_civicrm_distribution, sha256_civicrm_document)
+
+    # Finished with SHA256SUMS file
+    os.remove(UPGRADE_DIR + os.sep + DOWNLOAD_SHA_FILENAME)
+
+    # Don't bother checking if it has the version.xml and extracting version info.
+    # /home/cmrailtr/civicrm-upgrade/civicrm-standalone/core/xml/version.xml
+
+    # Test if /civicrm-upgrade/civicrm-standalone dir exists.
+    # Remove it and all sub-dirs if it does.
+    if os.path.isdir(UPGRADE_DIR_CIVI):
+        shutil.rmtree(UPGRADE_DIR_CIVI)
+
+    # Open the .tar.gz into the Upgrade civicrm-standalone directory tree
+    with tarfile.open(UPGRADE_DIR + os.sep + DOWNLOAD_FILENAME, 'r:gz') as tar:
+        tar.extractall(UPGRADE_DIR)
+
+    os.remove(UPGRADE_DIR + os.sep + DOWNLOAD_FILENAME)
+
+    # Get details from civicrm-standalone directories
+
+    print("Checking the downloaded and un-tared Civicrm Standalone distribution...")
+    #XML_VERSION_FILE = "civicrm-standalone/core/xml/version.xml"
+    XML_VERSION_FILE = UPGRADE_DIR_CORE + os.sep + "xml" + os.sep + "version.xml"
+    if os.path.isfile(XML_VERSION_FILE):
+        root = ET.parse(XML_VERSION_FILE).getroot()
+        for member in root:
+            #print(member.tag, member.text)
+            if member.tag == "version_no":
+                civicrm_version = member.text
+            if member.tag == "releaseDate":
+                civicrm_release_date = member.text
+        print("CiviCRM Version: {}".format(civicrm_version))
+        print("CiviCRM Release Date: {}".format(civicrm_release_date))
+
+    else:
+        exit_program("Un-tared directory does not have version.xml file.")
+
+    print("\nCommencing over-writing of directories in CiviCRM version upgrade.")
+    prompt = "\nDo you want to continue?"
+    select_list = ["No", "Yes"]
+    default = 0
+    result_int, result_str = selector(prompt, select_list, default)
+    if result_int == 0:
+        exit_program("\nNo change of CiviCRM performed. Exiting...")
+
+
+    #HOME = os.path.expanduser("~")
+    #UPGRADE_DIR_CORE = HOME + os.sep + "a_test" + os.sep + "civicrm-upgrade/civicrm-standalone/core"
+    #UPGRADE_DIR_CIVI =  HOME + os.sep + "a_test" + os.sep + "civicrm-upgrade/civicrm-standalone/"
+    #CIVICRM_DIR = HOME + os.sep + "b_test" + os.sep + "civicrm-standalone"
+
+    # Remove production core directory, CIVICRM_DIR_CORE, and all its sub-dirs and files.
+    if os.path.exists(CIVICRM_DIR_CORE):
+        print("Removing production core directory: {}".format(CIVICRM_DIR_CORE))
+        shutil.rmtree(CIVICRM_DIR_CORE)
+    else:
+        exit_program("Error: Production core directory did not exist.")
+
+    # Does core still exist?
+    # No core / and subdir and files removed.
+
+    # Move core and sub files/dirs from upgrade dir, to be new directory in production
+    print("Moving downloaded core directory from upgrade to production")
+    shutil.move(UPGRADE_DIR_CORE, CIVICRM_DIR)
+
+    # Did the files move?
+
+    # Remove all remaining files in b_test/civicrm-standalone/ and remove civicrm-standalone dir
+    if os.path.exists(UPGRADE_DIR_CIVI):
+        print("Removing the remaining files and directories in the upgrade directory")
+        shutil.rmtree(UPGRADE_DIR_CIVI)
+    else:
+        exit_program("Error: Upgrade civicrm-stanalone directory does not exist.")
+
+
+    print("Completed moving files of replacement version.")
+    print("Check of sub-directories and files of: {}".format(CIVICRM_DIR))
+    dir_and_file_count(CIVICRM_DIR)
+
+    print("\nCompletion of the Upgrade must be performed via a web-broswer.")
+    print("\nOn Web-browser go to URL: {}".format(URL_SUB_DOMAIN))
+
+    raw_input("\nPaused. Upon completing web-browser upgrade, type Return to continue")
+
+    print("\nContinuing...")
+    print("Using CiviCRM command line tool to perform: cv flush.")
+    # Existance and execution of cv was checked on launch. Should not need try/except
+    # --cwd=/home/cmrailtr/civicrm-standalone
+    CV_CWD = "--cwd={}".format(CIVICRM_DIR)
+    result = subprocess.Popen(["cv", CV_CWD, "flush"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = result.communicate()  # waits until finished
+    #print(output)
+    #print(error)
+    # Check if the command executed successfully
+    if result.returncode == 0:
+        print("cv flush has been performed: {}".format(output))
+    else:
+        exit_program("Error: {} returned performing: cv flush".format(error))
+
+    # Perform selection to allow for another cleaning up backup directory.
+    print("\nPerfrom another cleanup of the backup directory.")
+    backup_dir_cleanup()
+
+    print("\nEnd of Upgrade utility program.")
+
+    # TODO: Perform a backup of newly installed
+
+    sys.exit()
+
+#===== End of Main Menu =====
+
+
+def get_dir_file_owner(file_path):
+    """
+    Get the owner and group names based on a file or directory
+    Return: user_name, group_name
+    """
+    # Get file status
+    file_stat = os.stat(file_path)
+
+    # Retrieve user and group IDs
+    user_id = file_stat.st_uid
+    group_id = file_stat.st_gid
+
+    # Map IDs to names
+    user_name = pwd.getpwuid(user_id).pw_name
+    group_name = grp.getgrgid(group_id).gr_name
+
+    #print(file_path)
+    #print("Owner:", user_name)
+    #print("Group:", group_name)
+    return user_name, group_name
+
+
+def compare(civi_file_hash, file_hash):
+    """
+    Check the SHA256 sums match
+    """
+    if civi_file_hash != file_hash:
+        exit_program("SHA256 do not match")
+    else:
+        print("SHA256 match.")
+    return 1
+
+
+def get_calculate_file_hash(file_path):
+    """
+    Calculate the SHA256 of the downloaded CiviCRM tar.gz.file in civicrm-upgrade
+    """
+    hash_obj = hashlib.sha256()
+    with open(file_path, "rb") as file:
+        while True:
+            data = file.read(8192)
+            if not data:
+                break
+            hash_obj.update(data)
+    return hash_obj.hexdigest()
+
+
+def get_sha256_from_civi_file(file_path, file_name):
+    """
+    Extract sha256 for civicrm standalone from SHA256SUMS file.
+    # E.g. file_name = "civicrm-6.14.1-standalone.tar.gz"
+    """
+    with open(file_path, "r") as fin:
+        for line in fin.readlines():
+            if file_name not in line:
+                continue
+            else:
+                #print(line)
+                position = line.index(" ")
+                #print(position)
+                sha256 = line[:position]
+                #print(sha256)
+                #print(len(sha256))
+                break
+    return sha256
+
+
+def backup_dir_cleanup():
+    """
+    Select Directories and Files to delete in backup directory.
+    Note: The select function reverses the list
+    Perform via the HOME directory
+    Also call at very end of running program. for final cleanup
+    """
+    os.chdir(HOME)
+    while True:
+        command_list = ["Do not delete any - Continue", "Delete all-but most recent", "Delete all"]
+        dir_list = []
+        file_list = []
+        path = BACKUP_DIR
+        for item in os.listdir(path):
+            item = item.strip()
+            full_path = os.path.join(path, item)
+            if os.path.isdir(full_path):
+                dir_list.append(item)
+            else:
+                file_list.append(item)
+        dir_list_sorted = sorted(dir_list) # Need to sort so date has newest at top
+        file_list_sorted = sorted(file_list)
+        #for item in file_list_sorted:
+            #print("\t{}".format(item))
+
+        # If lists are empty then skip this step.
+        if len(dir_list_sorted) == 0 and len(file_list_sorted) == 0:
+            print("\nBackup folder, {}, is empty".format(BACKUP_DIR))
+            break
+
+        prompt = "\nSelect Directories and Files to delete in: {}".format(BACKUP_DIR)
+        select_list = command_list + dir_list_sorted + file_list_sorted
+        default = 0
+        result_int, result_str = selector(prompt, select_list, default)
+        #print(result_int, result_str)
+
+        if result_int == 0:
+            print("\nFinished cleanup of backup directory")
+            break
+
+        if result_int == 1:
+            print("\nDelete all-but most recent")
+            # Get pop the dir_list_sorted and file_list_sorted to get to keep
+            # Pop the most recent file/dir from the lists
+            if len(dir_list_sorted) > 0:
+                dir_list_sorted.pop()
+            if len(file_list_sorted) > 0:
+                file_list_sorted.pop()
+
+            # Delete the remaining files. and trees
+            #print(dir_list_sorted)  # Missing the most recent dir
+            #print(file_list_sorted)  # Missing most recent file
+            for item in file_list_sorted:
+                os.remove(BACKUP_DIR + os.sep + item)
+            for item in dir_list_sorted:
+                shutil.rmtree(BACKUP_DIR + os.sep + item)
+            continue
+
+        if result_int == 2:
+            print("\nDelete all")
+            for item in file_list_sorted:
+                os.remove(BACKUP_DIR + os.sep + item)
+            for item in dir_list_sorted:
+                shutil.rmtree(BACKUP_DIR + os.sep + item)
+            break
+            #continue
+
+        if result_int > 2:
+            print("\nDeleting {}. {}".format(result_int, result_str))
+            # Deleting 7. civicrm_6.2.0_backup_files_2026-05-30_21:44:29
+            # Deleting 15. civicrm_6.2.0_backup_dbase_2026-05-30_21:43:58.sql
+            # Is it .sql file or a tree of files
+            if result_str.endswith(".sql"):
+                os.remove(BACKUP_DIR + os.sep + result_str)
+            else:
+                shutil.rmtree(BACKUP_DIR + os.sep + result_str)
+            continue
+
+
+def backup_civicrm():
+    """
+    Backup of CiviCRM Standalone. Backup production directory and then database
+
+    From CIVICRM_DIR to dated sub-dir of BACKUP_DIR
+    The backups are placed in their own dated sub-directory.
+    The subdirectory will contain tree of civicrm-standalone and civicrm sql database
+
+    Note: backup_dir_cleanup() has been performed to purge selected old backups.
+
+    Note: CIVICRM_VERSION has already been captured from version.xml file
+    In CiviCRM standalone the version is in: /civicrm-standalone/core/xml/version.xml
+
+    Note: shutil.copytree() creates the top-level directory name
+
+    Use HOME dir not BACKUP_DIR
+    """
+    #  Stay at HOME
+    os.chdir(HOME)
+
+    print("\nPerforming backup operations to: {}".format(BACKUP_DIR))
+
+    # Create a new backup sub-dir based on the date. civicrm-backup-2026-05-29
+    DATE_TIME = datetime.today().strftime('%Y-%m-%d_%H:%M:%S')
+    #print(DATE_TIME) # 2026-05-29_10:09:27
+    SUB_BACKUP_DIR_NAME = "civicrm_{}_backup_files_{}".format(CIVICRM_VERSION, DATE_TIME)
+    print("CiviCRM backup sub-directory: /{}".format(SUB_BACKUP_DIR_NAME))
+
+    #===== Files Tree Backup =====
+    print("Backing up CiviCRM files...")
+    # Get total files and directories
+    dir_and_file_count(CIVICRM_DIR)
+
+    #Perform tree copy of CiviCRM
+    shutil.copytree(CIVICRM_DIR, BACKUP_DIR + os.sep + SUB_BACKUP_DIR_NAME)
+
+    #print('Backed up files in directory: {}'.format(BACKUP_DIR + os.sep + SUB_BACKUP_DIR_NAME))
+    print('Backed up files in directory: /{}'.format(SUB_BACKUP_DIR_NAME))
+    dir_and_file_count(BACKUP_DIR + os.sep + SUB_BACKUP_DIR_NAME)
+
+    #===== DB Backup =====
+    print("\nPerforming Backup of Database to: {}".format(BACKUP_DIR))
+    # Use mysqldump to create a backup of CiviCRM database
+    DB_BACKUP_FILE = "civicrm_{}_backup_dbase_{}.sql".format(CIVICRM_VERSION, DATE_TIME)
+    output_file = BACKUP_DIR + os.sep + DB_BACKUP_FILE
+    command_str = 'mysqldump --defaults-file={} {}'.format(CIVICRM_CNF, DATABASE_NAME)
+    command_list = command_str.split()
+
+    try:
+        with open(output_file, 'wb') as fout:
+            process = subprocess.Popen(
+                command_list,
+                stdout=fout,
+                stderr=subprocess.PIPE,
+            )
+
+            # Wait for the command to finish and get stderr
+            _, stderr_output = process.communicate()
+
+            if process.returncode == 0:
+                print "Backup successfully created: {}".format(DB_BACKUP_FILE)
+            else:
+                print "mysqldump failed with exit code: {}".format(process.returncode)
+                print "Error: {}".format(stderr_output)
+
+    except OSError as e:
+        print "Failed to execute mysqldump. Is it installed and in your PATH?"
+        print "Details: {}".format(e)
+    except Exception as e:
+        print "An error occurred: {}".format(e)
+
+    print("Database backup completed")
+
+
+def mysql_queries_info():
+    """
+    Perform some database queries, using subprocess as no mysql.connector,
+    Notes:
+      --defaults-file={} must be the first option in the command
+      --silent removes the headings
+      subprocess.check_output() will pass output string to variable and has no heading
+      default value for the shell parameter in subprocess.check_output is False.
+
+    """
+    os.chdir(HOME)
+    print("\nPerforming MySQL queries of Database. Access is using: {}".format(CIVICRM_CNF))
+
+    # 1. Show Databases
+    command_str = 'mysql --defaults-file={} --silent'.format(CIVICRM_CNF)
+    # Convert to a list
+    command_list = command_str.split()
+    # Append --execute as there is a space (delimiter) in the 'SHOW DATABASE'.
+    command_list.append('--execute=SHOW DATABASES;')
+    output_str = subprocess.check_output(command_list).strip()
+    output_list = output_str.split("\n")
+    print("MariaDB databases available.")
+    for index, item in enumerate(output_list):
+        print("\t{}. {}".format(index+1, item))
+
+    # 2. Get contacts in civicrm_uf_match table.
+    command_str = 'mysql --defaults-file={} --silent'.format(CIVICRM_CNF)
+    command_list = command_str.split()
+    command_list.append('--execute=SELECT id, uf_id, uf_name, domain_id FROM civicrm_uf_match')
+    output_str = subprocess.check_output(command_list).strip()
+    output_list = output_str.split("\n")
+    print("Civicrm uf_match column.")
+    for index, item in enumerate(output_list):
+        print("\t{}. {}".format(index+1, item))
+
+    # 3. Get the Contacts with Admin surname in CiviCRM Standalone database from civicrm_contact table.
+    command_str = 'mysql --defaults-file={} --silent'.format(CIVICRM_CNF)
+    command_list = command_str.split()
+    command_list.append('--execute=SELECT ID, first_name, last_name FROM civicrm_contact WHERE last_name = "Admin";')
+    output_str = subprocess.check_output(command_list).strip()
+    output_list = output_str.split("\n")
+    print("Civicrm Contacts with Admin as last name.")
+    for index, item in enumerate(output_list):
+        print("\t{}. {}".format(index+1, item))
+
+def exit_program(message="Exiting..."):
+    """
+    Common exit.
+    Return to original directory then perform sys.exit() call.
+    sys.exit() may have been passed a message explaining the reason for exit.
+    """
+    os.chdir(ORIGINAL_DIR)
+    # During development when using Geany...
+    if ORIGINAL_DIR == BIN_DIR:
+        os.chdir(HOME)
+    #print(os.getcwd())
+    sys.exit("{}. \nCurrent Working Directory: {}\n".format(message, os.getcwd()))
+
+
+def check_mysql_configuration_file_exist():
+    """
+    Check if the CiviCRM configuration files exist for performing bash based
+    access to mysql and msqldump.
+
+    Uses: CIVICRM_CNF  E.g. "~/.my_civi.cnf"
+
+    Example of bash command to show in the database
+    mysql --defaults-file=/home/cmrailtr/.my_civi.cnf  --execute='show databases;'
+
+    """
+
+    if not os.path.isfile(CIVICRM_CNF):
+        exit_program("Error: {} file does not exist.".format(CIVICRM_CNF))
+    else:
+        print("Mysql configuration file exists: {}".format(CIVICRM_CNF))
+
+    #print(subprocess.check_output("cat " + CIVICRM_CNF, shell=True))
+
+
+def check_civicrm_upgrade_dir():
+    """
+    Check if UPGRADE_DIR, ~/civicrm-upgrade, exists. If not, then create it.
+    """
+    os.chdir(HOME)
+    if not os.path.isdir(UPGRADE_DIR):
+        os.mkdir(UPGRADE_DIR)
+
+    print("CiviCRM Upgrade directory exists: {}".format(UPGRADE_DIR))
+
+
+def check_civicrm_production_dir():
+    """
+    Check if CIVICRM_DIR, ~/civicrm-standalone, exists.
+    If not, exit with error
+    """
+    os.chdir(HOME)
+    if not os.path.isdir(CIVICRM_DIR):
+        exit_program("Error: This system does not appear to have CiviCRM installed")
+
+    print("CiviCRM Production directory exists: {}".format(CIVICRM_DIR))
+
+
+def check_civicrm_backup_dir():
+    """
+    Check if BACKUP_DIR, ~/civicrm-backup, exists. If not, then create it.
+    Used to hold date-based backup directories.
+    """
+    os.chdir(HOME)
+    if not os.path.isdir(BACKUP_DIR):
+        os.mkdir(BACKUP_DIR)
+
+    print("CiviCRM Backup directory exists: {}".format(BACKUP_DIR))
+
+
+def dir_and_file_count(path):
+    """
+    In a directory tree count totals of files and directories
+    Uses os.
+    """
+
+    # Initialize counters
+    file_count = 0
+    dir_count = 0
+
+    # Traverse the directory tree
+    for root, dirs, files in os.walk(path):
+        dir_count += len(dirs)  # Count directories
+        file_count += len(files)  # Count files
+
+    # Print the results
+    print('Total directories: {}. Total files: {}'.format(dir_count, file_count))
+
+
+def get_civicrm_release_list():
+    """
+    Get a list of the current release and up to 5 new releases since.
+
+    Note: Can re-install current version, but doesn't support going back to previous versions.
+    When using the Browser to complete installation: System Status Error
+    ===
+    Database in Unexpected Version
+    Your database is marked with an unexpected version number: 6.14.2.
+    The v6.14.1 codebase may not be compatible with your database state.
+    You will need to determine the correcxt version corresponding to your current database state.
+    You may want to revert to the codebase you were using until you resolve this problem.
+    OR If this is a manual install from git, you might want to fix civicrm-version.php file
+    ===
+
+    Return: civicrm_version_list, civicrm_latest_release
+
+    CiviCRM all releases page: https://download.civicrm.org/release/
+    From the page.html file get a list of all the CiviCRM 6.0.0 and higher releases.
+    We already know the
+    CIVICRM_VERSION
+    CIVICRM_RELEASE_LINK = "https://download.civicrm.org/release/"
+    # CIVICRM_RELEASE_PAGE = "page.html"
+    CIVICRM_RELEASE_PAGE = BACKUP_DIR + os.sep + "page.html"
+
+    FYI: Dates of some releases:
+    6.13.0 Released April 8, 2026;
+    6.0.0 Released March 5, 2025
+    5.0.0.Released April 4, 2018
+    page.html will be in UPGRADE_DIR
+    """
+    os.chdir(HOME)
+
+    # Download all the CiviCRM release as page.html file.
+    # For subprocess - use list of commands and then set shell=False.
+    print("\nDownloading CiviCRM releases information...")
+    command_str = 'wget --quiet --output-document={} {}'.format(CIVICRM_RELEASE_PAGE, CIVICRM_RELEASE_LINK)
+    command_list = command_str.split()
+    #print(command_list)
+    subprocess.check_output(command_list, shell=False)
+
+    # Downloaded page.html /home/cmrailtr/civicrm-upgrade/page.html
+    # Extract data from page.html in /home/cmrailtr/civicrm-upgrade/page.htm
+    data_list = []
+    with open(CIVICRM_RELEASE_PAGE, 'r') as fin:
+        for index, line in enumerate(fin.readlines()):
+            #   <a href="/release/6.13.0">6.13.0</a>
+            position_start = line.find('"') + 1
+            if position_start != -1:
+                #print(index, position_start)
+                position_end = line.find('"', position_start + 1)
+                if position_end != -1:
+                    #print(index, position_start, position_end)
+                    data = line[position_start:position_end]
+                    #print(data)
+                    # /release/6.0.2 <--Extract the version number
+                    position_start_1 = data.find("/release/") + 9
+                    data_1 = data[position_start_1:]
+
+                    if len(data_1) >0:
+                        if data_1[0].isdigit(): # 1.5.7470
+                            if int(data_1[0]) > 5:
+                                data_list.append(data_1) #$"https://download.civicrm.org" + data)
+
+    # Finished with page.html. Remove it.
+    os.remove(CIVICRM_RELEASE_PAGE)
+
+    data_list.sort(key=StrictVersion)  # StrictVersion sorts numeric as string
+    #print(data_list)
+    # ['6.0.0', '6.0.1', '6.0.2',... '6.13.2', '6.13.3', '6.14.0', '6.14.1']
+
+    # Get the index of the current version in the data_list of all releases.
+    position_current_version = data_list.index(CIVICRM_VERSION) if CIVICRM_VERSION in data_list else None
+    if position_current_version == None:
+        exit_program("Unable to find current CiviCRM version in list of Version Releases. Exiting")
+
+    # If possible, show 5 releases after current release.
+    # Otherwise truncate before or after.
+    #lower_value = position_current_version - 5
+    #if lower_value < 0:
+    #    lower_value = 0
+    upper_value = position_current_version + 6
+    if upper_value > len(data_list):
+        upper_value = len(data_list)
+
+    civicrm_version_list = data_list[position_current_version:upper_value]
+    #print(civicrm_version_list)
+
+    # Also get the very latest release
+    civicrm_latest_release = data_list[-1]
+
+    return civicrm_version_list, civicrm_latest_release
+
+
+def selector(prompt, select_list, default="0"):
+    """
+    Generate a menu style numeric value option selector.
+    Expects: prompt, select_list - default first. OR Use default variable.
+    Reverse list and index to have: 4, 3, 2, 1 and last one is 0 which is default.
+    """
+    while True:
+        print("\t" + prompt)
+        #for index, item in enumerate(select_list):
+        for index, item in enumerate(reversed(select_list)):  # <-- reversed
+            #print("\t\t" + str(index) + ". " + item)
+            print("{}{:>2}. {}".format("\t", (len(select_list)-1) - index, item)) # <--index reversed
+
+        return_str = raw_input("\n\t\tSelection [{}]: ".format(default))
+        if return_str == "":
+            return_str = default
+        try:
+            return_int = int(return_str)
+            return_str = select_list[return_int]
+            if return_int < 0 or return_int > len(select_list) -1:
+                print("Invalid entry...")
+                continue
+            else:
+                break
+        except:
+            print("Invalid entry...")
+            continue
+
+    #print(str(return_int), return_str)
+    return return_int, return_str
+
+# Messages
+
+MESSAGE_1 = """
+This Python Program is written and tested in Python 2.7.5, as this is
+currently supplied by the ISP VentraIP.
+
+The program "cvicrm_upgrade.py" should be copied to the "bin" directory off
+the Home directory. It's name should be truncated to "civicrm_upgrade". It
+should be set to be executable by only the owner. i.e.
+$ chmod 744 civicrm_upgrade. Result: -rwxr--r--
+
+The program is launched from any directory by typing: $ civicrm_upgrade
+On exiting the program you are returned to the launching directory.
+
+The program expects off the Home directory:
+* .my_civi.cnf - Mysql configuration file.
+* civicrm-standalone. CiviCRM webserver top-level directory.
+* ciricrm-upgrade. For staging. If it doesn't exist it is created.
+* civicrm-backup. For backup of the currently used CiviCRM
+"""
+
+MESSAGE_2 = """
+Donations.
+
+This program is designed to allow non-technical staff perform upgrades of
+CiviCRM Standalone through using simple menu driven commands.
+
+If you opt to copy this program and use it in a commercial business context
+please recognise is was written by volunteers who are part of an organization
+that is attempting to raise money to build and maintain an old unused railway
+line into a trail for hikers and bike riders.
+
+Please consider making a donation to our volunteer organization. For details
+please write to: hello@cmrailtrail.org.au
+OR visit our website: https://cmrailtrail.org.au
+"""
+
+MESSAGE_3 = """
+Introduction:
+
+Castlemaine Maryborough Rail Trail Inc. CMRT use VentraIP as their
+web-hosting provider. A Wordpress CMS is staged on the primary domain:
+
+https://cmtrailtril.org.au
+
+A CRM, CiviCRM Standalone, is staged on the sub-domain:
+
+https://crm.cmrailtrail.org.au
+
+This Python program provides a utility to make changes to the version of
+CiviCRM Standalone. The program has been designed to comply with the default
+environment provided by VentraIP hosting service.
+
+Features of VentraIP hosting service environment:
+
+* OS is: CloudLinux: 7 - Linux kernel: 3.10.0-962.3.2.lve1.5.85.el7.x86_64
+* C-Panel provides Terminal for command line access and running Python programs
+* C-Panel also provides the setup of SSH connection.
+* Python 2.7.5 is provided, with 504 modules.
+* Some Python modules that would be handy are not avaialble. E.g.
+    mysql.connector, thus alternative methods are used.
+* Python module pycurl 7.29.0 could be used instead of wget via subprocess.
+* No access to the WebServer application. Understood to be: LiteSpeed
+* No sudo to elevate privilege.
+* The Web-server expects owner and group to be the username. i.e. cmrailtr
+"""
+
+MESSAGE_4 = """
+Overview of CiviCRM Standalone installation and upgrading:
+
+* CiviCRM releases are at least every month. They are a complete replacement
+    of the core directory and its sub-directories and files.
+* CiviCRM releases download directory is: https://download.civicrm.org/release/
+* Place civicrm_upgrade.py program in /home/cmrailtr/bin/civicrm_upgrade and
+    set privileges to make it executable: $ chmod 744 civicrm_upgrade
+* MariaDB has been used, with /home/cmrailtr/.my_civi.cnf providing access.
+* On exiting, restore to home directory /home/cmrailtr/.
+* Run civicrm_upgrade from username: cmrailtr
+* Directories used:
+  * ~/civicrm-standalone - top-level directory for web-server access to CiviCRM
+  * ~/civicrm-upgrade - top-level directory for staging upgrade.
+  * ~/civicrm-backup - top level directory for backups of CiviCRM production.
+* Program starts with if __name__ == "__main__": which does some housekeeping
+   that includes the setup of some contants. E.g. Current CIVICRM_VERSION.
+   It then calls def main_menu(): to control the flow of the program.
+
+The upgrade process involves running this program. Upon completion of copying
+the upgraded files it is necessary to go to a Web-browser to complete the
+installation. E.g. https://crm.cmrailtrail.org.au and click on the link at
+the bottom of dashboard: System Status: Alert
+You will see: Database Upgrade Required - New codebase version detected.
+Proceed by clicking on: Upgrade Now.
+"""
+
+if __name__ == "__main__":
+
+    # Introduction Summary, Load Modules and Constants
+
+    print("\nCiviCRM Utility Program: " + PROGRAM)
+    #print("\nOverview:")
+    #print(sys.argv[0])
+
+    # print -h and --help messages
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "-h":
+            #print("-h")
+            print(MESSAGE_4)
+            exit_program()
+
+        if sys.argv[1] == "--help":
+            print("--help")
+            print(MESSAGE_4)
+            raw_input("Press Enter to continue...")
+            print(MESSAGE_3)
+            raw_input("Press Enter to continue...")
+            print(MESSAGE_2)
+            exit_program()
+
+    # Perform basic checks before launching main menu
+    # Test if using Python 2.7. Exit if not.
+    # sys.version_info(major=2, minor=7, micro=5, releaselevel='final', serial=0)
+    if sys.version_info.major == 2 and sys.version_info.minor == 7: #sys.version_info.micro = 5
+        print("Python: {}.{}.{}".format(sys.version_info.major, sys.version_info.minor, sys.version_info.micro))
+    else:
+        print("Python: {}.{}.{}".format(sys.version_info.major, sys.version_info.minor, sys.version_info.micro))
+        exit_program("Error: This program is for use with Python 2.7 ONLY.\n")
+
+    # Check program is running from ~/bin. Could be done with sys.argv[0]
+    print("Program path: {}".format(os.path.realpath(__file__)))
+    # Program path: /home/cmrailtr/bin/civicrm_upgrade
+    if "/bin/civicrm_upgrade" not in os.path.realpath(__file__):
+        exit_program(MESSAGE_1)
+
+    print("Current Working Directory: {}".format(os.getcwd()))
+    print("Username: {}".format(USERNAME))
+    print("Platform: {}".format(sys.platform))
+
+    # Check if cv application is installed and get version.
+    # Note: Could be done with os.path.isfile("/home/cmrailtr/bin/cv")
+    try:
+        result = subprocess.Popen(["cv", "--version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = result.communicate()  # waits until finished
+        output = output.strip()
+        #print(output)
+        #print(error)
+        # Check if the command executed successfully
+        if result.returncode == 0:
+            print("CiviCRM command line tool version: {}".format(output))
+        else:
+            exit_program("Error: Unable to perform: cv --version")
+
+    except:
+        # OSError: [Errno 2] No such file or directory
+        print("\nError: cv, the CiviCRM command line tool, is not installed.")
+        print("Please perform the following bash commands...\n")
+
+        print("sudo curl -LsS https://download.civicrm.org/cv/cv.phar -o /home/{}/bin/cv".format(USERNAME))
+        print("sudo chmod +x /home/{}/bin/cv".format(USERNAME))
+        exit_program("\nRestart program after installing cv")
+
+    # Setup some Global Constants
+    # Get the CiviCRM Standalone version and release date.
+    # Find in production CiviCRM in civicrm-standalone sub-directory file
+    # Use CIVICRM_VERSION_FILE = "~/civicrm-standalone/core/xml/version.xml"
+    # Define the global contants: CIVICRM_VERSION and CIVICRM_RELEASE_DATE
+
+    #import xml.etree.ElementTree as ET
+    root = ET.parse(CIVICRM_VERSION_FILE).getroot()
+    for member in root:
+        #print(member.tag, member.text)
+        if member.tag == "version_no":
+            CIVICRM_VERSION = member.text
+        if member.tag == "releaseDate":
+            CIVICRM_RELEASE_DATE = member.text
+    print("CiviCRM Version: " + CIVICRM_VERSION)
+    print("CiviCRM Release Date: " + CIVICRM_RELEASE_DATE)
+
+    # Completed initial checks and setting Global variables.
+
+    # Goto main menu
+    main_menu()
