@@ -56,6 +56,8 @@ It then needs to be added to the desktop PC's local ssh. The *ssh-add* applicati
 ian@hp:~$ ssh-add
 Enter passphrase for /home/ian/.ssh/id_rsa:   <-- The passphrase is the password to the VentraIP cmrailtr account. E.g *S-12-]* 
 Identity added: /home/ian/.ssh/id_rsa (/home/ian/.ssh/id_rsa)
+
+A Passkey window may open and ask for a passphrase. Enter the $-12-] password.
 ```
 Now, when making a connection from the desktop PC to the VertraIP server, it will not prompt for the password and will directly login to the cmrailtr account:
 Note that the ssh port used by VentraIP is not the default of 22, but is 2683.
