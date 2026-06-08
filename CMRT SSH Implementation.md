@@ -60,7 +60,9 @@ Identity added: /home/ian/.ssh/id_rsa (/home/ian/.ssh/id_rsa)
 A Passkey window may open and ask for a passphrase. Enter the $-12-] password.
 ```
 Now, when making a connection from the desktop PC to the VertraIP server, it will not prompt for the password and will directly login to the cmrailtr account:
-Note that the ssh port used by VentraIP is not the default of 22, but is 2683.
+Note: The ssh port used by VentraIP is not the default of 22, but is 2683.
+Note: For ssh its -p (lower case p) for scp it is -P (capital P) 
+
 ```
 ian@hp:~$ ssh cmrailtr@s03dd.syd6.hostingplatform.net.au -p 2683
 [cmrailtr@s03dd ~]$
@@ -81,13 +83,16 @@ civicrm-standalone                      php
 
 ## SCP
 
-Sending a file from the desktop PC to the VentrIP server. Note -P 2683 is the SSH port to use at VentraIP
+Sending a file from the desktop PC to the VentrIP server. 
+Note -P 2683 is the SSH port to use at VentraIP
+Note for scp it is -P (capital P) for ssh its -p (lower case p)
+
+Copy from local PC to VentraIP server
 ```
 $ scp -P 2683 test_scp.txt cmrailtr@s03dd.syd6.hostingplatform.net.au:
 test_scp.txt                                  100%  116     2.1KB/s   00:00    
 
 ```
-
 Checking the file got to the VentraIP server cmrailtr account
 ```
 [cmrailtr@s03dd ~]$ ls -l test_scp.txt
@@ -98,6 +103,13 @@ This is test_scp.txt
 It is used to test if a file can be scp'ed from a PC to the VentraIP server.
 
 Ian 2026-05-19
+```
+Copy from VentraIP server to local PC
+Note: -P (not -p)
+```
+$ scp -P 2683 cmrailtr@s03dd.syd6.hostingplatform.net.au:/home/cmrailtr/system.json /home/ian/civicrm_system.json
+
+system.json                                      100%   36KB 136.9KB/s   00:00 
 ```
 
 ## SSH Server Setup
