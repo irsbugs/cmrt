@@ -5,6 +5,8 @@ Continuation. From Database requirements
 2026-05-13
 Ian
 
+[https://docs.civicrm.org/installation/en/latest/standalone/](https://docs.civicrm.org/installation/en/latest/standalone/)
+
 
 ## MySql / MariaDB
 
@@ -87,11 +89,12 @@ MariaDB [cmrailtr_czhn1]> SELECT CONVERT_TZ("2001-02-03 04:05:00", "GMT", "Ameri
 ### Grants
 
 | Grants for cmrailtr_czhn1@localhost                                                                                             |
-
-| GRANT USAGE ON *.* TO `cmrailtr_czhn1`@`localhost` IDENTIFIED BY PASSWORD '*A8FBC9C940B24F8F25A5A4E8AEC9C458C19B8385'                                                                                             |
+```
+| GRANT USAGE ON *.* TO `cmrailtr_czhn1`@`localhost` IDENTIFIED BY PASSWORD '*A8FBC9C940B24F8F25A5A4E8AEC9C458C19B8385'
 
 | GRANT ALL PRIVILEGES 
 ON `cmrailtr\_czhn1`.* TO `cmrailtr_czhn1`@`localhost`
+
 
 | GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, 
 CREATE TEMPORARY TABLES, LOCK TABLES, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, 
@@ -100,6 +103,7 @@ ON `cmrailtr\_civicrm`.* TO `cmrailtr_czhn1`@`localhost`
 
 | GRANT EXECUTE, ALTER ROUTINE 
 ON FUNCTION `cmrailtr_civicrm`.`civicrm_strip_non_numeric` TO `cmrailtr_czhn1`@`localhost`
+```
 
 ### CiviCRM Installation guide recommendation
 ```
