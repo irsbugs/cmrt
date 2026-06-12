@@ -297,7 +297,7 @@ $ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
 
 ```
 
-Campaign Manager: 2 (plus the 77 freom Staff)
+Campaign Manager: 2 (plus the 77 from Staff)
 
 ```
 $ cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["permissions"]}'
