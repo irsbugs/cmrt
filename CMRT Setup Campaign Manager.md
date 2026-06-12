@@ -20,7 +20,7 @@ $ cv api4 Role.get -T '+s' 'id,name,label'
 
 If an additional role is created then it will also be displayed. This document describes the addition of the *Campaign Manager* role.
 
-When creating the *Campaign Manager* role it consists only these two permissins:
+When creating the *Campaign Manager* role it consists only these two permissions:
 * CiviCampaign: administer CiviCampaign
 * CiviCampaign: manage campaign
 
