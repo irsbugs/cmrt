@@ -55,24 +55,17 @@ A person who is allocated the *Campaign Manager* role also is given the *Staff* 
 
 With CiviCRM standalone 6.15 the following are the totals for the permissions for each User role:
 
-Total permissions: 213
+* Admin: 213
+* Staff: 77
+* Everyone: 6
+* Campaign Manager: 2 (+ 77 Staff) 
 
-Admin permissions: 213
-Staff permissions: 77
-Everyone permissions: 6
-Campaign Manager: 2 (+ 77 Staff) 
+* Total permissions: 213
 
-
-
-The permissions of the *Staff* role are:
+See below for: **Lists of Permissions for Each Role***
 
 
-
-===
-
-===
-
-
+## Adding the Campaign Manager
 
 In CiviCRM Standalone (which relies entirely on CiviCRM's native permissions and ACL engine rather than a CMS like Drupal or WordPress), assigning a set of permissions to a group of contacts like a "Staff" list involves a precise chain of connections.
 
@@ -93,7 +86,6 @@ Admin permissions: 213
 Staff permissions: 77
 Everyone permissions: 6
 
-See below for: Lists of Permissions for Each Role
 
 
 
