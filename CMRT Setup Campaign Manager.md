@@ -86,103 +86,13 @@ Staff permissions: 77
 Everyone permissions: 6
 
 
-
-
-
-===
-
 To query the civicrm_role table directly for the staff entry, run this exact command:
 1. The Clean cv api4 Table Format
 `cv api4 Role.get -T '+w' 'name = "staff"' '+s' 'id,name,label,permissions'`
 
 2. The JSON Format
 If you just want the raw permissions array block dumped out:
-
 ```
-$ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
-[
-    {
-        "id": 3,
-        "permissions": [
-            "access AJAX API",
-            "access CiviCRM",
-            "access Contact Dashboard",
-            "access uploaded files",
-            "add contacts",
-            "view my contact",
-            "view all contacts",
-            "edit all contacts",
-            "edit my contact",
-            "delete contacts",
-            "import contacts",
-            "access deleted contacts",
-            "merge duplicate contacts",
-            "edit groups",
-            "manage tags",
-            "administer Tagsets",
-            "view all activities",
-            "delete activities",
-            "add contact notes",
-            "view all notes",
-            "access CiviContribute",
-            "delete in CiviContribute",
-            "edit contributions",
-            "make online contributions",
-            "view my invoices",
-            "access CiviEvent",
-            "delete in CiviEvent",
-            "edit all events",
-            "edit event participants",
-            "register for events",
-            "view event info",
-            "view event participants",
-            "gotv campaign contacts",
-            "interview campaign contacts",
-            "manage campaign",
-            "release campaign contacts",
-            "reserve campaign contacts",
-            "sign CiviCRM Petition",
-            "access CiviMail",
-            "access CiviMail subscribe/unsubscribe pages",
-            "delete in CiviMail",
-            "view public CiviMail content",
-            "access CiviMember",
-            "delete in CiviMember",
-            "edit memberships",
-            "access all cases and activities",
-            "access my cases and activities",
-            "add cases",
-            "delete in CiviCase",
-            "access CiviPledge",
-            "delete in CiviPledge",
-            "edit pledges",
-            "access CiviReport",
-            "access Report Criteria",
-            "administer reserved reports",
-            "save Report Criteria",
-            "profile create",
-            "profile edit",
-            "profile listings",
-            "profile listings and forms",
-            "profile view",
-            "close all manual batches",
-            "close own manual batches",
-            "create manual batch",
-            "delete all manual batches",
-            "delete own manual batches",
-            "edit all manual batches",
-            "edit own manual batches",
-            "export all manual batches",
-            "export own manual batches",
-            "reopen all manual batches",
-            "reopen own manual batches",
-            "view all manual batches",
-            "view own manual batches",
-            "access all custom data",
-            "access contact reference fields",
-            "cms:view user account"
-        ]
-    }
 ]
 
 ```
@@ -190,7 +100,21 @@ $ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
 1. List EVERY Permission in the System
 To get a full dump of all available permission strings registered in your Standalone instance, run:
 `cv api4 Permission.get -T '+s' 'name,title,description'`
-
+```
+$ cv api4 UserRole.get -T
++----+---------+---------+
+| id | user_id | role_id |
++----+---------+---------+
+| 3  | 2       | 2       | civicrm_cron - admin
+| 4  | 1       | 2       | civicrm_admin - admin
+| 7  | 3       | 3       | civicrm_fundraising - staff
+| 8  | 4       | 2       | civicmr_ken - admin
+| 9  |         | 3       | user deleted - staff
+| 10 |         | 4       | user deleted - campaign manager
+| 11 |         | 3       | user deleted - staff
+| 12 | 3       | 4       | civicrm_fundraising - campaign manager
++----+---------+---------+
+```
 
 
 ## Lists of Permissions for Each Role
