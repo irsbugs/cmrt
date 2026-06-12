@@ -127,7 +127,7 @@ cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $CAMP_ID}
 If you want to bypass terminal string variable parsing completely, you can look up your IDs first using cv api4 Role.get and then just insert the raw integers like this:
 Bash
 
-# Explicitly using the integer IDs (assuming staff is 1 and campaign_manager is 2)
+Explicitly using the integer IDs (assuming staff is 1 and campaign_manager is 2)
 ```
 cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 1}}'
 cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 2}}'
