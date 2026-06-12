@@ -137,9 +137,16 @@ cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 2}}'
 
 If this campaign manager leaves, or if a regular staff member transitions into a campaign role later, you don't have to rewrite any database code or alter everyone's permissions. You simply add or remove the campaign_manager role assignment from that single user account.
 
+**What Happens Next?**
+
+The next time this user logs into your CiviCRM Standalone instance, CiviCRM’s permission engine will automatically merge the permissions arrays from both roles behind the scenes.
+
+They will get all the standard base access defined in your regular staff profile, plus the administer CiviCampaign and manage campaign capabilities you assigned to role 4—all without granting those high-level privileges to the rest of your staff.
 
 
 ====
+
+CHECK THIS - MAYBE DELETE IT.
 
 In CiviCRM Standalone (which relies entirely on CiviCRM's native permissions and ACL engine rather than a CMS like Drupal or WordPress), assigning a set of permissions to a group of contacts like a "Staff" list involves a precise chain of connections.
 
@@ -149,68 +156,6 @@ To accomplish this via APIv4, you need to link three pieces together:
 * The ACL Role: A role created to represent what Staff can do (OptionValue within the acl_role group).
 * The ACL Rule: The actual permission policy assigning data/actions to that role (Acl).
 
-Here is the exact APIv4 code to create these linkages and grant your Staff list its permissions.
-
-
-```
-cv api4 Role.create '{"values": {"name": "campaign_manager", "label": "Campaign Manager", "permissions": ["administer CiviCampaign", "manage campaign"]}}'
-
-OR
-
-cv api4 Role.create '[
-  {
-    "name": "campaign_manager",
-    "label": "Campaign Manager",
-    "permissions": ["administer CiviCampaign", "manage campaign"]
-  }
-]'
-```
-
-
-Step 3 (Corrected)
-
-Run these commands sequentially. The first part dynamically asks CiviCRM for the ID of the role, then feeds it right into the creation payload:
-Bash
-
-# 1. Fetch the exact ID for the 'staff' role and assign it to Contact #3
-
-STAFF_ID=$(cv api4 Role.get '{"where":[["name","=","staff"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
-
-cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $STAFF_ID}}"
-
-# 2. Fetch the exact ID for the 'campaign_manager' role and assign it to Contact #3
-
-CAMP_ID=$(cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
-
-cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $CAMP_ID}}"
-
-
-
-Run this command in your terminal to extract the staff role's permission array. The -T flag outputs the results as a formatted text table:
-$ cv api4 Role.get -T '+w' 'name = "staff"' '+s' 'id,name,label,permissions'
-
-Total permissions: 213
-Admin permissions: 213
-Staff permissions: 77
-Everyone permissions: 6
-
-
-
-
-To query the civicrm_role table directly for the staff entry, run this exact command:
-1. The Clean cv api4 Table Format
-`cv api4 Role.get -T '+w' 'name = "staff"' '+s' 'id,name,label,permissions'`
-
-2. The JSON Format
-If you just want the raw permissions array block dumped out:
-```
-]
-
-```
-
-1. List EVERY Permission in the System
-To get a full dump of all available permission strings registered in your Standalone instance, run:
-`cv api4 Permission.get -T '+s' 'name,title,description'`
 ```
 $ cv api4 UserRole.get -T
 +----+---------+---------+
