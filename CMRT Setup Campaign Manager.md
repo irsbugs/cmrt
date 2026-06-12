@@ -66,7 +66,18 @@ See below for: **Lists of Permissions for Each Role***
 
 ## Adding the Campaign Manager
 
-Role-Based Separation
+Adding "administer CiviCampaign" to the "staff" role's permission array will successfully give your new campaign manager the exact access they need. However, it is not the best approach long-term.
+
+### Why adding it directly to "Staff" isn't ideal
+
+Modifying the staff role breaks the concept of *Least Privilege*. If you add campaign administration directly to the blanket staff role:
+
+* Scope Creep: Every other regular staff member (both current and future accounts) will automatically inherit the power to delete, alter, or misconfigure your campaigns and fundraising setups.
+
+* Technical Debt: As your team grows, your basic staff role will slowly accumulate high-level administrative permissions until "Staff" essentially becomes identical to an "Administrator," defeating the purpose of having distinct roles.
+
+
+### Role-Based Separation - The Best Approachg
 
 Because you are using CiviCRM Standalone v6.x, you have full control over the civicrm_role table via APIv4. The cleaner, more maintainable strategy is to create a distinct, standalone role specifically for this responsibility and assign both roles to the new user.
 
@@ -82,7 +93,53 @@ Here is how you should structure it:
 
 ```
 
+**Step 1. Create the new Campaign Manager role**
+```
+cv api4 Role.create +v name="campaign_manager" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
+```
 
+**Step 2. Ensure your User exists**
+
+(Assuming you have already created the user account, find their User ID. For this example, let's assume the new user account's internal ID is 12).
+
+**Step 3. Link Both Roles to the User**
+
+Using the UserRole mapping table, attach both the general staff role and your new campaign_manager role to their account.
+
+Run these commands sequentially. The first part dynamically asks CiviCRM for the ID of the role, then feeds it right into the creation payload:
+Bash
+
+1. Fetch the exact ID for the 'staff' role and assign it to Contact #3
+```
+STAFF_ID=$(cv api4 Role.get '{"where":[["name","=","staff"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
+
+cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $STAFF_ID}}"
+```
+2. Fetch the exact ID for the 'campaign_manager' role and assign it to Contact #3
+```
+CAMP_ID=$(cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
+
+cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $CAMP_ID}}"
+```
+
+**Alternatively: If you already know the ID numbers**
+
+If you want to bypass terminal string variable parsing completely, you can look up your IDs first using cv api4 Role.get and then just insert the raw integers like this:
+Bash
+
+# Explicitly using the integer IDs (assuming staff is 1 and campaign_manager is 2)
+```
+cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 1}}'
+cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 2}}'
+```
+
+**Why this pays off**
+
+If this campaign manager leaves, or if a regular staff member transitions into a campaign role later, you don't have to rewrite any database code or alter everyone's permissions. You simply add or remove the campaign_manager role assignment from that single user account.
+
+
+
+====
 
 In CiviCRM Standalone (which relies entirely on CiviCRM's native permissions and ACL engine rather than a CMS like Drupal or WordPress), assigning a set of permissions to a group of contacts like a "Staff" list involves a precise chain of connections.
 
