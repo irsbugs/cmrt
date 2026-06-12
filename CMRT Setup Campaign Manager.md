@@ -6,7 +6,7 @@ CiviCRM Standalone defaults to providing the account roles: *Admin*, *Staff* and
 
 Administer -> Users and Permissions -> User Roles
 
-Alternatively using the cv api4 utility
+Alternatively using the *cv api4* utility
 ```
 $ cv api4 Role.get -T '+s' 'id,name,label'
 +----+----------+-------------------------------------+
@@ -24,7 +24,7 @@ When creating the *Campaign Manager* role it consists only these two permissins:
 * CiviCampaign: administer CiviCampaign
 * CiviCampaign: manage campaign
 
-Once the *Campaign Manager* role is created its two permissions may be displayed using the cv api4 utility
+Once the *Campaign Manager* role is created its two permissions may be displayed using the *cv api4* utility
 ```
 $ cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["permissions"]}'
 [
