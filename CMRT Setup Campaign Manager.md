@@ -59,7 +59,6 @@ With CiviCRM standalone 6.15 the following are the totals for the permissions fo
 * Staff: 77
 * Everyone: 6
 * Campaign Manager: 2 (+ 77 Staff) 
-
 * Total permissions: 213
 
 See below for: **Lists of Permissions for Each Role***
