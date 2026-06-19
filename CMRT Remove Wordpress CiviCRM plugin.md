@@ -96,16 +96,7 @@ mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf --execute='SHOW DATABASES
 DROP DATABASE;
 ```
 [cmrailtr@s03dd ~]$ mysql -u cmrailtr_czhn1 -p
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 361476
-Server version: 10.6.27-MariaDB MariaDB Server
 
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-MariaDB [(none)]> SHOW DAATABASES;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DAATABASES' at line 1
 MariaDB [(none)]> SHOW DATABASES;
 +--------------------+
 | Database           |
