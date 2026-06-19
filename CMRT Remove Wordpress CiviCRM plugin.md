@@ -128,4 +128,6 @@ Remove the configuration file for accessing the MySQL CiviCRM database
 [cmrailtr@s03dd ~]$ cd ~/
 [cmrailtr@s03dd ~]$ rm .my_civicrm.cnf
 ``` 
-Check Website *cmrailtrail.org.au* is OK.    
+Check Website *cmrailtrail.org.au* is OK.
+
+After a couple of weeks, if no problems, then delete database backups.
