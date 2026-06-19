@@ -14,14 +14,16 @@ The VentraIP website was initially setup using Wordpress. The CiviCRM plugin for
 [cmrailtr@s03dd ~]$
 ```
 
-The name of the CiviCRM database was set to: cmrailtr_civicrm.
-A mySQL configuration database was created: ~/.my_civicrm.cnf
+The name of the CiviCRM database was set to: *cmrailtr_civicrm*.
+A MySQL configuration database was created at: *~/.my_civicrm.cnf*
 
-In November 2025 CMRT switched to using the CiviCRM service provided by civicrm.org. This web-based application was located at cmrailtrail.civicrm.org
+In November 2025 CMRT switched to using the CiviCRM service provided by *civicrm.org*. This web-based application was located at *cmrailtrail.civicrm.org*.
 
-In 2026 a sub-domain of cmrialtrail.org.au was created called: crm.cmrailtrail.org.au
+In 2026 a sub-domain of *cmrialtrail.org.au* was created called: *crm.cmrailtrail.org.au*
 
-In this sub-domain was installed CiviCRM Standalone version. It uses the database name of: cmrailtr_civi
+In this sub-domain was installed CiviCRM Standalone version. It uses the database name of: *cmrailtr_civi*
+
+
 
 
 
