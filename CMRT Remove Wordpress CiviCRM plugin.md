@@ -41,9 +41,23 @@ The CiviCRM for Wordpress had the following extensions installed:
 
 Note: Not installed. Mosaico. An open-source responsive email template editor
 
-## Removal of CiviCRM for Wordpress
 
-* Perform a backup of the WordPress and CiviCRM databases:
+Summary of databases
+```
+MariaDB [(none)]> show DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |  <--- CiviCRM Standalone DB.
+| cmrailtr_civicrm   |  <--- Database for CiviCRM plugin to Wordpress - to be removed.
+| cmrailtr_czhn1     |  <--- Wordpress DB.
+| information_schema |
++--------------------+
+```
+
+## Removal of CiviCRM from Wordpress
+
+Perform a backup of the WordPress and CiviCRM databases:
 ```
 mysqldump --defaults-file=/home/cmrailtr/.my_wordpress.cnf --databases cmrailtr_czhn1 > backup_wordpress_2026-06-19_17:20:00.sql
 mysqldump --defaults-file=/home/cmrailtr/.my_wordpress.cnf --databases cmrailtr_civicrm > backup_civicrm_2026-06-19_17:20:00.sql
@@ -62,3 +76,65 @@ Check the size of the civicrm directory tree:
 259M    public_html/wp-content/plugins/civicrm
 ```
 
+Remove CiviCRM from Wordpress
+    * Log into *cmrailtrail.org.au/wp-admin*
+    * In dashboard click on *Plugins* / *Installed Pluging*
+    * For *CiviCRM* click on *Deactivate*. No change in size of files off /plugins/civicrm/. Dashpanel no longer supports CiviCRM.
+    * For *CiviCRM* click on *Delete*. Message: *CiviCRM was successfully deleted.* No longer a *civicrm* directory off public_html/wp-content/plugins/
+
+Remove CiviCRM Database 
+```
+mysql --defaults-file=/home/cmrailtr/.my_wordpress.cnf --execute='SHOW DATABASES;'+--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |
+| cmrailtr_civicrm   | <--- To be removed
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+```
+DROP DATABASE;
+```
+[cmrailtr@s03dd ~]$ mysql -u cmrailtr_czhn1 -p
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 361476
+Server version: 10.6.27-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DAATABASES;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DAATABASES' at line 1
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |
+| cmrailtr_civicrm   |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+4 rows in set (0.005 sec)
+
+MariaDB [(none)]> DROP DATABASE cmrailtr_civicrm;
+Query OK, 179 rows affected (0.526 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| cmrailtr_civi      |
+| cmrailtr_czhn1     |
+| information_schema |
++--------------------+
+3 rows in set (0.004 sec)
+
+MariaDB [(none)]>
+```
+Remove the configuration file for accessing the MySQL CiviCRM database
+```
+[cmrailtr@s03dd ~]$ cd ~/
+[cmrailtr@s03dd ~]$ rm .my_civicrm.cnf
+``` 
+Check Website *cmrailtrail.org.au* is OK.    
