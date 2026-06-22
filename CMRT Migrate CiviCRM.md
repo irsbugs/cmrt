@@ -31,8 +31,138 @@ Comparison of the two sets of collected data should help to determine what is in
 * Tables that do not begin with *civicrm_* = 72  <-- These are assumed to be tables related to the Drupal CMS platform
 * Tables that begin with *civicrm_* = 187  <-- 24 Extra are assumed to relate to memberships, questionaires, etc.
 * Database information written to: civiusa_database.json
-* Total different data types: 51  <-- Two extras are: *int(10) unsigned* and *varchar(25)*
+* Total different data types: 51  <-- Two extras are: *int(10)* and *varchar(25)*
 * Total number of civicrm fields: 2066
 
 
+### Summary of the Data types in the databases
+```
+Civiusa				    Civi
+---------------------------------
+blob				      blob
+char(2)				    char(2)
+char(22)				  char(22)
+char(3)			    	char(3)
+char(64)				  char(64)
+date				      date
+datetime				  datetime
+decimal(10,8)			decimal(10,8)
+decimal(18,9)			decimal(18,9)
+decimal(20,2)			decimal(20,2)
+double				    double
+int(1) unsigned		int(1) unsigned
+int(10)				    
+int(10) unsigned	int(10) unsigned
+int(11)				    int(11)
+longtext				  longtext
+mediumblob				mediumblob
+text				      text
+timestamp				  timestamp
+tinyint(1)				tinyint(1)
+tinyint(4)				tinyint(4)
+varchar(10)				varchar(10)
+varchar(100)			varchar(100)
+varchar(1024)			varchar(1024)
+varchar(12)				varchar(12)
+varchar(127)			varchar(127)
+varchar(128)			varchar(128)
+varchar(15)				varchar(15)
+varchar(16)				varchar(16)
+varchar(20)				varchar(20)
+varchar(2048)			varchar(2048)
+varchar(24)				varchar(24)
+varchar(25)				
+varchar(254)			varchar(254)
+varchar(255)			varchar(255)
+varchar(3)				varchar(3)
+varchar(32)				varchar(32)
+varchar(4)				varchar(4)
+varchar(40)				varchar(40)
+varchar(45)				varchar(45)
+varchar(5)				varchar(5)
+varchar(50)				varchar(50)
+varchar(512)			varchar(512)
+varchar(6)				varchar(6)
+varchar(60)				varchar(60)
+varchar(63)				varchar(63)
+varchar(64)				varchar(64)
+varchar(70)				varchar(70)
+varchar(8)				varchar(8)
+varchar(9)				varchar(9)
+```
 
+# Tables in Civiusa database that do not begin with 'civicrm_' = 72 Assumed to be Drupal related.
+```
+actions
+authmap
+backup_iats_customer_codes
+batch
+block
+block_custom
+block_node_type
+block_role
+blocked_ips
+cache
+cache_admin_menu
+cache_block
+cache_bootstrap
+cache_field
+cache_filter
+cache_form
+cache_image
+cache_menu
+cache_page
+cache_path
+cache_update
+comment
+date_format_locale
+date_format_type
+date_formats
+field_config
+field_config_instance
+field_data_body
+field_data_comment_body
+field_revision_body
+field_revision_comment_body
+file_managed
+file_usage
+filter
+filter_format
+flood
+history
+image_effects
+image_styles
+menu_custom
+menu_links
+menu_router
+node
+node_access
+node_comment_statistics
+node_revision
+node_type
+queue
+rdf_mapping
+registry
+registry_file
+role
+role_permission
+search_dataset
+search_index
+search_node_links
+search_total
+semaphore
+sequences
+sessions
+shortcut_set
+shortcut_set_users
+system
+taxonomy_index
+taxonomy_term_data
+taxonomy_term_hierarchy
+taxonomy_vocabulary
+url_alias
+users
+users_roles
+variable
+watchdog
+```
