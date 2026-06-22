@@ -91,7 +91,9 @@ varchar(8)				varchar(8)
 varchar(9)				varchar(9)
 ```
 
-# Tables in Civiusa database that do not begin with 'civicrm_' = 72 Assumed to be Drupal related.
+### Tables in Civiusa database that do not begin with 'civicrm_' = 72 
+
+Assumed to be Drupal CMS related.
 ```
 actions
 authmap
