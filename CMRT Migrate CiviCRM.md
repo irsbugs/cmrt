@@ -6,7 +6,7 @@
 
 Details of migrating CiviCRM from the civicrm.com / Drupal application in USA to the VentraIP sub-domain crm.cmrailtrial.org.au
 
-Simulation of the migration was performed on Ian's local PC which has CiviCRM Standalone installed. THe local PC is at: http://civi.local.pc/ directory tree: ~/civicrm-standalone/. The MySql database is *civi* assiciated with *~/.my_civi.cnf*. Using the *upgrade_civicrm* python utility the local PC's CiviCRM Standalone was upgraded to be at 6.15.3. The local PC has not had any data loaded to it or been configured to accpet memberships, etc.
+Simulation of the migration was performed on Ian's local PC which has CiviCRM Standalone installed. The local PC is at: http://civi.local.pc/ directory tree: ~/civicrm-standalone/. The MySql database is *civi* assiciated with *~/.my_civi.cnf*. Using the *upgrade_civicrm* python utility the local PC's CiviCRM Standalone was upgraded to be at 6.15.3. The local PC has not had any data loaded to it or been configured to accpet memberships, etc.
 
 The *civiusa* application was recently upgraded to run CiviCRM for Drupal 6.15.3. Using Administer --> Backups A 78MB backup tar file was created and downloaded to the local PC on 2026-06-22. This file was extracted from its tar archive and it included the file database.sql at 16MB. A mysql database called *civiusa* with associated *~/.my_civiusa.cnf*. Civiusa has the data for about 500 contacts and 100 memberships. It can perform bulk emails, has Custom questionaire data, etc.
 
