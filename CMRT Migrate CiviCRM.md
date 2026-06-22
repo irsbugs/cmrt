@@ -39,13 +39,13 @@ Comparison of the two sets of collected data should help to determine what is in
 ```
 Civiusa				    Civi
 ---------------------------------
-blob				      blob
+blob				    blob
 char(2)				    char(2)
-char(22)				  char(22)
+char(22)				char(22)
 char(3)			    	char(3)
-char(64)				  char(64)
-date				      date
-datetime				  datetime
+char(64)				char(64)
+date				    date
+datetime				datetime
 decimal(10,8)			decimal(10,8)
 decimal(18,9)			decimal(18,9)
 decimal(20,2)			decimal(20,2)
