@@ -50,9 +50,9 @@ decimal(10,8)			decimal(10,8)
 decimal(18,9)			decimal(18,9)
 decimal(20,2)			decimal(20,2)
 double				    double
-int(1) unsigned		  int(1) unsigned
+int(1) unsigned		    int(1) unsigned
 int(10)				    
-int(10) unsigned	  int(10) unsigned
+int(10) unsigned	    int(10) unsigned
 int(11)				    int(11)
 longtext				  longtext
 mediumblob				mediumblob
