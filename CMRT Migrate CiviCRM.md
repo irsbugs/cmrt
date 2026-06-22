@@ -34,6 +34,37 @@ Comparison of the two sets of collected data should help to determine what is in
 * Total different data types: 51  <-- Two extras are: *int(10)* and *varchar(25)*
 * Total number of civicrm fields: 2066
 
+### civiusa civicrm_ prefixed tables that are not in civi. Total = 28
+```
+cxn
+firewall_ipaddress
+grant
+iats_faps_journal
+iats_journal
+iats_request_log
+iats_response_log
+iats_ukdd_validate
+iats_verify
+login_security_device
+mailing_event_forward
+mosaico_msg_template
+paymentprocessor_webhook
+stripe_customers
+stripe_paymentintent
+stripe_plans
+stripe_subscriptions
+value_cmrt_voluntee_11
+value_contribution_page_terms_and_conditions_7
+value_contribution_terms_and_conditions_acceptan_8
+value_event_terms_and_conditions_7
+value_event_terms_and_conditions_acceptance_9
+value_individual_in_8
+value_member_engage_9
+value_member_involv_10
+value_organization__7
+value_payment_detai_6
+value_sla_acceptance_4
+```
 
 ### Summary of the Data types in the databases
 ```
