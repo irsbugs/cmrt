@@ -54,10 +54,10 @@ int(1) unsigned		    int(1) unsigned
 int(10)				    
 int(10) unsigned	    int(10) unsigned
 int(11)				    int(11)
-longtext				  longtext
+longtext				longtext
 mediumblob				mediumblob
-text				      text
-timestamp				  timestamp
+text				    text
+timestamp				timestamp
 tinyint(1)				tinyint(1)
 tinyint(4)				tinyint(4)
 varchar(10)				varchar(10)
