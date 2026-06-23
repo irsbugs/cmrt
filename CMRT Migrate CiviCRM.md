@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Investigation into migrating CiviCRM from the Drupal plugin of the CiviCRM application used by civicrm.org in USA, to the VentraIP sub-domain crm.cmrailtrial.org.au CiviCRM Standalone application. For simplicity the version in USA that we migtage from will be called *civiusa* and the Standalone version we are migrating to will bew called *civi*
+Investigation into migrating CiviCRM from the *Spark Essentials* Drupal plugin of the CiviCRM application used by civicrm.org in USA, to the VentraIP sub-domain crm.cmrailtrial.org.au CiviCRM Standalone application. For simplicity the version in USA that we migtage from will be called *civiusa* and the Standalone version we are migrating to will bew called *civi*
 
 Simulation of the migration was performed to Ian's local PC which has CiviCRM Standalone installed i.e. *civi*. The local PC is at: *civi.local.pc* with directory tree: *~/civicrm-standalone/*. The MySql database is *civi* associated with *~/.my_civi.cnf*. Using the *upgrade_civicrm* python utility the local PC's CiviCRM Standalone was upgraded to be at 6.15.3. This *civi* has had the extension *Mozaico* added. The local PC has not had any data loaded to it, except for the *Admin contact* and *default organization*. It has not been configured to accept memberships, or questionaires, etc. 
 
@@ -22,7 +22,7 @@ Comparison of the two sets of collected data should help to determine what is in
 
 A MySQL has various features that can be retrieved to allow it to be compared with another table of the same name. These features are not determined by wherther of not data has been added to the table.
 
-Upon connecting to a mysql database, *civi* or *civiusa* all the unique names of the tables for the database can be retrieved with the mysql command *SHOW TABLES;*. Each table has a set of columns. All the columns properties for a table can be retrieved with *SHOW COLUMNS FROM table_name*. There are six properties:
+Upon connecting to a mysql database, *civi* or *civiusa*, all the unique names of the tables for the database can be retrieved with the mysql command *SHOW TABLES;*. Each table has a set of columns. All the columns properties for a table can be retrieved with *SHOW COLUMNS FROM table_name*. There are six properties:
 *Field, Type, Null, Key, Default, Extra*. For example, for the table *civicrm_contact* there are a total of 51 columns. The following is a selection of eigth of these columns to highlight their different column properties.
 ```
 $ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civicrm_contact';
@@ -43,10 +43,11 @@ $ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civi
 Note although these are properties of *columns* they are displayed as *rows* of property data. If the data is displayed with the mysql command *SELECT * FROM civicrm_contact;* then all 51 columns are displayed horizontally, with the *Field* as the column header, and the rows display the data for each individual contact.
 
 In the above table, some observations are:
-* The field *id* is an integer that autoincrements. Each new contact gets the next integer. If a contact is deleted then the *id* integer can not be recovered for another contact.
+* The field *id* is an integer that auto-increments. Each new contact added gets the next integer. If a contact is deleted then its *id* integer can not be recovered for use with another contact.
 * The *first_name* and *last_name* have a data type of *varchar(64)*. This means each name can be a variable length string up to 64 characters in length.
 * *do_not_email* type of *tinyint(1)* is from -128 to +127 or 0 to 255, but it is often used as a boolean with values 0 and 1.
 * *birth_date* uses the data type of *date*.
+* *timestamp* stores its data as *yyyy--mm-dd hh:mm:ss*. Another method is to use *(int(11)* and store the seconds since the linux epoch of 1 Jan 1970.
 
 
 ## Initial Table Information
