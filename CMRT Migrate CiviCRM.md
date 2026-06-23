@@ -129,63 +129,66 @@ civicrm_value_organization__7
 civicrm_value_payment_detai_6
 civicrm_value_sla_acceptance_4
 ```
-Many of these extra tables are attributed to Civiusa having been setup to support memberships payments.
+Many of these extra tables are attributed to Civiusa having been setup to support memberships payments, questionaires, etc.
 
 
-### Summary of the Data types in the databases
+### Summary of the Data types in the databases where the table prefix is civicrm_
 ```
-Civiusa				    Civi
----------------------------------
-blob				    blob
-char(2)				    char(2)
-char(22)				char(22)
-char(3)			    	char(3)
-char(64)				char(64)
-date				    date
-datetime				datetime
-decimal(10,8)			decimal(10,8)
-decimal(18,9)			decimal(18,9)
-decimal(20,2)			decimal(20,2)
-double				    double
-int(1) unsigned		    int(1) unsigned
-int(10)				    
-int(10) unsigned	    int(10) unsigned
-int(11)				    int(11)
-longtext				longtext
-mediumblob				mediumblob
-text				    text
-timestamp				timestamp
-tinyint(1)				tinyint(1)
-tinyint(4)				tinyint(4)
-varchar(10)				varchar(10)
-varchar(100)			varchar(100)
-varchar(1024)			varchar(1024)
-varchar(12)				varchar(12)
-varchar(127)			varchar(127)
-varchar(128)			varchar(128)
-varchar(15)				varchar(15)
-varchar(16)				varchar(16)
-varchar(20)				varchar(20)
-varchar(2048)			varchar(2048)
-varchar(24)				varchar(24)
-varchar(25)				
-varchar(254)			varchar(254)
-varchar(255)			varchar(255)
-varchar(3)				varchar(3)
-varchar(32)				varchar(32)
-varchar(4)				varchar(4)
-varchar(40)				varchar(40)
-varchar(45)				varchar(45)
-varchar(5)				varchar(5)
-varchar(50)				varchar(50)
-varchar(512)			varchar(512)
-varchar(6)				varchar(6)
-varchar(60)				varchar(60)
-varchar(63)				varchar(63)
-varchar(64)				varchar(64)
-varchar(70)				varchar(70)
-varchar(8)				varchar(8)
-varchar(9)				varchar(9)
+Data Type        Civi  Civiusa
+------------------------------
+blob                1        1
+char(2)             1        1
+char(22)            3        3
+char(3)             2        2
+char(64)            1        0
+date               21       25
+datetime           55       63
+decimal(10,8)       1        1
+decimal(18,9)       2        2
+decimal(20,2)      35       41
+double              3        8
+Int(1) unsigned     2        0
+int(10)             0        3
+Int(10) unsigned  629      692
+int(11)            50       49
+longtext           25       28
+mediumblob          1        1
+text              123      142
+timestamp          72       79
+tinyint(1)        254        9
+tinyint(4)          3      258
+varchar(10)         9        9
+varchar(100)        1        2
+varchar(1024)       2        4
+varchar(12)        10       11
+varchar(127)        1        1
+varchar(128)       46       47
+varchar(15)         1        1
+varchar(16)        11       11
+varchar(20)         2        1
+varchar(2048)       4        4
+varchar(24)         1        1
+varchar(25)         0        1
+varchar(254)        3        3
+varchar(255)      260      322
+varchar(3)         15       19
+varchar(32)        18       19
+varchar(4)          7        8
+varchar(40)         1        1
+varchar(45)         1        1
+varchar(5)          4        4
+varchar(50)         2        2
+varchar(512)        8        7
+varchar(6)          1        1
+varchar(60)         2        0
+varchar(63)         1        1
+varchar(64)       121      122
+varchar(70)         1        1
+varchar(8)         31       31
+varchar(9)          1        1
+varchar(96)         4        4
+------------------------------
+  51             1224     2048
 ```
 
 ### Tables in Civiusa database that do not begin with 'civicrm_' = 72 
