@@ -4,11 +4,13 @@
 
 ## Introduction
 
-Details of migrating CiviCRM from the civicrm / Drupal plugin application in USA to the VentraIP sub-domain crm.cmrailtrial.org.au CiviCRM Standalone application.
+Investigation into migrating CiviCRM from the Drupal plugin of the CiviCRM application used by civicrm.org in USA, to the VentraIP sub-domain crm.cmrailtrial.org.au CiviCRM Standalone application. For simplicity the version in USA that we migtage from will be called *civiusa* and the Standalone version we are migrating to will bew called *civi*
 
-Simulation of the migration was performed on Ian's local PC which has CiviCRM Standalone installed. The local PC is at: *civi.local.pc* with directory tree: *~/civicrm-standalone/*. The MySql database is *civi* assiciated with *~/.my_civi.cnf*. Using the *upgrade_civicrm* python utility the local PC's CiviCRM Standalone was upgraded to be at 6.15.3. The local PC has not had any data loaded to it or been configured to accept memberships, or questionaires, etc.
+Simulation of the migration was performed to Ian's local PC which has CiviCRM Standalone installed i.e. *civi*. The local PC is at: *civi.local.pc* with directory tree: *~/civicrm-standalone/*. The MySql database is *civi* associated with *~/.my_civi.cnf*. Using the *upgrade_civicrm* python utility the local PC's CiviCRM Standalone was upgraded to be at 6.15.3. This *civi* has had the extension *Mozaico* added. The local PC has not had any data loaded to it, except for the *Admin contact* and *default organization*. It has not been configured to accept memberships, or questionaires, etc. 
 
-The *civiusa* application is at *cmrailtrail.civicrm.org*. It was recently upgraded to run 6.15.3 of CiviCRM plugin for Drupal. Using *Administer --> Backups* a 78MB backup tar file was created and downloaded to the local PC on 2026-06-22. This file was extracted from its tar archive and it included the file *database.sql* at 16MB. A mysql database called *civiusa* with associated *~/.my_civiusa.cnf*. Civiusa contains the data for about 500 contacts and 100 memberships. It can perform bulk emails, has Custom questionaire data, etc.
+The *civiusa* application is at *cmrailtrail.civicrm.org*. It was recently upgraded to run 6.15.3 of what is understood to be a variant of CiviCRM plugin for Drupal. Using *Administer --> Backups* a 78MB backup tar file was created on *civiusa* and downloaded to the local PC on 2026-06-22. This backup file was extracted from its tar archive and it included the file *database.sql* at 16MB. A mysql database was locally created called *civiusa* with associated *~/.my_civiusa.cnf*. *Civiusa* contains the data for about 500 contacts and 100 memberships. It can perform bulk emails, has Custom questionaire data, etc.
+
+Initially the investigation is to determine the differences in the database tables between *civiusa* and *civi*.
 
 A python utility was written to perfom mysql commands and extract the tables and associated properties from both the *civi* and the *civiusa* databases.
 
