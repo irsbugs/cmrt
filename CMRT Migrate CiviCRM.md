@@ -91,41 +91,44 @@ Using a python utility to retrieve both *civi* and *civiusa* the following is a 
 * civiusa civicrm_ prefixed tables not in civi: 28
 
 ### Tables in civi with civcrm_ prefix that are not in civiusa. - 4
-* civicrm_role
-* civicrm_session
-* civicrm_totp
-* civicrm_user_role
-  
-* ### Tables in civiusa with civicrm_ prefix that are not in civi. - 28
-* civicrm_cxn
-* civicrm_firewall_ipaddress
-* civicrm_grant
-* civicrm_iats_faps_journal
-* civicrm_iats_journal
-* civicrm_iats_request_log
-* civicrm_iats_response_log
-* civicrm_iats_ukdd_validate
-* civicrm_iats_verify
-* civicrm_login_security_device
-* civicrm_mailing_event_forward
-* civicrm_mosaico_msg_template
-* civicrm_paymentprocessor_webhook
-* civicrm_stripe_customers
-* civicrm_stripe_paymentintent
-* civicrm_stripe_plans
-* civicrm_stripe_subscriptions
-* civicrm_value_cmrt_voluntee_11
-* civicrm_value_contribution_page_terms_and_conditions_7
-* civicrm_value_contribution_terms_and_conditions_acceptan_8
-* civicrm_value_event_terms_and_conditions_7
-* civicrm_value_event_terms_and_conditions_acceptance_9
-* civicrm_value_individual_in_8
-* civicrm_value_member_engage_9
-* civicrm_value_member_involv_10
-* civicrm_value_organization__7
-* civicrm_value_payment_detai_6
-* civicrm_value_sla_acceptance_4
+```
+civicrm_role
+civicrm_session
+civicrm_totp
+civicrm_user_role
+```
 
+### Tables in civiusa with civicrm_ prefix that are not in civi. - 28
+```
+civicrm_cxn
+civicrm_firewall_ipaddress
+civicrm_grant
+civicrm_iats_faps_journal
+civicrm_iats_journal
+civicrm_iats_request_log
+civicrm_iats_response_log
+civicrm_iats_ukdd_validate
+civicrm_iats_verify
+civicrm_login_security_device
+civicrm_mailing_event_forward
+civicrm_mosaico_msg_template
+civicrm_paymentprocessor_webhook
+civicrm_stripe_customers
+civicrm_stripe_paymentintent
+civicrm_stripe_plans
+civicrm_stripe_subscriptions
+civicrm_value_cmrt_voluntee_11
+civicrm_value_contribution_page_terms_and_conditions_7
+civicrm_value_contribution_terms_and_conditions_acceptan_8
+civicrm_value_event_terms_and_conditions_7
+civicrm_value_event_terms_and_conditions_acceptance_9
+civicrm_value_individual_in_8
+civicrm_value_member_engage_9
+civicrm_value_member_involv_10
+civicrm_value_organization__7
+civicrm_value_payment_detai_6
+civicrm_value_sla_acceptance_4
+```
 Many of these extra tables are attributed to Civiusa having been setup to support memberships payments.
 
 
