@@ -83,6 +83,7 @@ Using a python utility to retrieve both *civi* and *civiusa* the following is a 
 ### Compare Civi vs. Civiusa
 
 Both *civi* and *civiusa* have all *Components* enabled:
+
 * CiviEvent
 * CiviContribute
 * CiviMember
@@ -92,12 +93,17 @@ Both *civi* and *civiusa* have all *Components* enabled:
 * CiviReport
 * CiviCampaign
 
+#### civicrm_ prefixed tables totals
 * civi civicrm_ prefixed tables: 163
 * civiusa civicrm_ prefixed tables:  187
-  
+
+
+#### *civi* civicrm_ prefixed tables in *civiusa*  
 * civi civicrm_ prefixed tables in civiusa: 159
 * civi civicrm_ prefixed tables not in civiusa: 4
-  
+
+
+#### *civiusa* civicrm_ prefixed tables in *civi*    
 * civiusa civicrm_ prefixed tables in civi: 159
 * civiusa civicrm_ prefixed tables not in civi: 28
 
