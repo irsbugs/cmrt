@@ -23,8 +23,7 @@ Comparison of the two sets of collected data should help to determine what is in
 A MySQL has various features that can be retrieved to allow it to be compared with another table of the same name. These features are not determined by wherther of not data has been added to the table.
 
 Upon connecting to a mysql database, *civi* or *civiusa* all the unique names of the tables for the database can be retrieved with the mysql command *SHOW TABLES;*. Each table has a set of columns. All the columns properties for a table can be retrieved with *SHOW COLUMNS FROM table_name*. There are six properties:
-*Field, Type, Null, Key, Default, Extra*. For example, for the table *civicrm_contact* there are a total of 51 columns. The following is a selection of eigth of these columns to highlight their different column properties:
-
+*Field, Type, Null, Key, Default, Extra*. For example, for the table *civicrm_contact* there are a total of 51 columns. The following is a selection of eigth of these columns to highlight their different column properties.
 ```
 $ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civicrm_contact';
 +--------------------------------+------------------+------+-----+---------------------+-------------------------------+
@@ -40,58 +39,96 @@ $ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civi
 | created_date                   | timestamp        | YES  | MUL | NULL                |                               |
 | modified_date                  | timestamp        | YES  | MUL | current_timestamp() | on update current_timestamp() |
 +--------------------------------+------------------+------+-----+---------------------+-------------------------------+
-
 ```
+Note although these are properties of *columns* they are displayed as *rows* of property data. If the data is displayed with the mysql command *SELECT * FROM civicrm_contact;* then all 51 columns are displayed horizontally, with the *Field* as the column header, and the rows display the data for each individual contact.
+
+In the above table, some observations are:
+* The field *id* is an integer that autoincrements. Each new contact gets the next integer. If a contact is deleted then the *id* integer can not be recovered for another contact.
+* The *first_name* and *last_name* have a data type of *varchar(64)*. This means each name can be a variable length string up to 64 characters in length.
+* *do_not_email* type of *tinyint(1)* is from -128 to +127 or 0 to 255, but it is often used as a boolean with values 0 and 1.
+* *birth_date* uses the data type of *date*.
+
 
 ## Initial Table Information
 
+Using a python utility to retrieve both *civi* and *civiusa* the following is a summary of the data:
+
 ### Civi
 
-* Tables that do not begin with *civicrm_* = 0
-* Tables that begin with *civicrm_* = 163
+* Total tables from database /home/ian/.my_civi.cnf: 163
+* All elements in civi_table_list are unique
+* All elements in other_table_list are unique
+* Table list total: 163, CiviCRM table list: 163, Other table_list: 0
+* Length of data_dict_civi: 163
+* Length of data_dict_other: 0  <-- Using CiviCRM Standalone so no CMS related tables.
 * Database information written to: civi_database.json
-* Total different data types: 49
-* Total number of civicrm fields: 1853
+* Database information written to: civi_other_database.json
+* Total differnet types: 49
+* Total number of fields: 1853
 
 ### Civiusa
 
-* Tables that do not begin with *civicrm_* = 72  <-- These are assumed to be tables related to the Drupal CMS platform
-* Tables that begin with *civicrm_* = 187  <-- 24 Extra are assumed to relate to memberships, questionaires, etc.
+* Total tables from database /home/ian/.my_civiusa.cnf: 259
+* All elements in civi_table_list are unique
+* All elements in other_table_list are unique
+* Table list total: 259, CiviCRM table list: 187, Other table_list: 72
+* Length of data_dict_civi: 187
+* Length of data_dict_other: 72  <-- These are assumed to be tables related to the Drupal CMS platform.
 * Database information written to: civiusa_database.json
-* Total different data types: 51  <-- Two extras are: *int(10)* and *varchar(25)*
-* Total number of civicrm fields: 2066
+* Database information written to: civiusa_other_database.json
+* Total differnet types: 48
+* Total number of fields: 2048
 
-### civiusa civicrm_ prefixed tables that are not in civi. Total = 28
-```
-cxn
-firewall_ipaddress
-grant
-iats_faps_journal
-iats_journal
-iats_request_log
-iats_response_log
-iats_ukdd_validate
-iats_verify
-login_security_device
-mailing_event_forward
-mosaico_msg_template
-paymentprocessor_webhook
-stripe_customers
-stripe_paymentintent
-stripe_plans
-stripe_subscriptions
-value_cmrt_voluntee_11
-value_contribution_page_terms_and_conditions_7
-value_contribution_terms_and_conditions_acceptan_8
-value_event_terms_and_conditions_7
-value_event_terms_and_conditions_acceptance_9
-value_individual_in_8
-value_member_engage_9
-value_member_involv_10
-value_organization__7
-value_payment_detai_6
-value_sla_acceptance_4
-```
+### Compare Civi vs. Civiusa
+
+civi civicrm_ prefixed tables: 163
+civiusa civicrm_ prefixed tables:  187
+
+civi civicrm_ prefixed tables in civiusa: 159
+civi civicrm_ prefixed tables not in civiusa: 4
+
+civiusa civicrm_ prefixed tables in civi: 159
+civiusa civicrm_ prefixed tables not in civi: 28
+
+### Tables in civi with civcrm_ prefix that are not in civiusa. - 4
+
+civicrm_role
+civicrm_session
+civicrm_totp
+civicrm_user_role
+
+### Tables in civiusa with civicrm_ prefix that are not in civi. - 28
+civicrm_cxn
+civicrm_firewall_ipaddress
+civicrm_grant
+civicrm_iats_faps_journal
+civicrm_iats_journal
+civicrm_iats_request_log
+civicrm_iats_response_log
+civicrm_iats_ukdd_validate
+civicrm_iats_verify
+civicrm_login_security_device
+civicrm_mailing_event_forward
+civicrm_mosaico_msg_template
+civicrm_paymentprocessor_webhook
+civicrm_stripe_customers
+civicrm_stripe_paymentintent
+civicrm_stripe_plans
+civicrm_stripe_subscriptions
+civicrm_value_cmrt_voluntee_11
+civicrm_value_contribution_page_terms_and_conditions_7
+civicrm_value_contribution_terms_and_conditions_acceptan_8
+civicrm_value_event_terms_and_conditions_7
+civicrm_value_event_terms_and_conditions_acceptance_9
+civicrm_value_individual_in_8
+civicrm_value_member_engage_9
+civicrm_value_member_involv_10
+civicrm_value_organization__7
+civicrm_value_payment_detai_6
+civicrm_value_sla_acceptance_4
+
+Many of these extra tables are attributed to Civiusa having been setup to support memberships payments.
+
 
 ### Summary of the Data types in the databases
 ```
@@ -152,6 +189,8 @@ varchar(9)				varchar(9)
 ### Tables in Civiusa database that do not begin with 'civicrm_' = 72 
 
 Assumed to be Drupal CMS related.
+However, some of these may be used as replacements for the four tables missing from *civi*: civicrm_role, civicrm_session, civicrm_totp, civicrm_user_role
+
 ```
 actions
 authmap
