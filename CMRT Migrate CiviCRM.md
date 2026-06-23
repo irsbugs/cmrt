@@ -14,9 +14,34 @@ Initially the investigation is to determine the differences in the database tabl
 
 A python utility was written to perfom mysql commands and extract the tables and associated properties from both the *civi* and the *civiusa* databases.
 
-The table data collected by this program was written to *civi_database.json* and *civiusa_database.json* files.
+The table data collected by this program was written to *civi_database.json* and *civiusa_database.json* files. These json files are for tables that begin with the prefix *civicrm_*. For *civi* this is the cases for all tables. For *civiusa* there are other tables which are assumed to relate to Drupal. This table data is stored in *civiusa_other_database.json*.
 
 Comparison of the two sets of collected data should help to determine what is involved in the migration.
+
+## MySQL table features
+
+A MySQL has various features that can be retrieved to allow it to be compared with another table of the same name. These features are not determined by wherther of not data has been added to the table.
+
+Upon connecting to a mysql database, *civi* or *civiusa* all the unique names of the tables for the database can be retrieved with the mysql command *SHOW TABLES;*. Each table has a set of columns. All the columns properties for a table can be retrieved with *SHOW COLUMNS FROM table_name*. There are six properties:
+*Field, Type, Null, Key, Default, Extra*. For example, for the table *civicrm_contact* there are a total of 51 columns. The following highlights eigth of these column proporties:
+
+```
+$ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civicrm_contact';
++--------------------------------+------------------+------+-----+---------------------+-------------------------------+
+| Field                          | Type             | Null | Key | Default             | Extra                         |
++--------------------------------+------------------+------+-----+---------------------+-------------------------------+
+| id                             | int(10) unsigned | NO   | PRI | NULL                | auto_increment                |
+| external_identifier            | varchar(64)      | YES  | UNI | NULL                |                               |
+| first_name                     | varchar(64)      | YES  | MUL | NULL                |                               |
+| last_name                      | varchar(64)      | YES  | MUL | NULL                |                               |
+| do_not_email                   | tinyint(1)       | NO   |     | 0                   |                               |
+| image_URL                      | text             | YES  |     | NULL                |                               |
+| birth_date                     | date             | YES  |     | NULL                |                               |
+| created_date                   | timestamp        | YES  | MUL | NULL                |                               |
+| modified_date                  | timestamp        | YES  | MUL | current_timestamp() | on update current_timestamp() |
++--------------------------------+------------------+------+-----+---------------------+-------------------------------+
+
+```
 
 ## Initial Table Information
 
