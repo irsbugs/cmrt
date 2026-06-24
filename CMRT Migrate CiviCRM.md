@@ -288,7 +288,7 @@ variable
 watchdog
 ```
 
-###Comparison of 159 files prefixed with *civicrm_* in *civi* vs civicrm*
+### Comparison of 159 files prefixed with *civicrm_* in *civi* vs civicrm*
 
 * 157 tables have identical column counts which suggest they could be used without modification as migrated tables in the Standalone CiviCRM
 * The table *civicrm_participant* has 21 tables in *civi* and 22 tables *civiusa* The extra column in *civiusa* is *cart id*.
