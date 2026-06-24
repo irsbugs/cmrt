@@ -287,3 +287,10 @@ users_roles
 variable
 watchdog
 ```
+
+###Comparison of 159 files prefixed with *civicrm_* in *civi* vs civicrm*
+
+* 157 tables have identical column counts which suggest they could be used without modification as migrated tables in the Standalone CiviCRM
+* The table *civicrm_participant* has 21 tables in *civi* and 22 tables *civiusa* The extra column in *civiusa* is *cart id*.
+* The table *civicrm_uf_match* has 14 columns in *civi* but only 6 columns in *civiusa*. However *civiusa* has the drupal table *users* with some of the missing columns. It appears that by merging the *civiusa* tables *civicrm_uf_match* and *users*, then a replacement *civicrm_uf_match* table could be created for *civi*.  
+
