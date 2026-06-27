@@ -46,9 +46,22 @@ It is best to setup a Webmail password first as it has the most integrity requir
 
 ## WordPress
 
-To reach the login screen of the WordPress accounts on the primary domain: *https://cmrailtral.org.au/wp-admin*
+To reach the login screen of the WordPress accounts on the primary domain: *https://cmrailtrail.org.au/wp-admin*
 
-These accounts are used by the WordPress administrators to make changes to the Website. They may also modify Wordpress plugins. An aim it that there will not be data needingto be collected, etc, from in WordPress (E.g woocommerce data) as this fole is not performed by CiviCRM
+These accounts are used by the WordPress administrators to make changes to the Website. They may also modify Wordpress plugins. An aim it that there will not be data needing to be collected, etc, from in WordPress or its plugins. (E.g woocommerce data, as this role is now performed by CiviCRM.
+
+##  CiviCRM
+
+To reach the login screen for CiviCRM accounts on the sub-domain: *https://crm.cmrailtrai.org.au*
+
+The CMRT excutives, committee and contractors have individual accounts. To login they use the same username as for their Webmail account login. E.g*steve@cmrailtrail.org.au*
+
+There are also CiviCRM accounts with gereric usernames for logging in. E.g. *admin* and *cron*. When these accounts also have Webmail then the webmail name account may akternatively be used as the username. E.g. *admin@cmrailtrail.org.au* and *cron@cmrailtrail.org.au*
+
+All CMRT executive and committee will b e Individual contacts in the CiviCRM database.
+
+
+
 
 
 
