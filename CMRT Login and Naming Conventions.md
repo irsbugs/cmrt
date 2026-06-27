@@ -6,6 +6,31 @@
 
 For the management and operation of the CMRT IT systems a variety of login's are a requirement. This document is a guideline to the account login naming conventions. 
 
+To provide examples in this document assume there is a *Joe Bloggs*. Joe is a member of CMRT, so he is registered in CiviCRM as an Individual Contact.  Joe is a member of the CMRT committee so he has a CMRT Webmail account and a personal account on the CiviCRM system. Joe looks after the IT systems so he also has administration accounts.
+
+There is also a *Joe Another* on the CMRT committee. The first-name is normally only needed for account naming, etc., but for uniqueness of these two the first letter of the surname is appended and they are referred as *joea* and *joeb* 
+
+Thus for Joe Bloggs these will be his accounts as a committee member:
+
+* CMRT Webmail: joeb@cmrailtrail.org.au
+* CiviCRM Account Username: joeb@cmrailtrail.org.au
+
+* CiviCRM Contact Firstname: Joe
+* CiviCRM Contact Lastname: Bloggs
+* CiviCRM Contact Email (Main): joe_bloggs@example.com
+
+Joe, as the IT administrator, also has the passwwords to access these accounts:
+
+* VentraIP top-level-account.
+* VentraIP cPanel.
+* WordPress wp-admin
+* WordPress database
+* CiviCRM database
+  
+* CMRT Webmail: admin@cmrailtrail.org.au
+* CiviCRM Account Username: admin
+  
+
 ## Systems
 
 VentraIP provide hosting services for two domains for CMRT:
@@ -54,11 +79,14 @@ These accounts are used by the WordPress administrators to make changes to the W
 
 To reach the login screen for CiviCRM accounts on the sub-domain: *https://crm.cmrailtrai.org.au*
 
-The CMRT excutives, committee and contractors have individual accounts. To login they use the same username as for their Webmail account login. E.g*steve@cmrailtrail.org.au*
+The CMRT executives, committee and contractors have individual accounts. To login they use the same username as for their Webmail account login. E.g*steve@cmrailtrail.org.au*
 
 There are also CiviCRM accounts with gereric usernames for logging in. E.g. *admin* and *cron*. When these accounts also have Webmail then the webmail name account may akternatively be used as the username. E.g. *admin@cmrailtrail.org.au* and *cron@cmrailtrail.org.au*
 
-All CMRT executive and committee will b e Individual contacts in the CiviCRM database.
+All CMRT executive and committee will be Individual contacts in the CiviCRM database. Using Administer -->  Users and Permissions --> User Accounts displays *Administer User Accounts*. Each account may be *editied*.  The fields are: Roles, Username, Contact, User Email, Enabled, Timezone and Preferred Language. 
+
+From this list the fields the *Username* and *Contact* are indicated as mandatory. As previously stated the *Username* is normally the same as the Webmail email address. E.g. steve@cmrailtrail.org.au. The *Contact* 
+
 
 
 
