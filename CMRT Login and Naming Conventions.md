@@ -19,7 +19,7 @@ Thus for Joe Bloggs these will be his accounts as a committee member:
 * CiviCRM Contact Lastname: Bloggs
 * CiviCRM Contact Email (Main): joe_bloggs@example.com
 
-Joe, as the IT administrator, also has the passwwords to access these accounts:
+Joe, as the IT administrator, also has the passwords to access these accounts:
 
 * VentraIP top-level-account.
 * VentraIP cPanel.
