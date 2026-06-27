@@ -23,13 +23,15 @@ Joe, as the IT administrator, also has the passwords to access these accounts:
 
 * VentraIP top-level-account.
 * VentraIP cPanel.
+
+WordPress Admin
 * WordPress wp-admin
 * WordPress database
-* CiviCRM database
-  
+
+CiviCRM Admin
 * CMRT Webmail: admin@cmrailtrail.org.au
 * CiviCRM Account Username: admin
-  
+* CiviCRM database  
 
 ## Systems
 
@@ -42,10 +44,10 @@ VentraIP provide hosting services for two domains for CMRT:
 The following is a list of accounts and the URL to get to the logon prompts
 
 * VentraIP Management: https://vip.ventraip.com.au
-* Webmail: https://cmrailtrail.org.au:2096/
+* Webmail: https://cmrailtrail.org.au:2096/ OR https://cmrailtrail.org.au/webmail/
 * WordPress Website Dashboard: https//:cmrailtrail.org.au/wp-admin
 
-* Main cPanel: https://cmrailtrail.org.au:2083/
+* Main cPanel: https://cmrailtrail.org.au:2083/ OR https://cmrailtrail.org.au/cpanel/
 * CiviCRM Dashboard: https//:cmrailtrail.org.au/logon
 
 * CiviCRM Webmail: https://crm.cmrailtrail.org.au:2096
