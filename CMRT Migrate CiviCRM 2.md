@@ -711,3 +711,61 @@ Sample with "data"
 | 1882 | 37fcb77e3e83dcf1e52d1d2e76e7d2ce299ce48af091fc0d98c872c3a3ea1d5e | CiviCRM|a:2:{s:12:"qfPrivateKey";s:44:"HtQU/mJG1GoWw3GitpENbFq6hNVRumcCeK1/lhhy5qg=";s:11:"qfSessionID";s:64:"37fcb77e3e83dcf1e52d1d2e76e7d2ce299ce48af091fc0d98c872c3a3ea1d5e";}                                                          | 2026-07-02 17:41:59 |
 | 1884 | e5a535879652852063ca83556420a9329661aaf9bddf0fe5969aeca51d5420d6 | CiviCRM|a:0:{}                                                          | 2026-07-02 17:42:04 |
 ```
+
+## Mosaico
+
+Mosaico adds to tables to CiviCRM
+
+* civicrm_mosaico_template
+* civicrm_mosaico_msg_template
+
+### civicrm_mosaico_template
+
+```
+$ mysql --defaults-file=/home/ian/.my_civiusa.cnf --execute='SHOW COLUMNS FROM civicrm_mosaico_template';
++-------------+------------------+------+-----+---------+----------------+
+| Field       | Type             | Null | Key | Default | Extra          |
++-------------+------------------+------+-----+---------+----------------+
+| id          | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(255)     | YES  |     | NULL    |                |
+| base        | varchar(64)      | YES  |     | NULL    |                |
+| html        | longtext         | YES  |     | NULL    |                |
+| metadata    | longtext         | YES  |     | NULL    |                |
+| content     | longtext         | YES  |     | NULL    |                |
+| msg_tpl_id  | int(10) unsigned | YES  | MUL | NULL    |                |
+| category_id | int(10) unsigned | YES  |     | NULL    |                |
+| domain_id   | int(10) unsigned | YES  | MUL | NULL    |                |
++-------------+------------------+------+-----+---------+----------------+
+
+ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civiusa.cnf --execute='SELECT id, title, base FROM civicrm_mosaico_template';
++----+-----------------------------+------------+
+| id | title                       | base       |
++----+-----------------------------+------------+
+|  1 | CMRT Newsletter Template 1  | versafix-1 |
+|  2 | CMRT Newsletter Template 3  | tutorial   |
+|  3 | CMRT Newsletter Template 2  | tedc15     |
+|  6 | CMRT Newsletter Base (copy) | versafix-1 |
++----+-----------------------------+------------+
+```
+
+### civicrm_mosaico_msg_template
+
+```
+ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civiusa.cnf --execute='SHOW COLUMNS FROM civicrm_mosaico_msg_template';
++------------+------------------+------+-----+---------+----------------+
+| Field      | Type             | Null | Key | Default | Extra          |
++------------+------------------+------+-----+---------+----------------+
+| id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| msg_tpl_id | int(10) unsigned | NO   | MUL | NULL    |                |
+| hash_key   | varchar(32)      | NO   |     | NULL    |                |
+| name       | varchar(32)      | NO   |     | NULL    |                |
+| html       | longtext         | NO   |     | NULL    |                |
+| metadata   | longtext         | NO   |     | NULL    |                |
+| template   | longtext         | NO   |     | NULL    |                |
++------------+------------------+------+-----+---------+----------------+
+
+EMPTY...
+ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civiusa.cnf --execute='SELECT * FROM civicrm_mosaico_msg_template';
+ian@hp:~/ken8/mysql_data/usa_civi$
+
+```
