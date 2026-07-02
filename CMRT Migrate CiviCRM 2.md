@@ -61,6 +61,25 @@ ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civi.cnf 
 |  4 |       1 |       2 |
 +----+---------+---------+
 ```
+Using crm.cmrailtrail.org.au civi database:
+
+This has staff (role=3), admin (role=2), and fundraising(role=4)
+
+```
+[cmrailtr@s03dd ~]$ mysql --defaults-file=/home/cmrailtr/.my_civi.cnf --execute='SELECT * FROM civicrm_user_role;'
++----+---------+---------+
+| id | user_id | role_id |
++----+---------+---------+
+|  3 |       2 |       2 |
+|  4 |       1 |       2 |
+|  7 |       3 |       3 |
+|  8 |       4 |       2 |
+|  9 |    NULL |       3 |
+| 10 |    NULL |       4 |
+| 11 |    NULL |       3 |
+| 12 |       3 |       4 |
++----+---------+---------+
+```
 
 ### civicrm_totp
 
@@ -203,6 +222,34 @@ scms:view user account
 
 ```
 
+### civicrm_role on crm.cmrailtrail.org.au
+
+```
+[cmrailtr@s03dd ~]$ mysql --defaults-file=/home/cmrailtr/.my_civi.cnf --execute='SELECT id, name, label, is_active FROM civicrm_role;'
++----+------------------+-------------------------------------+-----------+
+| id | name             | label                               | is_active |
++----+------------------+-------------------------------------+-----------+
+|  1 | everyone         | Everyone, including anonymous users |         1 |
+|  2 | admin            | Administrator                       |         1 |
+|  3 | staff            | Staff                               |         1 |
+|  4 | campaign_manager | Campaign Manager                    |         1 |
++----+------------------+-------------------------------------+-----------+****
+```
+This additionally has...
+
+```
+| id | name             | label                               | permissions  | is_active |
+|  4 | campaign_manager | Campaign Manager                    | 
+administer CiviCampaign
+manage campaign 
+
+|         1 |
+
+```
+
+
+
+
 ### civicrm_session
 
 ```
@@ -336,6 +383,5 @@ s:8:"acl_role";
 s:6:"action";i:16;}}_CRM_Activity_Form_ActivityLinks__container|a:4:{s:8:"defaults";a:0:{}s:9:"constants";a:0:{}s:6:"values";a:1:{s:13:"ActivityLinks";a:0:{}}s:5:"valid";a:1:{s:13:"ActivityLinks";N;}} 
 
 | 2026-07-02 10:14:21 |
-
 
 ```
