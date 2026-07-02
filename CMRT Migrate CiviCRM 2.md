@@ -64,7 +64,7 @@ ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civi.cnf 
 
 ### civicrm_totp
 
-Contain no data
+Contains no data
 
 ```
 ian@hp:~/ken8/mysql_data/usa_civi$ mysql --defaults-file=/home/ian/.my_civi.cnf --execute='SHOW COLUMNS FROM civicrm_totp';
