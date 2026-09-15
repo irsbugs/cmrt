@@ -8,6 +8,8 @@ In 2026 the *Spark*/*civicrm.org* organization hosted the CMRT CiviCRM on system
 
 For many years *VentraIP* organization in Australia has provided the hosting for the CMRT Wordpress website with the domain *cmrailtrail.org.au*. A sub-domain, *crm.cmrailtrail.org.au*, has been created to host the CiviCRM Standalone for CMRT. CiviCRM Standalone was installed on the VentraIP system and tested.
 
+The USA CiviCRM was at version 6.17.2. The AUST CiviCRM was upgraded to also be at version 6.17.2
+
 This document describes the process of moving CiviCRM data from the USA system to the VentraIP system. The data on the USA is backed-up using the *Administer --> Backups* utility. The cmrailtrail.civicrm.org-20260915002449.tar file was downloaded to a local PC and expanded. The top two levels of the directory tree are:
 
 ```
