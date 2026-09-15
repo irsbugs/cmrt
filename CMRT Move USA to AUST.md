@@ -117,4 +117,27 @@ civicrm_value_sla_acceptance_4
 
 Some of these additional tables are easily explained by the fact that additional CRM functionality had been invoked on the USA CiviCRM. Namely: Memberships, Mailing, Strip payment system. Other tables may be related specifically to the USA platform. E.g. `civicrm_firewall_ipaddress` and `civicrm_login_security_device`.
 
+## Defining of the Database
 
+### Database Connection in CiviCRM Standalone
+
+CiviCRM Standalone determines its database connection through specific configuration settings.
+
+####Configuration File
+
+The database connection details are stored in the file private/civicrm.settings.php. This file is generated during the installation process of CiviCRM Standalone.
+
+####Editing Database Settings
+
+If necessary, users can manually edit the civicrm.settings.php file to update the database connection settings. This allows for flexibility in managing the database connection, especially if the database location or credentials change after installation.
+
+
+By editing this configuration file, CiviCRM Standalone can effectively connect to the designated database, ensuring that all data operations function correctly.
+The database that CiviCRM Standalone uses is defined at line 129 of *civicrm-standalone/private/civicrm.settings.php*:
+```
+    define('CIVICRM_DSN', 'mysql://cmrailtr_czhn1:W.---password---40@127.0.0.1:3306/cmrailtr_civi?new_link=true');
+```
+To change from *cmrailtr_civi* to *cmrailtr_civicrm* the command would be edited to be:
+```
+    define('CIVICRM_DSN', 'mysql://cmrailtr_czhn1:W.---password---40@127.0.0.1:3306/cmrailtr_civicrm?new_link=true');
+```
