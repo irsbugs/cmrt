@@ -151,6 +151,8 @@ To change from *cmrailtr_civi* to *cmrailtr_civicrm* the command would be edited
 
 ## Uploads Directory
 
+### Files in USA CIviCRM
+
 The USA CiviCRM backup includes a directory named *uploads*. This includes the directories:
 
 ```
@@ -188,8 +190,25 @@ upload
 └── version-msgs-cache.json
 ```
 
-The *persist* directory appears to contain all the files related to bulk mails that have been created.
+The *persist* directory appears to contain all the files related to bulk mails that have been created. The image is stored in 3 x directories with different file sizes:
 
+*    /upload/persist/contribute/images/uploads/  <-- E.g. 8887 bytes
+*    /upload/persist/contribute/images/uploads/static/  <-- E.g. 7677 bytes
+*    /upload/persist/contribute/images/uploads/thumbnails/ <-- E.g. 5238 bytes
+
+```
+ian@hp:~/civicrm_2026-09-15$ ls -l upload/persist/contribute/images/uploads/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+-rw-rw---- 1 ian ian 8887 Jan  9  2026 upload/persist/contribute/images/uploads/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+
+ian@hp:~/civicrm_2026-09-15$ ls -l upload/persist/contribute/images/uploads/static/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+-rw-rw---- 1 ian ian 7677 Jan  9  2026 upload/persist/contribute/images/uploads/static/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+
+ian@hp:~/civicrm_2026-09-15$ ls -l upload/persist/contribute/images/uploads/thumbnails/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+-rw-rw---- 1 ian ian 5238 Jan  9  2026 upload/persist/contribute/images/uploads/thumbnails/cmrt_600_x_50_018a197c71b5641115a229b9f88c58bb.png
+
+
+
+```
 ```
 ian@hp:~/civicrm_2026-09-15/upload$ tree persist
 persist
@@ -452,6 +471,8 @@ persist
 
 ```
 
+### Files in AUST CiviCRM
+
 The layout of files is different for the AUST CiviCRM. The root level has 5 directories:
 
 ```
@@ -522,17 +543,23 @@ public
 7 directories, 18 files
 ```
 
-The images for Mosaico are stored in */public/media/images/uploads/* *static* or *thumbnails*. E.g. image of Karen_Andrews has been added to a bulk mail.
+The images for Mosaico are stored in: 
+
+*    */public/media/images/uploads/
+*    */public/media/images/uploads/static/*
+*    */public/media/images/uploads/thumbnails/*
+
+For example: The image of Karen_Andrews has been added to a bulk mail. It is stored with the same file name in 3 x locations with 3 x byte-sizes
 
 ```
 [cmrailtr@s03dd civicrm-standalone]$ tree public/media/images
 public/media/images
 ├── index.html
 └── uploads
-    ├── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+    ├── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg <-- 68191 bytes
     ├── static
-    │   └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+    │   └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg <-- 5133 bytes
     └── thumbnails
-        └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+        └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg <-- 1839 bytes
 
 ```
