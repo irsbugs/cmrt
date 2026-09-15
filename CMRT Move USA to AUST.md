@@ -563,3 +563,52 @@ public/media/images
         └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg <-- 1839 bytes
 
 ```
+
+## Switch Over
+
+After loading the CiviCRM USA database to the VentraIP system as cmrailtr_civicrm, the file *civicrm-standalone/private/civicrm.settings.php* was edited to change from *cmrailtr_civi* to *cmrailtr_civicrm* database. i.e. The AUST application uses the USA database. Line 129 changed to:
+
+```
+define('CIVICRM_DSN', 'mysql://cmrailtr_czhn1:W.---password---40@127.0.0.1:3306/cmrailtr_civicrm?new_link=true');
+```
+
+After editing the file a $ cv flush was performed. This took about one minute.
+
+Connecting to crm.cmraltrila.org.au and logging into admin the database now had hundreds of contacts and memberhips also looked OK.
+
+The *Adminster --> Administration Console --> System Status* reposts the following:
+
+```
+ Extension Errors
+Hide
+There are 21 extension errors:
+
+    "Aegir Backups" (aegirbackups) is installed but missing files.
+    "CiviCRM Export to Excel" (ca.bidon.civiexportexcel) is installed but missing files.
+    "CiviCRM Log Viewer" (ca.civicrm.logviewer) is installed but missing files.
+    "TSYS" (com.aghstrategies.tsys) is installed but missing files.
+    "Stripe" (com.drastikbydesign.stripe) is installed but missing files.
+    "Easy Copy" (easycopy) is installed but missing files.
+    "Prevent users from overwriting their record" (eu.tttp.noverwrite) is installed but missing files.
+    "Firewall" (firewall) is installed but missing files.
+    "Fix Option Translations" (fixoptiontranslations) is installed but missing files.
+    "Language switcher" (kamlanguage) is installed but missing files.
+    "Login Security" (loginsecurity) is installed but missing files.
+    "MJWShared" (mjwshared) is installed but missing files.
+    "FIXME" (org.civicrm.mycivi) is installed but missing files.
+    "CiviTutorial" (org.civicrm.tutorial) is installed but missing files.
+    "reply_to" (reply_to) is installed but missing files.
+    "SparkPost integration" (sparkpost) is installed but missing files.
+    "Standalone Migrate" (standalonemigrate) is installed but missing files.
+    "Sweet Alert" (sweetalert) is installed but missing files.
+    "Coop SymbioTIC" (symbiotic) is installed but missing files.
+    "The Island Theme" (theisland) is installed but missing files.
+    "General Data Protection Regulation" (uk.co.vedaconsulting.gdpr) is installed but missing files.
+
+To resolve any errors, go to Manage Extensions.
+
+
+```
+
+
+
