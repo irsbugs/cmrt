@@ -574,7 +574,7 @@ define('CIVICRM_DSN', 'mysql://cmrailtr_czhn1:W.---password---40@127.0.0.1:3306/
 
 After editing the file a $ cv flush was performed. This took about one minute.
 
-Connecting to crm.cmraltrila.org.au and logging into admin the database now had hundreds of contacts and memberhips also looked OK.
+Connecting to crm.cmraltrail.org.au and logging into admin the database now had hundreds of contacts and memberhips also looked OK.
 
 The *Adminster --> Administration Console --> System Status* reposts the following:
 
@@ -606,9 +606,85 @@ There are 21 extension errors:
     "General Data Protection Regulation" (uk.co.vedaconsulting.gdpr) is installed but missing files.
 
 To resolve any errors, go to Manage Extensions.
-
-
 ```
 
+## Extension Errors
 
+### Set the Spark related Extensions to Inactive
+```
+MariaDB [cmrailtr_civicrm]> UPDATE civicrm_extension 
+    -> SET is_active = 0 
+    -> WHERE full_name IN (
+    ->   'org.civicrm.mycivi',
+    ->   'aegirbackups',
+    ->   'symbiotic',
+    ->   'org.civicrm.tutorial',
+    ->   'com.drastikbydesign.stripe',
+    ->   'mjwshared',
+    ->   'com.aghstrategies.tsys',
+    ->   'firewall',
+    ->   'ca.bidon.civiexportexcel',
+    ->   'sweetalert',
+    ->   'sparkpost'
+    -> );
+Query OK, 11 rows affected (0.003 sec)
+Rows matched: 11  Changed: 11  Warnings: 0
 
+MariaDB [cmrailtr_civicrm]> SELECT id, type, full_name, name, file, is_active FROM civicrm_extension;
++----+--------+------------------------------+---------------------------------------------+---------------------------+-----------+
+| id | type   | full_name                    | name                                        | file                      | is_active |
++----+--------+------------------------------+---------------------------------------------+---------------------------+-----------+
+|  2 | module | org.civicrm.flexmailer       | FlexMailer                                  | flexmailer                |         1 |
+|  4 | module | uk.co.vedaconsulting.mosaico | Mosaico                                     | mosaico                   |         1 |
+|  5 | module | org.civicrm.mycivi           | FIXME                                       | mycivi                    |         0 |
+|  6 | module | com.drastikbydesign.stripe   | Stripe                                      | stripe                    |         0 |
+|  7 | module | com.iatspayments.civicrm     | iATS Payments                               | iats                      |         0 |
+|  8 | module | mjwshared                    | MJWShared                                   | mjwshared                 |         0 |
+|  9 | module | aegirbackups                 | Aegir Backups                               | aegirbackups              |         0 |
+| 10 | module | com.aghstrategies.tsys       | TSYS                                        | tsys                      |         0 |
+| 11 | module | firewall                     | Firewall                                    | firewall                  |         0 |
+| 12 | module | sequentialcreditnotes        | Sequential credit notes                     | sequentialcreditnotes     |         1 |
+| 13 | module | org.civicrm.tutorial         | CiviTutorial                                | tutorial                  |         0 |
+| 15 | module | financialacls                | financialacls                               | financialacls             |         0 |
+| 16 | module | ca.bidon.civiexportexcel     | CiviCRM Export to Excel                     | civiexportexcel           |         0 |
+| 17 | module | greenwich                    | Theme: Greenwich                            | greenwich                 |         1 |
+| 18 | module | contributioncancelactions    | contributioncancelactions                   | contributioncancelactions |         1 |
+| 19 | module | symbiotic                    | Coop SymbioTIC                              | symbiotic                 |         0 |
+| 20 | module | recaptcha                    | reCAPTCHA                                   | recaptcha                 |         1 |
+| 21 | module | ckeditor4                    | CKEditor4                                   | ckeditor4                 |         1 |
+| 22 | module | legacycustomsearches         | Custom search framework                     | legacycustomsearches      |         1 |
+| 23 | module | sweetalert                   | Sweet Alert                                 | sweetalert                |         0 |
+| 24 | module | org.civicrm.afform           | Afform: Core Runtime                        | afform                    |         1 |
+| 25 | module | org.civicrm.afform-html      | Afform: HTML                                | afform_html               |         1 |
+| 26 | module | org.civicrm.afform_admin     | Afform: Form Builder                        | afform_admin              |         1 |
+| 27 | module | org.civicrm.search_kit       | Search Kit                                  | search_kit                |         1 |
+| 28 | module | sparkpost                    | SparkPost integration                       | sparkpost                 |         0 |
+| 29 | module | kamlanguage                  | Language switcher                           | kamlanguage               |         1 |
+| 30 | module | civigrant                    | CiviGrant                                   | civigrant                 |         0 |
+| 31 | module | uk.co.vedaconsulting.gdpr    | General Data Protection Regulation          | gdpr                      |         1 |
+| 32 | module | authx                        | AuthX                                       | authx                     |         1 |
+| 33 | module | ca.civicrm.logviewer         | CiviCRM Log Viewer                          | logviewer                 |         1 |
+| 34 | module | easycopy                     | Easy Copy                                   | easycopy                  |         1 |
+| 35 | module | eu.tttp.noverwrite           | Prevent users from overwriting their record | noverwrite                |         1 |
+| 36 | module | civi_event                   | CiviEvent                                   | civi_event                |         1 |
+| 37 | module | civi_contribute              | CiviContribute                              | civi_contribute           |         1 |
+| 38 | module | civi_member                  | CiviMember                                  | civi_member               |         1 |
+| 39 | module | civi_mail                    | CiviMail                                    | civi_mail                 |         1 |
+| 40 | module | civi_case                    | CiviCase                                    | civi_case                 |         1 |
+| 41 | module | civi_report                  | CiviReport                                  | civi_report               |         1 |
+| 42 | module | theisland                    | The Island Theme                            | theisland                 |         1 |
+| 43 | module | loginsecurity                | Login Security                              | loginsecurity             |         1 |
+| 45 | module | iframe                       | IFrame Connector                            | iframe                    |         1 |
+| 46 | module | legacydedupefinder           | legacydedupefinder                          | legacydedupefinder        |         1 |
+| 47 | module | civiimport                   | Civi-Import                                 | civiimport                |         1 |
+| 48 | module | riverlea                     | RiverLea CiviCRM Theme Framework            | riverlea                  |         1 |
+| 49 | module | reply_to                     | reply_to                                    | reply_to                  |         1 |
+| 50 | module | fixoptiontranslations        | Fix Option Translations                     | fixoptiontranslations     |         1 |
+| 51 | module | civi_pledge                  | CiviPledge                                  | civi_pledge               |         1 |
+| 52 | module | civi_campaign                | CiviCampaign                                | civi_campaign             |         1 |
+| 53 | module | message_admin                | Message Administration                      | message_admin             |         1 |
+| 54 | module | standalonemigrate            | Standalone Migrate                          | standalonemigrate         |         1 |
+| 55 | module | standaloneusers              | CiviCRM Standalone Users                    | standaloneusers           |         1 |
++----+--------+------------------------------+---------------------------------------------+---------------------------+-----------+
+51 rows in set (0.000 sec)
+```
