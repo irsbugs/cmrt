@@ -522,3 +522,17 @@ public
 7 directories, 18 files
 ```
 
+The images for Mosaico are stored in */public/media/images/uploads/* *static* or *thumbnails*. E.g. image of Karen_Andrews has been added to a bulk mail.
+
+```
+[cmrailtr@s03dd civicrm-standalone]$ tree public/media/images
+public/media/images
+├── index.html
+└── uploads
+    ├── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+    ├── static
+    │   └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+    └── thumbnails
+        └── Karen_Andrews_de3f4b54a61fa63303361fab6feecbd0.jpeg
+
+```
