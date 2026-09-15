@@ -123,14 +123,19 @@ Some of these additional tables are easily explained by the fact that additional
 
 CiviCRM Standalone determines its database connection through specific configuration settings.
 
-####Configuration File
+#### Configuration File
 
 The database connection details are stored in the file private/civicrm.settings.php. This file is generated during the installation process of CiviCRM Standalone.
 
-####Editing Database Settings
+#### Editing Database Settings
 
 If necessary, users can manually edit the civicrm.settings.php file to update the database connection settings. This allows for flexibility in managing the database connection, especially if the database location or credentials change after installation.
 
+```
+[cmrailtr@s03dd civicrm-standalone]$ ls -l private
+-rw-r--r-- 1 cmrailtr cmrailtr 26072 May 16 21:05 civicrm.settings.php
+
+```
 
 By editing this configuration file, CiviCRM Standalone can effectively connect to the designated database, ensuring that all data operations function correctly.
 The database that CiviCRM Standalone uses is defined at line 129 of *civicrm-standalone/private/civicrm.settings.php*:
