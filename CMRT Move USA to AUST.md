@@ -115,6 +115,6 @@ civicrm_value_sla_acceptance_4
 
 ```
 
-Some of these additional tables are easily explained by the fact that additional functionality had been invoked on the USA CiviCRM. Namely: Memberships, Mailing, Strip payment system. Other tables may be related to the USA platform. E.g. `civicrm_firewall_ipaddress` and `civicrm_login_security_device`.
+Some of these additional tables are easily explained by the fact that additional CRM functionality had been invoked on the USA CiviCRM. Namely: Memberships, Mailing, Strip payment system. Other tables may be related specifically to the USA platform. E.g. `civicrm_firewall_ipaddress` and `civicrm_login_security_device`.
 
 
