@@ -247,3 +247,53 @@ Update Membership Statuses           Daily                       No     Job.proc
 Update Participant Statuses          Every time cron job is run  No     Job.process_participant 
 Validate Email Address from Mailings Daily                       No     Mailing.update_email_resetdate 
 ```
+
+## Schedule job list
+
+Can get with: https://crm.cmrailtrail.org.au/civicrm/admin/extensions?reset=1&action=browse
+
+The cv command: `cv api job.get` will retrieve the scheduled jobs as json:
+HOwever it does not give status or version
+```
+an@hp:~/civicrm-standalone$ cv api job.get --out=json-pretty
+{
+    "is_error": 0,
+    "version": 3,
+    "count": 22,
+    "values": {
+        "1": {
+            "id": "1",
+            "domain_id": "1",
+            "run_frequency": "Daily",
+            "name": "CiviCRM Update Check",
+            "description": "Checks for version updates. https://docs.civicrm.org/user/en/latest/initial-set-up/scheduled-jobs/#job_version_check",
+            "api_entity": "Job",
+            "api_action": "version_check",
+            "is_active": "1"
+        },
+        "2": {
+            "id": "2",
+            "domain_id": "1",
+            "run_frequency": "Always",
+            "name": "Send Scheduled Mailings",
+            "description": "Sends out scheduled mailings. https://docs.civicrm.org/user/en/latest/initial-set-up/scheduled-jobs/#job_process_mailing",
+            "api_entity": "Job",
+            "api_action": "process_mailing",
+            "is_active": "0"
+        },
+...
+        "22": {
+            "id": "22",
+            "domain_id": "1",
+            "run_frequency": "Hourly",
+            "name": "Process CiviMail Queue items",
+            "api_entity": "Mailing",
+            "api_action": "runQueue",
+            "parameters": "version=4",
+            "is_active": "0"
+        }
+    }
+}
+```
+
+OR: `cv api job.get --out=table`
