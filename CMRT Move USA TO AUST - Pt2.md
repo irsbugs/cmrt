@@ -199,4 +199,87 @@ MariaDB [cmrailtr_civicrm]> SELECT id, type, full_name, name, file, is_active FR
 38 rows in set (0.000 sec)
 
 ```
-  
+## Alternate Gemini Query
+
+After transfering database from Spark Essentials civicrm 6.17.2 to a system with Standalone CivicRM 6.17.2 why do I get the following errors There are 21 extension errors:
+
+
+### Response 
+
+These errors occur because you copied the database schema and records, but not the physical extension files.
+
+In CiviCRM, an extension's status is tracked in the civicrm_extension database table. Spark Essentials comes pre-loaded with a customized suite of extensions (such as aegirbackups, standalonemigrate, theisland, and mjwshared). Because your new Standalone CiviCRM environment has the database records telling it these extensions should be active, but lacks the corresponding PHP code directories on the filesystem, CiviCRM flags them as "installed but missing files".
+
+Additionally, hosting-specific tools (like aegirbackups) should not exist in your Standalone environment.
+
+### Step 1: Remove Spark-Specific & Unneeded Extensions from the Database
+
+Extensions specific to the Spark infrastructure (Aegir, Standalone Migrate, etc.) are unnecessary and should be completely disabled/uninstalled directly in the database.
+
+Run this SQL query against your new CiviCRM database to deactivate and remove them:
+```
+SQL
+
+DELETE FROM civicrm_extension 
+WHERE full_name IN (
+  'aegirbackups',
+  'standalonemigrate',
+  'symbiotic',
+  'theisland',
+  'org.civicrm.mycivi'
+);
+```
+Verification: Check the database with `SELECT full_name, is_active FROM civicrm_extension;` to confirm these entries no longer appear.
+
+### Step 2: Decide on the Remaining Extensions
+
+For the remaining extensions (e.g., Stripe, ca.bidon.civiexportexcel, sparkpost, uk.co.vedaconsulting.gdpr), choose one of two options:
+
+Option A: If you need them (Re-download the files)
+
+    Go to Administer > System Settings > Extensions (or use the CLI tool cv).
+
+    Download or git clone the compatible releases for your version directly into your Standalone extensions directory (<civicrm_root>/ext/ or your configured extensionsDir).
+
+    Ensure web server permissions (chown -R www-data:www-data ext/ or equivalent) are set properly.
+
+Option B: If you do not need them (Disable/Remove them)
+
+If you do not plan to use them, remove them from the database:
+```
+SQL
+
+DELETE FROM civicrm_extension 
+WHERE full_name IN (
+  'ca.bidon.civiexportexcel',
+  'ca.civicrm.logviewer',
+  'com.aghstrategies.tsys',
+  'com.drastikbydesign.stripe',
+  'easycopy',
+  'eu.tttp.noverwrite',
+  'firewall',
+  'fixoptiontranslations',
+  'kamlanguage',
+  'loginsecurity',
+  'mjwshared',
+  'org.civicrm.tutorial',
+  'reply_to',
+  'sparkpost',
+  'sweetalert',
+  'uk.co.vedaconsulting.gdpr'
+);
+```
+
+### Step 3: Clear CiviCRM Caches and Triggers
+
+After modifying the civicrm_extension table, flush CiviCRM's metadata caches to clear the alerts:
+
+Using cv (CLI):
+
+```
+    Bash
+
+    cv flush
+```
+
+Verification: Navigate to Administer > System Settings > Extensions. The 21 missing file warnings should be gone.
