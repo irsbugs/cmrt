@@ -231,6 +231,8 @@ WHERE full_name IN (
 ```
 Verification: Check the database with `SELECT full_name, is_active FROM civicrm_extension;` to confirm these entries no longer appear.
 
+Note: The DELETE statement in MySQL will not fail if the specified row is not found; it simply does not delete any rows and returns a count of zero deleted rows.
+
 ### Step 2: Decide on the Remaining Extensions
 
 For the remaining extensions (e.g., Stripe, ca.bidon.civiexportexcel, sparkpost, uk.co.vedaconsulting.gdpr), choose one of two options:
