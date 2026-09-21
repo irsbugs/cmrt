@@ -688,3 +688,13 @@ MariaDB [cmrailtr_civicrm]> SELECT id, type, full_name, name, file, is_active FR
 +----+--------+------------------------------+---------------------------------------------+---------------------------+-----------+
 51 rows in set (0.000 sec)
 ```
+
+## Time Zone
+
+The USA system has the database set to UTC. Change it to Australia time
+
+*Administer --> Localization --> Date Formats*
+
+Change to: Australia/Melbourne
+
+
