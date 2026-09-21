@@ -697,4 +697,5 @@ The USA system has the database set to UTC. Change it to Australia time
 
 Change to: Australia/Melbourne
 
+Change Time Input Format from 12 hours to 24 hours
 
