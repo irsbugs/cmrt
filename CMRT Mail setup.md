@@ -20,7 +20,8 @@ Notes and prerequisites for setting up CiviCMR mail:
 Using C-Panel --> Email --> Email Accounts. Create a default outgoing mail sender address. This is **noreply** so that, by default, all bulk emails appear to have been sent by *noreply@cmrailtrail.org.au*. If a recipient accidently replies to one of these mails, then their reply mail goes into the inbox of the *noreply* email account. The account is not monitored, so the reply email is lost. The content of the original bulk email should contain a link for sending an email to CMRT. E.g. to *hello@cmrailtrail.org.au*
 
 On CiviCRM go to *Site from Email Address* options with either of these links:
-* Administer --> CiviMail --> Site from Email Address
+
+* Administer --> CiviMail --> Site Mail Addresses* This is the web-page: *Site from Email Address*
 * Mailings --> Site from Email Address
 
 Click on *Add Email Address* and enter:
@@ -46,6 +47,7 @@ This email account may be given any name, but *noreply* is probably the most app
 CiviCRM, in conjuction with noreply@cmrailtrail.org.au, needs to be setup to use SMTP as its outbound mail.
 
 In CiviCRM-Standalone go to: *Administer --> System Settings --> Outbound Email (SMTP/Sendmail)*. 
+
 
 The CiviCRM Outbound Mailer Configuration will be defaulted to using *mail()*. i.e. The PHP mailer. This radio button needs to be changed to using the superior *SMTP* mailer method.
 
