@@ -66,7 +66,7 @@ In CiviCRM, upon selecting the radio button for the mailer to be *SMTP* the *SMT
 * **SMTP Port:** 465
 * **Authentication:** Yes (checked)
 * **SMTP Username:** noreply@cmrailtrail.org.au
-* **SMTP Password:** r-8-@
+* **SMTP Password:** Redfxxx432@
 
 When *Save & Send Test Email* is clicked, then an email is sent to the email address of the administrator with the emails subject: *Test for SMTP settings*. In this case it went to a personal gmail account as proof it was transmitted through the internet.
 
