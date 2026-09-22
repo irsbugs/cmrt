@@ -86,7 +86,7 @@ A default CiviCRM mail account has been created for Bounce Processing. Editing t
 
 * **Username:** noreply@cmrailtrail.org.au - Username to use when polling (for IMAP and POP3).
 
-* **Password:** r-8-@ - Password to use when polling (for IMAP and POP3).
+* **Password:** Redfxxx432@ - Password to use when polling (for IMAP and POP3).
 
 * **Localpart:** (Blank) - Optional local part (e.g., 'civimail+' for addresses like civimail+s.1.2@example.com).
 
