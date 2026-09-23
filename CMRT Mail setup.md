@@ -102,5 +102,14 @@ A default CiviCRM mail account has been created for Bounce Processing. Editing t
 
 * **Used For?:** Bounce Processing - How this mail account will be used. Only one box may be used for bounce processing. It will also be used as the envelope email when sending mass mailings.
 
-
 Click on *Save and Test*: Connection succeeded. Found at least 2 new messages. There are two messages as they are bounce messages. The following was tried: *Save & Send Test Email* with admin email address changed to xxxxxxxxxx@gmail.com. Monitoring noreply@cmrailtrail.org.au for bounce message in inbox. 
+
+
+
+## Theme
+
+The Spark Essentials uses the theme "The Island". To have a different them for the local CiviCRM...
+
+Administer --> Customise Data and Screens --> Theme Settings
+
+ E.g. Change to "Thames" for Frontend and Backend. So can tell from screen colours whether you are viewing CiviCRM USA or CiviCRM Aust.
