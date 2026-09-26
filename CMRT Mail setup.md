@@ -57,6 +57,8 @@ CMRT Test Newsletter, Test Newsletter Group, List of contacts who receive the Te
 *    Check Stewart - irsbugs@hotmail.com <-- Was set to opt out. Changed back to opt in.
 *    CMRT Cron - cron@cmrailtrail.org.au 
 
+The submitting of a set of bulk emails may be delayed up to 5 minutes as cron job that performs the submission only fires once every 5 mins.
+
 ## Introduction
 
 CiviCRM defaults to using *mail()* the PHP mailer. VentraIP supports this mailer. However VentraIP, and other documentation, suggest that the *SMTP* mailer is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail. It also includes the setting up of an inbox for *bounce* messages, and being able to pass this inbox contents to CiviCRM.
