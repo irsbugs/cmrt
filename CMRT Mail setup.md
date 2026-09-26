@@ -46,6 +46,17 @@ Select Mailer: SMTP (was mail()), SMTP Server: ssl//mail.cmrailtrail.org.au, Aut
 Can send a test email to admin@cmrailtrail.org.au
 
 
+*Contact --> Manage Groups*
+
+CMRT Test Newsletter, Test Newsletter Group, List of contacts who receive the Testing Mailing List 
+
+5 x contacts
+*    Ian Stewart - ianstewart56@hotmail.com <-- Was set to opt out. Changed to opt in.
+*    Ken Stewart - kjstewart52@gmail.com
+*    Stewart Test Organization - stwrtn@gmail.com
+*    Check Stewart - irsbugs@hotmail.com <-- Was set to opt out. Changed back to opt in.
+*    CMRT Cron - cron@cmrailtrail.org.au 
+
 ## Introduction
 
 CiviCRM defaults to using *mail()* the PHP mailer. VentraIP supports this mailer. However VentraIP, and other documentation, suggest that the *SMTP* mailer is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail. It also includes the setting up of an inbox for *bounce* messages, and being able to pass this inbox contents to CiviCRM.
