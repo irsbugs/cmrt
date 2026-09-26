@@ -1,5 +1,51 @@
 # Mail setup for CiviCRM Standalone
 
+## Preamble - Creation of noreply
+
+**Noreply** must be created in various places in CiviCRM for the mailing system to function. *Noreply* will have these associtations:
+
+Via: VentraIP login: https://s03dd.syd6.hostingplatform.net.au:2096/
+Email address in VentraIP Round cube: noreply@cmrailtrail.org.au
+Email password in VentraIP Round cube: Redxxxx432@
+
+CiviCRM Database Individual Contact
+
+To indicate administration related *contacts* to aid with searching, etc., the naming convention is: First Name: *CMRT*, Last Name: Admin, Cron, Noreply,* etc.  
+Note: On Spark Essentials there was Maintenance, CiviCRM with email: noreply+do-not-delete@notification.civimail.org
+The following account already exist:
+* Admin, CMRT admin@cmrailtrail.org.au
+* Cron, CMRT cron@cmrailtrail.org.au
+
+Added as a CiviCRM Individual Contact:
+* Last name: Noreply,
+* First name: CMRT
+* Email: noreply@cmrailtrail.org.au
+* Information: Contact is reserved to facilitate sending of bulk mails - Ian 2026-09-25
+
+CiviCRM Administer User Accounts:
+Note: Contains usernames like: *admin*, *civicrm_cron*, * 	ken@cmrailtrail.org.au*
+
+User Account for *Noreply*
+Roles: Administer
+Username: noreply@cmrailtrail.org.au
+Linked Contact: CMRT Noreply
+Email: noreply@cmrailtrail.org.au
+Enabled: Yes
+Timezone: Server default timezone
+Preferred Language: System default language
+
+### In the document below the following are set up:
+*Admnister --> CiviMail --> Mail Accounts*
+
+Name: default, Server: mail.cmrailtrail.org.au, Username: noreply@cmrailtrial.org.au, Return Path , Protocol: IMAP, Use SSL: Yes, Used for: Bounce Processing (Default)
+
+*Administer --> System Settings --> Outbound Mail (SMTP/Sendmail)*
+
+Allow mail from logged in contact: Enabled. (was disabled)
+Select Mailer: SMTP (was mail()), SMTP Server: ssl//mail.cmrailtrail.org.au, Authentication: Yes, SMTP Username: noreplyt@cmrailtrail.org.au, SMRT Password: Redxxxx432@
+Can send a test email to admin@cmrailtrail.org.au
+
+
 ## Introduction
 
 CiviCRM defaults to using *mail()* the PHP mailer. VentraIP supports this mailer. However VentraIP, and other documentation, suggest that the *SMTP* mailer is a better choice. This document includes the setting up of SMTP as the mechanism for outgoing mail. It also includes the setting up of an inbox for *bounce* messages, and being able to pass this inbox contents to CiviCRM.
