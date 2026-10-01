@@ -167,6 +167,42 @@ CiviCRM Standalone on crm.cmrailtrial.org.au
 ```
 ## Jobs Scheduled
 
+Scheduled Jobs for cmrailtrail.civirm.org - CIvi USA
+```
+Name (Frequency)                                      Last Run               Enabled?
+
+CiviCRM Update Check (Daily)                          October 1st, 2026 12:52 PM  Yes  
+Clean-up Temporary Data and Files (Daily)             October 1st, 2026 12:52 PM  Yes  
+Disable expired relationships (Daily)                 October 1st, 2026 12:52 PM  Yes  
+Firewall: Cleanup (Daily)                             October 1st, 2026 12:52 PM  Yes  
+Process CiviMail Queue items (Hourly)                 October 1st, 2026 3:09 PM   Yes  
+Process PaymentProcessor Webhooks (Always)            October 1st, 2026 3:55 PM   Yes  
+Rebuild Smart Group Cache (Daily)                     October 1st, 2026 12:52 PM  Yes  
+Send Scheduled Mailings (Always)                      October 1st, 2026 3:55 PM   Yes  
+Send Scheduled Reminders (Daily)                      October 1st, 2026 12:52 PM  Yes  
+Stripe: Cleanup (Hourly)                              October 1st, 2026 3:09 PM   Yes  
+TSYS Payments Recurring Contributions (Daily)         October 1st, 2026 12:52 PM  Yes  
+Update Membership Statuses (Daily)                    October 1st, 2026 12:52 PM  Yes  
+Update Participant Statuses (Daily)                   October 1st, 2026 12:52 PM  Yes  
+
+NO - NOT ENABLED
+Name (Frequency)                                      Last Run               Enabled?
+
+Fetch Bounces (Hourly) no parameters                  never                       No  
+Geocode and Parse Addresses (Daily)                   never                       No  
+iATS Payments 1stPay Query Transactions (Hourly)      February 14th, 2020 9:18 AM No  
+iATS Payments Get Legacy Transaction Journal (Hourly) February 14th, 2020 9:18 AM No  
+iATS Payments Recurring Contributions (Daily)         February 14th, 2020 1:34 AM No  
+iATS Payments Verification (Hourly)                   February 14th, 2020 9:18 AM No  
+Mail Reports (Daily)                                  never                       No  
+Process Inbound Emails (Hourly)                       never                       No  
+Process Pledges (Daily)                               never                       No  
+Process Survey Respondents (Always)                   never                       No  
+Send Scheduled SMS (Always)                           never                       No  
+Update Greetings and Addressees (Daily)               never                       No  
+Validate Email Address from Mailings. (Daily)         never                       No  
+```
+
 CiviCRM Jobs on crm.cmrailtrail.org.au
 
 ```
