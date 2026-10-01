@@ -94,3 +94,74 @@ E The Island Theme                              E The Island Theme
   User Dashboard                                E User Dashboard                                
                                                                                                 
 ```
+
+CiviCRM Standalone on crm.cmrailtrial.org.au
+
+```
+[cmrailtr@s03dd civicrm-standalone]$ cv api4 Extension.get '{"select":["label","status"],"orderBy":{"status":"ASC"},"limit":0}' --out=table
++---------------------------------------------+------------------+
+| label                                       | status           |
++---------------------------------------------+------------------+
+| Tell a Friend                               | disabled         |
+| Language switcher                           | disabled-missing |
+| Prevent users from overwriting their record | disabled-missing |
+| Login Security                              | disabled-missing |
+| reply_to                                    | disabled-missing |
+| Standalone Migrate                          | disabled-missing |
+| AuthX                                       | installed        |
+| Batch Data Entry                            | installed        |
+| Chart Kit                                   | installed        |
+| CiviCampaign                                | installed        |
+| CiviCase                                    | installed        |
+| CiviContribute                              | installed        |
+| CiviEvent                                   | installed        |
+| CiviMail                                    | installed        |
+| CiviMember                                  | installed        |
+| CiviPledge                                  | installed        |
+| CiviReport                                  | installed        |
+| AdminUI (Preview)                           | installed        |
+| CiviGrant                                   | installed        |
+| Civi-Import                                 | installed        |
+| CKEditor4                                   | installed        |
+| Contribution cancel actions                 | installed        |
+| Elavon Payment Processor                    | installed        |
+| Event Cart                                  | installed        |
+| Financial ACLs                              | installed        |
+| FlexMailer                                  | installed        |
+| Theme: Greenwich                            | installed        |
+| iATS Payments                               | installed        |
+| IFrame Connector                            | installed        |
+| Custom search framework                     | installed        |
+| legacydedupefinder                          | installed        |
+| legacyprofiles                              | installed        |
+| Message Administration                      | installed        |
+| PayPal Payflow Pro Integration              | installed        |
+| Postbox                                     | installed        |
+| reCAPTCHA                                   | installed        |
+| RiverLea CiviCRM Theme Framework            | installed        |
+| SearchKit                                   | installed        |
+| Sequential credit notes                     | installed        |
+| CiviCRM Standalone Users                    | installed        |
+| User Dashboard                              | installed        |
+| FormBuilder                                 | installed        |
+| Form Core                                   | installed        |
+| Form Code Editor                            | installed        |
+| Form Core Login-Tokens                      | installed        |
+| CiviCRM Log Viewer                          | installed        |
+| Easy Copy                                   | installed        |
+| Fix Option Translations                     | installed        |
+| Membership Renewallinks                     | installed        |
+| The Island Theme                            | installed        |
+| General Data Protection Regulation          | installed        |
+| Mosaico                                     | installed        |
+| SearchUI                                    | uninstalled      |
+| eway Single currency extension              | uninstalled      |
+| Legacy Batch Data Entry                     | uninstalled      |
+| OAuth Client                                | uninstalled      |
+| oEmbed                                      | uninstalled      |
+| Scheduled Communications                    | uninstalled      |
+| Search Kit Reports                          | uninstalled      |
+| Mock Form Collection                        | uninstalled      |
++---------------------------------------------+------------------+
+
+```
