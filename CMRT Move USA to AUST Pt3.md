@@ -165,6 +165,71 @@ CiviCRM Standalone on crm.cmrailtrial.org.au
 +---------------------------------------------+------------------+
 
 ```
+## Jobs Scheduled
+
+CiviCRM Jobs on crm.cmrailtrail.org.au
+
+```
+[cmrailtr@s03dd civicrm-standalone]$ cv api4 Job.get '{"select":["name","run_frequency","is_active"],"orderBy":{"is_active":"ASC"},"limit":0}' --out=table
++----+----------------------------------------------+---------------+-----------+
+| id | name                                         | run_frequency | is_active |
++----+----------------------------------------------+---------------+-----------+
+| 4  | Process Inbound Emails                       | Hourly        |           |
+| 5  | Process Pledges                              | Daily         |           |
+| 6  | Geocode and Parse Addresses                  | Daily         |           |
+| 7  | Update Greetings and Addressees              | Daily         |           |
+| 8  | Mail Reports                                 | Daily         |           |
+| 12 | Process Survey Respondents                   | Always        |           |
+| 14 | Send Scheduled SMS                           | Always        |           |
+| 17 | Validate Email Address from Mailings.        | Daily         |           |
+| 1  | CiviCRM Update Check                         | Daily         | 1         |
+| 2  | Send Scheduled Mailings                      | Always        | 1         |
+| 3  | Fetch Bounces                                | Hourly        | 1         |
+| 9  | Send Scheduled Reminders                     | Daily         | 1         |
+| 10 | Update Participant Statuses                  | Daily         | 1         |
+| 11 | Update Membership Statuses                   | Daily         | 1         |
+| 13 | Clean-up Temporary Data and Files            | Daily         | 1         |
+| 15 | Rebuild Smart Group Cache                    | Daily         | 1         |
+| 16 | Disable expired relationships                | Daily         | 1         |
+| 41 | Process CiviMail Queue items                 | Hourly        | 1         |
+| 42 | iATS Payments 1stPay Query Transactions      | Hourly        | 1         |
+| 43 | iATS Payments Recurring Contributions        | Daily         | 1         |
+| 44 | iATS Payments Get Legacy Transaction Journal | Hourly        | 1         |
+| 45 | iATS Payments Verification                   | Hourly        | 1         |
++----+----------------------------------------------+---------------+-----------+
+[cmrailtr@s03dd civicrm-standalone]$ 
+
+
+
+[cmrailtr@s03dd civicrm-standalone]$ cv api4 Job.get +s name,run_frequency,is_active limit=0 --out=table
++----+----------------------------------------------+---------------+-----------+
+| id | name                                         | run_frequency | is_active |
++----+----------------------------------------------+---------------+-----------+
+| 1  | CiviCRM Update Check                         | Daily         | 1         |
+| 2  | Send Scheduled Mailings                      | Always        | 1         |
+| 3  | Fetch Bounces                                | Hourly        | 1         |
+| 4  | Process Inbound Emails                       | Hourly        |           |
+| 5  | Process Pledges                              | Daily         |           |
+| 6  | Geocode and Parse Addresses                  | Daily         |           |
+| 7  | Update Greetings and Addressees              | Daily         |           |
+| 8  | Mail Reports                                 | Daily         |           |
+| 9  | Send Scheduled Reminders                     | Daily         | 1         |
+| 10 | Update Participant Statuses                  | Daily         | 1         |
+| 11 | Update Membership Statuses                   | Daily         | 1         |
+| 12 | Process Survey Respondents                   | Always        |           |
+| 13 | Clean-up Temporary Data and Files            | Daily         | 1         |
+| 14 | Send Scheduled SMS                           | Always        |           |
+| 15 | Rebuild Smart Group Cache                    | Daily         | 1         |
+| 16 | Disable expired relationships                | Daily         | 1         |
+| 17 | Validate Email Address from Mailings.        | Daily         |           |
+| 41 | Process CiviMail Queue items                 | Hourly        | 1         |
+| 42 | iATS Payments 1stPay Query Transactions      | Hourly        | 1         |
+| 43 | iATS Payments Recurring Contributions        | Daily         | 1         |
+| 44 | iATS Payments Get Legacy Transaction Journal | Hourly        | 1         |
+| 45 | iATS Payments Verification                   | Hourly        | 1         |
++----+----------------------------------------------+---------------+-----------+
+[cmrailtr@s03dd civicrm-standalone]$ 
+```
 
 ## All the CiviCRM entities available on crm.cmrailtrail.org.au
 
