@@ -441,3 +441,71 @@ The cv api *get* should work with all these entities.
 | WorldRegion                  |
 +------------------------------+
 ```
+
+
+## Remove SuperUser
+      
+The Spark Essentials database included a Supeeuser
+
+```
+ Inr Step 1, on the screen Administer --> Users and Permisssions --> User Roles, I click on "User Permissions". There are columns for Everyone, Staff and Superuser. Step 1.4 states: Locate the Admin role column or edit screen. There is no Admin role column, thuis I can't do step 1.6 Check the checkbox for the Admin role to enable this permission.
+
+
+
+Getting rid of Superuser....
+
+
+Here is how you can proceed safely:
+Step 1: Verify the Admin Role Status
+
+    Go to Administer > Users and Permissions > User Roles.
+
+YES:    Confirm that Admin is listed as an active role.
+
+    Because Admin has global administrative rights, any user assigned the Admin role already has permission to access the password reset system alongside all other CiviCRM features.
+
+Step 2: Reassign Users from Superuser to Admin
+
+    Go to Administer > Users and Permissions > Users (or Manage Users).
+
+    Find all accounts currently assigned to the Superuser role.
+
+    Edit each user record:
+
+
+====
+
+
+        Select/check the Admin role.
+
+        Uncheck the Superuser role.
+
+    Save each user record. Make sure your own administrator account is updated to Admin.
+
+Step 3: Remove the Superuser Role
+
+    Return to Administer > Users and Permissions > User Roles.
+
+    Check that no active users remain assigned to Superuser.
+
+DONE:    Click Delete next to Superuser to remove the redundant role.
+    
+    
+DONE: Now only two columns. Everyone and staff.
+
+
+=======
+
+
+ 	maintenance 	spark@civicrm.org 	Administrator, Superuser 	CiviCRM Maintenance 	Yes 	December 15th, 2017 2:10 PM 	September 15th, 2026 3:00 AM
+ 	
+ 	
+ 	Has the roles: Administrator, Superuser
+ 	
+ 	Changes to Dsiabled.
+ 	
+ 	
+=====
+
+
+```
