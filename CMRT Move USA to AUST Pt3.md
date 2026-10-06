@@ -445,7 +445,9 @@ The cv api *get* should work with all these entities.
 
 ## Remove SuperUser
       
-The Spark Essentials database included a Supeeuser
+The Spark Essentials database included a Superuser role with two permissions. There is a User *maintenance* with email *spark@civicrm.org* that has *Administrator, Superuser*. The *admin* role has all permissions, so this appears as a left-over in Spark Essentials.
+
+The User *maintenance* was disabled and the Superuser role was deleted.
 
 ```
  Inr Step 1, on the screen Administer --> Users and Permisssions --> User Roles, I click on "User Permissions". There are columns for Everyone, Staff and Superuser. Step 1.4 states: Locate the Admin role column or edit screen. There is no Admin role column, thuis I can't do step 1.6 Check the checkbox for the Admin role to enable this permission.
