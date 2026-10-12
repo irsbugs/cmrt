@@ -71,7 +71,7 @@ With CiviCRM standalone 6.15 the following are the totals for the permissions fo
 See below for: **Lists of Permissions for Each Role***
 
 
-## Adding the Campaign Manager
+## Adding the Campaign Manager Overview
 
 Adding "administer CiviCampaign" to the "staff" role's permission array will successfully give your new campaign manager the exact access they need. However, it is not the best approach long-term.
 
@@ -100,7 +100,7 @@ Here is how you should structure it:
 
 ```
 
-**Step 1. Create the new Campaign Manager role**
+## Step 1. Create the new Campaign Manager role
 ```
 cv api4 Role.create +v name="campaign" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
 ```
@@ -133,6 +133,28 @@ $ cv api4 Role.get +w 'name=campaign'
 ]
 ```
 
+## Step 2. Create an Email account (if required)
+
+If the *Campaign Manager*, for their emails, wishes to use their own existing gmail or hotmail, etc. then this step requires no further action except for the email address to be supplied to the administrator setting up the account for the Campaign Manager.
+
+If the *Campaign Manager* wishes to use the VentraIP hosting service RoundCube email that they provide for CMRT, then setup an email account for the *Campaign Manager*.
+
+Connect to the CMRT CPanel https://s03dd.syd6.hostingplatform.net.au/cpanel and log into the *cmrailtr* administration account. 
+
+Go to *Cpanel --> Tools --> Email --> Email Accounts* and click on *+ Create* to go to the screen for creating a new account for the *Campaign Manager*. Supply the Username: E.g. *cmrt_campaign* and a Password: E.g. *Cxxxxxxxmxx@x* and click *Create*. The email address will be the Username and the supplied Domain name. E.g. *cmrt_campaign@cmrailtrail.org.au*. Log out of *cmrailtr* administration account.
+
+Check that the *Campaign Managers* email account works OK. Connect to: https://s03dd.syd6.hostingplatform.net.au/webmail and log into the email account using the Email address and password. Create and send an email to cmrt_campaign@cmraltrail.org.au and check it arrives in the Inbox.
+
+In the CiviCRM User account creation step the *Email Address* can be supplied.
+
+## Step 3: Create a CiviCRM User account
+
+A CiviCRM User account will allow the *Campaign Manager* to log in to CiviCRM. In the process of creating the User account an Individual Contact for the Campaign Manager gets added to CiviCRM database.
+
+
+
+
+Create a 
 
 **Step 2. Ensure your User exists**
 
