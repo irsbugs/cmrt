@@ -104,6 +104,35 @@ Here is how you should structure it:
 ```
 cv api4 Role.create +v name="campaign" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
 ```
+To check the new role was created and has the two permissions go to *Administer --> Users and Permissions --> User Permissions*. There will now have been a column added with the label "Campaign Manager" and it will have two permission selected: *administer CiviCampaign* and *manage campaign*.
+
+Alternatively check the Roles status with the following api4 commands:
+```
+$ cv api4 Role.get +s 'id,name,label' -T
++----+----------+-------------------------------------+
+| id | name     | label                               |
++----+----------+-------------------------------------+
+| 4  | everyone | Everyone, including anonymous users |
+| 5  | admin    | Administrator                       |
+| 6  | staff    | Staff                               |
+| 8  | campaign | Campaign Manager                    |
++----+----------+-------------------------------------+
+
+$ cv api4 Role.get +w 'name=campaign'
+[
+    {
+        "id": 8,
+        "name": "campaign",
+        "label": "Campaign Manager",
+        "permissions": [
+            "administer CiviCampaign",
+            "manage campaign"
+        ],
+        "is_active": true
+    }
+]
+```
+
 
 **Step 2. Ensure your User exists**
 
