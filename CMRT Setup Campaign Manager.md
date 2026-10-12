@@ -1,12 +1,15 @@
 # Setup of the Campaign Manager Role
 
+2026 - Original
+2026-10-13 - Update
+
 ## Introduction
 
-CiviCRM Standalone defaults to providing the account roles: *Admin*, *Staff* and *Everyone*. To display the screen of these Roles, click on...
+CiviCRM Standalone has Users that can login and get to the CiviCRM Dashboard. Each User is assigned to a Group of permissions, which allows or restricts what the User can do. i.e. What *Role* the User has in using CiviCRM. By default the groups of permissions are for the roles of: *Administrator*, *Staff* and *Everyone*. To display the screen of these Roles, click on...
 
 Administer -> Users and Permissions -> User Roles
 
-Alternatively using the *cv api4* utility
+Alternatively using the *cv api4* utility...
 ```
 $ cv api4 Role.get -T '+s' 'id,name,label'
 +----+----------+-------------------------------------+
@@ -24,31 +27,35 @@ When creating the *Campaign Manager* role it consists only these two permissions
 * CiviCampaign: administer CiviCampaign
 * CiviCampaign: manage campaign
 
-Once the *Campaign Manager* role is created its two permissions may be displayed using the *cv api4* utility
+Once the *campaign* role is created its two permissions may be displayed:
 ```
-$ cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["permissions"]}'
+$ cv api4 Role.get +w 'name=campaign'
 [
     {
-        "id": 4,
+        "id": 8,
+        "name": "campaign",
+        "label": "Campaign Manager",
         "permissions": [
             "administer CiviCampaign",
             "manage campaign"
-        ]
+        ],
+        "is_active": true
     }
 ]
 ```
-There will now be four User roles
+There will now be four User roles...
 
 ```
-$ cv api4 Role.get -T '+s' 'id,name,label'
-+----+------------------+-------------------------------------+
-| id | name             | label                               |
-+----+------------------+-------------------------------------+
-| 1  | everyone         | Everyone, including anonymous users |
-| 2  | admin            | Administrator                       |
-| 3  | staff            | Staff                               |
-| 4  | campaign_manager | Campaign Manager                    |
-+----+------------------+-------------------------------------+
+$ cv api4 Role.get +s 'id,name,label' -T
++----+----------+-------------------------------------+
+| id | name     | label                               |
++----+----------+-------------------------------------+
+| 4  | everyone | Everyone, including anonymous users |
+| 5  | admin    | Administrator                       |
+| 6  | staff    | Staff                               |
+| 8  | campaign | Campaign Manager                    |
++----+----------+-------------------------------------+
+
 ```
 
 A person who is allocated the *Campaign Manager* role also is given the *Staff* role. 
@@ -77,7 +84,7 @@ Modifying the staff role breaks the concept of *Least Privilege*. If you add cam
 * Technical Debt: As your team grows, your basic staff role will slowly accumulate high-level administrative permissions until "Staff" essentially becomes identical to an "Administrator," defeating the purpose of having distinct roles.
 
 
-### Role-Based Separation - The Best Approachg
+### Role-Based Separation - The Best Approach
 
 Because you are using CiviCRM Standalone v6.x, you have full control over the civicrm_role table via APIv4. The cleaner, more maintainable strategy is to create a distinct, standalone role specifically for this responsibility and assign both roles to the new user.
 
@@ -95,7 +102,7 @@ Here is how you should structure it:
 
 **Step 1. Create the new Campaign Manager role**
 ```
-cv api4 Role.create +v name="campaign_manager" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
+cv api4 Role.create +v name="campaign" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
 ```
 
 **Step 2. Ensure your User exists**
