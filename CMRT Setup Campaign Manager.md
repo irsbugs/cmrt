@@ -145,7 +145,7 @@ Go to *Cpanel --> Tools --> Email --> Email Accounts* and click on *+ Create* to
 
 Check that the *Campaign Managers* email account works OK. Connect to: https://s03dd.syd6.hostingplatform.net.au/webmail and log into the email account using the Email address and password. Create and send an email to cmrt_campaign@cmraltrail.org.au and check it arrives in the Inbox.
 
-In the CiviCRM User account creation step the *Email Address* can be supplied.
+In the CiviCRM User account creation step the *Email Address* can now be supplied when its requested.
 
 ## Step 3: Create a CiviCRM User account
 
