@@ -111,6 +111,9 @@ They will get all the standard base access defined in your regular staff profile
 
 
 ## Step 1. Create the new Campaign Manager role
+
+To create the *Campaign Manager* Role enter the following api4 command:
+
 ```
 cv api4 Role.create +v name="campaign" +v label="Campaign Manager" +v permissions="administer CiviCampaign,manage campaign"
 ```
