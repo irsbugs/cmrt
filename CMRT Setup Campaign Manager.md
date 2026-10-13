@@ -1,7 +1,7 @@
 # Setup of the Campaign Manager Role
 
 * 2026-05 - Original notes when setting up Campaign Manager on a test system.
-* 2026-10-13 - Update document. Setting up on production system.
+* 2026-10-13 - Update document. Setting up on production system: `crm.cmrailtrail.org.au`
 
 ## Introduction
 
