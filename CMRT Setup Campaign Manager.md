@@ -135,9 +135,9 @@ $ cv api4 Role.get +w 'name=campaign'
 
 ## Step 2. Create an Email account (if required)
 
-If the *Campaign Manager*, for their emails, wishes to use their own existing gmail or hotmail, etc. then this step requires no further action except for the email address to be supplied to the administrator setting up the account for the Campaign Manager.
+If the *Campaign Manager*, for their emails, wishes to use their own existing gmail or hotmail, etc. then this step requires no further action except for their *email address* to be supplied to the administrator setting up the account for the Campaign Manager.
 
-If the *Campaign Manager* wishes to use the VentraIP hosting service RoundCube email that they provide for CMRT, then setup an email account for the *Campaign Manager*.
+If the *Campaign Manager* wishes to use the RoundCube email from VentraIP hosting service that they provide for CMRT, then setup an email account for the *Campaign Manager* as follows:
 
 Connect to the CMRT CPanel https://s03dd.syd6.hostingplatform.net.au/cpanel and log into the *cmrailtr* administration account. 
 
@@ -149,8 +149,13 @@ In the CiviCRM User account creation step the *Email Address* can now be supplie
 
 ## Step 3: Create a CiviCRM User account
 
-A CiviCRM User account will allow the *Campaign Manager* to log in to CiviCRM. In the process of creating the User account an Individual Contact for the Campaign Manager gets added to CiviCRM database.
+A CiviCRM User account will allow the *Campaign Manager* to log in to CiviCRM. In the process of creating the User account an Individual Contact for the Campaign Manager is added to CiviCRM database with the minimal details of: *First Name*, *Last Name* and *Email address*.
 
+Although the *Campaign Manager* User account may be created using api4 it is simpler to use the CiviCRM GUI utility as follows:
+
+* Login to the CiviCRM *admin* account.
+* *Administer --> Users and Permissions --> User Accounts --> + Add User*
+* 
 
 
 
