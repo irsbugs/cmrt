@@ -62,11 +62,11 @@ A person who is allocated the *Campaign Manager* role also is given the *Staff* 
 
 With CiviCRM standalone 6.15 the following are the totals for the permissions for each User role:
 
-* Admin: 213
-* Staff: 77
-* Everyone: 6
-* Campaign Manager: 2 (+ 77 Staff) 
-* Total permissions: 213
+* Admin: 257
+* Staff: 76
+* Everyone: 10
+* Campaign Manager: 2 (+ 76 Staff) 
+* Total permissions: 257
 
 See below for: **Lists of Permissions for Each Role***
 
@@ -242,22 +242,28 @@ $ cv api4 UserRole.get -T
 
 ## Lists of Permissions for Each Role
 
-Everyone: 6
+Everyone: 10
 ```
 $ cv api4 Role.get '{"where":[["name","=","everyone"]],"select":["permissions"]}'
 [
     {
-        "id": 1,
+        "id": 4,
         "permissions": [
-            "access CiviMail subscribe/unsubscribe pages",
+            "profile edit",
+            "profile create",
+            "access AJAX API",
             "make online contributions",
-            "view event info",
-            "register for events",
+            "access uploaded files",
+            "access all custom data",
+            "profile view",
             "access password resets",
-            "authenticate with password"
+            "add contributions of type Donation",
+            "add contributions of type Member Dues"
         ]
     }
 ]
+$ cv api4 Role.get '{"where":[["name","=","everyone"]],"select":["permissions"]}'
+
 ```
 
 Admin: 213
@@ -274,12 +280,12 @@ $ cv api4 Role.get '{"where":[["name","=","admin"]],"select":["permissions"]}'
 
 ```
 
-Staff: 77
+Staff: 76
 ```
-$ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
+[cmrailtr@s03dd civicrm-standalone]$ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
 [
     {
-        "id": 3,
+        "id": 6,
         "permissions": [
             "access AJAX API",
             "access CiviCRM",
@@ -315,7 +321,6 @@ $ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
             "view event participants",
             "gotv campaign contacts",
             "interview campaign contacts",
-            "manage campaign",
             "release campaign contacts",
             "reserve campaign contacts",
             "sign CiviCRM Petition",
@@ -362,15 +367,16 @@ $ cv api4 Role.get '{"where":[["name","=","staff"]],"select":["permissions"]}'
     }
 ]
 
-```
-
-Campaign Manager: 2 (plus the 77 from Staff)
 
 ```
-$ cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["permissions"]}'
+
+Campaign Manager: 2 (plus the 76 from Staff)
+
+```
+$ cv api4 Role.get '{"where":[["name","=","campaign"]],"select":["permissions"]}'
 [
     {
-        "id": 4,
+        "id": 8,
         "permissions": [
             "administer CiviCampaign",
             "manage campaign"
@@ -381,10 +387,10 @@ $ cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["permis
 
 ## List of all permissions
 
-The *admin* role has all these 213 permissions
+The *admin* role has these 257 permissions
 
 ```
-$ cv api4 Permission.get -T '+s' 'name,title'
+$  cv api4 Permission.get -T '+s' 'name,title'
 +----------------------------------------------------+---------------------------------------------------------------------------+
 | name                                               | title                                                                     |
 +----------------------------------------------------+---------------------------------------------------------------------------+
@@ -500,22 +506,55 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | interview campaign contacts                        | CiviCampaign: interview campaign contacts                                 |
 | gotv campaign contacts                             | CiviCampaign: GOTV campaign contacts                                      |
 | sign CiviCRM Petition                              | CiviCampaign: sign CiviCRM Petition                                       |
+| administer afform                                  | FormBuilder: edit and delete forms                                        |
+| manage own afform                                  | FormBuilder: edit and delete own forms                                    |
 | administer search_kit                              | SearchKit: edit and delete all searches                                   |
 | manage own search_kit                              | SearchKit: edit and delete own searches                                   |
+| access CiviGrant                                   | CiviGrant: access CiviGrant                                               |
+| edit grants                                        | CiviGrant: edit grants                                                    |
+| delete in CiviGrant                                | CiviGrant: delete in CiviGrant                                            |
+| access GDPR                                        | CiviGDPR: access GDPR                                                     |
+| forget contact                                     | CiviGDPR: forget contact                                                  |
+| administer GDPR                                    | CiviGDPR: administer GDPR                                                 |
 | authenticate with password                         | AuthX: Authenticate to services with password                             |
 | authenticate with api key                          | AuthX: Authenticate to services with API key                              |
 | generate any authx credential                      | AuthX: Generate new JWT credentials for other users via the API           |
 | validate any authx credential                      | AuthX: Validate credentials for other users via the API                   |
-| administer afform                                  | FormBuilder: edit and delete forms                                        |
-| manage own afform                                  | FormBuilder: edit and delete own forms                                    |
 | access password resets                             | CiviCRM Standalone Users: Allow users to access the reset password system |
 | cms:administer users                               | CiviCRM Standalone Users: Administer user accounts                        |
 | cms:view user account                              | CiviCRM Standalone Users: View user accounts                              |
 | cms:bypass maintenance mode                        | CiviCRM Standalone Users: Bypass maintenance mode                         |
+| add contributions of all types                     | CiviCRM: add contributions of all types                                   |
+| view contributions of all types                    | CiviCRM: view contributions of all types                                  |
+| edit contributions of all types                    | CiviCRM: edit contributions of all types                                  |
+| delete contributions of all types                  | CiviCRM: delete contributions of all types                                |
+| add contributions of type Donation                 | CiviCRM: add contributions of type Donation                               |
+| view contributions of type Donation                | CiviCRM: view contributions of type Donation                              |
+| edit contributions of type Donation                | CiviCRM: edit contributions of type Donation                              |
+| delete contributions of type Donation              | CiviCRM: delete contributions of type Donation                            |
+| add contributions of type Member Dues              | CiviCRM: add contributions of type Member Dues                            |
+| view contributions of type Member Dues             | CiviCRM: view contributions of type Member Dues                           |
+| edit contributions of type Member Dues             | CiviCRM: edit contributions of type Member Dues                           |
+| delete contributions of type Member Dues           | CiviCRM: delete contributions of type Member Dues                         |
+| add contributions of type Campaign Contribution    | CiviCRM: add contributions of type Campaign Contribution                  |
+| view contributions of type Campaign Contribution   | CiviCRM: view contributions of type Campaign Contribution                 |
+| edit contributions of type Campaign Contribution   | CiviCRM: edit contributions of type Campaign Contribution                 |
+| delete contributions of type Campaign Contribution | CiviCRM: delete contributions of type Campaign Contribution               |
+| add contributions of type Event Fee                | CiviCRM: add contributions of type Event Fee                              |
+| view contributions of type Event Fee               | CiviCRM: view contributions of type Event Fee                             |
+| edit contributions of type Event Fee               | CiviCRM: edit contributions of type Event Fee                             |
+| delete contributions of type Event Fee             | CiviCRM: delete contributions of type Event Fee                           |
+| administer CiviCRM Financial Types                 | CiviCRM: administer CiviCRM Financial Types                               |
+| access all payment tokens                          | Access all Payment Tokens                                                 |
 | administer authx                                   | AuthX: Administer settings                                                |
+| administer stripe                                  | Stripe Payment Processor: Administer settings                             |
+| administer firewall                                | Firewall: Administer settings                                             |
+| administer iframe                                  | IFrame Connector: Administer settings                                     |
+| administer mjwshared                               | Payment Shared: Administer settings                                       |
 | administer recaptcha                               | reCAPTCHA: Administer settings                                            |
 | administer standaloneusers                         | CiviCRM Standalone Users: Administer settings                             |
 | has user role admin                                | User Role: Administrator                                                  |
+| has user role campaign                             | User Role: Campaign Manager                                               |
 | has user role staff                                | User Role: Staff                                                          |
 | @afformPageToken                                   | Generic: Anyone with secret link                                          |
 | @afform:afformQuickAddIndividual                   | Afform: Inherit permission of afformQuickAddIndividual                    |
@@ -532,6 +571,8 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | @afform:afsearchSiteTokens                         | Afform: Inherit permission of afsearchSiteTokens                          |
 | @afform:afsearchTabNote                            | Afform: Inherit permission of afsearchTabNote                             |
 | @afform:afsearchTabRel                             | Afform: Inherit permission of afsearchTabRel                              |
+| @afform:afformUpdateGroupSubscriptions             | Afform: Inherit permission of afformUpdateGroupSubscriptions              |
+| @afform:afsearchUserDashboard                      | Afform: Inherit permission of afsearchUserDashboard                       |
 | @afform:afsearchMosaicoTemplateList                | Afform: Inherit permission of afsearchMosaicoTemplateList                 |
 | @afform:afformEditMyAccount                        | Afform: Inherit permission of afformEditMyAccount                         |
 | @afform:afformEditRole                             | Afform: Inherit permission of afformEditRole                              |
@@ -540,7 +581,11 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | @afform:afsearchAdministerUserAccounts             | Afform: Inherit permission of afsearchAdministerUserAccounts              |
 | @afform:afsearchMyAccount                          | Afform: Inherit permission of afsearchMyAccount                           |
 | @afform:afsearchPermissions                        | Afform: Inherit permission of afsearchPermissions                         |
+| @afform:afAdminFormList                            | Afform: Inherit permission of afAdminFormList                             |
 | @afform:afAdminFormSubmissionList                  | Afform: Inherit permission of afAdminFormSubmissionList                   |
+| @afform:afHtmlAdmin                                | Afform: Inherit permission of afHtmlAdmin                                 |
+| @afform:afHtmlEditor                               | Afform: Inherit permission of afHtmlEditor                                |
+| @afform:afHtmlList                                 | Afform: Inherit permission of afHtmlList                                  |
 | @afform:afblockContactAddress                      | Afform: Inherit permission of afblockContactAddress                       |
 | @afform:afblockContactEmail                        | Afform: Inherit permission of afblockContactEmail                         |
 | @afform:afblockContactIM                           | Afform: Inherit permission of afblockContactIM                            |
@@ -552,10 +597,14 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | @afform:afblockNameIndividual                      | Afform: Inherit permission of afblockNameIndividual                       |
 | @afform:afblockNameOrganization                    | Afform: Inherit permission of afblockNameOrganization                     |
 | @afform:afblockParticipantNote                     | Afform: Inherit permission of afblockParticipantNote                      |
+| @afform:afsearchPaymentProcessorWebhookDetail      | Afform: Inherit permission of afsearchPaymentProcessorWebhookDetail       |
+| @afform:afsearchPaymentProcessorWebhooks           | Afform: Inherit permission of afsearchPaymentProcessorWebhooks            |
 | @afform:crmMsgadmMonaco                            | Afform: Inherit permission of crmMsgadmMonaco                             |
 | @afform:afsearchAllImports                         | Afform: Inherit permission of afsearchAllImports                          |
 | @afform:afsearchMyImports                          | Afform: Inherit permission of afsearchMyImports                           |
 | @afform:afsearchTemplates                          | Afform: Inherit permission of afsearchTemplates                           |
+| @afform:afsearchCiviGrantDashboard                 | Afform: Inherit permission of afsearchCiviGrantDashboard                  |
+| @afform:afsearchTabGrant                           | Afform: Inherit permission of afsearchTabGrant                            |
 | @afform:afformTabMember                            | Afform: Inherit permission of afformTabMember                             |
 | @afform:afsearchAdminBadgelayout                   | Afform: Inherit permission of afsearchAdminBadgelayout                    |
 | @afform:afsearchAdminContactTypes                  | Afform: Inherit permission of afsearchAdminContactTypes                   |
@@ -601,6 +650,7 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | @afform:afformNewDonation                          | Afform: Inherit permission of afformNewDonation                           |
 | @afform:afsearchCampaignDashboard                  | Afform: Inherit permission of afsearchCampaignDashboard                   |
 | @afform:afsearchSurveyOptionGroup                  | Afform: Inherit permission of afsearchSurveyOptionGroup                   |
+| @afform:afsearchContributionBatch                  | Afform: Inherit permission of afsearchContributionBatch                   |
 +----------------------------------------------------+---------------------------------------------------------------------------+
 ```
 
