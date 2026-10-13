@@ -153,13 +153,25 @@ A CiviCRM User account will allow the *Campaign Manager* to log in to CiviCRM. I
 
 Although the *Campaign Manager* User account may be created using api4 it is simpler to use the CiviCRM GUI utility as follows:
 
-* Login to the CiviCRM *admin* account.
-* *Administer --> Users and Permissions --> User Accounts --> + Add User*
-* 
+Login to the CiviCRM *admin* account and *Administer --> Users and Permissions --> User Accounts --> + Add User*
+
+* Roles: Select both *Campaign Manager* and *Staff*
+* Username: *cmrt_campaign*
+* Contact: *New Individual*. This opens a window to enter New Individual data:
+    * First Name: *CMRT*
+    * Last Name: *Campaign*
+    * Email: *cmrt_campaign@cmrailtrail.org.au*
+    * ...then click *Submit*.
+* User Email: Leave blank and the Email given in the Individual Contact data will be used.
+* Enabled: Checked
+* Timezone: Leave as System default timezone
+* Preferred Langauge: Leave as System default language 
+* ... then click on: *Submit*
+
+## Step 4 Verification:
 
 
 
-Create a 
 
 **Step 2. Ensure your User exists**
 
