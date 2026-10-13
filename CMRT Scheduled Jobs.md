@@ -184,21 +184,23 @@ cv api4 Job.update +v '{"run_frequency":"Always"}' +w '[["id","=",41]]'
 Batch Command (Run Both Together)
 
 If you prefer to execute both updates in a single command using id IN (13, 41):
-Bash
+
+```Bash
 
 cv api4 Job.update +w '[["id","=","13"]]' +v '{"run_frequency":"Hourly"}'
 cv api4 Job.update +w '[["id","=","41"]]' +v '{"run_frequency":"Always"}'
-
+```
 Verification
 
 After running the updates, verify that the frequencies changed as intended:
+```
 Bash
 
 cv api4 Job.get +w '[["id","IN",[13,41]]]' +s id,name,run_frequency -T
 
-
+```
 Currently scheduled...
-
+```
 [cmrailtr@s03dd civicrm-standalone]$ cv api4 Job.get +w 'id=13' +s id,name,run_frequency -T
 +----+-----------------------------------+---------------+
 | id | name                              | run_frequency |
@@ -211,14 +213,14 @@ Currently scheduled...
 +----+------------------------------+---------------+
 | 41 | Process CiviMail Queue items | Hourly        |<- Change to always
 +----+------------------------------+---------------+
-
+```
 
 CHANGING THE FREQUENCIES...
 
 =====
 
 I modified the commands and these worked...
-
+```
 [cmrailtr@s03dd civicrm-standalone]$ cv api4 Job.get +w 'id=13' +s id,name,run_frequency -T
 +----+-----------------------------------+---------------+
 | id | name                              | run_frequency |
@@ -261,5 +263,6 @@ I modified the commands and these worked...
 +----+------------------------------+---------------+
 | 41 | Process CiviMail Queue items | Always        |
 +----+------------------------------+---------------+
+```
 
     
