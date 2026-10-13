@@ -99,6 +99,16 @@ Here is how you should structure it:
                                  "campaign_manager" Role (Campaign Admin access)
 
 ```
+### Why this pays off
+
+If this campaign manager leaves, or if a regular staff member transitions into a campaign role later, you don't have to rewrite any database code or alter everyone's permissions. You simply add or remove the campaign_manager role assignment from that single user account.
+
+## What Happens Next?
+
+The next time this user logs into your CiviCRM Standalone instance, CiviCRM’s permission engine will automatically merge the permissions arrays from both roles behind the scenes.
+
+They will get all the standard base access defined in your regular staff profile, plus the administer CiviCampaign and manage campaign capabilities you assigned to role 4—all without granting those high-level privileges to the rest of your staff.
+
 
 ## Step 1. Create the new Campaign Manager role
 ```
@@ -168,85 +178,64 @@ Login to the CiviCRM *admin* account and *Administer --> Users and Permissions -
 * Preferred Langauge: Leave as *System default language* 
 * ... then click on: *Submit*
 
-## Step 4 Verification:
+## Step 4 Login to CiviCRM - Set Password:
 
+* Log out of the CiviCRM *Admin* account.
+* Connect to CiviCRM Reset Password Page: *https//:crm.cmrailtrail.org.au/civicrm/login/password*
+* Enter the username or email on your account: *cmrt_campaign* or *cmrt_campaign@cmrailtrail.org.au*
+* Click *Request Password Reset*
+* The following message will be displayed: *Thanks. If your username/email matched an active account, we will email you with a special li8nk to provide a new password. The link must be used within an hour, and can only be used once.*
+* Log into your Roudcube email account. Connect to: *https://s03dd.syd6.hostingplatform.net.au/webmail* and enter Email address *cmrt_campaign@cmrailtrail.org.au* and password *Cxxxxxxxmxx@x* to login.
+* You email Inbox should have an email titled: *Password reset link for Castlemaine Maryborough Rail Trail Inc* 
+* Click on the link in this email and enter the password to be used for CiviCRM Account.
+* Log out of the Roundcube email account.
+* Connect to: *https//:crm.cmrailtrail.org.au/* At the login prompt enter your username or email address and the new password.
+* You should now be logged into the Campaign Manager account where you have *Campaign Manager* and *Staff* permissions.
 
+## Step 5: Verification:
 
-
-**Step 2. Ensure your User exists**
-
-(Assuming you have already created the user account, find their User ID. For this example, let's assume the new user account's internal ID is 12).
-
-**Step 3. Link Both Roles to the User**
-
-Using the UserRole mapping table, attach both the general staff role and your new campaign_manager role to their account.
-
-Run these commands sequentially. The first part dynamically asks CiviCRM for the ID of the role, then feeds it right into the creation payload:
-Bash
-
-1. Fetch the exact ID for the 'staff' role and assign it to Contact #3
+The following displays the Roles available:
 ```
-STAFF_ID=$(cv api4 Role.get '{"where":[["name","=","staff"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
-
-cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $STAFF_ID}}"
+$ cv api4 Role.get -T +s 'id,name,label' 
++----+----------+-------------------------------------+
+| id | name     | label                               |
++----+----------+-------------------------------------+
+| 4  | everyone | Everyone, including anonymous users |
+| 5  | admin    | Administrator                       |
+| 6  | staff    | Staff                               |
+| 8  | campaign | Campaign Manager                    |
++----+----------+-------------------------------------+
 ```
-2. Fetch the exact ID for the 'campaign_manager' role and assign it to Contact #3
-```
-CAMP_ID=$(cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
-
-cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $CAMP_ID}}"
-```
-
-**Alternatively: If you already know the ID numbers**
-
-If you want to bypass terminal string variable parsing completely, you can look up your IDs first using cv api4 Role.get and then just insert the raw integers like this:
-Bash
-
-Explicitly using the integer IDs (assuming staff is 1 and campaign_manager is 2)
-```
-cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 1}}'
-cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 2}}'
-```
-
-**Why this pays off**
-
-If this campaign manager leaves, or if a regular staff member transitions into a campaign role later, you don't have to rewrite any database code or alter everyone's permissions. You simply add or remove the campaign_manager role assignment from that single user account.
-
-**What Happens Next?**
-
-The next time this user logs into your CiviCRM Standalone instance, CiviCRM’s permission engine will automatically merge the permissions arrays from both roles behind the scenes.
-
-They will get all the standard base access defined in your regular staff profile, plus the administer CiviCampaign and manage campaign capabilities you assigned to role 4—all without granting those high-level privileges to the rest of your staff.
+The added Role of *campaign* has an id of 8.
 
 
-====
 
-CHECK THIS - MAYBE DELETE IT.
-
-In CiviCRM Standalone (which relies entirely on CiviCRM's native permissions and ACL engine rather than a CMS like Drupal or WordPress), assigning a set of permissions to a group of contacts like a "Staff" list involves a precise chain of connections.
-
-To accomplish this via APIv4, you need to link three pieces together:
-
-* The Group: Your "Staff" contact list (Group).
-* The ACL Role: A role created to represent what Staff can do (OptionValue within the acl_role group).
-* The ACL Rule: The actual permission policy assigning data/actions to that role (Acl).
+The following command shows the accounts on CiviCRM. In this case the user with id 137, the *Campaign Manager*, appears twice. Once with User role_id 6 as *staff* and once with User role_id 8 as *campaign*.
 
 ```
 $ cv api4 UserRole.get -T
 +----+---------+---------+
 | id | user_id | role_id |
 +----+---------+---------+
-| 3  | 2       | 2       | civicrm_cron - admin
-| 4  | 1       | 2       | civicrm_admin - admin
-| 7  | 3       | 3       | civicrm_fundraising - staff
-| 8  | 4       | 2       | civicmr_ken - admin
-| 9  |         | 3       | user deleted - staff
-| 10 |         | 4       | user deleted - campaign manager
-| 11 |         | 3       | user deleted - staff
-| 12 | 3       | 4       | civicrm_fundraising - campaign manager
+| 4  | 118     | 5       |
+| 5  | 123     | 5       |
+| 6  | 124     | 5       |
+| 7  | 131     | 5       |
+| 8  | 132     | 5       |
+| 9  | 117     | 5       |
+| 11 | 125     | 6       |
+| 12 | 126     | 6       |
+| 13 | 129     | 6       |
+| 14 | 130     | 6       |
+| 15 | 127     | 6       |
+| 16 | 128     | 6       |
+| 17 | 134     | 5       |
+| 18 | 135     | 5       |
+| 19 | 136     | 5       |
+| 23 | 137     | 8       |
+| 24 | 137     | 6       |
 +----+---------+---------+
 ```
-
 
 ## Lists of Permissions for Each Role
 
@@ -611,3 +600,73 @@ $ cv api4 Permission.get -T '+s' 'name,title'
 | @afform:afsearchSurveyOptionGroup                  | Afform: Inherit permission of afsearchSurveyOptionGroup                   |
 +----------------------------------------------------+---------------------------------------------------------------------------+
 ```
+
+## Old Notes from previously setting up Campaign Manager on another system. 
+
+Probably obsolete information and not required
+
+**Step 2. Ensure your User exists**
+
+(Assuming you have already created the user account, find their User ID. For this example, let's assume the new user account's internal ID is 12).
+
+**Step 3. Link Both Roles to the User**
+
+Using the UserRole mapping table, attach both the general staff role and your new campaign_manager role to their account.
+
+Run these commands sequentially. The first part dynamically asks CiviCRM for the ID of the role, then feeds it right into the creation payload:
+Bash
+
+1. Fetch the exact ID for the 'staff' role and assign it to Contact #3
+```
+STAFF_ID=$(cv api4 Role.get '{"where":[["name","=","staff"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
+
+cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $STAFF_ID}}"
+```
+2. Fetch the exact ID for the 'campaign_manager' role and assign it to Contact #3
+```
+CAMP_ID=$(cv api4 Role.get '{"where":[["name","=","campaign_manager"]],"select":["id"]}' | grep -o '"id": *[0-9]*' | grep -o '[0-9]*')
+
+cv api4 UserRole.create "{\"values\": {\"contact_id\": 3, \"role_id\": $CAMP_ID}}"
+```
+
+**Alternatively: If you already know the ID numbers**
+
+If you want to bypass terminal string variable parsing completely, you can look up your IDs first using cv api4 Role.get and then just insert the raw integers like this:
+Bash
+
+Explicitly using the integer IDs (assuming staff is 1 and campaign_manager is 2)
+```
+cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 1}}'
+cv api4 UserRole.create '{"values": {"contact_id": 3, "role_id": 2}}'
+```
+
+
+====
+
+CHECK THIS - MAYBE DELETE IT.
+
+In CiviCRM Standalone (which relies entirely on CiviCRM's native permissions and ACL engine rather than a CMS like Drupal or WordPress), assigning a set of permissions to a group of contacts like a "Staff" list involves a precise chain of connections.
+
+To accomplish this via APIv4, you need to link three pieces together:
+
+* The Group: Your "Staff" contact list (Group).
+* The ACL Role: A role created to represent what Staff can do (OptionValue within the acl_role group).
+* The ACL Rule: The actual permission policy assigning data/actions to that role (Acl).
+
+```
+$ cv api4 UserRole.get -T
++----+---------+---------+
+| id | user_id | role_id |
++----+---------+---------+
+| 3  | 2       | 2       | civicrm_cron - admin
+| 4  | 1       | 2       | civicrm_admin - admin
+| 7  | 3       | 3       | civicrm_fundraising - staff
+| 8  | 4       | 2       | civicmr_ken - admin
+| 9  |         | 3       | user deleted - staff
+| 10 |         | 4       | user deleted - campaign manager
+| 11 |         | 3       | user deleted - staff
+| 12 | 3       | 4       | civicrm_fundraising - campaign manager
++----+---------+---------+
+```
+
+End
